@@ -1,0 +1,145 @@
+using System;
+using System.Collections.Generic;
+using Latino;
+using Latino.Model;
+
+namespace PosTagger
+{
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class Model
+       |
+       '-----------------------------------------------------------------------
+    */
+    public class Model : ISerializable
+    {
+        private ArrayList<Pair<string, SparseVector<double>.ReadOnly>> m_training_set
+            = new ArrayList<Pair<string, SparseVector<double>.ReadOnly>>();
+        private Set<string> m_tags
+            = new Set<string>();
+        private Dictionary<int, int> m_feature_mapping
+            = new Dictionary<int, int>();
+        public MaximumEntropyClassifier m_model
+            = null;
+        private bool m_is_trained
+            = false;
+        public Model()
+        {
+        }
+        public Model(BinarySerializer reader) 
+        {
+            Load(reader); // throws ArgumentNullException, serialization-related exceptions
+        }
+        public void AddExample(string tag, SparseVector<double>.ReadOnly feature_vector) 
+        {
+            TaggerUtils.ThrowException(m_is_trained ? new InvalidOperationException() : null);
+            TaggerUtils.ThrowException(feature_vector == null ? new ArgumentNullException("feature_vector") : null);
+            m_training_set.Add(new Pair<string, SparseVector<double>.ReadOnly>(tag, feature_vector));
+            m_tags.Add(tag);
+        }
+        public ClassifierResult<string> Classify(SparseVector<double>.ReadOnly feature_vector) 
+        {
+            TaggerUtils.ThrowException(!m_is_trained ? new InvalidOperationException() : null);
+            TaggerUtils.ThrowException(feature_vector == null ? new ArgumentNullException("feature_vector") : null);
+            if (m_tags.Count == 1) 
+            {
+                return new ClassifierResult<string>(new KeyDat<double, string>[] { 
+                    new KeyDat<double, string>(1, m_tags.Any) // *** classification score set to 1 
+                });                
+            }
+            return ((IModel<string>)m_model).Classify(ModelUtils.ConvertExample(PrepareFeatureVector(feature_vector), m_model.RequiredExampleType));
+        }
+        public ClassifierResult<string> Classify(SparseVector<double>.ReadOnly feature_vector, Set<string>.ReadOnly possible_tags)
+        {
+            TaggerUtils.ThrowException(possible_tags == null ? new ArgumentNullException("possible_tags") : null);
+            ClassifierResult<string> result = Classify(feature_vector); // throws InvalidOperationException, ArgumentNullException
+            ArrayList<KeyDat<double, string>> aux = new ArrayList<KeyDat<double, string>>();
+            foreach (KeyDat<double, string> result_item in result)
+            {
+                if (possible_tags.Contains(result_item.Dat)) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                { 
+                    aux.Add(result_item); 
+                }
+            }
+            return new ClassifierResult<string>(aux);
+        }
+        private SparseVector<double> PrepareFeatureVector(SparseVector<double>.ReadOnly feature_vector)
+        {
+            SparseVector<double> tmp = new SparseVector<double>();
+            foreach (IdxDat<double> item in feature_vector)
+            {
+                if (m_feature_mapping.ContainsKey(item.Idx))
+                {
+                    tmp[m_feature_mapping[item.Idx]] = item.Dat;
+                }
+            }
+            return tmp;
+        }
+        public void Train(bool verbose, int min_feat_freq, int cut_off, int num_iter) 
+        {
+            TaggerUtils.ThrowException(m_is_trained ? new InvalidOperationException() : null);
+            TaggerUtils.ThrowException(min_feat_freq <= 0 ? new ArgumentOutOfRangeException("min_feat_freq") : null);
+            if (m_tags.Count != 1)
+            {
+                // prepare feature space and training set
+                Dictionary<int, int> feat_freq = new Dictionary<int, int>();
+                foreach (Pair<string, SparseVector<double>.ReadOnly> example in m_training_set)
+                {
+                    foreach (IdxDat<double> item in example.Second)
+                    {
+                        if (!feat_freq.ContainsKey(item.Idx))
+                        {
+                            feat_freq.Add(item.Idx, 1);
+                        }
+                        else
+                        {
+                            feat_freq[item.Idx]++;
+                        }
+                    }
+                }
+                foreach (KeyValuePair<int, int> item in feat_freq)
+                {
+                    if (item.Value >= min_feat_freq) { m_feature_mapping.Add(item.Key, m_feature_mapping.Count); }
+                }
+                Dataset<string, SparseVector<double>.ReadOnly> dataset = new Dataset<string, SparseVector<double>.ReadOnly>();
+                for (int i = m_training_set.Count - 1; i >= 0; i--)
+                {
+                    dataset.Add(m_training_set[i].First, PrepareFeatureVector(m_training_set[i].Second));
+                    m_training_set.RemoveAt(i); // feature vectors are gradually removed from the dataset to save space
+                }
+                // train model
+                m_model = new MaximumEntropyClassifier();
+                m_model.MoveData = true;
+                m_model.CutOff = cut_off;
+                m_model.Iterations = num_iter;
+                ((IModel<string>)m_model).Train(dataset.ConvertDataset(m_model.RequiredExampleType, /*move=*/true));  
+            }
+            m_is_trained = true;
+        }
+        public bool IsTrained
+        {
+            get { return m_is_trained; }
+        }
+        // *** ISerializable interface implementation ***
+        public void Save(BinarySerializer writer)
+        {
+            TaggerUtils.ThrowException(!m_is_trained ? new InvalidOperationException() : null);
+            TaggerUtils.ThrowException(writer == null ? new ArgumentNullException("writer") : null);
+            // the following functions throw serialization-related exceptions
+            m_tags.Save(writer);
+            Utils.SaveDictionary(m_feature_mapping, writer);
+            writer.WriteObject(m_model);
+        }
+        public void Load(BinarySerializer reader)
+        {
+            TaggerUtils.ThrowException(m_is_trained ? new InvalidOperationException() : null);
+            TaggerUtils.ThrowException(reader == null ? new ArgumentNullException("reader") : null);
+            // the following functions throw serialization-related exceptions
+            m_training_set.Clear();
+            m_tags = new Set<string>(reader);
+            m_feature_mapping = Utils.LoadDictionary<int, int>(reader);
+            m_model = reader.ReadObject<MaximumEntropyClassifier>();
+            m_is_trained = true;
+        }
+    }
+}

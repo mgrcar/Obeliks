@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaTaggerTrain", "MetaTaggerTrain\MetaTaggerTrain.csproj", "{74FB403A-771B-427D-B259-610BA316076F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latino", "Latino\Latino.csproj", "{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTagger", "PosTagger\PosTagger.csproj", "{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74FB403A-771B-427D-B259-610BA316076F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74FB403A-771B-427D-B259-610BA316076F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74FB403A-771B-427D-B259-610BA316076F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74FB403A-771B-427D-B259-610BA316076F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

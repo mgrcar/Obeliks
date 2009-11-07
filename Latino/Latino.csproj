@@ -1,0 +1,213 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Latino</RootNamespace>
+    <AssemblyName>Latino</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;THROW_EXCEPTIONS, VERBOSE, LATINO</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>C:\Program Files (x86)\Microsoft Visual Studio 8\Team Tools\Static Analysis Tools\FxCop\\rules</CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;THROW_EXCEPTIONS, LATINO, PUBLIC_INNER</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleAssemblies>C:\Program Files (x86)\Microsoft Visual Studio 8\Team Tools\Static Analysis Tools\FxCop\\rules</CodeAnalysisRuleAssemblies>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinaryVector.cs" />
+    <Compile Include="IPair.cs" />
+    <Compile Include="IEnumerableList.cs" />
+    <Compile Include="IBinaryOperator.cs" />
+    <Compile Include="ICloneable.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Model\IClustering.cs" />
+    <Compile Include="Model\IDataset.cs" />
+    <Compile Include="Model\IExampleCollection.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\ISimilarity.cs" />
+    <Compile Include="Model\MaxEnt.cs" />
+    <Compile Include="Model\BatchUpdateCentroidClassifier.cs" />
+    <Compile Include="BinarySerializer.cs" />
+    <Compile Include="ArrayList.cs" />
+    <Compile Include="DescSort.cs" />
+    <Compile Include="GenericEqualityComparer.cs" />
+    <Compile Include="IContentEquatable.cs" />
+    <Compile Include="IDeeplyCloneable.cs" />
+    <Compile Include="IdxDat.cs" />
+    <Compile Include="IReadOnlyAdapter.cs" />
+    <Compile Include="ISerializable.cs" />
+    <Compile Include="IXmlSerializable.cs" />
+    <Compile Include="KeyDat.cs" />
+    <Compile Include="ListEnum.cs" />
+    <Compile Include="Model\Centroid.cs" />
+    <Compile Include="Model\CentroidClassifier.cs" />
+    <Compile Include="Model\ClassifierResult.cs" />
+    <Compile Include="Model\Cluster.cs" />
+    <Compile Include="Model\ClusteringResult.cs" />
+    <Compile Include="Model\CosineSimilarity.cs" />
+    <Compile Include="Model\Dataset.cs" />
+    <Compile Include="Model\KMeans.cs" />
+    <Compile Include="Model\KMeansFast.cs" />
+    <Compile Include="Model\KnnClassifier.cs" />
+    <Compile Include="Model\LabeledExample.cs" />
+    <Compile Include="Model\LSqrDotNet.cs" />
+    <Compile Include="Model\LSqrModel.cs" />
+    <Compile Include="Model\MaximumEntropyClassifier.cs" />
+    <Compile Include="Model\ModelUtils.cs" />
+    <Compile Include="Model\DotProductSimilarity.cs" />
+    <Compile Include="Network.cs" />
+    <Compile Include="Pair.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SetEqualityComparer.cs" />
+    <Compile Include="SparseMatrix.cs" />
+    <Compile Include="TextMining\BulgarianLemmatizer.cs" />
+    <Compile Include="TextMining\CzechLemmatizer.cs" />
+    <Compile Include="TextMining\EnglishLemmatizer.cs" />
+    <Compile Include="TextMining\EstonianLemmatizer.cs" />
+    <Compile Include="TextMining\FrenchLemmatizer.cs" />
+    <Compile Include="TextMining\GermanLemmatizer.cs" />
+    <Compile Include="TextMining\HungarianLemmatizer.cs" />
+    <Compile Include="TextMining\ItalianLemmatizer.cs" />
+    <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuilt.cs" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-en.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-fr.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-ge.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-it.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-sp.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-bg.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-cs.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-et.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-hu.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-ro.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-sl.lem" />
+    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-sr.lem" />
+    <None Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltCompact.cs" />
+    <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltCompressed.cs" />
+    <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltData.cs" />
+    <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltFull.cs" />
+    <Compile Include="TextMining\LemmaSharp\ExampleList.cs" />
+    <Compile Include="TextMining\LemmaSharp\ILemmatizer.cs" />
+    <Compile Include="TextMining\LemmaSharp\ILemmatizerModel.cs" />
+    <Compile Include="TextMining\LemmaSharp\ILemmatizerTrainable.cs" />
+    <Compile Include="TextMining\LemmaSharp\LemmaExample.cs" />
+    <Compile Include="TextMining\LemmaSharp\LemmaRule.cs" />
+    <Compile Include="TextMining\LemmaSharp\Lemmatizer.cs" />
+    <Compile Include="TextMining\LemmaSharp\LemmatizerSettings.cs" />
+    <Compile Include="TextMining\LemmaSharp\LemmaTreeNode.cs" />
+    <Compile Include="TextMining\LemmaSharp\RuleList.cs" />
+    <Compile Include="TextMining\LemmaSharp\RuleWeighted.cs" />
+    <Compile Include="TextMining\RomanianLemmatizer.cs" />
+    <Compile Include="TextMining\SerbianLemmatizer.cs" />
+    <Compile Include="TextMining\SloveneLemmatizer.cs" />
+    <Compile Include="TextMining\SpanishLemmatizer.cs" />
+    <Compile Include="Visualization\BoundingArea.cs" />
+    <Compile Include="Visualization\DrawableObjectEventArgs.cs" />
+    <Compile Include="Visualization\DrawableObjectViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Visualization\DrawableObjectViewer.Designer.cs">
+      <DependentUpon>DrawableObjectViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization\DrawnObject.cs" />
+    <Compile Include="Visualization\EditableBitmap.cs" />
+    <Compile Include="Visualization\Ellipse.cs" />
+    <Compile Include="Visualization\FilledDrawnObject.cs" />
+    <Compile Include="Visualization\DrawableGroup.cs" />
+    <Compile Include="Visualization\Line.cs" />
+    <Compile Include="Visualization\VisualizationUtils.cs" />
+    <Compile Include="Visualization\TransformParams.cs" />
+    <Compile Include="Visualization\Vector2D.cs" />
+    <Compile Include="Visualization\VisualizationInterfaces.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Set.cs" />
+    <Compile Include="IUnaryOperator.cs" />
+    <Compile Include="SparseVector.cs" />
+    <Compile Include="TextMining\BowSpace.cs" />
+    <Compile Include="TextMining\RegexTokenizer.cs" />
+    <Compile Include="TextMining\Snowball\Among.cs" />
+    <Compile Include="TextMining\Snowball\DanishStemmer.cs" />
+    <Compile Include="TextMining\Snowball\DutchStemmer.cs" />
+    <Compile Include="TextMining\Snowball\EnglishStemmer.cs" />
+    <Compile Include="TextMining\Snowball\FinnishStemmer.cs" />
+    <Compile Include="TextMining\Snowball\FrenchStemmer.cs" />
+    <Compile Include="TextMining\Snowball\German2Stemmer.cs" />
+    <Compile Include="TextMining\Snowball\GermanStemmer.cs" />
+    <Compile Include="TextMining\Snowball\ItalianStemmer.cs" />
+    <Compile Include="TextMining\Snowball\KpStemmer.cs" />
+    <Compile Include="TextMining\Snowball\LovinsStemmer.cs" />
+    <Compile Include="TextMining\Snowball\NorwegianStemmer.cs" />
+    <Compile Include="TextMining\Snowball\PorterStemmer.cs" />
+    <Compile Include="TextMining\Snowball\PortugueseStemmer.cs" />
+    <Compile Include="TextMining\Snowball\RussianStemmer.cs" />
+    <Compile Include="TextMining\Snowball\SnowballProgram.cs" />
+    <Compile Include="TextMining\Snowball\SpanishStemmer.cs" />
+    <Compile Include="TextMining\Snowball\SwedishStemmer.cs" />
+    <Compile Include="TextMining\Stemmer.cs" />
+    <Compile Include="TextMining\StopWords.cs" />
+    <Compile Include="TextMining\Tokenizer.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Web\WebUtils.cs" />
+    <Compile Include="WeightedNetwork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visualization\DrawableObjectViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DrawableObjectViewer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>
