@@ -13,14 +13,14 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;THROW_EXCEPTIONS, VERBOSE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;ERR_RPT</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;ERR_RPT</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Include="Corpus.cs" />
     <Compile Include="MetaTaggerData.cs" />
-    <None Include="PosModel.cs.obsolete" />
     <Compile Include="SuffixTrie.cs" />
     <Compile Include="TaggerUtils.cs" />
   </ItemGroup>

@@ -70,12 +70,17 @@ namespace MetaTagger
 
         private static ArrayList<DataEntry> m_items
             = new ArrayList<DataEntry>();
-        private static Dictionary<string, Dictionary<string, string>> m_attr
+        /*private*/public static Dictionary<string, Dictionary<string, string>> m_attr
             = new Dictionary<string, Dictionary<string, string>>();
         private static Set<string> m_attr_set
             = new Set<string>();
 
-        public static ArrayList<DataEntry>.ReadOnly Items
+        public static Set<string>.ReadOnly AttrSet
+        {
+            get { return m_attr_set; }
+        }
+
+        public static ArrayList<DataEntry>/*.ReadOnly*/ Items
         {
             get { return m_items; }
         }
