@@ -35,7 +35,7 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\..\SourceForge\Latino\Latino.csproj">
+    <ProjectReference Include="..\Latino\Latino.csproj">
       <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
       <Name>Latino</Name>
     </ProjectReference>
