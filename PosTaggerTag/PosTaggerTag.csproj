@@ -33,7 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
-    <Compile Include="Viterbi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Latino\Latino.csproj">
