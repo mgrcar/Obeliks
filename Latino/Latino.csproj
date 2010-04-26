@@ -107,18 +107,6 @@
     <Compile Include="TextMining\HungarianLemmatizer.cs" />
     <Compile Include="TextMining\ItalianLemmatizer.cs" />
     <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuilt.cs" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-en.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-fr.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-ge.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-it.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-m-sp.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-bg.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-cs.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-et.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-hu.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-ro.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-sl.lem" />
-    <EmbeddedResource Include="TextMining\LemmaSharpPrebuilt\Data\compressed-me-sr.lem" />
     <None Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltCompact.cs" />
     <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltCompressed.cs" />
     <Compile Include="TextMining\LemmaSharpPrebuilt\LemmatizerPrebuiltData.cs" />
@@ -197,6 +185,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>DrawableObjectViewer.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TextMining\LemmaSharpPrebuilt\Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
