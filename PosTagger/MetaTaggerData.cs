@@ -143,6 +143,8 @@ namespace MetaTagger
                 string tag_2 = corpus_2.TaggedWords[i].Tag;
                 string lemma_1 = corpus_1.TaggedWords[i].Lemma;
                 string lemma_2 = corpus_2.TaggedWords[i].Lemma;
+                if (tag_1 == null) { tag_1 = tag_2; }
+                if (tag_2 == null) { tag_2 = tag_1; }
                 if (m_attr.ContainsKey(tag_1) && m_attr.ContainsKey(tag_2)) // *** make sure to load attributes first
                 {
                     m_items.Add(new DataEntry(word, /*gold_tag=*/null, tag_1, tag_2, lemma_1, lemma_2));
