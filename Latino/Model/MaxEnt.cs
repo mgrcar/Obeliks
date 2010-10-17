@@ -64,6 +64,58 @@ namespace Latino.Model
             return mtx;
         }
 
+        private static SparseMatrix<double> CreateObservationMatrix2<LblT>(IExampleCollection<LblT, BinaryVector<int>.ReadOnly> dataset, ref LblT[] idxToLbl)
+        {
+            ArrayList<LblT> tmp = new ArrayList<LblT>();
+            Dictionary<LblT, int> lblToIdx = new Dictionary<LblT, int>();
+            foreach (LabeledExample<LblT, BinaryVector<int>.ReadOnly> labeledExample in dataset)
+            {
+                if (!lblToIdx.ContainsKey(labeledExample.Label))
+                {
+                    lblToIdx.Add(labeledExample.Label, lblToIdx.Count);
+                    tmp.Add(labeledExample.Label);
+                }
+            }            
+            // prepare struct for fast computation
+            Dictionary<int, int>[] counter = new Dictionary<int, int>[tmp.Count];
+            for (int j = 0; j < counter.Length; j++) { counter[j] = new Dictionary<int, int>(); }
+            // count features
+            int i = 0;
+            foreach (LabeledExample<LblT, BinaryVector<int>.ReadOnly> labeledExample in dataset)
+            {
+                Utils.Verbose("{0} / {1}\r", ++i, dataset.Count);
+                int lblIdx = lblToIdx[labeledExample.Label];
+                int val;
+                foreach (int idx in labeledExample.Example)
+                {
+                    if (counter[lblIdx].TryGetValue(idx, out val))
+                    {
+                        counter[lblIdx][idx] = val + 1;
+                    }
+                    else
+                    {
+                        counter[lblIdx].Add(idx, 1);
+                    }
+                }
+            }            
+            // create sparse matrix
+            SparseMatrix<double> mtx = new SparseMatrix<double>();
+            for (int j = 0; j < counter.Length; j++)
+            {
+                SparseVector<double> vec = new SparseVector<double>();
+                foreach (KeyValuePair<int, int> item in counter[j])
+                {
+                    vec.InnerIdx.Add(item.Key);
+                    vec.InnerDat.Add(item.Value);
+                }
+                vec.Sort();
+                mtx[j] = vec;
+            }
+            idxToLbl = tmp.ToArray();
+            Utils.VerboseLine("");
+            return mtx;
+        }
+
         private static SparseMatrix<double> CutOff(SparseMatrix<double>.ReadOnly mtx, int cut_off)
         {
             SparseMatrix<double> new_mtx = new SparseMatrix<double>();
@@ -369,7 +421,9 @@ namespace Latino.Model
             }
             else
             {
-                observations = CreateObservationMatrix(dataset, ref idx_to_lbl);
+                observations = CreateObservationMatrix2(dataset, ref idx_to_lbl);
+                //SparseMatrix<double> test = CreateObservationMatrix(dataset, ref idx_to_lbl);
+                //Console.WriteLine(test.ContentEquals(observations));
                 if (Utils.VerifyFileNameCreate(mtx_file_name))
                 {
                     BinarySerializer writer = new BinarySerializer(mtx_file_name, FileMode.Create);
