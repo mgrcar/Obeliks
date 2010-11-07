@@ -207,7 +207,7 @@ namespace Latino.Model
             int end_idx = (int)args[1];
             SparseMatrix<double>.ReadOnly train_mtx_tr = (SparseMatrix<double>.ReadOnly)args[2];
             IdxDat<SparseVector<double>.ReadOnly>[] rows = (IdxDat<SparseVector<double>.ReadOnly>[])args[3];
-            double[,] mtx = (double[,])args[4];
+            double[][] mtx = (double[][])args[4];
             RefInt progress = (RefInt)args[5];
             for (int i = start_idx; i <= end_idx; i++)
             {
@@ -219,7 +219,7 @@ namespace Latino.Model
                         SparseVector<double>.ReadOnly train_mtx_row = train_mtx_tr[item.Idx];
                         foreach (IdxDat<double> train_mtx_item in train_mtx_row)
                         {
-                            mtx[row.Idx, train_mtx_item.Idx] += train_mtx_item.Dat * item.Dat;
+                            mtx[row.Idx][train_mtx_item.Idx] += train_mtx_item.Dat * item.Dat;
                         }
                     }
                 }
@@ -234,7 +234,7 @@ namespace Latino.Model
             int end_idx = (int)args[1];
             SparseMatrix<double>.ReadOnly train_mtx_tr = (SparseMatrix<double>.ReadOnly)args[2];
             IdxDat<SparseVector<double>>[] rows = (IdxDat<SparseVector<double>>[])args[3];
-            double[,] mtx = (double[,])args[4];
+            double[][] mtx = (double[][])args[4];
             double[] z = (double[])args[5];
             RefInt progress = (RefInt)args[6];
             for (int i = start_idx; i <= end_idx; i++)
@@ -246,7 +246,7 @@ namespace Latino.Model
                     SparseVector<double>.ReadOnly pom = train_mtx_tr[item.Idx];
                     foreach (IdxDat<double> pom_item in pom)
                     {
-                        row.Dat.SetDirect(item_idx, row.Dat.GetDatDirect(item_idx) + mtx[row.Idx, pom_item.Idx] / z[pom_item.Idx] * pom_item.Dat);
+                        row.Dat.SetDirect(item_idx, row.Dat.GetDatDirect(item_idx) + mtx[row.Idx][pom_item.Idx] / z[pom_item.Idx] * pom_item.Dat);
                     }
                     item_idx++;
                 }
@@ -255,8 +255,9 @@ namespace Latino.Model
         }
 
         private static void UpdateExpectationMatrix(int num_classes, int train_set_size, SparseMatrix<double>.ReadOnly train_mtx_tr, SparseMatrix<double>.ReadOnly lambda, SparseMatrix<double> expectations, int num_threads)
-        {
-            double[,] mtx = new double[num_classes, train_set_size];
+        {            
+            double[][] mtx = new double[num_classes][];
+            for (int j = 0; j < num_classes; j++) { mtx[j] = new double[train_set_size]; }
             double[] z = new double[train_set_size];
             Utils.VerboseLine("Initiating {0} threads ...", num_threads);
             int lambda_row_count = lambda.GetRowCount();
@@ -301,8 +302,8 @@ namespace Latino.Model
             {
                 for (int j = 0; j < train_set_size; j++)
                 {
-                    mtx[i, j] = Math.Exp(mtx[i, j]);
-                    z[j] += mtx[i, j];
+                    mtx[i][j] = Math.Exp(mtx[i][j]);
+                    z[j] += mtx[i][j];
                 }
             }
             int expe_row_count = expectations.GetRowCount();
@@ -343,7 +344,8 @@ namespace Latino.Model
 
         private static void UpdateExpectationMatrix(int num_classes, int train_set_size, SparseMatrix<double>.ReadOnly train_mtx_tr, SparseMatrix<double>.ReadOnly lambda, SparseMatrix<double> expectations)
         {
-            double[,] mtx = new double[num_classes, train_set_size];
+            double[][] mtx = new double[num_classes][];
+            for (int j = 0; j < num_classes; j++) { mtx[j] = new double[train_set_size]; }
             double[] z = new double[train_set_size];
             foreach (IdxDat<SparseVector<double>.ReadOnly> row in lambda)
             {
@@ -355,7 +357,7 @@ namespace Latino.Model
                         SparseVector<double>.ReadOnly train_mtx_row = train_mtx_tr[item.Idx];
                         foreach (IdxDat<double> train_mtx_item in train_mtx_row)
                         {
-                            mtx[row.Idx, train_mtx_item.Idx] += train_mtx_item.Dat * item.Dat;
+                            mtx[row.Idx][train_mtx_item.Idx] += train_mtx_item.Dat * item.Dat;
                         }
                     }
                 }
@@ -365,8 +367,8 @@ namespace Latino.Model
             {
                 for (int j = 0; j < train_set_size; j++)
                 {
-                    mtx[i, j] = Math.Exp(mtx[i, j]);
-                    z[j] += mtx[i, j];
+                    mtx[i][j] = Math.Exp(mtx[i][j]);
+                    z[j] += mtx[i][j];
                 }
             }
             foreach (IdxDat<SparseVector<double>> row in expectations)
@@ -378,7 +380,7 @@ namespace Latino.Model
                     SparseVector<double>.ReadOnly pom = train_mtx_tr[item.Idx];
                     foreach (IdxDat<double> pom_item in pom)
                     {
-                        row.Dat.SetDirect(item_idx, row.Dat.GetDatDirect(item_idx) + mtx[row.Idx, pom_item.Idx] / z[pom_item.Idx] * pom_item.Dat);
+                        row.Dat.SetDirect(item_idx, row.Dat.GetDatDirect(item_idx) + mtx[row.Idx][pom_item.Idx] / z[pom_item.Idx] * pom_item.Dat);
                     }
                     item_idx++;
                 }
