@@ -17,13 +17,16 @@ namespace PosTagger
     {
         private SuffixTrieNode m_root
             = new SuffixTrieNode('*');
+
         public SuffixTrie()
         { 
         }
+
         public SuffixTrie(BinarySerializer reader)
         {
             Load(reader);
         }
+
         public void AddWordTagPair(string word, string tag)
         {
             word = "#" + word;
@@ -48,6 +51,7 @@ namespace PosTagger
                 current.m_tags.Add(tag);
             }
         }
+
         public bool Contains(string word)
         {
             word = "#" + word;
@@ -60,6 +64,7 @@ namespace PosTagger
             }
             return i == -1;
         }
+
         private void PropagateTags(SuffixTrieNode node)
         {
             if (node.m_children.Count == 1)
@@ -81,10 +86,12 @@ namespace PosTagger
                 node.m_tags = tags;
             }
         }
+
         public void PropagateTags()
         {
             PropagateTags(m_root);
         }
+
         public Set<string>.ReadOnly GetTags(string word)
         {
             word = "#" + word;
@@ -97,6 +104,7 @@ namespace PosTagger
             }
             return current.m_tags;
         }
+
         private string GetAmbiguityClass(Set<string>.ReadOnly tag_class)
         {
             if (tag_class.Count == 0) { return ""; }
@@ -109,11 +117,13 @@ namespace PosTagger
             }
             return ambiguity_class;
         }
+
         public string GetAmbiguityClass(string word)
         {
             Set<string>.ReadOnly tags = GetTags(word);
             return GetAmbiguityClass(tags);
         }
+
         private static void ToString(SuffixTrieNode node, StringBuilder str_builder, string offset)
         {
             str_builder.Append(offset);
@@ -125,21 +135,26 @@ namespace PosTagger
                 ToString(child_node, str_builder, offset + "  ");
             }
         }
+
         public override string ToString()
         {
             StringBuilder str_builder = new StringBuilder();
             ToString(m_root, str_builder, "");
             return str_builder.ToString();
         }
+
         // *** ISerializable interface implementation ***
+
         public void Save(BinarySerializer writer)
         {
             m_root.Save(writer);
         }
+
         public void Load(BinarySerializer reader)
         {
             m_root = new SuffixTrieNode(reader);
         }
+
         /* .-----------------------------------------------------------------------
            |
            |  Class SuffixTrieNode
@@ -153,21 +168,26 @@ namespace PosTagger
                 = null;
             public Dictionary<char, SuffixTrieNode> m_children
                 = new Dictionary<char, SuffixTrieNode>();
+
             public SuffixTrieNode(char letter)
             {
                 m_letter = letter;
             }
+
             public SuffixTrieNode(BinarySerializer reader)
             {
                 Load(reader);
             }
+
             // *** ISerializable interface implementation ***
+
             public void Save(BinarySerializer writer)
             {
                 writer.WriteChar(m_letter);
                 writer.WriteObject(m_tags);
                 Utils.SaveDictionary(m_children, writer);                
             }
+
             public void Load(BinarySerializer reader)
             {
                 m_letter = reader.ReadChar();

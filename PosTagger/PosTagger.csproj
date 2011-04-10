@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Corpus.cs" />
     <Compile Include="MetaTaggerData.cs" />
+    <Compile Include="SsjTokenizer.cs" />
     <Compile Include="SuffixTrie.cs" />
     <Compile Include="TaggerUtils.cs" />
   </ItemGroup>
@@ -43,6 +44,9 @@
       <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
       <Name>Latino</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SsjTokenizerRules.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

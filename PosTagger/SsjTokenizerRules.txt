@@ -1,0 +1,98 @@
+# Preprocessing 
+&amp; ==> &
+&lt; ==> <
+&gt; ==> >
+\r ==> 
+
+# XML/HTML entities
+& ==> &amp;
+\< ==> &lt;
+\> ==> &gt;
+
+# Punctuation, paragraphs, spaces
+([×/,.():"»«?!'“”°‘’…•\-_&–—©*%#=}$@{\[\]+;]) ==> <c>$1</c>
+<c>&</c>((amp)|(lt)|(gt))<c>;</c> ==> <c>&$1;</c>
+# <c>\.</c><c>\.</c>(<c>\.</c>)+ ==> <c>$txt</c>
+^ ==> <p>
+$ ==> </p>
+\s ==> <S/>
+
+# Words
+<S/> ==> </w><S/><w>
+<c> ==> </w><c>
+</c> ==> </c><w>
+<p> ==> <p><w>			
+</p> ==> </w></p>	
+
+# Cleanup
+</p>(\n*)</w><S/><w> ==> </p>$1
+<w></w> ==> 
+
+# E-mail (case-insensitive regex matching is denoted with '-->')
+(<w>[\p{L}0-9_-]+</w><c>\.</c>)*<w>[\p{L}0-9_-]+</w><c>@</c>(((<w>[0-9a-z~]+</w>)|(<c>[_!*'()-]</c>))+<c>\.</c>)*<w>([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]</w><c>\.</c><w>[a-z]{2,6}</w> --> <w>$txt</w>
+
+# URL 
+(<w>((ftp)|(https?))</w><c>:</c><c>/</c><c>/</c>)?(((<w>[0-9a-z~]+</w>)|(<c>[_!*'()-]</c>))+<c>\.</c>)*<w>([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]</w><c>\.</c><w>[a-z]{2,6}</w>(<c>/</c>((<w>[0-9a-z~]+</w>)|(<c>[_!*'().;?:@=+$,%#-]</c>)|(<c>&amp;</c>))+)*/? --> <w>$txt</w> 
+
+# Brioni rule #2: locuj dva kosa z obojesticno piko, ce je drugi z veliko zacetnico
+<w>([^<.]+)\.(\p{Lu}) ==> <w>$1</w><c>.</c></s><s><w>$2
+
+<w>([^<]+)</w><c>-</c><w>((a)|(evemu)|(evskega)|(i)|(jevega)|(jevska)|(jevskimi)|(jinemu)|(oma)|(ovim)|(ovski)|(e)|(evi)|(evskem)|(ih)|(jevem)|(jevske)|(jevsko)|(jini)|(ov)|(ovima)|(ovskih)|(em)|(evih)|(evskemu)|(ja)|(jevemu)|(jevskega)|(ji)|(jinih)|(ova)|(ovimi)|(ovskim)|(ema)|(evim)|(evski)|(je)|(jevi)|(jevskem)|(jih)|(jinim)|(ove)|(ovo)|(ovskima)|(ev)|(evima)|(evskih)|(jem)|(jevih)|(jevskemu)|(jin)|(jinima)|(ovega)|(ovska)|(ovskimi)|(eva)|(evimi)|(evskim)|(jema)|(jevim)|(jevski)|(jina)|(jinimi)|(ovem)|(ovske)|(ovsko)|(eve)|(evo)|(evskima)|(jev)|(jevima)|(jevskih)|(jine)|(jino)|(ovemu)|(ovskega)|(u)|(evega)|(evska)|(evskimi)|(jeva)|(jevimi)|(jevskim)|(jinega)|(ju)|(ovi)|(ovskem)|(evem)|(evske)|(evsko)|(jeve)|(jevo)|(jevskima)|(jinem)|(om)|(ovih)|(ovskemu))</w> ==> <w>$1-$2</w>
+
+<w>(\d+)</w><c>-</c><w>((timi)|(im)|(ima)|(a)|(imi)|(e)|(o)|(ega)|(ti)|(em)|(tih)|(emu)|(tim)|(i)|(tima)|(ih)|(ta)|(te)|(to)|(tega)|(tem)|(temu))</w> ==> <w>$1-$2</w>
+
+</w><c>'</c><w> ==> '
+
+<w>(\d+)</w><c>([.,:])</c><w>(\d+)</w> ==> <w>$1$2$3</w>
+
+<w>((\p{L})|([Oo]k)|(Ur)|([Dd]r)|([Šš]t)|([Ss]tr)|([Oo]z)|([Ii]td)|([Nn]pr)|([Ss]v)|([Ii]tn)|([Tt]el)|([Oo]dst)|([Mm]ed)|([Ii]pd)|([Aa]ngl)|([Zz]v)|([Zz]ap)|([Pp]rof)|([Oo]p)|([Mm]ag)|([Ii]t)|([Pp]rim)|([Oo]pr)|([Mm]l)|([Ii]nv)|([Ii]dr)|([Ss]p)|([Oo]pr)|([Mm]ag)|([Mm]r))</w><c>\.</c> ==> <w>$1.</w>
+
+<w>((agr)|(dipl)|(univ)|(zg)|(co)|(doc)|(al)|(pr)|(st)|(tč)|(tj)|(inž))</w><c>\.</c> --> <w>$1.</w>
+
+# Sentence splitting
+<p> ==> <p><s>
+</p> ==> </s></p>
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><w>(\p{Lu}) ==> <c>$1</c><S/></s><s><w>$4
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><c>(["»“‘'])</c><w>(\p{Lu}) ==> <c>$1</c><S/></s><s><c>$4</c><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><c>(["»“‘'])</c><S/><w>(\p{Lu}) ==> <c>$1</c><S/></s><s><c>$4</c><S/><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><c>(["«”’'])</c><S/><w>(\p{Lu}) ==> <c>$1</c><c>$4</c><S/></s><s><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><c>([«”’])</c><S/><w>(\p{Lu}) ==> <c>$1</c><S/><c>$4</c><S/></s><s><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><c>(["«”’'])</c><c>\)</c><S/><w>(\p{Lu}) ==> <c>$1</c><c>$4</c><c>)</c><S/></s><s><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><c>(["«”’'])</c><c>\)</c><S/><w>(\p{Lu}) ==> <c>$1</c><S/><c>$4</c><c>)</c><S/></s><s><w>$5
+
+<c>(([.?!…])|(\.\.\.+))</c><S/><c>\(</c> ==> <c>$1</c><S/></s><s><c>(</c>
+
+<s></s> ==> 
+
+# Brioni rule #8: dodaj segmentacijo med dva navedka po obstojecih pravilih
+<c>(["«”’'])</c><S/><c>(["»“‘'])</c> ==> <c>$1</c><S/></s><s><c>$2</c>
+
+# Brioni rule #10: sprobajmo koncno locilo + zaklepaj + velika zacetnica (razclenitev stavka)
+<c>(([.?!…])|(\.\.\.+))</c><c>\)</c><S/><w>(\p{Lu}) ==> <c>$1</c><c>)</c><S/></s><s><w>$4
+(([.?!…])|(\.\.\.+))</w><c>\)</c><S/><w>(\p{Lu}) ==> $1</w><c>)</c><S/></s><s><w>$4
+
+# Brioni rule #13: številke/crke postanejo naštevanje samo na zacetku stavka
+# Brioni rule #11: iz združevanja števka + pika izloci nic (samo nic!)
+# Brioni rule #5: dodaj rimske številke s piko (tako kot arabske)
+<s><w>((([1-9][0-9]*)|([ivxIVX]+))|(\p{L}))</w><c>\.</c> ==> <s><w>$1.</w>
+
+# Brioni rule #4: števke + pika + mala zacetnica: vedno združuj in piko daj v token
+# Brioni rule #11: iz združevanja števka + pika izloci nic (samo nic!)
+# Brioni rule #5: dodaj rimske številke s piko (tako kot arabske)
+<w>(([1-9][0-9]*)|([ivxIVX]+))</w><c>\.</c><S/><w>(\p{Ll}) ==> <w>$1.</w><S/><w>$4
+
+# Dates
+<w>([1-9]\d*)</w><c>\.</c><S/><w>([1-9]\d*)</w><c>\.</c> ==> <w>$1.</w><S/><w>$2.</w>
+
+# Brioni rule #7: mogoce sprobati števke kot velike zacetnice 
+<c>(([.?!…])|(\.\.\.+))</c><S/><w>([0-9]) ==> <c>$1</c><S/></s><s><w>$4
+
+# Fix letter + dot errors 
+<w>(\p{Ll})\.</w><S/><w>(\p{Lu}) ==> <w>$1</w><c>.</c><S/></s><s><w>$2

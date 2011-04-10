@@ -234,5 +234,35 @@ namespace Latino
                 return Convert.ChangeType(obj, new_type); // throws InvalidCastException, FormatException, OverflowException
             }
         }
+
+        // *** Resources ***
+
+        public static string GetManifestResourceString(Type type, string resName)
+        {
+            ThrowException(type == null ? new ArgumentNullException("type") : null);
+            ThrowException(resName == null ? new ArgumentNullException("resName") : null);
+            foreach (string res in type.Assembly.GetManifestResourceNames())
+            {
+                if (res.EndsWith(resName))
+                {
+                    return new StreamReader(type.Assembly.GetManifestResourceStream(res)).ReadToEnd();
+                }
+            }
+            return null;
+        }
+
+        public static Stream GetManifestResourceStream(Type type, string resName)
+        {
+            ThrowException(type == null ? new ArgumentNullException("type") : null);
+            ThrowException(resName == null ? new ArgumentNullException("resName") : null);
+            foreach (string res in type.Assembly.GetManifestResourceNames())
+            {
+                if (res.EndsWith(resName))
+                {
+                    return type.Assembly.GetManifestResourceStream(res);
+                }
+            }
+            return null;
+        }
     }
 }
