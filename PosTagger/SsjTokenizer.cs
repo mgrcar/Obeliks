@@ -27,6 +27,9 @@ namespace PosTagger
             public string mRhs;
         }
 
+        private static ArrayList<TokenizerRegex> mRules
+            = null;
+
         private static ArrayList<TokenizerRegex> LoadRules()
         {
             Regex splitRegex = new Regex(@"^(?<regex>.*)((--)|(==))\>(?<rhs>.*)$", RegexOptions.Compiled);
@@ -67,10 +70,10 @@ namespace PosTagger
             return rules;
         }
 
-        private static string ExecRules(string text, ArrayList<TokenizerRegex> rules)
+        private static string ExecRules(string text)
         {
             Regex tagRegex = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); // *** create static?
-            foreach (TokenizerRegex tknRegex in rules)
+            foreach (TokenizerRegex tknRegex in mRules)
             {
                 if (!tknRegex.mVal && !tknRegex.mTxt)
                 {
@@ -94,6 +97,14 @@ namespace PosTagger
                 }
             }
             return text;
+        }
+
+        public static string Tokenize(string text)
+        {           
+            if (mRules == null) { mRules = LoadRules(); }
+            string xml = ExecRules(text);
+            //Console.WriteLine(xml);
+            return "<text>" + xml + "</text>";
         }
     }
 }

@@ -1,8 +1,13 @@
 # Preprocessing 
+#[^\u0009\u000A\u000D\u0020-\uD7FF\uE000-\uFFFD] ==> 
+#&amp; ==> &
+#&lt; ==> <
+#&gt; ==> >
+#\r ==> 
+[^\u0009\u000A\u0020-\uD7FF\uE000-\uFFFD] ==> 
 &amp; ==> &
 &lt; ==> <
 &gt; ==> >
-\r ==> 
 
 # XML/HTML entities
 & ==> &amp;
