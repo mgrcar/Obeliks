@@ -1,0 +1,12 @@
+[ ] apply lexicon for lemmatization (training + lemmatizing)
+[ ] remove dead code
+[ ] fix coding conventions (comments, variables, etc.)
+[ ] make it work with the latest LATINO (Core + MaxEnt) [put non-Core stuff into the PosTagger library]
+[ ] final core review
+[ ] release
+[ ] English version
+[ ] simpler input file for training
+--
+[x] SuffixTrie.cs
+[x] SsjTokenizer.cs
+[ ] ...

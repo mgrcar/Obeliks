@@ -1,9 +1,19 @@
+/*==========================================================================;
+ *
+ *  This file is part of SSJ software. See http://www.slovenscina.eu
+ *
+ *  File:    SuffixTrie.cs
+ *  Desc:    Suffix trie data struct
+ *  Created: Nov-2009
+ *
+ *  Author:  Miha Grcar
+ *
+ ***************************************************************************/
+
 using System;
 using System.Text;
 using System.Collections.Generic;
 using Latino;
-
-// TODO: throw exceptions
 
 namespace PosTagger
 {
@@ -15,7 +25,7 @@ namespace PosTagger
     */
     public class SuffixTrie : ISerializable
     {
-        private SuffixTrieNode m_root
+        private SuffixTrieNode mRoot
             = new SuffixTrieNode('*');
 
         public SuffixTrie()
@@ -24,42 +34,45 @@ namespace PosTagger
 
         public SuffixTrie(BinarySerializer reader)
         {
-            Load(reader);
+            Load(reader); // throws ArgumentNullException, serialization-related exceptions
         }
 
         public void AddWordTagPair(string word, string tag)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
+            Utils.ThrowException(tag == null ? new ArgumentNullException("tag") : null);
             word = "#" + word;
-            SuffixTrieNode current = m_root;
+            SuffixTrieNode current = mRoot;
             int i = word.Length - 1;
-            while (i >= 0 && current.m_children.ContainsKey(word[i]))
+            while (i >= 0 && current.mChildren.ContainsKey(word[i]))
             {
-                current = current.m_children[word[i]];
+                current = current.mChildren[word[i]];
                 i--;
             }
             while (i >= 0)
             {
-                current.m_children.Add(word[i], current = new SuffixTrieNode(word[i]));
+                current.mChildren.Add(word[i], current = new SuffixTrieNode(word[i]));
                 i--;
             }
-            if (current.m_tags == null)
+            if (current.mTags == null)
             {
-                current.m_tags = new Set<string>(new string[] { tag });
+                current.mTags = new Set<string>(new string[] { tag });
             }
             else
             {
-                current.m_tags.Add(tag);
+                current.mTags.Add(tag);
             }
         }
 
         public bool Contains(string word)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
             word = "#" + word;
-            SuffixTrieNode current = m_root;
+            SuffixTrieNode current = mRoot;
             int i = word.Length - 1;
-            while (i >= 0 && current.m_children.ContainsKey(word[i]))
+            while (i >= 0 && current.mChildren.ContainsKey(word[i]))
             {
-                current = current.m_children[word[i]];
+                current = current.mChildren[word[i]];
                 i--;
             }
             return i == -1;
@@ -67,92 +80,94 @@ namespace PosTagger
 
         private void PropagateTags(SuffixTrieNode node)
         {
-            if (node.m_children.Count == 1)
+            if (node.mChildren.Count == 1)
             {
-                foreach (SuffixTrieNode child in node.m_children.Values)
+                foreach (SuffixTrieNode child in node.mChildren.Values)
                 {
                     PropagateTags(child);
-                    node.m_tags = child.m_tags;
+                    node.mTags = child.mTags;
                 }                
             }
-            else if (node.m_children.Count > 1)
+            else if (node.mChildren.Count > 1)
             {
                 Set<string> tags = new Set<string>();
-                foreach (SuffixTrieNode child in node.m_children.Values)
+                foreach (SuffixTrieNode child in node.mChildren.Values)
                 {
                     PropagateTags(child);
-                    tags.AddRange(child.m_tags);
+                    tags.AddRange(child.mTags);
                 }
-                node.m_tags = tags;
+                node.mTags = tags;
             }
         }
 
         public void PropagateTags()
         {
-            PropagateTags(m_root);
+            PropagateTags(mRoot);
         }
 
         public Set<string>.ReadOnly GetTags(string word)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
             word = "#" + word;
-            SuffixTrieNode current = m_root;
+            SuffixTrieNode current = mRoot;
             int i = word.Length - 1;
-            while (i >= 0 && current.m_children.ContainsKey(word[i]))
+            while (i >= 0 && current.mChildren.ContainsKey(word[i]))
             {
-                current = current.m_children[word[i]];
+                current = current.mChildren[word[i]];
                 i--;
             }
-            return current.m_tags;
+            return current.mTags;
         }
 
-        private string GetAmbiguityClass(Set<string>.ReadOnly tag_class)
+        private string GetAmbiguityClass(Set<string>.ReadOnly tagClass)
         {
-            if (tag_class.Count == 0) { return ""; }
-            ArrayList<string> tags_sorted = new ArrayList<string>(tag_class);
-            tags_sorted.Sort();
-            string ambiguity_class = tags_sorted[0];
-            for (int i = 1; i < tags_sorted.Count; i++)
+            if (tagClass.Count == 0) { return ""; }
+            ArrayList<string> tagsSorted = new ArrayList<string>(tagClass);
+            tagsSorted.Sort();
+            string ambiguityClass = tagsSorted[0];
+            for (int i = 1; i < tagsSorted.Count; i++)
             {
-                ambiguity_class += string.Format("_{0}", tags_sorted[i]);
+                ambiguityClass += string.Format("_{0}", tagsSorted[i]);
             }
-            return ambiguity_class;
+            return ambiguityClass;
         }
 
         public string GetAmbiguityClass(string word)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
             Set<string>.ReadOnly tags = GetTags(word);
             return GetAmbiguityClass(tags);
         }
 
-        private static void ToString(SuffixTrieNode node, StringBuilder str_builder, string offset)
+        private static void ToString(SuffixTrieNode node, StringBuilder strBuilder, string offset)
         {
-            str_builder.Append(offset);
-            str_builder.Append(node.m_letter.ToString());
-            if (node.m_tags != null) { str_builder.Append(string.Format(" {0}", node.m_tags)); }
-            str_builder.AppendLine();
-            foreach (SuffixTrieNode child_node in node.m_children.Values)
+            strBuilder.Append(offset);
+            strBuilder.Append(node.mLetter.ToString());
+            if (node.mTags != null) { strBuilder.Append(string.Format(" {0}", node.mTags)); }
+            strBuilder.AppendLine();
+            foreach (SuffixTrieNode childNode in node.mChildren.Values)
             {
-                ToString(child_node, str_builder, offset + "  ");
+                ToString(childNode, strBuilder, offset + "  ");
             }
         }
 
         public override string ToString()
         {
-            StringBuilder str_builder = new StringBuilder();
-            ToString(m_root, str_builder, "");
-            return str_builder.ToString();
+            StringBuilder strBuilder = new StringBuilder();
+            ToString(mRoot, strBuilder, "");
+            return strBuilder.ToString();
         }
 
         // *** ISerializable interface implementation ***
 
         public void Save(BinarySerializer writer)
         {
-            m_root.Save(writer);
+            mRoot.Save(writer); // throws ArgumentNullException, serialization-related exceptions
         }
 
         public void Load(BinarySerializer reader)
         {
-            m_root = new SuffixTrieNode(reader);
+            mRoot = new SuffixTrieNode(reader); // throws ArgumentNullException, serialization-related exceptions
         }
 
         /* .-----------------------------------------------------------------------
@@ -163,36 +178,40 @@ namespace PosTagger
         */
         private class SuffixTrieNode : ISerializable
         {
-            public char m_letter;
-            public Set<string> m_tags
+            public char mLetter;
+            public Set<string> mTags
                 = null;
-            public Dictionary<char, SuffixTrieNode> m_children
+            public Dictionary<char, SuffixTrieNode> mChildren
                 = new Dictionary<char, SuffixTrieNode>();
 
             public SuffixTrieNode(char letter)
             {
-                m_letter = letter;
+                mLetter = letter;
             }
 
             public SuffixTrieNode(BinarySerializer reader)
             {
-                Load(reader);
+                Load(reader); // throws ArgumentNullException, serialization-related exceptions
             }
 
             // *** ISerializable interface implementation ***
 
             public void Save(BinarySerializer writer)
             {
-                writer.WriteChar(m_letter);
-                writer.WriteObject(m_tags);
-                Utils.SaveDictionary(m_children, writer);                
+                Utils.ThrowException(writer == null ? new ArgumentNullException("writer") : null);
+                // the following statements throw serialization-related exceptions 
+                writer.WriteChar(mLetter);
+                writer.WriteObject(mTags);
+                Utils.SaveDictionary(mChildren, writer);                
             }
 
             public void Load(BinarySerializer reader)
             {
-                m_letter = reader.ReadChar();
-                m_tags = reader.ReadObject<Set<string>>();
-                m_children = Utils.LoadDictionary<char, SuffixTrieNode>(reader);
+                Utils.ThrowException(reader == null ? new ArgumentNullException("reader") : null);
+                // the following statements throw serialization-related exceptions 
+                mLetter = reader.ReadChar();
+                mTags = reader.ReadObject<Set<string>>();
+                mChildren = Utils.LoadDictionary<char, SuffixTrieNode>(reader);
             }
         }
     }

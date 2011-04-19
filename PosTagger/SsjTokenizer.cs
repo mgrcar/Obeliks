@@ -1,3 +1,15 @@
+/*==========================================================================;
+ *
+ *  This file is part of SSJ software. See http://www.slovenscina.eu
+ *
+ *  File:    SsjTokenizer.cs
+ *  Desc:    Rule-based tokenizer for Slovene
+ *  Created: Dec-2010
+ *
+ *  Author:  Simon Krek, Miha Grcar
+ *
+ ***************************************************************************/
+
 using System;
 using System.Text.RegularExpressions;
 using System.IO;
@@ -100,10 +112,10 @@ namespace PosTagger
         }
 
         public static string Tokenize(string text)
-        {           
+        {
+            Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
             if (mRules == null) { mRules = LoadRules(); }
             string xml = ExecRules(text);
-            //Console.WriteLine(xml);
             return "<text>" + xml + "</text>";
         }
     }
