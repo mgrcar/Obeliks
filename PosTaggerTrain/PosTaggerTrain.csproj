@@ -15,7 +15,7 @@
     <ProjectGuid>{F358EA0B-B204-45BD-AB96-EE1057F75585}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SvmPosTaggerTrain</RootNamespace>
+    <RootNamespace>PosTaggerTrain</RootNamespace>
     <AssemblyName>PosTaggerTrain</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -28,16 +28,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Latino\Latino.csproj">
-      <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
-      <Name>Latino</Name>
+    <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
+      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+      <Name>LatinoCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Latino\Latino\Model\LatinoModel.csproj">
+      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
+      <Name>LatinoModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosTagger\PosTagger.csproj">
       <Project>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</Project>

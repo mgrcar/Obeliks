@@ -1,14 +1,12 @@
 /*==========================================================================;
  *
- *  (copyright)
+ *  This file is part of SSJ software. See http://www.slovenscina.eu
  *
- *  File:          MetaTaggerData.cs
- *  Version:       1.0
- *  Desc:		   Meta-tagger dataset utilities
- *  Author:		   Miha Grcar
- *  Created on:    Jun-2009
- *  Last modified: Sep-2009
- *  Revision:      N/A
+ *  File:    MetaTaggerData.cs
+ *  Desc:    Meta-tagger dataset 
+ *  Created: Jun-2009
+ *
+ *  Authors: Miha Grcar
  *
  ***************************************************************************/
 
@@ -20,97 +18,117 @@ using PosTagger;
 
 namespace MetaTagger
 {
-    public static class MetaTaggerData
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class MetaTaggerDataEntry
+       |
+       '-----------------------------------------------------------------------
+    */
+    public class MetaTaggerDataEntry
     {
-        public class DataEntry
+        private string mWord;
+        private string mGoldTag;
+        private string mTag1;
+        private string mTag2;
+        private string mLemma1;
+        private string mLemma2;
+
+        internal MetaTaggerDataEntry(string word, string goldTag, string tag1, string tag2, string lemma1, string lemma2)
         {
-            private string m_word;
-            private string m_gold_tag;
-            private string m_tag_1;
-            private string m_tag_2;
-            private string m_lemma_1;
-            private string m_lemma_2;
-            public DataEntry(string word, string gold_tag, string tag_1, string tag_2, string lemma_1, string lemma_2)
-            {
-                m_word = word;
-                m_gold_tag = gold_tag;
-                m_tag_1 = tag_1;
-                m_tag_2 = tag_2;
-                m_lemma_1 = lemma_1;
-                m_lemma_2 = lemma_2;
-            }
-            public DataEntry(string word, string gold_tag, string tag_1, string tag_2) : this(word, gold_tag, tag_1, tag_2, /*lemma_1=*/null, /*lemma_2=*/null)
-            {
-            }
-            public string Word
-            {
-                get { return m_word; }
-            }
-            public string GoldTag
-            {
-                get { return m_gold_tag; }
-            }
-            public string Tag1
-            {
-                get { return m_tag_1; }
-            }
-            public string Tag2
-            {
-                get { return m_tag_2; }
-            }
-            public string Lemma1
-            {
-                get { return m_lemma_1; }
-            }
-            public string Lemma2
-            {
-                get { return m_lemma_2; }
-            }
+            mWord = word;
+            mGoldTag = goldTag;
+            mTag1 = tag1;
+            mTag2 = tag2;
+            mLemma1 = lemma1;
+            mLemma2 = lemma2;
         }
 
-        private static ArrayList<DataEntry> m_items
-            = new ArrayList<DataEntry>();
-        /*private*/public static Dictionary<string, Dictionary<string, string>> m_attr
+        internal MetaTaggerDataEntry(string word, string goldTag, string tag1, string tag2) : this(word, goldTag, tag1, tag2, /*lemma1=*/null, /*lemma2=*/null)
+        {
+        }
+
+        public string Word
+        {
+            get { return mWord; }
+        }
+
+        public string GoldTag
+        {
+            get { return mGoldTag; }
+        }
+
+        public string Tag1
+        {
+            get { return mTag1; }
+        }
+
+        public string Tag2
+        {
+            get { return mTag2; }
+        }
+
+        public string Lemma1
+        {
+            get { return mLemma1; }
+        }
+
+        public string Lemma2
+        {
+            get { return mLemma2; }
+        }
+    }
+
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class MetaTaggerData
+       |
+       '-----------------------------------------------------------------------
+    */
+    public static class MetaTaggerData
+    {
+        private static ArrayList<MetaTaggerDataEntry> mItems
+            = new ArrayList<MetaTaggerDataEntry>();
+        private static Dictionary<string, Dictionary<string, string>> mAttr
             = new Dictionary<string, Dictionary<string, string>>();
-        private static Set<string> m_attr_set
+        private static Set<string> mAttrSet
             = new Set<string>();
 
         public static Set<string>.ReadOnly AttrSet
         {
-            get { return m_attr_set; }
+            get { return mAttrSet; }
         }
 
-        public static ArrayList<DataEntry>/*.ReadOnly*/ Items
+        public static ArrayList<MetaTaggerDataEntry>.ReadOnly Items
         {
-            get { return m_items; }
+            get { return mItems; }
         }
 
-        public static void LoadAttributes(string file_name)
+        public static void LoadAttributes(string fileName)
         {
-            StreamReader reader = new StreamReader(file_name);
+            StreamReader reader = new StreamReader(fileName);
             string line;
             while ((line = reader.ReadLine()) != null)
             {
                 string[] fields = line.Split(' ', '\t');
-                Dictionary<string, string> attr_val_dict = new Dictionary<string, string>();
+                Dictionary<string, string> attrValDict = new Dictionary<string, string>();
                 if (fields.Length >= 1)
                 {
-                    m_attr.Add(fields[0], attr_val_dict);
+                    mAttr.Add(fields[0], attrValDict);
                 }
                 for (int i = 2; i < fields.Length; i++)
                 {
-                    string[] attr_val = fields[i].Split('=');
-                    if (attr_val.Length != 2) { throw new InvalidDataException(); }
-                    attr_val_dict.Add(attr_val[0], attr_val[1]);
-                    m_attr_set.Add(attr_val[0]);
+                    string[] attrVal = fields[i].Split('=');
+                    if (attrVal.Length != 2) { throw new InvalidDataException(); }
+                    attrValDict.Add(attrVal[0], attrVal[1]);
+                    mAttrSet.Add(attrVal[0]);
                 }
             }
             reader.Close();
         }
 
-        public static void LoadData(string file_name)
+        public static void LoadData(string fileName)
         { 
-            StreamReader reader = new StreamReader(file_name);
+            StreamReader reader = new StreamReader(fileName);
             string line;
             while ((line = reader.ReadLine()) != null)
             {
@@ -118,43 +136,43 @@ namespace MetaTagger
                 if (fields.Length == 4)
                 { 
                     string word = fields[0];
-                    string gold_tag = fields[1];
-                    string tag_1 = fields[2];
-                    string tag_2 = fields[3];
-                    if (m_attr.ContainsKey(tag_1) && m_attr.ContainsKey(tag_2)) // *** make sure to load attributes first
+                    string goldTag = fields[1];
+                    string tag1 = fields[2];
+                    string tag2 = fields[3];
+                    if (mAttr.ContainsKey(tag1) && mAttr.ContainsKey(tag2)) // *** make sure to load attributes first
                     {
-                        m_items.Add(new DataEntry(word, gold_tag, tag_1, tag_2));
+                        mItems.Add(new MetaTaggerDataEntry(word, goldTag, tag1, tag2));
                     }
-                    else if (word == gold_tag && gold_tag == tag_1 && tag_1 == tag_2) // punctuation
+                    else if (word == goldTag && goldTag == tag1 && tag1 == tag2) // punctuation
                     {
-                        m_items.Add(new DataEntry(word, gold_tag, tag_1, tag_2));
-                        m_attr.Add(gold_tag, new Dictionary<string, string>());
+                        mItems.Add(new MetaTaggerDataEntry(word, goldTag, tag1, tag2));
+                        mAttr.Add(goldTag, new Dictionary<string, string>());
                     }
                 }
             }
         }
 
-        public static void LoadTestData(Corpus corpus_1, Corpus corpus_2)
+        public static void LoadTestData(Corpus corpus1, Corpus corpus2)
         {
-            for (int i = 0; i < corpus_1.TaggedWords.Count; i++)
+            for (int i = 0; i < corpus1.TaggedWords.Count; i++)
             {
-                string word = corpus_1.TaggedWords[i].Word;
-                string tag_1 = corpus_1.TaggedWords[i].Tag;
-                string tag_2 = corpus_2.TaggedWords[i].Tag;
-                string lemma_1 = corpus_1.TaggedWords[i].Lemma;
-                string lemma_2 = corpus_2.TaggedWords[i].Lemma;
-                if (tag_1 == null) { tag_1 = tag_2; }
-                if (tag_2 == null) { tag_2 = tag_1; }
-                if (m_attr.ContainsKey(tag_1) && m_attr.ContainsKey(tag_2)) // *** make sure to load attributes first
+                string word = corpus1.TaggedWords[i].Word;
+                string tag1 = corpus1.TaggedWords[i].Tag;
+                string tag2 = corpus2.TaggedWords[i].Tag;
+                string lemma1 = corpus1.TaggedWords[i].Lemma;
+                string lemma2 = corpus2.TaggedWords[i].Lemma;
+                if (tag1 == null) { tag1 = tag2; }
+                if (tag2 == null) { tag2 = tag1; }
+                if (mAttr.ContainsKey(tag1) && mAttr.ContainsKey(tag2)) // *** make sure to load attributes first
                 {
-                    m_items.Add(new DataEntry(word, /*gold_tag=*/null, tag_1, tag_2, lemma_1, lemma_2));
+                    mItems.Add(new MetaTaggerDataEntry(word, /*goldTag=*/null, tag1, tag2, lemma1, lemma2));
                 }
-                else 
+                else
                 {
-                    m_items.Add(new DataEntry(word, /*gold_tag=*/null, tag_1, tag_1, lemma_1, lemma_1));
-                    if (!m_attr.ContainsKey(tag_1))
+                    mItems.Add(new MetaTaggerDataEntry(word, /*goldTag=*/null, tag1, tag1, lemma1, lemma1));
+                    if (!mAttr.ContainsKey(tag1))
                     {
-                        m_attr.Add(tag_1, new Dictionary<string, string>());
+                        mAttr.Add(tag1, new Dictionary<string, string>());
                     }
                 }
             }
@@ -162,101 +180,101 @@ namespace MetaTagger
 
         public static ArrayList<KeyDat<string, string>> CreateExample(int idx)
         {
-            DataEntry prev_entry = idx > 0 ? m_items[idx - 1] : null;
-            DataEntry entry = m_items[idx];
-            DataEntry next_entry = idx < m_items.Count - 1 ? m_items[idx + 1] : null;
+            MetaTaggerDataEntry prevEntry = idx > 0 ? mItems[idx - 1] : null;
+            MetaTaggerDataEntry entry = mItems[idx];
+            MetaTaggerDataEntry nextEntry = idx < mItems.Count - 1 ? mItems[idx + 1] : null;
             ArrayList<KeyDat<string, string>> example = new ArrayList<KeyDat<string, string>>();
-            Dictionary<string, string> attr_val_1;
-            Dictionary<string, string> attr_val_2;
+            Dictionary<string, string> attrVal1;
+            Dictionary<string, string> attrVal2;
             // previous word
-            if (prev_entry != null)
+            if (prevEntry != null)
             {
-                attr_val_1 = m_attr[prev_entry.Tag1];
-                attr_val_2 = m_attr[prev_entry.Tag2];
-                if (prev_entry.Tag1.Length > 0)
+                attrVal1 = mAttr[prevEntry.Tag1];
+                attrVal2 = mAttr[prevEntry.Tag2];
+                if (prevEntry.Tag1.Length > 0)
                 {
-                    example.Add(new KeyDat<string, string>("Prev_POS_1", prev_entry.Tag1[0].ToString()));    
+                    example.Add(new KeyDat<string, string>("Prev_POS_1", prevEntry.Tag1[0].ToString()));
                 }
-                if (prev_entry.Tag2.Length > 0)
+                if (prevEntry.Tag2.Length > 0)
                 {
-                    example.Add(new KeyDat<string, string>("Prev_POS_2", prev_entry.Tag2[0].ToString()));    
+                    example.Add(new KeyDat<string, string>("Prev_POS_2", prevEntry.Tag2[0].ToString()));
                 }
-                foreach (string attr in m_attr_set)
+                foreach (string attr in mAttrSet)
                 {
-                    if (attr_val_1.ContainsKey(attr))
+                    if (attrVal1.ContainsKey(attr))
                     {
-                        example.Add(new KeyDat<string, string>(string.Format("Prev_{0}_1", attr), attr_val_1[attr]));                        
+                        example.Add(new KeyDat<string, string>(string.Format("Prev_{0}_1", attr), attrVal1[attr]));
                     }
-                    if (attr_val_2.ContainsKey(attr))
+                    if (attrVal2.ContainsKey(attr))
                     {
-                        example.Add(new KeyDat<string, string>(string.Format("Prev_{0}_2", attr), attr_val_2[attr]));
+                        example.Add(new KeyDat<string, string>(string.Format("Prev_{0}_2", attr), attrVal2[attr]));
                     }
                 }
             }
             // current word
-            attr_val_1 = m_attr[entry.Tag1];
-            attr_val_2 = m_attr[entry.Tag2];
-            string pos_1 = entry.Tag1.Length > 0 ? entry.Tag1[0].ToString() : null;
-            string pos_2 = entry.Tag2.Length > 0 ? entry.Tag2[0].ToString() : null;
-            if (pos_1 != null)
+            attrVal1 = mAttr[entry.Tag1];
+            attrVal2 = mAttr[entry.Tag2];
+            string pos1 = entry.Tag1.Length > 0 ? entry.Tag1[0].ToString() : null;
+            string pos2 = entry.Tag2.Length > 0 ? entry.Tag2[0].ToString() : null;
+            if (pos1 != null)
             {
-                example.Add(new KeyDat<string, string>("POS_1", pos_1));
+                example.Add(new KeyDat<string, string>("POS_1", pos1));
             }
-            if (pos_2 != null)
+            if (pos2 != null)
             {
-                example.Add(new KeyDat<string, string>("POS_2", pos_2));
+                example.Add(new KeyDat<string, string>("POS_2", pos2));
             }
-            example.Add(new KeyDat<string, string>("Agree_POS", pos_1 == pos_2 ? "yes" : "no"));
-            foreach (string attr in m_attr_set)
+            example.Add(new KeyDat<string, string>("Agree_POS", pos1 == pos2 ? "yes" : "no"));
+            foreach (string attr in mAttrSet)
             {
-                string attr_1 = attr_val_1.ContainsKey(attr) ? attr_val_1[attr] : null;
-                string attr_2 = attr_val_2.ContainsKey(attr) ? attr_val_2[attr] : null;
-                if (attr_1 != null)
+                string attr1 = attrVal1.ContainsKey(attr) ? attrVal1[attr] : null;
+                string attr2 = attrVal2.ContainsKey(attr) ? attrVal2[attr] : null;
+                if (attr1 != null)
                 {
-                    example.Add(new KeyDat<string, string>(string.Format("{0}_1", attr), attr_1));
+                    example.Add(new KeyDat<string, string>(string.Format("{0}_1", attr), attr1));
                 }
-                if (attr_2 != null)
+                if (attr2 != null)
                 {
-                    example.Add(new KeyDat<string, string>(string.Format("{0}_2", attr), attr_2));
+                    example.Add(new KeyDat<string, string>(string.Format("{0}_2", attr), attr2));
                 }
-                example.Add(new KeyDat<string, string>(string.Format("Agree_{0}", attr), attr_1 == attr_2 ? "yes" : "no"));
+                example.Add(new KeyDat<string, string>(string.Format("Agree_{0}", attr), attr1 == attr2 ? "yes" : "no"));
             }
             // next word
-            if (next_entry != null)
+            if (nextEntry != null)
             {
-                attr_val_1 = m_attr[next_entry.Tag1];
-                attr_val_2 = m_attr[next_entry.Tag2];
-                if (next_entry.Tag1.Length > 0)
+                attrVal1 = mAttr[nextEntry.Tag1];
+                attrVal2 = mAttr[nextEntry.Tag2];
+                if (nextEntry.Tag1.Length > 0)
                 {
-                    example.Add(new KeyDat<string, string>("Next_POS_1", next_entry.Tag1[0].ToString()));
+                    example.Add(new KeyDat<string, string>("Next_POS_1", nextEntry.Tag1[0].ToString()));
                 }
-                if (next_entry.Tag2.Length > 0)
+                if (nextEntry.Tag2.Length > 0)
                 {
-                    example.Add(new KeyDat<string, string>("Next_POS_2", next_entry.Tag2[0].ToString()));
+                    example.Add(new KeyDat<string, string>("Next_POS_2", nextEntry.Tag2[0].ToString()));
                 }
-                foreach (string attr in m_attr_set)
+                foreach (string attr in mAttrSet)
                 {
-                    if (attr_val_1.ContainsKey(attr))
+                    if (attrVal1.ContainsKey(attr))
                     {
-                        example.Add(new KeyDat<string, string>(string.Format("Next_{0}_1", attr), attr_val_1[attr]));
+                        example.Add(new KeyDat<string, string>(string.Format("Next_{0}_1", attr), attrVal1[attr]));
                     }
-                    if (attr_val_2.ContainsKey(attr))
+                    if (attrVal2.ContainsKey(attr))
                     {
-                        example.Add(new KeyDat<string, string>(string.Format("Next_{0}_2", attr), attr_val_2[attr]));
+                        example.Add(new KeyDat<string, string>(string.Format("Next_{0}_2", attr), attrVal2[attr]));
                     }
                 }
             }
             return example;
         }
 
-        public static void WriteDatasetOrange(string file_name, string null_val)
+        public static void WriteDatasetOrange(string fileName, string nullVal)
         {
-            StreamWriter writer = new StreamWriter(file_name);
+            StreamWriter writer = new StreamWriter(fileName);
             StringBuilder line = new StringBuilder();            
             line.Append("Tagger\t");
             line.Append("Prev_POS_1\tPrev_POS_2\t");
             int c = 3;
-            foreach (string attr in m_attr_set)
+            foreach (string attr in mAttrSet)
             {
                 line.Append(string.Format("Prev_{0}_1\t", attr));
                 line.Append(string.Format("Prev_{0}_2\t", attr));
@@ -264,7 +282,7 @@ namespace MetaTagger
             }
             line.Append("POS_1\tPOS_2\tAgree_POS\t");
             c += 3;
-            foreach (string attr in m_attr_set)
+            foreach (string attr in mAttrSet)
             {
                 line.Append(string.Format("{0}_1\t", attr));                
                 line.Append(string.Format("{0}_2\t", attr));
@@ -273,7 +291,7 @@ namespace MetaTagger
             }
             line.Append("Next_POS_1\tNext_POS_2\t");
             c += 2;
-            foreach (string attr in m_attr_set)
+            foreach (string attr in mAttrSet)
             {
                 line.Append(string.Format("Next_{0}_1\t", attr));
                 line.Append(string.Format("Next_{0}_2\t", attr));
@@ -287,11 +305,11 @@ namespace MetaTagger
             }
             writer.WriteLine(line.ToString().TrimEnd('\t'));
             writer.WriteLine("class");
-            for (int i = 0; i < m_items.Count; i++)
+            for (int i = 0; i < mItems.Count; i++)
             {
-                Dictionary<string, string> attr_val_1;
-                Dictionary<string, string> attr_val_2;
-                DataEntry entry = m_items[i];
+                Dictionary<string, string> attrVal1;
+                Dictionary<string, string> attrVal2;
+                MetaTaggerDataEntry entry = mItems[i];
                 if (entry.Tag1 != entry.Tag2 && (entry.GoldTag == entry.Tag1 || entry.GoldTag == entry.Tag2)) // the two taggers disagree, one of them is correct
                 {
                     line = new StringBuilder();
@@ -300,80 +318,80 @@ namespace MetaTagger
                     // previous word
                     if (i == 0)
                     {
-                        c = 2 + m_attr_set.Count * 2;
+                        c = 2 + mAttrSet.Count * 2;
                         for (int j = 0; j < c; j++)
                         {
-                            line.Append(null_val);
+                            line.Append(nullVal);
                             line.Append("\t");
                         }
                     }
                     else
                     {
-                        DataEntry prev_entry = m_items[i - 1];
-                        string prev_pos_1 = prev_entry.Tag1.Length > 0 ? prev_entry.Tag1[0].ToString() : null_val;
-                        string prev_pos_2 = prev_entry.Tag2.Length > 0 ? prev_entry.Tag2[0].ToString() : null_val;
-                        line.Append(prev_pos_1);
+                        MetaTaggerDataEntry prevEntry = mItems[i - 1];
+                        string prevPos1 = prevEntry.Tag1.Length > 0 ? prevEntry.Tag1[0].ToString() : nullVal;
+                        string prevPos2 = prevEntry.Tag2.Length > 0 ? prevEntry.Tag2[0].ToString() : nullVal;
+                        line.Append(prevPos1);
                         line.Append("\t");
-                        line.Append(prev_pos_2);
+                        line.Append(prevPos2);
                         line.Append("\t");
-                        attr_val_1 = m_attr[prev_entry.Tag1];
-                        attr_val_2 = m_attr[prev_entry.Tag2];
-                        foreach (string attr in m_attr_set)
+                        attrVal1 = mAttr[prevEntry.Tag1];
+                        attrVal2 = mAttr[prevEntry.Tag2];
+                        foreach (string attr in mAttrSet)
                         {
-                            line.Append(attr_val_1.ContainsKey(attr) ? attr_val_1[attr] : null_val);
+                            line.Append(attrVal1.ContainsKey(attr) ? attrVal1[attr] : nullVal);
                             line.Append("\t");
-                            line.Append(attr_val_2.ContainsKey(attr) ? attr_val_2[attr] : null_val);
+                            line.Append(attrVal2.ContainsKey(attr) ? attrVal2[attr] : nullVal);
                             line.Append("\t");
                         }
                     }
                     // current word
-                    string pos_1 = entry.Tag1.Length > 0 ? entry.Tag1[0].ToString() : null_val;
-                    string pos_2 = entry.Tag2.Length > 0 ? entry.Tag2[0].ToString() : null_val;
-                    line.Append(pos_1);
+                    string pos1 = entry.Tag1.Length > 0 ? entry.Tag1[0].ToString() : nullVal;
+                    string pos2 = entry.Tag2.Length > 0 ? entry.Tag2[0].ToString() : nullVal;
+                    line.Append(pos1);
                     line.Append("\t");
-                    line.Append(pos_2);
+                    line.Append(pos2);
                     line.Append("\t");
-                    line.Append(pos_1 == pos_2 ? "yes" : "no");
+                    line.Append(pos1 == pos2 ? "yes" : "no");
                     line.Append("\t");
-                    attr_val_1 = m_attr[entry.Tag1];
-                    attr_val_2 = m_attr[entry.Tag2];
-                    foreach (string attr in m_attr_set)
+                    attrVal1 = mAttr[entry.Tag1];
+                    attrVal2 = mAttr[entry.Tag2];
+                    foreach (string attr in mAttrSet)
                     {
-                        string attr_1 = attr_val_1.ContainsKey(attr) ? attr_val_1[attr] : null_val;
-                        string attr_2 = attr_val_2.ContainsKey(attr) ? attr_val_2[attr] : null_val;
-                        line.Append(attr_1);
+                        string attr1 = attrVal1.ContainsKey(attr) ? attrVal1[attr] : nullVal;
+                        string attr2 = attrVal2.ContainsKey(attr) ? attrVal2[attr] : nullVal;
+                        line.Append(attr1);
                         line.Append("\t");
-                        line.Append(attr_2);
+                        line.Append(attr2);
                         line.Append("\t");
-                        line.Append(attr_1 == attr_2 ? "yes" : "no");
+                        line.Append(attr1 == attr2 ? "yes" : "no");
                         line.Append("\t");
                     }
                     // next word
-                    if (i == m_items.Count - 1)
+                    if (i == mItems.Count - 1)
                     {
-                        c = 2 + m_attr_set.Count * 2;
+                        c = 2 + mAttrSet.Count * 2;
                         for (int j = 0; j < c; j++)
                         {
-                            line.Append(null_val);
+                            line.Append(nullVal);
                             line.Append("\t");
                         }
                     }
                     else
                     {
-                        DataEntry next_entry = m_items[i + 1];
-                        string next_pos_1 = next_entry.Tag1.Length > 0 ? next_entry.Tag1[0].ToString() : null_val;
-                        string next_pos_2 = next_entry.Tag2.Length > 0 ? next_entry.Tag2[0].ToString() : null_val;
-                        line.Append(next_pos_1);
+                        MetaTaggerDataEntry nextEntry = mItems[i + 1];
+                        string nextPos1 = nextEntry.Tag1.Length > 0 ? nextEntry.Tag1[0].ToString() : nullVal;
+                        string nextPos2 = nextEntry.Tag2.Length > 0 ? nextEntry.Tag2[0].ToString() : nullVal;
+                        line.Append(nextPos1);
                         line.Append("\t");
-                        line.Append(next_pos_2);
+                        line.Append(nextPos2);
                         line.Append("\t");
-                        attr_val_1 = m_attr[next_entry.Tag1];
-                        attr_val_2 = m_attr[next_entry.Tag2];
-                        foreach (string attr in m_attr_set)
+                        attrVal1 = mAttr[nextEntry.Tag1];
+                        attrVal2 = mAttr[nextEntry.Tag2];
+                        foreach (string attr in mAttrSet)
                         {
-                            line.Append(attr_val_1.ContainsKey(attr) ? attr_val_1[attr] : null_val);
+                            line.Append(attrVal1.ContainsKey(attr) ? attrVal1[attr] : nullVal);
                             line.Append("\t");
-                            line.Append(attr_val_2.ContainsKey(attr) ? attr_val_2[attr] : null_val);
+                            line.Append(attrVal2.ContainsKey(attr) ? attrVal2[attr] : nullVal);
                             line.Append("\t");
                         }
                     }

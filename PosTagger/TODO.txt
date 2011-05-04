@@ -1,8 +1,14 @@
-[ ] apply lexicon for lemmatization (training + lemmatizing)
-[ ] remove dead code
+[x] apply lexicon for lemmatization (training + lemmatizing)
 [ ] fix coding conventions (comments, variables, etc.)
+	[x] PosTagger
+	[x] PosTaggerTrain
+	[x] PosTaggerTag
+	[ ] ...
+[x] remove dead code
+[ ] exception handling MetaTaggerData.cs
+[ ] Corpus: output XMLs with XmlWriter
 [ ] make it work with the latest LATINO (Core + MaxEnt) [put non-Core stuff into the PosTagger library]
-[ ] final core review
+[ ] final code review
 [ ] release
 [ ] English version
 [ ] simpler input file for training

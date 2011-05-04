@@ -6,7 +6,7 @@
  *  Desc:    Rule-based tokenizer for Slovene
  *  Created: Dec-2010
  *
- *  Author:  Simon Krek, Miha Grcar
+ *  Authors: Simon Krek, Miha Grcar
  *
  ***************************************************************************/
 
@@ -19,28 +19,30 @@ namespace PosTagger
 {
     /* .-----------------------------------------------------------------------
        |
+       |  Class TokenizerRegex
+       |
+       '-----------------------------------------------------------------------
+    */
+    internal class TokenizerRegex
+    {
+        public Regex mRegex;
+        public bool mVal;
+        public bool mTxt;
+        public string mRhs;
+    }
+
+    /* .-----------------------------------------------------------------------
+       |
        |  Class SsjTokenizer
        |
        '-----------------------------------------------------------------------
     */
     public static class SsjTokenizer
     {
-        /* .-----------------------------------------------------------------------
-           |
-           |  Class TokenizerRegex
-           |
-           '-----------------------------------------------------------------------
-        */
-        private class TokenizerRegex
-        {
-            public Regex mRegex;
-            public bool mVal;
-            public bool mTxt;
-            public string mRhs;
-        }
-
         private static ArrayList<TokenizerRegex> mRules
             = null;
+        private static Regex mTagRegex 
+            = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
 
         private static ArrayList<TokenizerRegex> LoadRules()
         {
@@ -83,8 +85,7 @@ namespace PosTagger
         }
 
         private static string ExecRules(string text)
-        {
-            Regex tagRegex = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); // *** create static?
+        {            
             foreach (TokenizerRegex tknRegex in mRules)
             {
                 if (!tknRegex.mVal && !tknRegex.mTxt)
@@ -102,7 +103,7 @@ namespace PosTagger
                         }
                         if (tknRegex.mTxt)
                         {
-                            rhs = rhs.Replace("$txt", tagRegex.Replace(m.Value, ""));
+                            rhs = rhs.Replace("$txt", mTagRegex.Replace(m.Value, ""));
                         }
                         return rhs;
                     });

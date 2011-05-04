@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -17,6 +17,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SvmPosTaggerTag</RootNamespace>
     <AssemblyName>PosTaggerTag</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,9 +40,17 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Latino\Latino.csproj">
-      <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
-      <Name>Latino</Name>
+    <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
+      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+      <Name>LatinoCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Latino\Latino\Model\LatinoModel.csproj">
+      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
+      <Name>LatinoModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
+      <Project>{A39293C1-92D8-47B9-93A4-41F443B4F9E4}</Project>
+      <Name>LemmaSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosTagger\PosTagger.csproj">
       <Project>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</Project>

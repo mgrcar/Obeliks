@@ -1,0 +1,213 @@
+﻿***********************************************************
+***                MSD Specification file               ***
+*** This file contains specifications for MSD tags for  ***
+*** specified language                                  ***
+*** - There are three tables, every is ended by empty   ***
+***   line: Category Table, Attribute Table and Value   ***
+***   Table. First non empty line starts new table.     ***
+*** - List of columns is specified for every table and  ***
+***   must remain the same and in the same order.       ***
+*** - All lines starting with '*' are ignored.          ***
+***********************************************************
+***                    About this file                  *** 
+*** Language: Slovene                                   *** 
+*** Names language: Slovene                             *** 
+*** Codes language: English                             *** 
+*** Source: http://nl.ijs.si/jos/msd/html-en/msd.index  ***
+***********************************************************
+
+***********************************************************
+***                  Category Table                     ***
+***********************************************************
+*** Name        Code        No. of attributes           ***
+***********************************************************
+samostalnik     N           5
+glagol          V           7
+pridevnik       A           6
+prislov         R           2
+zaimek          P           8
+števnik         M           6
+predlog         S           1
+veznik          C           1
+členek          Q           0
+medmet          I           0
+okrajšava       Y           0
+neuvrščeno      X           1
+
+***********************************************************
+***                  Attribute Table                    ***
+***********************************************************
+*** Attribute   Category    Position                    ***
+***********************************************************
+določnost       pridevnik   6
+določnost       števnik     6
+naslonskost     zaimek      8
+nikalnost       glagol      7
+oblika          glagol      3
+oseba           glagol      4
+oseba           zaimek      2
+sklon           predlog     1
+sklon           pridevnik   5
+sklon           samostalnik 4
+sklon           zaimek      5
+sklon           števnik     5
+spol            glagol      6
+spol            pridevnik   3
+spol            samostalnik 2
+spol            zaimek      3
+spol            števnik     3
+spol_svojine    zaimek      7
+stopnja         pridevnik   2
+stopnja         prislov     2
+vid             glagol      2
+vrsta           glagol      1
+vrsta           neuvrščeno  1
+vrsta           pridevnik   1
+vrsta           prislov     1
+vrsta           samostalnik 1
+vrsta           veznik      1
+vrsta           zaimek      1
+vrsta           števnik     2
+zapis           števnik     1
+število         glagol      5
+število         pridevnik   4
+število         samostalnik 3
+število         zaimek      4
+število         števnik     4
+število_svojine zaimek      6
+živost          samostalnik 5
+
+***********************************************************
+***                  Value Table                        ***
+***********************************************************
+*** Value       Code        Attribute        Category   ***
+***********************************************************
+arabski         d           zapis            števnik
+besedni         l           zapis            števnik
+celostni        g           vrsta            zaimek
+da              y           določnost        pridevnik
+da              y           določnost        števnik
+da              y           živost           samostalnik
+dajalnik        d           sklon            predlog
+dajalnik        d           sklon            pridevnik
+dajalnik        d           sklon            samostalnik
+dajalnik        d           sklon            zaimek
+dajalnik        d           sklon            števnik
+deležje         r           vrsta            prislov
+deležnik        p           oblika           glagol
+deležniški      p           vrsta            pridevnik
+dovršni         e           vid              glagol
+druga           2           oseba            glagol
+druga           2           oseba            zaimek
+drugi           s           vrsta            števnik
+dvojina         d           število          glagol
+dvojina         d           število          pridevnik
+dvojina         d           število          samostalnik
+dvojina         d           število          zaimek
+dvojina         d           število          števnik
+dvojina         d           število_svojine  zaimek
+dvovidski       b           vid              glagol
+ednina          s           število          glagol
+ednina          s           število          pridevnik
+ednina          s           število          samostalnik
+ednina          s           število          zaimek
+ednina          s           število          števnik
+ednina          s           število_svojine  zaimek
+glavni          m           vrsta            glagol
+glavni          c           vrsta            števnik
+imenovalnik     n           sklon            predlog
+imenovalnik     n           sklon            pridevnik
+imenovalnik     n           sklon            samostalnik
+imenovalnik     n           sklon            zaimek
+imenovalnik     n           sklon            števnik
+kazalni         d           vrsta            zaimek
+klitična        y           naslonskost      zaimek
+lastno_ime      p           vrsta            samostalnik
+mestnik         l           sklon            predlog
+mestnik         l           sklon            pridevnik
+mestnik         l           sklon            samostalnik
+mestnik         l           sklon            zaimek
+mestnik         l           sklon            števnik
+množina         p           število          glagol
+množina         p           število          pridevnik
+množina         p           število          samostalnik
+množina         p           število          zaimek
+množina         p           število          števnik
+množina         p           število_svojine  zaimek
+moški           m           spol             glagol
+moški           m           spol             pridevnik
+moški           m           spol             samostalnik
+moški           m           spol             zaimek
+moški           m           spol             števnik
+moški           m           spol_svojine     zaimek
+namenilnik      u           oblika           glagol
+navezna         b           naslonskost      zaimek
+ne              n           določnost        pridevnik
+ne              n           določnost        števnik
+ne              n           živost           samostalnik
+nedoločeno      p           stopnja          pridevnik
+nedoločeno      p           stopnja          prislov
+nedoločni       i           vrsta            zaimek
+nedoločnik      n           oblika           glagol
+nedovršni       p           vid              glagol
+nezanikani      n           nikalnost        glagol
+nikalni         z           vrsta            zaimek
+občno_ime       c           vrsta            samostalnik
+orodnik         i           sklon            predlog
+orodnik         i           sklon            pridevnik
+orodnik         i           sklon            samostalnik
+orodnik         i           sklon            zaimek
+orodnik         i           sklon            števnik
+osebni          p           vrsta            zaimek
+oziralni        r           vrsta            zaimek
+podredni        s           vrsta            veznik
+pogojnik        c           oblika           glagol
+pomožni         a           vrsta            glagol
+povratni        x           vrsta            zaimek
+presežnik       s           stopnja          pridevnik
+presežnik       s           stopnja          prislov
+prihodnjik      f           oblika           glagol
+primernik       c           stopnja          pridevnik
+primernik       c           stopnja          prislov
+priredni        c           vrsta            veznik
+program         p           vrsta            neuvrščeno
+prva            1           oseba            glagol
+prva            1           oseba            zaimek
+rimski          r           zapis            števnik
+rodilnik        g           sklon            predlog
+rodilnik        g           sklon            pridevnik
+rodilnik        g           sklon            samostalnik
+rodilnik        g           sklon            zaimek
+rodilnik        g           sklon            števnik
+sedanjik        r           oblika           glagol
+splošni         g           vrsta            pridevnik
+splošni         g           vrsta            prislov
+srednji         n           spol             glagol
+srednji         n           spol             pridevnik
+srednji         n           spol             samostalnik
+srednji         n           spol             zaimek
+srednji         n           spol             števnik
+srednji         n           spol_svojine     zaimek
+svojilni        s           vrsta            pridevnik
+svojilni        s           vrsta            zaimek
+tipkarska       t           vrsta            neuvrščeno
+tožilnik        a           sklon            predlog
+tožilnik        a           sklon            pridevnik
+tožilnik        a           sklon            samostalnik
+tožilnik        a           sklon            zaimek
+tožilnik        a           sklon            števnik
+tretja          3           oseba            glagol
+tretja          3           oseba            zaimek
+tujejezično     f           vrsta            neuvrščeno
+velelnik        m           oblika           glagol
+vprašalni       q           vrsta            zaimek
+vrstilni        o           vrsta            števnik
+zaimkovni       p           vrsta            števnik
+zanikani        y           nikalnost        glagol
+ženski          f           spol             glagol
+ženski          f           spol             pridevnik
+ženski          f           spol             samostalnik
+ženski          f           spol             zaimek
+ženski          f           spol             števnik
+ženski          f           spol_svojine     zaimek
+

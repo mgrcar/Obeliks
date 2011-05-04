@@ -4,9 +4,9 @@
  *
  *  File:    SuffixTrie.cs
  *  Desc:    Suffix trie data struct
- *  Created: Nov-2009
+ *  Created: Sep-2009
  *
- *  Author:  Miha Grcar
+ *  Authors: Miha Grcar
  *
  ***************************************************************************/
 
@@ -17,6 +17,51 @@ using Latino;
 
 namespace PosTagger
 {
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class SuffixTrieNode
+       |
+       '-----------------------------------------------------------------------
+    */
+    internal class SuffixTrieNode : ISerializable
+    {
+        public char mLetter;
+        public Set<string> mTags
+            = null;
+        public Dictionary<char, SuffixTrieNode> mChildren
+            = new Dictionary<char, SuffixTrieNode>();
+
+        public SuffixTrieNode(char letter)
+        {
+            mLetter = letter;
+        }
+
+        public SuffixTrieNode(BinarySerializer reader)
+        {
+            Load(reader); // throws ArgumentNullException, serialization-related exceptions
+        }
+
+        // *** ISerializable interface implementation ***
+
+        public void Save(BinarySerializer writer)
+        {
+            Utils.ThrowException(writer == null ? new ArgumentNullException("writer") : null);
+            // the following statements throw serialization-related exceptions 
+            writer.WriteChar(mLetter);
+            writer.WriteObject(mTags);
+            Utils.SaveDictionary(mChildren, writer);
+        }
+
+        public void Load(BinarySerializer reader)
+        {
+            Utils.ThrowException(reader == null ? new ArgumentNullException("reader") : null);
+            // the following statements throw serialization-related exceptions 
+            mLetter = reader.ReadChar();
+            mTags = reader.ReadObject<Set<string>>();
+            mChildren = Utils.LoadDictionary<char, SuffixTrieNode>(reader);
+        }
+    }
+
     /* .-----------------------------------------------------------------------
        |
        |  Class SuffixTrie
@@ -168,51 +213,6 @@ namespace PosTagger
         public void Load(BinarySerializer reader)
         {
             mRoot = new SuffixTrieNode(reader); // throws ArgumentNullException, serialization-related exceptions
-        }
-
-        /* .-----------------------------------------------------------------------
-           |
-           |  Class SuffixTrieNode
-           |
-           '-----------------------------------------------------------------------
-        */
-        private class SuffixTrieNode : ISerializable
-        {
-            public char mLetter;
-            public Set<string> mTags
-                = null;
-            public Dictionary<char, SuffixTrieNode> mChildren
-                = new Dictionary<char, SuffixTrieNode>();
-
-            public SuffixTrieNode(char letter)
-            {
-                mLetter = letter;
-            }
-
-            public SuffixTrieNode(BinarySerializer reader)
-            {
-                Load(reader); // throws ArgumentNullException, serialization-related exceptions
-            }
-
-            // *** ISerializable interface implementation ***
-
-            public void Save(BinarySerializer writer)
-            {
-                Utils.ThrowException(writer == null ? new ArgumentNullException("writer") : null);
-                // the following statements throw serialization-related exceptions 
-                writer.WriteChar(mLetter);
-                writer.WriteObject(mTags);
-                Utils.SaveDictionary(mChildren, writer);                
-            }
-
-            public void Load(BinarySerializer reader)
-            {
-                Utils.ThrowException(reader == null ? new ArgumentNullException("reader") : null);
-                // the following statements throw serialization-related exceptions 
-                mLetter = reader.ReadChar();
-                mTags = reader.ReadObject<Set<string>>();
-                mChildren = Utils.LoadDictionary<char, SuffixTrieNode>(reader);
-            }
         }
     }
 }
