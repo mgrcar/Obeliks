@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTaggerTrain", "PosTaggerTrain\PosTaggerTrain.csproj", "{F358EA0B-B204-45BD-AB96-EE1057F75585}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTagger", "PosTagger\PosTagger.csproj", "{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}"
