@@ -118,6 +118,7 @@ namespace LemmaSharp {
             info.AddValue("iMaxRulesPerNode", iMaxRulesPerNode);
             info.AddValue("bBuildFrontLemmatizer", bBuildFrontLemmatizer);
             info.AddValue("bStoreAllFullKnownWords", bStoreAllFullKnownWords);
+            info.AddValue("bUseMsdSplitTreeOptimization", bUseMsdSplitTreeOptimization);
         }
         public LemmatizerSettings(SerializationInfo info, StreamingContext context) {
             bUseFromInRules = info.GetBoolean("bUseFromInRules");
@@ -125,6 +126,7 @@ namespace LemmaSharp {
             iMaxRulesPerNode = info.GetInt32("iMaxRulesPerNode");
             bBuildFrontLemmatizer = info.GetBoolean("bBuildFrontLemmatizer");
             bStoreAllFullKnownWords = info.GetBoolean("bStoreAllFullKnownWords");
+            bUseMsdSplitTreeOptimization = info.GetBoolean("bUseMsdSplitTreeOptimization");
         }
 
         #endregion
@@ -136,6 +138,7 @@ namespace LemmaSharp {
             binWrt.Write(iMaxRulesPerNode);
             binWrt.Write(bBuildFrontLemmatizer);
             binWrt.Write(bStoreAllFullKnownWords);
+            binWrt.Write(bUseMsdSplitTreeOptimization);
         }
         public void Deserialize(BinaryReader binRead) {
             bUseFromInRules = binRead.ReadBoolean();
@@ -143,6 +146,7 @@ namespace LemmaSharp {
             iMaxRulesPerNode = binRead.ReadInt32();
             bBuildFrontLemmatizer = binRead.ReadBoolean();
             bStoreAllFullKnownWords = binRead.ReadBoolean();
+            bUseMsdSplitTreeOptimization = binRead.ReadBoolean();
         }
         public LemmatizerSettings(System.IO.BinaryReader binRead) {
             this.Deserialize(binRead);
@@ -159,6 +163,7 @@ namespace LemmaSharp {
             binWrt.WriteInt(iMaxRulesPerNode);
             binWrt.WriteBool(bBuildFrontLemmatizer);
             binWrt.WriteBool(bStoreAllFullKnownWords);
+            binWrt.WriteBool(bUseMsdSplitTreeOptimization);
         }
 
         public void Load(Latino.BinarySerializer binRead) {
@@ -167,13 +172,14 @@ namespace LemmaSharp {
             iMaxRulesPerNode = binRead.ReadInt();
             bBuildFrontLemmatizer = binRead.ReadBool();
             bStoreAllFullKnownWords = binRead.ReadBool();
+            bUseMsdSplitTreeOptimization = binRead.ReadBool();
         }
 
         public LemmatizerSettings(Latino.BinarySerializer reader) {
             Load(reader);
         }
 
-#endif
+        #endif
 
         #endregion
 

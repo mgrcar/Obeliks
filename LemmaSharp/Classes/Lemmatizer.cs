@@ -141,6 +141,11 @@ namespace LemmaSharp {
         public void FinalizeAdditions() {
             elExamples.FinalizeAdditions();
         }
+        public void OptimizeMemorySize() {
+            DropExamples();
+            if (msdSplitTree != null)
+                msdSplitTree.CleanStructure(true, true);
+        }
 
         #endregion
         #region Essential Class Functions (building model & lemmatizing)
@@ -248,13 +253,13 @@ namespace LemmaSharp {
         #region Serialization Functions (ISerializable)
 
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
-            info.AddValue("lsett", lsett);
-            info.AddValue("elExamples", elExamples);
+            //info.AddValue("lsett", lsett);
+            //info.AddValue("elExamples", elExamples);
         }
         public Lemmatizer(SerializationInfo info, StreamingContext context): this() {
-            lsett = (LemmatizerSettings)info.GetValue("lsett", typeof(LemmatizerSettings));
-            elExamples = (ExampleList)info.GetValue("elExamples", typeof(ExampleList));
-            this.BuildModel();
+            //lsett = (LemmatizerSettings)info.GetValue("lsett", typeof(LemmatizerSettings));
+            //elExamples = (ExampleList)info.GetValue("elExamples", typeof(ExampleList));
+            //this.BuildModel();
         }
 
         #endregion
@@ -274,6 +279,10 @@ namespace LemmaSharp {
             ltnRootNode.Serialize(binWrt);
             if (lsett.bBuildFrontLemmatizer)
                 ltnRootNodeFront.Serialize(binWrt);
+
+            bool bMsdSplitTreePresent = (msdSplitTree != null);
+            binWrt.Write(bMsdSplitTreePresent);
+            if (bMsdSplitTreePresent) msdSplitTree.Serialize(binWrt);
         }
         public void Deserialize(BinaryReader binRead) {
             lsett = new LemmatizerSettings(binRead);
@@ -291,18 +300,24 @@ namespace LemmaSharp {
             else {
                 elExamplesRear = new ExampleList(binRead, lsett);
                 elExamplesFront = new ExampleList(binRead, lsett);
-            }                
+            }
 
             if (!lsett.bBuildFrontLemmatizer) {
                 ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamples, null);
             }
             else {
-                ltnRootNode = new LemmaTreeNode(binRead, lsett,  elExamplesRear, null);
+                ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamplesRear, null);
                 ltnRootNodeFront = new LemmaTreeNode(binRead, lsett, elExamplesFront, null);
             }
+
+            bool bMsdSplitTreePresent = binRead.ReadBoolean();
+            if (bMsdSplitTreePresent)
+                msdSplitTree = new MsdSplitTree(binRead);
+            else
+                msdSplitTree = null;
         }
 
-        //Do not change the order!!! (If new compression algorithms are added, otherwise you will not be able to load old files.)
+        //Do not change the order, if new compression algorithms are added, otherwise you will not be able to load old files!!!
         public enum Compression {
             None,
             Deflate,
@@ -451,53 +466,57 @@ namespace LemmaSharp {
         }
 
         #endregion
-
         #region Serialization Functions (Latino)
         
         #if LATINO
-
-        public void Save(Latino.BinarySerializer binWrt) {
-            lsett.Save(binWrt);
-            
-            elExamples.Save(binWrt, true, false);
-
-            ltnRootNode.Save(binWrt);
-            if (lsett.bBuildFrontLemmatizer)
-                ltnRootNodeFront.Save(binWrt);
-        }
-
-        public void Load(Latino.BinarySerializer binRead) {
-            lsett = new LemmatizerSettings(binRead);
-            elExamples = new ExampleList(binRead, lsett);
-            if (!lsett.bBuildFrontLemmatizer) {
-                ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamples, null);
-            }
-            else {
-                ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamples.GetFrontRearExampleList(false) , null);
-                ltnRootNodeFront = new LemmaTreeNode(binRead, lsett, elExamples.GetFrontRearExampleList(true), null);
-            }               
-        }
-
-        public Lemmatizer(Latino.BinarySerializer binRead) {
-            Load(binRead);
-        }
 
         public void Save(Stream streamOut) {
             Latino.BinarySerializer binWrt = new Latino.BinarySerializer(streamOut);
             this.Save(binWrt);
             binWrt.Close();
         }
+        public void Save(Latino.BinarySerializer binWrt) {
+            Save(binWrt, true, Compression.None);
+        }
+        public void Save(Latino.BinarySerializer binWrt, bool bSerializeExamples, Compression compress) {
+            Serialize(binWrt.Stream, bSerializeExamples, Compression.None);
+
+            //lsett.Save(binWrt);
+            
+            //elExamples.Save(binWrt, true, false);
+
+            //ltnRootNode.Save(binWrt);
+            //if (lsett.bBuildFrontLemmatizer)
+            //    ltnRootNodeFront.Save(binWrt);
+        }
+
         public void Load(Stream streamIn) {
             Latino.BinarySerializer binRead = new Latino.BinarySerializer(streamIn);
             Load(binRead);
             binRead.Close();
         }
+        public void Load(Latino.BinarySerializer binRead) {
+            Deserialize(binRead.Stream);
+
+            //lsett = new LemmatizerSettings(binRead);
+            //elExamples = new ExampleList(binRead, lsett);
+            //if (!lsett.bBuildFrontLemmatizer) {
+            //    ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamples, null);
+            //}
+            //else {
+            //    ltnRootNode = new LemmaTreeNode(binRead, lsett, elExamples.GetFrontRearExampleList(false) , null);
+            //    ltnRootNodeFront = new LemmaTreeNode(binRead, lsett, elExamples.GetFrontRearExampleList(true), null);
+            //}               
+        }
 
         public Lemmatizer(Stream streamIn, string sDummy) {
             Load(streamIn);
         }
+        public Lemmatizer(Latino.BinarySerializer binRead) {
+            Load(binRead);
+        }
 
-#endif
+        #endif
 
         #endregion
 

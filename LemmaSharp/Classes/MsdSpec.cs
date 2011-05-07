@@ -20,52 +20,36 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace LemmaSharp {
+    [Serializable()]
     public class MsdSpec {
         #region SubClass Definitions
         
         public class Type {
-            public string Name { get { return nameSlo; } }
-            public char Code { get { return codeEng; } }
-
-            public string nameSlo;
-            public char codeSlo;
-            public string nameEng;
-            public char codeEng;
-            public int attrNum;
+            public string Name;
+            public char Code;
+            public int Attrs;
         }
         public class Attr {
-            public string Name { get { return nameSlo; } }
-            public string Type { get { return typeSlo; } }
-            public int Pos { get { return attrPos; } }
-
-            public string nameSlo;
-            public string typeSlo;
-            public string nameEng;
-            public string typeEng;
-            public int attrPos;
+            public string Name;
+            public string Type;
+            public int Pos;
         }
 
         public class Value {
-            public string Name { get { return nameSlo; } }
-            public char Code { get { return codeEng; } }
-            public string Attr { get { return attrSlo; } }
-            public string Type { get { return typeSlo; } }
-
-            public string nameSlo;
-            public char codeSlo;
-            public string attrSlo;
-            public string typeSlo;
-            public string nameEng;
-            public char codeEng;
-            public string attrEng;
-            public string typeEng;
+            public string Name;
+            public char Code;
+            public string Attr;
+            public string Type;
         } 
 
         #endregion
 
         #region Variables
+
+        private string definition;
 
         Type[] Types;
         Attr[] Attrs;
@@ -94,15 +78,20 @@ namespace LemmaSharp {
         #region Constructor and Related Functions
 		
         public MsdSpec(string definition) {
-            string[] definitionLines = definition.Split(new string[] { "\r\n", "\n" },StringSplitOptions.None);
-            LoadFromDefinition(definitionLines);
+            ConstructFromDefinitionString(definition);
+        }
+
+        private void ConstructFromDefinitionString(string definition) {
+            this.definition = definition;
+            string[] definitionLines = definition.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
+            LoadTablesFromDefinition(definitionLines);
             AddCategoryAttribute();
             ConstructTypeDicts();
             ConstructAttrDicts();
             ConstructValueDicts();
         }
 
-        private void LoadFromDefinition(string[] definitionLines) {
+        private void LoadTablesFromDefinition(string[] definitionLines) {
             List<Type> typesList = new List<Type>();
             List<Attr> attrsList = new List<Attr>();
             List<Value> valuesList = new List<Value>();
@@ -124,13 +113,13 @@ namespace LemmaSharp {
                     string[] elements = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                     switch (tableId) {
                         case 1:
-                            typesList.Add(new Type() { nameSlo = elements[0], codeEng = elements[1][0], attrNum = int.Parse(elements[2]) });
+                            typesList.Add(new Type() { Name = elements[0], Code = elements[1][0], Attrs = int.Parse(elements[2]) });
                             break;
                         case 2:
-                            attrsList.Add(new Attr() { nameSlo = elements[0], typeSlo = elements[1], attrPos = int.Parse(elements[2]) });
+                            attrsList.Add(new Attr() { Name = elements[0], Type = elements[1], Pos = int.Parse(elements[2]) });
                             break;
                         case 3:
-                            valuesList.Add(new Value() { nameSlo = elements[0], codeEng = elements[1][0], attrSlo = elements[2], typeSlo = elements[3] });
+                            valuesList.Add(new Value() { Name = elements[0], Code = elements[1][0], Attr = elements[2], Type = elements[3] });
                             break;
                     }
                 }
@@ -145,8 +134,8 @@ namespace LemmaSharp {
 
             //add base msd class also as an attrbute
             foreach (Type type in Types) {
-                newAttrs.Add(new Attr() { nameSlo = "Razred", typeSlo = type.nameSlo, nameEng = "Class", typeEng = type.nameEng, attrPos = 0 });
-                newValues.Add(new Value() { nameSlo = type.nameSlo, attrSlo = "Razred", typeSlo = type.nameSlo, nameEng = type.nameEng, attrEng = "Class", typeEng = type.nameEng, codeEng = type.codeEng, codeSlo = type.codeSlo });
+                newAttrs.Add(new Attr() { Name = "Class", Type = type.Name, Pos = 0 });
+                newValues.Add(new Value() { Name = type.Name, Attr = "Class", Type = type.Name, Code = type.Code });
             }
             Attrs = newAttrs.ToArray();
             Values = newValues.ToArray();
@@ -278,6 +267,21 @@ namespace LemmaSharp {
                 throw new Exception("The attribute-type-valueCode combiantion specified in msd is not predefined");
 
             return valueCode;
+        }
+
+        #endregion
+
+        #region Serialization Functions (Binary)
+
+        public void Serialize(BinaryWriter binWrt) {
+            binWrt.Write(definition);
+        }
+        public void Deserialize(BinaryReader binRead) {
+            string definition = binRead.ReadString();
+            ConstructFromDefinitionString(definition);
+        }
+        public MsdSpec(BinaryReader binRead) {
+            Deserialize(binRead);
         }
 
         #endregion

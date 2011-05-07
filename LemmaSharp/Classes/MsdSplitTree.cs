@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace LemmaSharp {
     // TODO this class need to be refractioned since it was assabled from staic methods and does not realy use OO principles.
@@ -170,8 +171,9 @@ namespace LemmaSharp {
             if (beamSplits.Count == 1) return beamSplits[0];
 
             beamSplits.Sort(CompareTreesRecurSizeAsc);
-            beamSplits[0].beamSiblings = beamSplits;
-            return beamSplits[0];
+            MsdSplitTree best = beamSplits[0];
+            best.beamSiblings = beamSplits;
+            return best;
         }
         private static Dictionary<char, MsdSplitTree> RecursiveSplit(MsdSplitTree bestTree, MsdSpec msdSpec, int level, BeamSearchParams beamParams) {
             Dictionary<char, MsdSplitTree> newSubTrees = new Dictionary<char, MsdSplitTree>();
@@ -383,6 +385,16 @@ namespace LemmaSharp {
             return ret;
         }
 
+        public void CleanStructure(bool bDropExamples, bool bDropBeamSiblings) {
+            if (bDropExamples) exampleList = null;
+            if (bDropBeamSiblings) beamSiblings = null;
+            if (subTrees != null) {
+                foreach (KeyValuePair<char, MsdSplitTree> kvp in subTrees) {
+                    kvp.Value.CleanStructure(bDropExamples, bDropBeamSiblings);
+                }
+            }
+        }
+
         public string TransformMsd(string msd) {
             if (subTrees == null)
                 return "";
@@ -401,5 +413,157 @@ namespace LemmaSharp {
                 return thisTransform + subTreeTransform;
             }
         }
+
+        #region Serialization Functions (Binary)
+
+        public void Serialize(BinaryWriter binWrt) {
+            bool msdSpecExists = msdSpec != null;
+            binWrt.Write(msdSpecExists);
+            if (msdSpecExists)
+            msdSpec.Serialize(binWrt);
+
+            Dictionary<LemmaExample, int> exampleMapping = new Dictionary<LemmaExample, int>();
+
+            if (exampleList == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(exampleList.Count);
+                int leId = 0;
+                foreach (LemmaExample le in exampleList) {
+                    le.Serialize(binWrt, false);
+                    exampleMapping[le] = leId++;
+                }
+            }
+
+            Serialize(binWrt, exampleMapping);
+        }
+        private void Serialize(BinaryWriter binWrt, Dictionary<LemmaExample, int> exampleMapping) {
+            binWrt.Write(attrId);
+
+            if (exampleList == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(exampleList.Count);
+                foreach (LemmaExample le in exampleList) {
+                    binWrt.Write(exampleMapping[le]);
+                }
+            }
+
+            binWrt.Write(ambigThis);
+            binWrt.Write(ambigChild);
+            binWrt.Write(ambigRecurs);
+            binWrt.Write(subTreeSizeRecurs);
+
+            if (subTrees == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(subTrees.Count);
+                foreach (KeyValuePair<char, MsdSplitTree> kvp in subTrees) {
+                    binWrt.Write(kvp.Key);
+                    kvp.Value.Serialize(binWrt, exampleMapping);
+                }
+            }
+
+            if (beamSiblings == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(beamSiblings.Count);
+                foreach (MsdSplitTree mst in beamSiblings) {
+                    if (mst == this)
+                        binWrt.Write(true);
+                    if (mst != this) {
+                        binWrt.Write(false);
+                        mst.Serialize(binWrt, exampleMapping);
+                    }
+                }
+            }
+
+        }
+
+        public void Deserialize(BinaryReader binRead) {
+            bool msdSpecExists = binRead.ReadBoolean();
+            if (!msdSpecExists)
+                msdSpec = null;
+            else
+                msdSpec = new MsdSpec(binRead);
+
+            Dictionary<int, LemmaExample> exampleMapping = new Dictionary<int, LemmaExample>();
+
+            int exampleListCount = binRead.ReadInt32();
+            if (exampleListCount < 0)
+                exampleList = null;
+            else {
+                exampleList = new List<LemmaExample>(exampleListCount);
+                for (int leId = 0; leId < exampleListCount; leId++) {
+                    LemmaExample le = new LemmaExample(binRead, null, null);
+                    exampleMapping[leId] = le;
+                    exampleList.Add(le);
+                }
+            }
+
+            Deserialize(binRead, exampleMapping, msdSpec);
+        }
+        private void Deserialize(BinaryReader binRead, Dictionary<int, LemmaExample> exampleMapping, MsdSpec msdSpec) {
+            this.msdSpec = msdSpec;
+
+            attrId = binRead.ReadInt32();
+
+            int exampleListCount = binRead.ReadInt32();
+            if (exampleListCount < 0)
+                exampleList = null;
+            else {
+                exampleList = new List<LemmaExample>(exampleListCount);
+                for (int i = 0; i < exampleListCount; i++) {
+                    int leId = binRead.ReadInt32();
+                    LemmaExample le = exampleMapping[leId];
+                    exampleList.Add(le);
+                }
+            }
+
+            ambigThis = binRead.ReadDouble();
+            ambigChild = binRead.ReadDouble();
+            ambigRecurs = binRead.ReadDouble();
+            subTreeSizeRecurs = binRead.ReadInt32();
+
+            int subTreesCount = binRead.ReadInt32();
+            if (subTreesCount < 0)
+                subTrees = null;
+            else {
+                subTrees = new Dictionary<char, MsdSplitTree>();
+                for (int i = 0; i < subTreesCount; i++) {
+                    char key = binRead.ReadChar();
+                    MsdSplitTree mst = new MsdSplitTree(binRead, exampleMapping, msdSpec);
+                    subTrees.Add(key, mst);
+                }
+            }
+
+            int beamSiblingsCount = binRead.ReadInt32();
+            if (beamSiblingsCount < 0)
+                beamSiblings = null;
+            else {
+                beamSiblings = new List<MsdSplitTree>(beamSiblingsCount);
+                for (int i = 0; i < beamSiblingsCount; i++) {
+                    bool bThisTree = binRead.ReadBoolean();
+                    if (bThisTree)
+                        beamSiblings.Add(this);
+                    else {
+                        MsdSplitTree mst = new MsdSplitTree(binRead, exampleMapping, msdSpec);
+                        beamSiblings.Add(mst);
+                    }
+                }
+            }
+
+        }
+        
+        
+        public MsdSplitTree(BinaryReader binRead) {
+            Deserialize(binRead);
+        }
+
+        private MsdSplitTree(BinaryReader binRead, Dictionary<int, LemmaExample> exampleMapping, MsdSpec msdSpec) {
+            Deserialize(binRead, exampleMapping, msdSpec);
+        }
+
+        #endregion
     }
 }

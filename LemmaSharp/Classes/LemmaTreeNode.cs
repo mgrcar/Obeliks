@@ -469,6 +469,11 @@ namespace LemmaSharp {
         #region Serialization Functions (Binary)
 
         public void Serialize(BinaryWriter binWrt) {
+            //next variables are not serialized since serialization is handeled one level above (in a lemmatizer)
+            //  - lsett
+            //  - elExamples
+            //  - ltnParentNode
+
             binWrt.Write(dictSubNodes != null);
             if (dictSubNodes != null) {
                 binWrt.Write(dictSubNodes.Count);
@@ -489,6 +494,36 @@ namespace LemmaSharp {
                 binWrt.Write(aBestRules[i].Weight);
             }
             binWrt.Write(dWeight);
+
+            //serialize dictMsdBestRules dictionary
+            if (dictMsdBestRules == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(dictMsdBestRules.Count);
+                foreach (KeyValuePair<string, RuleWeighted[]> rules in dictMsdBestRules) {
+                    binWrt.Write(rules.Key);
+                    if (rules.Value == null)
+                        binWrt.Write(-1);
+                    else {
+                        binWrt.Write(rules.Value.Length);
+                        foreach (RuleWeighted rule in rules.Value) {
+                            binWrt.Write(rule.Rule.Signature);
+                            binWrt.Write(rule.Weight);
+                        }
+                    }
+                }
+            }
+
+            //serialize dictMsdWeights dictionary
+            if (dictMsdWeights == null)
+                binWrt.Write(-1);
+            else {
+                binWrt.Write(dictMsdWeights.Count);
+                foreach (KeyValuePair<string, double> msdWeight in dictMsdWeights) {
+                    binWrt.Write(msdWeight.Key);
+                    binWrt.Write(msdWeight.Value);
+                }
+            }
 
             binWrt.Write(iStart);
             binWrt.Write(iEnd);
@@ -522,6 +557,44 @@ namespace LemmaSharp {
                 aBestRules[i] = new RuleWeighted(elExamples.Rules[binRead.ReadString()], binRead.ReadDouble());
 
             dWeight = binRead.ReadDouble();
+
+            //deserialize dictMsdBestRules dictionary
+            int dictMsdBestRulesCount = binRead.ReadInt32();
+            if (dictMsdBestRulesCount == -1)
+                dictMsdBestRules = null;
+            else {
+                dictMsdBestRules = new Dictionary<string, RuleWeighted[]>();
+                for (int msdId = 0; msdId < dictMsdBestRulesCount; msdId++) {
+                    string sMsd = binRead.ReadString();
+                    RuleWeighted[] lRuleWeighted;
+                    int ruleWeightedCount = binRead.ReadInt32();
+                    if (ruleWeightedCount == -1)
+                        lRuleWeighted = null;
+                    else {
+                        lRuleWeighted = new RuleWeighted[ruleWeightedCount];
+                        for (int ruleId = 0; ruleId < ruleWeightedCount; ruleId++) {
+                            string ruleSignature = binRead.ReadString();
+                            double ruleWeight = binRead.ReadDouble();
+                            LemmaRule rule = elExamples.Rules[ruleSignature];
+                            lRuleWeighted[ruleId] = new RuleWeighted(rule, ruleWeight);
+                        }
+                    }
+                    dictMsdBestRules.Add(sMsd, lRuleWeighted);
+                }
+            }
+
+            //deserialize dictMsdWeights dictionary
+            int dictMsdWeightsCount = binRead.ReadInt32();
+            if (dictMsdWeightsCount == -1)
+                dictMsdWeights = null;
+            else {
+                dictMsdWeights = new Dictionary<string, double>();
+                for (int msdId = 0; msdId < dictMsdWeightsCount; msdId++) {
+                    string sMsd = binRead.ReadString();
+                    double dMsdWeight = binRead.ReadDouble();
+                    dictMsdWeights.Add(sMsd, dMsdWeight);
+                }
+            }
 
             iStart = binRead.ReadInt32();
             iEnd = binRead.ReadInt32();
