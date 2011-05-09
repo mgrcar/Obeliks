@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -33,12 +33,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Corpus.cs" />
     <Compile Include="MetaTaggerData.cs" />
+    <Compile Include="PatriciaTree.cs">
+    </Compile>
     <Compile Include="SsjTokenizer.cs" />
     <Compile Include="SuffixTrie.cs" />
   </ItemGroup>
