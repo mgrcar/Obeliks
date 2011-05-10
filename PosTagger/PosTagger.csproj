@@ -45,7 +45,6 @@
     <Compile Include="PatriciaTree.cs">
     </Compile>
     <Compile Include="SsjTokenizer.cs" />
-    <Compile Include="SuffixTrie.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">

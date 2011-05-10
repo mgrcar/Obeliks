@@ -115,6 +115,7 @@ namespace PosTagger
                         return false;
                     }
                 }
+                // other cases
                 else
                 {
                     return false;
@@ -147,6 +148,7 @@ namespace PosTagger
                         return this;
                     }
                 }
+                // other cases
                 else
                 {
                     return this;
