@@ -44,7 +44,7 @@ namespace PosTagger
         {
             public string mSubstr
                 = "*";
-            public ArrayList<string> mTags
+            public ArrayList<ushort> mTags
                 = null;
             public ArrayList<Node> mChildren
                 = null;
@@ -58,9 +58,9 @@ namespace PosTagger
                 Load(reader);
             }
 
-            public void AddTag(string tag)
+            public void AddTag(ushort tag)
             {
-                if (mTags == null) { mTags = new ArrayList<string>(new string[] { tag }); }
+                if (mTags == null) { mTags = new ArrayList<ushort>(new ushort[] { tag }); }
                 else if (!mTags.Contains(tag)) { mTags.Add(tag); }
             }
 
@@ -155,7 +155,7 @@ namespace PosTagger
                 }
             }
 
-            public bool Insert(string substr, string tag)
+            public bool Insert(string substr, ushort tag)
             {
                 if (substr.StartsWith(mSubstr))
                 {
@@ -200,7 +200,7 @@ namespace PosTagger
                         // second child
                         Node child2 = new Node();
                         child2.mSubstr = substr.Substring(prefixLen);
-                        child2.mTags = new ArrayList<string>(new string[] { tag });
+                        child2.mTags = new ArrayList<ushort>(new ushort[] { tag });
                         // this node
                         mTags = null;
                         mChildren = new ArrayList<Node>(new Node[] { child1, child2 });
@@ -215,7 +215,7 @@ namespace PosTagger
                 }
             }
 
-            public void CollectTags(Set<string> tags)
+            public void CollectTags(Set<ushort> tags)
             {
                 if (mTags != null) { tags.AddRange(mTags); }
                 if (mChildren != null)
@@ -227,10 +227,10 @@ namespace PosTagger
                 }
             }
 
-            public IEnumerable<string> PropagateTags()
+            public IEnumerable<ushort> PropagateTags()
             {
                 if (mTags != null) { return mTags; }
-                Set<string> tags = new Set<string>();
+                Set<ushort> tags = new Set<ushort>();
                 if (mChildren != null)
                 {
                     foreach (Node child in mChildren)
@@ -238,7 +238,7 @@ namespace PosTagger
                         tags.AddRange(child.PropagateTags());
                     }
                 }
-                mTags = new ArrayList<string>(tags);
+                mTags = new ArrayList<ushort>(tags);
                 return tags;
             }
 
@@ -254,10 +254,15 @@ namespace PosTagger
             public void Load(BinarySerializer reader)
             {
                 mSubstr = reader.ReadString();
-                mTags = reader.ReadObject<ArrayList<string>>();
+                mTags = reader.ReadObject<ArrayList<ushort>>();
                 mChildren = reader.ReadObject<ArrayList<Node>>();
             }
         }
+
+        private Dictionary<string, ushort> mTagToIdMap
+            = new Dictionary<string, ushort>();
+        private ArrayList<string> mIdToTagMap
+            = new ArrayList<string>();
 
         private Node mRoot
             = new Node();
@@ -278,10 +283,26 @@ namespace PosTagger
             return revStr;
         }
 
+        private ushort GetId(string tag)
+        {
+            ushort id;
+            if (mTagToIdMap.TryGetValue(tag, out id))
+            {
+                return id;
+            }
+            else
+            {
+                id = (ushort)mIdToTagMap.Count;
+                mIdToTagMap.Add(tag);
+                mTagToIdMap.Add(tag, id);
+                return id;
+            }
+        }
+
         public bool AddWordTagPair(string word, string tag)
         {
             word = "*" + Reverse(word) + (char)0;
-            return mRoot.Insert(word, tag);
+            return mRoot.Insert(word, GetId(tag));
         }
 
         public bool Contains(string word)
@@ -290,19 +311,32 @@ namespace PosTagger
             return mRoot.Contains(word);
         }
 
+        private Set<string> Convert(IEnumerable<ushort> tagIds)
+        {
+            Set<string> tags = new Set<string>();
+            foreach (ushort id in tagIds)
+            {
+                if (id >= 0 && id < mIdToTagMap.Count)
+                {
+                    tags.Add(mIdToTagMap[id]);
+                }
+            }
+            return tags;
+        }
+
         public Set<string> GetTags(string word)
         {
             word = "*" + Reverse(word) + (char)0;
             Node node = mRoot.GetNode(word);
             if (node.mTags != null)
             {
-                return new Set<string>(node.mTags);
+                return Convert(node.mTags);
             }
             else
             {
-                Set<string> tags = new Set<string>();
+                Set<ushort> tags = new Set<ushort>();
                 node.CollectTags(tags);
-                return tags;
+                return Convert(tags);
             }
         }
 
@@ -340,11 +374,18 @@ namespace PosTagger
         public void Save(BinarySerializer writer)
         {
             mRoot.Save(writer);
+            mIdToTagMap.Save(writer);
         }
 
         public void Load(BinarySerializer reader)
         {
             mRoot.Load(reader);
+            mIdToTagMap.Load(reader);
+            mTagToIdMap.Clear();
+            for (int i = 0; i < mIdToTagMap.Count; i++)
+            {
+                mTagToIdMap.Add(mIdToTagMap[i], (ushort)i);
+            }
         }
     }
 }
