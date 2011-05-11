@@ -1,6 +1,14 @@
 /*==========================================================================;
  *
- *  This file is part of SSJ software. See http://www.slovenscina.eu
+ *  Projekt Sporazumevanje v slovenskem jeziku: 
+ *    http://www.slovenscina.eu/Vsebine/Sl/Domov/Domov.aspx
+ *  Project Communication in Slovene: 
+ *    http://www.slovenscina.eu/Vsebine/En/Domov/Domov.aspx
+ *    
+ *  Avtorske pravice za to izdajo programske opreme ureja licenca 
+ *    Priznanje avtorstva-Nekomercialno-Brez predelav 2.5
+ *  This work is licenced under the Creative Commons 
+ *    Attribution-NonCommercial-NoDerivs 2.5 licence
  *
  *  File:    SsjTokenizer.cs
  *  Desc:    Rule-based tokenizer for Slovene

@@ -1,15 +1,15 @@
 ﻿/*==========================================================================;
  *
- *  Avtorske pravice za to izdajo programske opreme ureja licenca 
- *    Priznanje avtorstva-Nekomercialno-Brez predelav 2.5
- *  This work is licenced under the Creative Commons 
- *    Attribution-NonCommercial-NoDerivs 2.5 licence
- *
  *  Projekt Sporazumevanje v slovenskem jeziku: 
  *    http://www.slovenscina.eu/Vsebine/Sl/Domov/Domov.aspx
  *  Project Communication in Slovene: 
  *    http://www.slovenscina.eu/Vsebine/En/Domov/Domov.aspx
- *
+ *    
+ *  Avtorske pravice za to izdajo programske opreme ureja licenca 
+ *    Priznanje avtorstva-Nekomercialno-Brez predelav 2.5
+ *  This work is licenced under the Creative Commons 
+ *    Attribution-NonCommercial-NoDerivs 2.5 licence
+ *    
  *  File:    PatriciaTree.cs
  *  Desc:    Memory-efficient suffix tree implementation
  *  Created: May-2011
@@ -19,9 +19,7 @@
  ***************************************************************************/
 
 using System;
-using System.Text;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Latino;
 
 namespace PosTagger
@@ -55,7 +53,7 @@ namespace PosTagger
 
             public Node(BinarySerializer reader)
             {
-                Load(reader);
+                Load(reader); 
             }
 
             public void AddTag(ushort tag)
@@ -273,7 +271,7 @@ namespace PosTagger
 
         public PatriciaTree(BinarySerializer reader)
         {
-            Load(reader);
+            Load(reader); // throws ArgumentNullException, serialization-related exceptions
         }
 
         private string Reverse(string str)
@@ -301,12 +299,15 @@ namespace PosTagger
 
         public bool AddWordTagPair(string word, string tag)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
+            Utils.ThrowException(tag == null ? new ArgumentNullException("tag") : null); 
             word = "*" + Reverse(word) + (char)0;
             return mRoot.Insert(word, GetId(tag));
         }
 
         public bool Contains(string word)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
             word = "*" + Reverse(word) + (char)0;
             return mRoot.Contains(word);
         }
@@ -326,6 +327,7 @@ namespace PosTagger
 
         public Set<string> GetTags(string word)
         {
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
             word = "*" + Reverse(word) + (char)0;
             Node node = mRoot.GetNode(word);
             if (node.mTags != null)
@@ -360,7 +362,7 @@ namespace PosTagger
 
         public string GetAmbiguityClass(string word)
         {
-            Set<string> tags = GetTags(word);
+            Set<string> tags = GetTags(word); // throws ArgumentNullException
             return GetAmbiguityClass(tags);
         }
 
@@ -373,12 +375,16 @@ namespace PosTagger
 
         public void Save(BinarySerializer writer)
         {
+            Utils.ThrowException(writer == null ? new ArgumentNullException("writer") : null);
+            // the following statements throw serialization-related exceptions
             mRoot.Save(writer);
             mIdToTagMap.Save(writer);
         }
 
         public void Load(BinarySerializer reader)
         {
+            Utils.ThrowException(reader == null ? new ArgumentNullException("reader") : null);
+            // the following statements throw serialization-related exceptions
             mRoot.Load(reader);
             mIdToTagMap.Load(reader);
             mTagToIdMap.Clear();
