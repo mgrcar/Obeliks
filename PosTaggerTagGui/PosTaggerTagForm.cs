@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Threading;
 using Latino;
 using PosTagger;
+using System.Drawing;
 
 namespace PosTaggerTagGui
 {
@@ -56,24 +57,35 @@ namespace PosTaggerTagGui
         }
 
         private void DisableForm()
-        { 
+        {
+            btnCancel.Enabled = true;
+            btnCancel.Focus();
+            foreach (Control ctrl in new Control[] { btnBrowseTextFile, btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnBrowseOutputFile, btnTag })
+            {
+                ctrl.Enabled = false;
+            }
+            foreach (TextBox ctrl in new TextBox[] { txtTextFile, txtTaggerFile, txtLemmatizerFile, txtOutputFile })
+            {
+                ctrl.ReadOnly = true;
+                ctrl.BackColor = SystemColors.Control;
+            }
         }
 
         private void EnableForm()
-        { 
-        }
-
-        private void button1_Click(object sender, System.EventArgs e)
         {
-            DisableForm();
-            txtStatus.Clear();
-            mThread = new Thread(new ThreadStart(delegate()
+            btnTag.Enabled = true;
+            btnTag.Focus();
+            btnCancel.Enabled = false;
+            foreach (Control ctrl in new Control[] { btnBrowseTextFile, btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnBrowseOutputFile })
             {
-                PosTaggerTag.Tag(new string[] { "-v", "-k", "-xml", @"-lem:C:\Work\PosTagger\Data\lemmatizer.bin", @"C:\Work\PosTagger\Data\jos100k-test.xml",
-                    @"C:\Work\PosTagger\Data\jos100k-train.bin", @"C:\Work\PosTagger\Data\output.xml" });
-                Invoke(new ThreadStart(delegate() { EnableForm(); }));
-            }));
-            mThread.Start();
+                ctrl.Enabled = true;
+            }
+            foreach (TextBox ctrl in new TextBox[] { txtTextFile, txtTaggerFile, txtLemmatizerFile })
+            {
+                ctrl.ReadOnly = false;
+                ctrl.BackColor = Color.FromKnownColor(KnownColor.White);
+            }
+            txtOutputFile.BackColor = Color.FromKnownColor(KnownColor.LightYellow);
         }
 
         private void PosTaggerTagForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -83,6 +95,19 @@ namespace PosTaggerTagGui
                 mThread.Abort();
             }
             catch { }
+        }
+
+        private void btnTag_Click(object sender, EventArgs e)
+        {
+            DisableForm();
+            txtStatus.Clear();
+            mThread = new Thread(new ThreadStart(delegate()
+            {
+                PosTaggerTag.Tag(new string[] { "-v", "-k", "-xml", @"-lem:C:\Work\PosTagger\Data\lemmatizer.bin", @"C:\Work\PosTagger\Data\jos100k-test.xml",
+                    @"C:\Work\PosTagger\Data\jos100k-train.bin", @"C:\Work\PosTagger\Data\output.xml" });
+                Invoke(new ThreadStart(delegate() { progressBar.Visible = false; EnableForm(); }));
+            }));
+            mThread.Start();
         }
     }
 }
