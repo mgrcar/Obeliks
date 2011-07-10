@@ -28,37 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosTaggerTagForm));
             this.pnlSplit = new System.Windows.Forms.TableLayoutPanel();
             this.grpStatus = new System.Windows.Forms.GroupBox();
             this.pnlStatus = new System.Windows.Forms.Panel();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.grpSettings = new System.Windows.Forms.GroupBox();
-            this.pnlSettings = new System.Windows.Forms.TableLayoutPanel();
-            this.lblEnterTextFile = new System.Windows.Forms.Label();
-            this.btnBrowseTextFile = new System.Windows.Forms.Button();
-            this.txtTextFile = new System.Windows.Forms.TextBox();
-            this.lblEnterTaggerFile = new System.Windows.Forms.Label();
+            this.grpModels = new System.Windows.Forms.GroupBox();
+            this.pnlModels = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTaggerFile = new System.Windows.Forms.Label();
             this.txtTaggerFile = new System.Windows.Forms.TextBox();
-            this.btnBrowseTaggerFile = new System.Windows.Forms.Button();
             this.txtLemmatizerFile = new System.Windows.Forms.TextBox();
-            this.btnBrowseLemmatizerFile = new System.Windows.Forms.Button();
-            this.lblEnterLemmatizerFile = new System.Windows.Forms.Label();
-            this.txtOutputFile = new System.Windows.Forms.TextBox();
-            this.btnBrowseOutputFile = new System.Windows.Forms.Button();
-            this.lblEnterOutputFile = new System.Windows.Forms.Label();
+            this.lblLemmatizerFile = new System.Windows.Forms.Label();
             this.grpButtons = new System.Windows.Forms.GroupBox();
             this.pnlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnTag = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.grpInputOutput = new System.Windows.Forms.GroupBox();
+            this.pnlInputOutput = new System.Windows.Forms.TableLayoutPanel();
+            this.txtInput = new System.Windows.Forms.TextBox();
+            this.lblInput = new System.Windows.Forms.Label();
+            this.chkIncludeSubfolders = new System.Windows.Forms.CheckBox();
+            this.lblOutput = new System.Windows.Forms.Label();
+            this.txtOutput = new System.Windows.Forms.TextBox();
+            this.dlgInputFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.dlgInputFile = new System.Windows.Forms.OpenFileDialog();
+            this.dlgOutputFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.dlgOutputFile = new System.Windows.Forms.SaveFileDialog();
+            this.btnBrowseTaggerFile = new System.Windows.Forms.Button();
+            this.btnBrowseLemmatizerFile = new System.Windows.Forms.Button();
+            this.btnSelectInputFolder = new System.Windows.Forms.Button();
+            this.btnSelectInputFile = new System.Windows.Forms.Button();
+            this.btnSelectOutputFile = new System.Windows.Forms.Button();
+            this.btnSelectOutputFolder = new System.Windows.Forms.Button();
             this.pnlSplit.SuspendLayout();
             this.grpStatus.SuspendLayout();
             this.pnlStatus.SuspendLayout();
-            this.grpSettings.SuspendLayout();
-            this.pnlSettings.SuspendLayout();
+            this.grpModels.SuspendLayout();
+            this.pnlModels.SuspendLayout();
             this.grpButtons.SuspendLayout();
             this.pnlButtons.SuspendLayout();
+            this.grpInputOutput.SuspendLayout();
+            this.pnlInputOutput.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSplit
@@ -67,16 +77,18 @@
             this.pnlSplit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlSplit.ColumnCount = 1;
             this.pnlSplit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.pnlSplit.Controls.Add(this.grpStatus, 0, 2);
-            this.pnlSplit.Controls.Add(this.grpSettings, 0, 0);
-            this.pnlSplit.Controls.Add(this.grpButtons, 0, 1);
+            this.pnlSplit.Controls.Add(this.grpStatus, 0, 3);
+            this.pnlSplit.Controls.Add(this.grpModels, 0, 1);
+            this.pnlSplit.Controls.Add(this.grpButtons, 0, 2);
+            this.pnlSplit.Controls.Add(this.grpInputOutput, 0, 0);
             this.pnlSplit.Location = new System.Drawing.Point(3, 0);
             this.pnlSplit.Name = "pnlSplit";
-            this.pnlSplit.RowCount = 3;
+            this.pnlSplit.RowCount = 4;
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSplit.Size = new System.Drawing.Size(588, 471);
+            this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlSplit.Size = new System.Drawing.Size(588, 533);
             this.pnlSplit.TabIndex = 0;
             // 
             // grpStatus
@@ -84,7 +96,7 @@
             this.grpStatus.AutoSize = true;
             this.grpStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpStatus.Controls.Add(this.pnlStatus);
-            this.grpStatus.Location = new System.Drawing.Point(3, 260);
+            this.grpStatus.Location = new System.Drawing.Point(3, 322);
             this.grpStatus.Name = "grpStatus";
             this.grpStatus.Size = new System.Drawing.Size(582, 208);
             this.grpStatus.TabIndex = 3;
@@ -112,7 +124,7 @@
             this.txtStatus.ReadOnly = true;
             this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtStatus.Size = new System.Drawing.Size(570, 147);
-            this.txtStatus.TabIndex = 2;
+            this.txtStatus.TabIndex = 13;
             // 
             // progressBar
             // 
@@ -123,188 +135,93 @@
             this.progressBar.TabIndex = 3;
             this.progressBar.Visible = false;
             // 
-            // grpSettings
+            // grpModels
             // 
-            this.grpSettings.AutoSize = true;
-            this.grpSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.grpSettings.Controls.Add(this.pnlSettings);
-            this.grpSettings.Location = new System.Drawing.Point(3, 3);
-            this.grpSettings.Name = "grpSettings";
-            this.grpSettings.Size = new System.Drawing.Size(582, 175);
-            this.grpSettings.TabIndex = 1;
-            this.grpSettings.TabStop = false;
-            this.grpSettings.Text = "Nastavitve";
+            this.grpModels.AutoSize = true;
+            this.grpModels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grpModels.Controls.Add(this.pnlModels);
+            this.grpModels.Location = new System.Drawing.Point(3, 137);
+            this.grpModels.Name = "grpModels";
+            this.grpModels.Size = new System.Drawing.Size(582, 103);
+            this.grpModels.TabIndex = 1;
+            this.grpModels.TabStop = false;
+            this.grpModels.Text = "Modeli";
             // 
-            // pnlSettings
+            // pnlModels
             // 
-            this.pnlSettings.AutoSize = true;
-            this.pnlSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pnlSettings.ColumnCount = 3;
-            this.pnlSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.pnlSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 395F));
-            this.pnlSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.pnlSettings.Controls.Add(this.lblEnterTextFile, 0, 0);
-            this.pnlSettings.Controls.Add(this.btnBrowseTextFile, 2, 0);
-            this.pnlSettings.Controls.Add(this.txtTextFile, 1, 0);
-            this.pnlSettings.Controls.Add(this.lblEnterTaggerFile, 0, 2);
-            this.pnlSettings.Controls.Add(this.txtTaggerFile, 1, 2);
-            this.pnlSettings.Controls.Add(this.btnBrowseTaggerFile, 2, 2);
-            this.pnlSettings.Controls.Add(this.txtLemmatizerFile, 1, 4);
-            this.pnlSettings.Controls.Add(this.btnBrowseLemmatizerFile, 2, 4);
-            this.pnlSettings.Controls.Add(this.lblEnterLemmatizerFile, 0, 4);
-            this.pnlSettings.Controls.Add(this.txtOutputFile, 1, 6);
-            this.pnlSettings.Controls.Add(this.btnBrowseOutputFile, 2, 6);
-            this.pnlSettings.Controls.Add(this.lblEnterOutputFile, 0, 6);
-            this.pnlSettings.Location = new System.Drawing.Point(6, 19);
-            this.pnlSettings.Name = "pnlSettings";
-            this.pnlSettings.RowCount = 7;
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnlSettings.Size = new System.Drawing.Size(570, 137);
-            this.pnlSettings.TabIndex = 1;
+            this.pnlModels.AutoSize = true;
+            this.pnlModels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlModels.ColumnCount = 3;
+            this.pnlModels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.pnlModels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 395F));
+            this.pnlModels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.pnlModels.Controls.Add(this.lblTaggerFile, 0, 0);
+            this.pnlModels.Controls.Add(this.txtTaggerFile, 1, 0);
+            this.pnlModels.Controls.Add(this.btnBrowseTaggerFile, 2, 0);
+            this.pnlModels.Controls.Add(this.txtLemmatizerFile, 1, 2);
+            this.pnlModels.Controls.Add(this.btnBrowseLemmatizerFile, 2, 2);
+            this.pnlModels.Controls.Add(this.lblLemmatizerFile, 0, 2);
+            this.pnlModels.Location = new System.Drawing.Point(6, 19);
+            this.pnlModels.Name = "pnlModels";
+            this.pnlModels.RowCount = 3;
+            this.pnlModels.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlModels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.pnlModels.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlModels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlModels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlModels.Size = new System.Drawing.Size(570, 65);
+            this.pnlModels.TabIndex = 1;
             // 
-            // lblEnterTextFile
+            // lblTaggerFile
             // 
-            this.lblEnterTextFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEnterTextFile.AutoSize = true;
-            this.lblEnterTextFile.Location = new System.Drawing.Point(3, 6);
-            this.lblEnterTextFile.Name = "lblEnterTextFile";
-            this.lblEnterTextFile.Size = new System.Drawing.Size(129, 15);
-            this.lblEnterTextFile.TabIndex = 0;
-            this.lblEnterTextFile.Text = "Datoteka z besedilom:";
-            // 
-            // btnBrowseTextFile
-            // 
-            this.btnBrowseTextFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseTextFile.Image = global::PosTaggerTagGui.Properties.Resources.folder;
-            this.btnBrowseTextFile.Location = new System.Drawing.Point(535, 3);
-            this.btnBrowseTextFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnBrowseTextFile.Name = "btnBrowseTextFile";
-            this.btnBrowseTextFile.Size = new System.Drawing.Size(32, 22);
-            this.btnBrowseTextFile.TabIndex = 2;
-            this.btnBrowseTextFile.UseVisualStyleBackColor = true;
-            // 
-            // txtTextFile
-            // 
-            this.txtTextFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTextFile.BackColor = System.Drawing.Color.White;
-            this.txtTextFile.Location = new System.Drawing.Point(140, 7);
-            this.txtTextFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtTextFile.Name = "txtTextFile";
-            this.txtTextFile.Size = new System.Drawing.Size(395, 20);
-            this.txtTextFile.TabIndex = 1;
-            // 
-            // lblEnterTaggerFile
-            // 
-            this.lblEnterTaggerFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEnterTaggerFile.AutoSize = true;
-            this.lblEnterTaggerFile.Location = new System.Drawing.Point(3, 39);
-            this.lblEnterTaggerFile.Name = "lblEnterTaggerFile";
-            this.lblEnterTaggerFile.Size = new System.Drawing.Size(133, 15);
-            this.lblEnterTaggerFile.TabIndex = 3;
-            this.lblEnterTaggerFile.Text = "Model za označevanje:";
+            this.lblTaggerFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTaggerFile.AutoSize = true;
+            this.lblTaggerFile.Location = new System.Drawing.Point(3, 7);
+            this.lblTaggerFile.Name = "lblTaggerFile";
+            this.lblTaggerFile.Size = new System.Drawing.Size(133, 15);
+            this.lblTaggerFile.TabIndex = 3;
+            this.lblTaggerFile.Text = "Model za označevanje:";
             // 
             // txtTaggerFile
             // 
             this.txtTaggerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTaggerFile.BackColor = System.Drawing.Color.White;
-            this.txtTaggerFile.Location = new System.Drawing.Point(140, 37);
-            this.txtTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtTaggerFile.Location = new System.Drawing.Point(140, 5);
+            this.txtTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
             this.txtTaggerFile.Name = "txtTaggerFile";
-            this.txtTaggerFile.Size = new System.Drawing.Size(395, 20);
-            this.txtTaggerFile.TabIndex = 4;
-            // 
-            // btnBrowseTaggerFile
-            // 
-            this.btnBrowseTaggerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseTaggerFile.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseTaggerFile.Image")));
-            this.btnBrowseTaggerFile.Location = new System.Drawing.Point(535, 36);
-            this.btnBrowseTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnBrowseTaggerFile.Name = "btnBrowseTaggerFile";
-            this.btnBrowseTaggerFile.Size = new System.Drawing.Size(32, 22);
-            this.btnBrowseTaggerFile.TabIndex = 5;
-            this.btnBrowseTaggerFile.UseVisualStyleBackColor = true;
+            this.txtTaggerFile.Size = new System.Drawing.Size(394, 20);
+            this.txtTaggerFile.TabIndex = 7;
             // 
             // txtLemmatizerFile
             // 
             this.txtLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLemmatizerFile.BackColor = System.Drawing.Color.White;
-            this.txtLemmatizerFile.Location = new System.Drawing.Point(140, 70);
-            this.txtLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtLemmatizerFile.Location = new System.Drawing.Point(140, 40);
+            this.txtLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
             this.txtLemmatizerFile.Name = "txtLemmatizerFile";
-            this.txtLemmatizerFile.Size = new System.Drawing.Size(395, 20);
+            this.txtLemmatizerFile.Size = new System.Drawing.Size(394, 20);
             this.txtLemmatizerFile.TabIndex = 9;
             // 
-            // btnBrowseLemmatizerFile
+            // lblLemmatizerFile
             // 
-            this.btnBrowseLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseLemmatizerFile.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseLemmatizerFile.Image")));
-            this.btnBrowseLemmatizerFile.Location = new System.Drawing.Point(535, 69);
-            this.btnBrowseLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnBrowseLemmatizerFile.Name = "btnBrowseLemmatizerFile";
-            this.btnBrowseLemmatizerFile.Size = new System.Drawing.Size(32, 22);
-            this.btnBrowseLemmatizerFile.TabIndex = 10;
-            this.btnBrowseLemmatizerFile.UseVisualStyleBackColor = true;
-            // 
-            // lblEnterLemmatizerFile
-            // 
-            this.lblEnterLemmatizerFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEnterLemmatizerFile.AutoSize = true;
-            this.lblEnterLemmatizerFile.Location = new System.Drawing.Point(3, 72);
-            this.lblEnterLemmatizerFile.Name = "lblEnterLemmatizerFile";
-            this.lblEnterLemmatizerFile.Size = new System.Drawing.Size(130, 15);
-            this.lblEnterLemmatizerFile.TabIndex = 8;
-            this.lblEnterLemmatizerFile.Text = "Model za lematizacijo:";
-            // 
-            // txtOutputFile
-            // 
-            this.txtOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutputFile.BackColor = System.Drawing.Color.LightYellow;
-            this.txtOutputFile.Location = new System.Drawing.Point(140, 113);
-            this.txtOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtOutputFile.Name = "txtOutputFile";
-            this.txtOutputFile.Size = new System.Drawing.Size(395, 20);
-            this.txtOutputFile.TabIndex = 12;
-            // 
-            // btnBrowseOutputFile
-            // 
-            this.btnBrowseOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowseOutputFile.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowseOutputFile.Image")));
-            this.btnBrowseOutputFile.Location = new System.Drawing.Point(535, 112);
-            this.btnBrowseOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnBrowseOutputFile.Name = "btnBrowseOutputFile";
-            this.btnBrowseOutputFile.Size = new System.Drawing.Size(32, 22);
-            this.btnBrowseOutputFile.TabIndex = 13;
-            this.btnBrowseOutputFile.UseVisualStyleBackColor = true;
-            // 
-            // lblEnterOutputFile
-            // 
-            this.lblEnterOutputFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEnterOutputFile.AutoSize = true;
-            this.lblEnterOutputFile.Location = new System.Drawing.Point(3, 115);
-            this.lblEnterOutputFile.Name = "lblEnterOutputFile";
-            this.lblEnterOutputFile.Size = new System.Drawing.Size(104, 15);
-            this.lblEnterOutputFile.TabIndex = 11;
-            this.lblEnterOutputFile.Text = "Izhodna datoteka:";
+            this.lblLemmatizerFile.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblLemmatizerFile.AutoSize = true;
+            this.lblLemmatizerFile.Location = new System.Drawing.Point(3, 42);
+            this.lblLemmatizerFile.Name = "lblLemmatizerFile";
+            this.lblLemmatizerFile.Size = new System.Drawing.Size(130, 15);
+            this.lblLemmatizerFile.TabIndex = 8;
+            this.lblLemmatizerFile.Text = "Model za lematizacijo:";
             // 
             // grpButtons
             // 
             this.grpButtons.AutoSize = true;
             this.grpButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpButtons.Controls.Add(this.pnlButtons);
-            this.grpButtons.Location = new System.Drawing.Point(3, 184);
+            this.grpButtons.Location = new System.Drawing.Point(3, 246);
             this.grpButtons.Name = "grpButtons";
             this.grpButtons.Size = new System.Drawing.Size(582, 70);
             this.grpButtons.TabIndex = 2;
             this.grpButtons.TabStop = false;
-            this.grpButtons.Text = "Ukazi";
             // 
             // pnlButtons
             // 
@@ -320,7 +237,7 @@
             this.pnlButtons.RowCount = 1;
             this.pnlButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlButtons.Size = new System.Drawing.Size(570, 32);
-            this.pnlButtons.TabIndex = 0;
+            this.pnlButtons.TabIndex = 2;
             // 
             // btnTag
             // 
@@ -328,7 +245,7 @@
             this.btnTag.Location = new System.Drawing.Point(3, 3);
             this.btnTag.Name = "btnTag";
             this.btnTag.Size = new System.Drawing.Size(126, 26);
-            this.btnTag.TabIndex = 0;
+            this.btnTag.TabIndex = 11;
             this.btnTag.Text = "Označi besedilo";
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
@@ -337,12 +254,196 @@
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(135, 3);
+            this.btnCancel.Location = new System.Drawing.Point(132, 3);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 26);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Prekini označevanje";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // grpInputOutput
+            // 
+            this.grpInputOutput.AutoSize = true;
+            this.grpInputOutput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grpInputOutput.Controls.Add(this.pnlInputOutput);
+            this.grpInputOutput.Location = new System.Drawing.Point(3, 3);
+            this.grpInputOutput.Name = "grpInputOutput";
+            this.grpInputOutput.Size = new System.Drawing.Size(582, 128);
+            this.grpInputOutput.TabIndex = 0;
+            this.grpInputOutput.TabStop = false;
+            this.grpInputOutput.Text = "Besedila";
+            // 
+            // pnlInputOutput
+            // 
+            this.pnlInputOutput.AutoSize = true;
+            this.pnlInputOutput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlInputOutput.ColumnCount = 4;
+            this.pnlInputOutput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.pnlInputOutput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 363F));
+            this.pnlInputOutput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.pnlInputOutput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.pnlInputOutput.Controls.Add(this.btnSelectInputFolder, 3, 0);
+            this.pnlInputOutput.Controls.Add(this.btnSelectInputFile, 2, 0);
+            this.pnlInputOutput.Controls.Add(this.txtInput, 1, 0);
+            this.pnlInputOutput.Controls.Add(this.lblInput, 0, 0);
+            this.pnlInputOutput.Controls.Add(this.chkIncludeSubfolders, 1, 1);
+            this.pnlInputOutput.Controls.Add(this.lblOutput, 0, 3);
+            this.pnlInputOutput.Controls.Add(this.btnSelectOutputFile, 2, 3);
+            this.pnlInputOutput.Controls.Add(this.btnSelectOutputFolder, 2, 3);
+            this.pnlInputOutput.Controls.Add(this.txtOutput, 1, 3);
+            this.pnlInputOutput.Location = new System.Drawing.Point(6, 19);
+            this.pnlInputOutput.Name = "pnlInputOutput";
+            this.pnlInputOutput.RowCount = 4;
+            this.pnlInputOutput.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlInputOutput.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlInputOutput.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.pnlInputOutput.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlInputOutput.Size = new System.Drawing.Size(570, 90);
+            this.pnlInputOutput.TabIndex = 0;
+            // 
+            // txtInput
+            // 
+            this.txtInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtInput.BackColor = System.Drawing.Color.White;
+            this.txtInput.Location = new System.Drawing.Point(140, 5);
+            this.txtInput.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(362, 20);
+            this.txtInput.TabIndex = 0;
+            // 
+            // lblInput
+            // 
+            this.lblInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblInput.AutoSize = true;
+            this.lblInput.Location = new System.Drawing.Point(3, 7);
+            this.lblInput.Name = "lblInput";
+            this.lblInput.Size = new System.Drawing.Size(102, 15);
+            this.lblInput.TabIndex = 6;
+            this.lblInput.Text = "Vhodne datoteke:";
+            // 
+            // chkIncludeSubfolders
+            // 
+            this.chkIncludeSubfolders.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkIncludeSubfolders.AutoSize = true;
+            this.chkIncludeSubfolders.Location = new System.Drawing.Point(140, 33);
+            this.chkIncludeSubfolders.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.chkIncludeSubfolders.Name = "chkIncludeSubfolders";
+            this.chkIncludeSubfolders.Size = new System.Drawing.Size(117, 19);
+            this.chkIncludeSubfolders.TabIndex = 3;
+            this.chkIncludeSubfolders.Text = "Vključi podmape";
+            this.chkIncludeSubfolders.UseVisualStyleBackColor = true;
+            // 
+            // lblOutput
+            // 
+            this.lblOutput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblOutput.AutoSize = true;
+            this.lblOutput.Location = new System.Drawing.Point(3, 60);
+            this.lblOutput.Name = "lblOutput";
+            this.lblOutput.Size = new System.Drawing.Size(104, 30);
+            this.lblOutput.TabIndex = 8;
+            this.lblOutput.Text = "Izhodna datoteka (mapa):";
+            // 
+            // txtOutput
+            // 
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutput.BackColor = System.Drawing.Color.White;
+            this.txtOutput.Location = new System.Drawing.Point(140, 65);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.Size = new System.Drawing.Size(362, 20);
+            this.txtOutput.TabIndex = 4;
+            // 
+            // dlgInputFolder
+            // 
+            this.dlgInputFolder.Description = "Izberi mapo z vhodnimi datotekami:";
+            this.dlgInputFolder.ShowNewFolderButton = false;
+            // 
+            // dlgInputFile
+            // 
+            this.dlgInputFile.DefaultExt = "txt";
+            this.dlgInputFile.Filter = "Tekstovne datoteke|*.txt|Datoteke XML-TEI|*.xml";
+            this.dlgInputFile.Title = "Izberi vhodno datoteko";
+            // 
+            // dlgOutputFolder
+            // 
+            this.dlgOutputFolder.Description = "Izberi mapo za izhodne datoteke:";
+            // 
+            // dlgOutputFile
+            // 
+            this.dlgOutputFile.DefaultExt = "txt";
+            this.dlgOutputFile.Filter = "Tekstovne datoteke|*.txt|Datoteke XML-TEI|*.xml";
+            this.dlgOutputFile.Title = "Določi izhodno datoteko";
+            // 
+            // btnBrowseTaggerFile
+            // 
+            this.btnBrowseTaggerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowseTaggerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnBrowseTaggerFile.Location = new System.Drawing.Point(535, 3);
+            this.btnBrowseTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnBrowseTaggerFile.Name = "btnBrowseTaggerFile";
+            this.btnBrowseTaggerFile.Size = new System.Drawing.Size(32, 24);
+            this.btnBrowseTaggerFile.TabIndex = 8;
+            this.btnBrowseTaggerFile.UseVisualStyleBackColor = true;
+            // 
+            // btnBrowseLemmatizerFile
+            // 
+            this.btnBrowseLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowseLemmatizerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnBrowseLemmatizerFile.Location = new System.Drawing.Point(535, 38);
+            this.btnBrowseLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnBrowseLemmatizerFile.Name = "btnBrowseLemmatizerFile";
+            this.btnBrowseLemmatizerFile.Size = new System.Drawing.Size(32, 24);
+            this.btnBrowseLemmatizerFile.TabIndex = 10;
+            this.btnBrowseLemmatizerFile.UseVisualStyleBackColor = true;
+            // 
+            // btnSelectInputFolder
+            // 
+            this.btnSelectInputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectInputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
+            this.btnSelectInputFolder.Location = new System.Drawing.Point(535, 3);
+            this.btnSelectInputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnSelectInputFolder.Name = "btnSelectInputFolder";
+            this.btnSelectInputFolder.Size = new System.Drawing.Size(32, 24);
+            this.btnSelectInputFolder.TabIndex = 2;
+            this.btnSelectInputFolder.UseVisualStyleBackColor = true;
+            this.btnSelectInputFolder.Click += new System.EventHandler(this.btnSelectInputFolder_Click);
+            // 
+            // btnSelectInputFile
+            // 
+            this.btnSelectInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectInputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnSelectInputFile.Location = new System.Drawing.Point(503, 3);
+            this.btnSelectInputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnSelectInputFile.Name = "btnSelectInputFile";
+            this.btnSelectInputFile.Size = new System.Drawing.Size(32, 24);
+            this.btnSelectInputFile.TabIndex = 1;
+            this.btnSelectInputFile.UseVisualStyleBackColor = true;
+            this.btnSelectInputFile.Click += new System.EventHandler(this.btnSelectInputFile_Click);
+            // 
+            // btnSelectOutputFile
+            // 
+            this.btnSelectOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectOutputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnSelectOutputFile.Location = new System.Drawing.Point(503, 63);
+            this.btnSelectOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnSelectOutputFile.Name = "btnSelectOutputFile";
+            this.btnSelectOutputFile.Size = new System.Drawing.Size(32, 24);
+            this.btnSelectOutputFile.TabIndex = 5;
+            this.btnSelectOutputFile.UseVisualStyleBackColor = true;
+            this.btnSelectOutputFile.Click += new System.EventHandler(this.btnSelectOutputFile_Click);
+            // 
+            // btnSelectOutputFolder
+            // 
+            this.btnSelectOutputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectOutputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
+            this.btnSelectOutputFolder.Location = new System.Drawing.Point(535, 63);
+            this.btnSelectOutputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnSelectOutputFolder.Name = "btnSelectOutputFolder";
+            this.btnSelectOutputFolder.Size = new System.Drawing.Size(32, 24);
+            this.btnSelectOutputFolder.TabIndex = 6;
+            this.btnSelectOutputFolder.UseVisualStyleBackColor = true;
+            this.btnSelectOutputFolder.Click += new System.EventHandler(this.btnSelectOutputFolder_Click);
             // 
             // PosTaggerTagForm
             // 
@@ -363,13 +464,17 @@
             this.grpStatus.ResumeLayout(false);
             this.pnlStatus.ResumeLayout(false);
             this.pnlStatus.PerformLayout();
-            this.grpSettings.ResumeLayout(false);
-            this.grpSettings.PerformLayout();
-            this.pnlSettings.ResumeLayout(false);
-            this.pnlSettings.PerformLayout();
+            this.grpModels.ResumeLayout(false);
+            this.grpModels.PerformLayout();
+            this.pnlModels.ResumeLayout(false);
+            this.pnlModels.PerformLayout();
             this.grpButtons.ResumeLayout(false);
             this.grpButtons.PerformLayout();
             this.pnlButtons.ResumeLayout(false);
+            this.grpInputOutput.ResumeLayout(false);
+            this.grpInputOutput.PerformLayout();
+            this.pnlInputOutput.ResumeLayout(false);
+            this.pnlInputOutput.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,28 +483,37 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel pnlSplit;
-        private System.Windows.Forms.GroupBox grpSettings;
+        private System.Windows.Forms.GroupBox grpModels;
         private System.Windows.Forms.GroupBox grpStatus;
-        private System.Windows.Forms.TableLayoutPanel pnlSettings;
-        private System.Windows.Forms.Label lblEnterTextFile;
-        private System.Windows.Forms.TextBox txtTextFile;
+        private System.Windows.Forms.TableLayoutPanel pnlModels;
         private System.Windows.Forms.Panel pnlStatus;
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Button btnBrowseTextFile;
-        private System.Windows.Forms.Label lblEnterTaggerFile;
+        private System.Windows.Forms.Label lblTaggerFile;
         private System.Windows.Forms.TextBox txtTaggerFile;
         private System.Windows.Forms.Button btnBrowseTaggerFile;
         private System.Windows.Forms.TextBox txtLemmatizerFile;
         private System.Windows.Forms.Button btnBrowseLemmatizerFile;
-        private System.Windows.Forms.Label lblEnterLemmatizerFile;
-        private System.Windows.Forms.TextBox txtOutputFile;
-        private System.Windows.Forms.Button btnBrowseOutputFile;
-        private System.Windows.Forms.Label lblEnterOutputFile;
+        private System.Windows.Forms.Label lblLemmatizerFile;
         private System.Windows.Forms.GroupBox grpButtons;
         private System.Windows.Forms.TableLayoutPanel pnlButtons;
         private System.Windows.Forms.Button btnTag;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox grpInputOutput;
+        private System.Windows.Forms.TableLayoutPanel pnlInputOutput;
+        private System.Windows.Forms.Button btnSelectInputFolder;
+        private System.Windows.Forms.Button btnSelectInputFile;
+        private System.Windows.Forms.TextBox txtInput;
+        private System.Windows.Forms.Label lblInput;
+        private System.Windows.Forms.FolderBrowserDialog dlgInputFolder;
+        private System.Windows.Forms.OpenFileDialog dlgInputFile;
+        private System.Windows.Forms.CheckBox chkIncludeSubfolders;
+        private System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.Label lblOutput;
+        private System.Windows.Forms.Button btnSelectOutputFolder;
+        private System.Windows.Forms.Button btnSelectOutputFile;
+        private System.Windows.Forms.FolderBrowserDialog dlgOutputFolder;
+        private System.Windows.Forms.SaveFileDialog dlgOutputFile;
 
     }
 }

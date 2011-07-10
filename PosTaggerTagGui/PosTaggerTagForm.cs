@@ -4,6 +4,7 @@ using System.Threading;
 using Latino;
 using PosTagger;
 using System.Drawing;
+using System.IO;
 
 namespace PosTaggerTagGui
 {
@@ -60,11 +61,12 @@ namespace PosTaggerTagGui
         {
             btnCancel.Enabled = true;
             btnCancel.Focus();
-            foreach (Control ctrl in new Control[] { btnBrowseTextFile, btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnBrowseOutputFile, btnTag })
+            foreach (Control ctrl in new Control[] { btnSelectInputFile, btnSelectInputFolder, btnSelectOutputFile, btnSelectOutputFolder,
+                btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnTag, chkIncludeSubfolders })
             {
                 ctrl.Enabled = false;
             }
-            foreach (TextBox ctrl in new TextBox[] { txtTextFile, txtTaggerFile, txtLemmatizerFile, txtOutputFile })
+            foreach (TextBox ctrl in new TextBox[] { txtInput, txtOutput, txtTaggerFile, txtLemmatizerFile })
             {
                 ctrl.ReadOnly = true;
                 ctrl.BackColor = SystemColors.Control;
@@ -76,16 +78,16 @@ namespace PosTaggerTagGui
             btnTag.Enabled = true;
             btnTag.Focus();
             btnCancel.Enabled = false;
-            foreach (Control ctrl in new Control[] { btnBrowseTextFile, btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnBrowseOutputFile })
+            foreach (Control ctrl in new Control[] { btnSelectInputFile, btnSelectInputFolder, btnSelectOutputFile, btnSelectOutputFolder, 
+                btnBrowseTaggerFile, btnBrowseLemmatizerFile, chkIncludeSubfolders })
             {
                 ctrl.Enabled = true;
             }
-            foreach (TextBox ctrl in new TextBox[] { txtTextFile, txtTaggerFile, txtLemmatizerFile })
+            foreach (TextBox ctrl in new TextBox[] { txtInput, txtOutput, txtTaggerFile, txtLemmatizerFile })
             {
                 ctrl.ReadOnly = false;
                 ctrl.BackColor = Color.FromKnownColor(KnownColor.White);
             }
-            txtOutputFile.BackColor = Color.FromKnownColor(KnownColor.LightYellow);
         }
 
         private void PosTaggerTagForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -108,6 +110,53 @@ namespace PosTaggerTagGui
                 Invoke(new ThreadStart(delegate() { progressBar.Visible = false; EnableForm(); }));
             }));
             mThread.Start();
+        }
+
+        private string GetFolder(string path)
+        {
+            if (Utils.VerifyPathName(path, /*mustExist=*/true)) { return new DirectoryInfo(path).FullName; }
+            if (!path.Contains("\\")) { path = ".\\" + path; }
+            path = path.Substring(0, path.LastIndexOf('\\') + 1);
+            if (Utils.VerifyPathName(path, /*mustExist=*/true)) { return new DirectoryInfo(path).FullName; }
+            return null;
+        }
+
+        private void btnSelectInputFolder_Click(object sender, EventArgs e)
+        {
+            string folder = GetFolder(txtInput.Text);
+            if (folder != null) { dlgInputFolder.SelectedPath = folder; }
+            if (dlgInputFolder.ShowDialog() == DialogResult.OK)
+            {
+                folder = dlgInputFolder.SelectedPath;
+                if (!folder.EndsWith("\\")) { folder += "\\"; }
+                txtInput.Text = folder + "*.*";
+            }
+        }
+
+        private void btnSelectInputFile_Click(object sender, EventArgs e)
+        {
+            string folder = GetFolder(txtInput.Text);
+            if (folder != null) { dlgInputFile.InitialDirectory = folder; }
+            if (dlgInputFile.ShowDialog() == DialogResult.OK)
+            {
+                txtInput.Text = dlgInputFile.FileName;
+            }
+        }
+
+        private void btnSelectOutputFolder_Click(object sender, EventArgs e)
+        {
+            if (dlgOutputFolder.ShowDialog() == DialogResult.OK)
+            { 
+                // ...
+            }
+        }
+
+        private void btnSelectOutputFile_Click(object sender, EventArgs e)
+        {
+            if (dlgOutputFile.ShowDialog() == DialogResult.OK)
+            { 
+                // ...
+            }
         }
     }
 }

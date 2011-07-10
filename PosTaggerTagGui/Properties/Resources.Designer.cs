@@ -66,5 +66,12 @@ namespace PosTaggerTagGui.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap folder_page_white {
+            get {
+                object obj = ResourceManager.GetObject("folder_page_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
