@@ -61,8 +61,8 @@ namespace PosTaggerTagGui
         {
             btnCancel.Enabled = true;
             btnCancel.Focus();
-            foreach (Control ctrl in new Control[] { btnSelectInputFile, btnSelectInputFolder, btnSelectOutputFile, btnSelectOutputFolder,
-                btnBrowseTaggerFile, btnBrowseLemmatizerFile, btnTag, chkIncludeSubfolders })
+            foreach (Control ctrl in new Control[] { btnInputFile, btnInputFolder, btnOutputFile, btnOutputFolder,
+                btnTaggerFile, btnLemmatizerFile, btnTag, chkIncludeSubfolders })
             {
                 ctrl.Enabled = false;
             }
@@ -75,11 +75,12 @@ namespace PosTaggerTagGui
 
         private void EnableForm()
         {
+            progressBar.Visible = false;
             btnTag.Enabled = true;
             btnTag.Focus();
             btnCancel.Enabled = false;
-            foreach (Control ctrl in new Control[] { btnSelectInputFile, btnSelectInputFolder, btnSelectOutputFile, btnSelectOutputFolder, 
-                btnBrowseTaggerFile, btnBrowseLemmatizerFile, chkIncludeSubfolders })
+            foreach (Control ctrl in new Control[] { btnInputFile, btnInputFolder, btnOutputFile, btnOutputFolder, 
+                btnTaggerFile, btnLemmatizerFile, chkIncludeSubfolders })
             {
                 ctrl.Enabled = true;
             }
@@ -105,25 +106,32 @@ namespace PosTaggerTagGui
             txtStatus.Clear();
             mThread = new Thread(new ThreadStart(delegate()
             {
-                PosTaggerTag.Tag(new string[] { "-v", "-k", "-xml", @"-lem:C:\Work\PosTagger\Data\lemmatizer.bin", @"C:\Work\PosTagger\Data\jos100k-test.xml",
+                PosTaggerTag.Tag(new string[] { "-v", "-k", @"-lem:C:\Work\PosTagger\Data\lemmatizer.bin", @"C:\Work\PosTagger\Data\jos100k-test.xml",
                     @"C:\Work\PosTagger\Data\jos100k-train.bin", @"C:\Work\PosTagger\Data\output.xml" });
-                Invoke(new ThreadStart(delegate() { progressBar.Visible = false; EnableForm(); }));
+                Invoke(new ThreadStart(delegate() { EnableForm(); }));
             }));
             mThread.Start();
         }
 
-        private string GetFolder(string path)
+        private string Locate(string path)
         {
-            if (Utils.VerifyPathName(path, /*mustExist=*/true)) { return new DirectoryInfo(path).FullName; }
-            if (!path.Contains("\\")) { path = ".\\" + path; }
-            path = path.Substring(0, path.LastIndexOf('\\') + 1);
-            if (Utils.VerifyPathName(path, /*mustExist=*/true)) { return new DirectoryInfo(path).FullName; }
+            try { path = new DirectoryInfo(path).FullName; }
+            catch { return null; }
+            path = path.TrimEnd('\\');
+            string[] parts = path.Split('\\');
+            int tailLen = 0;
+            for (int i = parts.Length - 1; i >= 0; i--)
+            {
+                string folder = path.Substring(0, path.Length - tailLen) + "\\";
+                if (Utils.VerifyPathName(folder, /*mustExist=*/true)) { return folder; }
+                tailLen += parts[i].Length + 1;
+            }
             return null;
         }
 
-        private void btnSelectInputFolder_Click(object sender, EventArgs e)
+        private void btnInputFolder_Click(object sender, EventArgs e)
         {
-            string folder = GetFolder(txtInput.Text);
+            string folder = Locate(txtInput.Text);
             if (folder != null) { dlgInputFolder.SelectedPath = folder; }
             if (dlgInputFolder.ShowDialog() == DialogResult.OK)
             {
@@ -133,9 +141,9 @@ namespace PosTaggerTagGui
             }
         }
 
-        private void btnSelectInputFile_Click(object sender, EventArgs e)
+        private void btnInputFile_Click(object sender, EventArgs e)
         {
-            string folder = GetFolder(txtInput.Text);
+            string folder = Locate(txtInput.Text);
             if (folder != null) { dlgInputFile.InitialDirectory = folder; }
             if (dlgInputFile.ShowDialog() == DialogResult.OK)
             {
@@ -143,20 +151,58 @@ namespace PosTaggerTagGui
             }
         }
 
-        private void btnSelectOutputFolder_Click(object sender, EventArgs e)
+        private void btnOutputFolder_Click(object sender, EventArgs e)
         {
+            string folder = Locate(txtOutput.Text);
+            if (folder != null) { dlgOutputFolder.SelectedPath = folder; }
             if (dlgOutputFolder.ShowDialog() == DialogResult.OK)
-            { 
-                // ...
+            {
+                txtOutput.Text = dlgOutputFolder.SelectedPath;
             }
         }
 
-        private void btnSelectOutputFile_Click(object sender, EventArgs e)
+        private void btnOutputFile_Click(object sender, EventArgs e)
         {
+            string folder = Locate(txtOutput.Text);
+            if (folder != null) { dlgOutputFile.InitialDirectory = folder; }
             if (dlgOutputFile.ShowDialog() == DialogResult.OK)
             { 
-                // ...
+                txtOutput.Text = dlgOutputFile.FileName;
             }
+        }
+
+        private void btnTaggerFile_Click(object sender, EventArgs e)
+        {
+            string folder = Locate(txtTaggerFile.Text);
+            if (folder != null) { dlgTaggerFile.InitialDirectory = folder; }
+            if (dlgTaggerFile.ShowDialog() == DialogResult.OK)
+            {
+                txtTaggerFile.Text = dlgTaggerFile.FileName;
+            }
+        }
+
+        private void btnLemmatizerFile_Click(object sender, EventArgs e)
+        {
+            string folder = Locate(txtLemmatizerFile.Text);
+            if (folder != null) { dlgLemmatizerFile.InitialDirectory = folder; }
+            if (dlgLemmatizerFile.ShowDialog() == DialogResult.OK)
+            {
+                txtLemmatizerFile.Text = dlgLemmatizerFile.FileName;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Logger.GetRootLogger().LocalLevel = Logger.Level.Off;
+            try 
+            { 
+                mThread.Abort();
+                while (mThread.IsAlive) { Thread.Sleep(100); }
+            } 
+            catch { }           
+            EnableForm();
+            Logger.GetRootLogger().LocalLevel = Logger.Level.Debug;
+            Logger.GetRootLogger().Info(null, "Označevanje prekinjeno.");
         }
     }
 }
