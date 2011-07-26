@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Configuration;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using System.Threading;
-using Latino;
-using PosTagger;
 using System.Drawing;
 using System.IO;
+using PosTagger;
+using Latino;
 
 namespace PosTaggerTagGui
 {
@@ -16,6 +18,16 @@ namespace PosTaggerTagGui
         public PosTaggerTagForm()
         {
             InitializeComponent();
+            // read application configuration
+            txtInput.Text = ConfigurationManager.AppSettings["input"];            
+            if (ConfigurationManager.AppSettings["includeSubfolders"] != null)
+            {
+                chkIncludeSubfolders.Checked = Regex.Match(ConfigurationManager.AppSettings["includeSubfolders"],
+                    "(true)|(1)", RegexOptions.IgnoreCase).Success;
+            }
+            txtOutput.Text = ConfigurationManager.AppSettings["output"];
+            txtTaggerFile.Text = ConfigurationManager.AppSettings["taggerFile"];
+            txtLemmatizerFile.Text = ConfigurationManager.AppSettings["lemmatizerFile"];
             // initialize LATINO logger
             Logger mLogger = Logger.GetRootLogger();
             mLogger.LocalLevel = Logger.Level.Debug;
@@ -102,12 +114,30 @@ namespace PosTaggerTagGui
 
         private void btnTag_Click(object sender, EventArgs e)
         {
+            // save current configuration
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings.Remove("input");
+            config.AppSettings.Settings.Add("input", txtInput.Text);
+            config.AppSettings.Settings.Remove("includeSubfolders");
+            config.AppSettings.Settings.Add("includeSubfolders", chkIncludeSubfolders.Checked ? "true" : "false");
+            config.AppSettings.Settings.Remove("output");
+            config.AppSettings.Settings.Add("output", txtOutput.Text);
+            config.AppSettings.Settings.Remove("taggerFile");
+            config.AppSettings.Settings.Add("taggerFile", txtTaggerFile.Text);
+            config.AppSettings.Settings.Remove("lemmatizerFile");
+            config.AppSettings.Settings.Add("lemmatizerFile", txtLemmatizerFile.Text);
+            config.Save(ConfigurationSaveMode.Modified);
+            // prepare form
             DisableForm();
             txtStatus.Clear();
+            // invoke tagger
             mThread = new Thread(new ThreadStart(delegate()
             {
-                PosTaggerTag.Tag(new string[] { "-v", "-k", @"-lem:C:\Work\PosTagger\Data\lemmatizer.bin", @"C:\Work\PosTagger\Data\jos100k-test.xml",
-                    @"C:\Work\PosTagger\Data\jos100k-train.bin", @"C:\Work\PosTagger\Data\output.xml" });
+                ArrayList<string> settings = new ArrayList<string>(new string[]{ "-v", "-t" });
+                if (chkIncludeSubfolders.Checked) { settings.Add("-s"); }
+                if (txtLemmatizerFile.Text.Trim() != "") { settings.Add("-lem:" + txtLemmatizerFile.Text); }
+                settings.AddRange(new string[] { txtInput.Text, txtTaggerFile.Text, txtOutput.Text });
+                PosTaggerTag.Tag(settings.ToArray());
                 Invoke(new ThreadStart(delegate() { EnableForm(); }));
             }));
             mThread.Start();
@@ -123,7 +153,7 @@ namespace PosTaggerTagGui
             for (int i = parts.Length - 1; i >= 0; i--)
             {
                 string folder = path.Substring(0, path.Length - tailLen) + "\\";
-                if (Utils.VerifyPathName(folder, /*mustExist=*/true)) { return folder; }
+                if (Utils.VerifyFolderName(folder, /*mustExist=*/true)) { return folder; }
                 tailLen += parts[i].Length + 1;
             }
             return null;
@@ -199,7 +229,8 @@ namespace PosTaggerTagGui
                 mThread.Abort();
                 while (mThread.IsAlive) { Thread.Sleep(100); }
             } 
-            catch { }           
+            catch { }
+            GC.Collect(); // this closes all open files by invoking finalizers on readers and writers
             EnableForm();
             Logger.GetRootLogger().LocalLevel = Logger.Level.Debug;
             Logger.GetRootLogger().Info(null, "Označevanje prekinjeno.");
