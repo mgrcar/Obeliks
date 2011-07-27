@@ -60,6 +60,13 @@ namespace PosTaggerTagGui.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap door_in {
+            get {
+                object obj = ResourceManager.GetObject("door_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap folder {
             get {
                 object obj = ResourceManager.GetObject("folder", resourceCulture);
@@ -70,6 +77,13 @@ namespace PosTaggerTagGui.Properties {
         internal static System.Drawing.Bitmap folder_page_white {
             get {
                 object obj = ResourceManager.GetObject("folder_page_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap help {
+            get {
+                object obj = ResourceManager.GetObject("help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

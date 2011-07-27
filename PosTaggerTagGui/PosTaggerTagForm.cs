@@ -138,6 +138,7 @@ namespace PosTaggerTagGui
                 if (txtLemmatizerFile.Text.Trim() != "") { settings.Add("-lem:" + txtLemmatizerFile.Text); }
                 settings.AddRange(new string[] { txtInput.Text, txtTaggerFile.Text, txtOutput.Text });
                 PosTaggerTag.Tag(settings.ToArray());
+                GC.Collect(); // this closes all open files by invoking finalizers on readers and writers
                 Invoke(new ThreadStart(delegate() { EnableForm(); }));
             }));
             mThread.Start();
@@ -234,6 +235,11 @@ namespace PosTaggerTagGui
             EnableForm();
             Logger.GetRootLogger().LocalLevel = Logger.Level.Debug;
             Logger.GetRootLogger().Info(null, "Označevanje prekinjeno.");
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
