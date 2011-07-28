@@ -44,6 +44,7 @@
     <Compile Include="MetaTaggerData.cs" />
     <Compile Include="PatriciaTree.cs">
     </Compile>
+    <Compile Include="PosTagger.cs" />
     <Compile Include="SsjTokenizer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,9 +52,17 @@
       <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
       <Name>LatinoCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Latino\Latino\Model\LatinoModel.csproj">
+      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
+      <Name>LatinoModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Latino\Latino\TextMining\LatinoTextMining.csproj">
       <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
       <Name>LatinoTextMining</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
+      <Project>{A39293C1-92D8-47B9-93A4-41F443B4F9E4}</Project>
+      <Name>LemmaSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
