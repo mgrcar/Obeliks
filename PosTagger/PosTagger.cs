@@ -30,14 +30,14 @@ namespace PosTagger
 {
     /* .-----------------------------------------------------------------------
        |
-       |  Class PosTagger
+       |  Class PartOfSpeechTagger
        |
        '-----------------------------------------------------------------------
     */
-    public class PosTagger 
+    public class PartOfSpeechTagger 
     {
         private static Logger mLogger
-            = Logger.GetLogger(typeof(PosTagger));
+            = Logger.GetLogger(typeof(PartOfSpeechTagger));
 
         private static Regex mNonWordRegex
             = new Regex(@"^\W+(\<eos\>)?$", RegexOptions.Compiled);
@@ -53,16 +53,16 @@ namespace PosTagger
         private bool mConsiderTags
             = false;
 
-        public PosTagger()
+        public PartOfSpeechTagger()
         { 
         }
 
-        public PosTagger(string taggerModelFile, string lemmatizerModelFile)
+        public PartOfSpeechTagger(string taggerModelFile, string lemmatizerModelFile)
         {
             LoadModels(taggerModelFile, lemmatizerModelFile); // throws ArgumentValueException
         }
 
-        public PosTagger(BinarySerializer taggerModelSer, BinarySerializer lemmatizerModelSer)
+        public PartOfSpeechTagger(BinarySerializer taggerModelSer, BinarySerializer lemmatizerModelSer)
         {
             LoadModels(taggerModelSer, lemmatizerModelSer); // throws ArgumentNullException
         }
@@ -187,7 +187,8 @@ namespace PosTagger
 
         public bool IsKnownWord(string word)
         {
-            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);
+            Utils.ThrowException(mSuffixTree == null ? new InvalidOperationException() : null);
+            Utils.ThrowException(word == null ? new ArgumentNullException("word") : null);            
             return mSuffixTree.Contains(word.ToLower());
         }
     }

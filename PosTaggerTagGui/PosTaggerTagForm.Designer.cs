@@ -38,18 +38,26 @@
             this.pnlModels = new System.Windows.Forms.TableLayoutPanel();
             this.lblTaggerFile = new System.Windows.Forms.Label();
             this.txtTaggerFile = new System.Windows.Forms.TextBox();
+            this.btnTaggerFile = new System.Windows.Forms.Button();
             this.txtLemmatizerFile = new System.Windows.Forms.TextBox();
+            this.btnLemmatizerFile = new System.Windows.Forms.Button();
             this.lblLemmatizerFile = new System.Windows.Forms.Label();
             this.grpButtons = new System.Windows.Forms.GroupBox();
             this.pnlButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnTag = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.grpFiles = new System.Windows.Forms.GroupBox();
             this.pnlFiles = new System.Windows.Forms.TableLayoutPanel();
+            this.btnInputFolder = new System.Windows.Forms.Button();
+            this.btnInputFile = new System.Windows.Forms.Button();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.lblInput = new System.Windows.Forms.Label();
             this.chkIncludeSubfolders = new System.Windows.Forms.CheckBox();
             this.lblOutput = new System.Windows.Forms.Label();
+            this.btnOutputFile = new System.Windows.Forms.Button();
+            this.btnOutputFolder = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.dlgInputFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.dlgInputFile = new System.Windows.Forms.OpenFileDialog();
@@ -58,14 +66,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dlgTaggerFile = new System.Windows.Forms.OpenFileDialog();
             this.dlgLemmatizerFile = new System.Windows.Forms.OpenFileDialog();
-            this.btnTaggerFile = new System.Windows.Forms.Button();
-            this.btnLemmatizerFile = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnAbout = new System.Windows.Forms.Button();
-            this.btnInputFolder = new System.Windows.Forms.Button();
-            this.btnInputFile = new System.Windows.Forms.Button();
-            this.btnOutputFile = new System.Windows.Forms.Button();
-            this.btnOutputFolder = new System.Windows.Forms.Button();
             this.pnlSplit.SuspendLayout();
             this.grpStatus.SuspendLayout();
             this.pnlStatus.SuspendLayout();
@@ -196,6 +196,19 @@
             this.txtTaggerFile.Size = new System.Drawing.Size(394, 20);
             this.txtTaggerFile.TabIndex = 7;
             // 
+            // btnTaggerFile
+            // 
+            this.btnTaggerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTaggerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnTaggerFile.Location = new System.Drawing.Point(535, 3);
+            this.btnTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnTaggerFile.Name = "btnTaggerFile";
+            this.btnTaggerFile.Size = new System.Drawing.Size(32, 24);
+            this.btnTaggerFile.TabIndex = 8;
+            this.toolTip.SetToolTip(this.btnTaggerFile, "Izberi model za označevanje...");
+            this.btnTaggerFile.UseVisualStyleBackColor = true;
+            this.btnTaggerFile.Click += new System.EventHandler(this.btnTaggerFile_Click);
+            // 
             // txtLemmatizerFile
             // 
             this.txtLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -205,6 +218,19 @@
             this.txtLemmatizerFile.Name = "txtLemmatizerFile";
             this.txtLemmatizerFile.Size = new System.Drawing.Size(394, 20);
             this.txtLemmatizerFile.TabIndex = 9;
+            // 
+            // btnLemmatizerFile
+            // 
+            this.btnLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLemmatizerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnLemmatizerFile.Location = new System.Drawing.Point(535, 33);
+            this.btnLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnLemmatizerFile.Name = "btnLemmatizerFile";
+            this.btnLemmatizerFile.Size = new System.Drawing.Size(32, 24);
+            this.btnLemmatizerFile.TabIndex = 10;
+            this.toolTip.SetToolTip(this.btnLemmatizerFile, "Izberi model za lematizacijo...");
+            this.btnLemmatizerFile.UseVisualStyleBackColor = true;
+            this.btnLemmatizerFile.Click += new System.EventHandler(this.btnLemmatizerFile_Click);
             // 
             // lblLemmatizerFile
             // 
@@ -270,6 +296,32 @@
             this.btnCancel.Text = "Prekini označevanje";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Image = global::PosTaggerTagGui.Properties.Resources.door_in;
+            this.btnExit.Location = new System.Drawing.Point(535, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(32, 24);
+            this.btnExit.TabIndex = 13;
+            this.toolTip.SetToolTip(this.btnExit, "Izhod iz programa");
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbout.Image = global::PosTaggerTagGui.Properties.Resources.help;
+            this.btnAbout.Location = new System.Drawing.Point(500, 4);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(32, 24);
+            this.btnAbout.TabIndex = 12;
+            this.toolTip.SetToolTip(this.btnAbout, "O programu...");
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Visible = false;
+            // 
             // grpFiles
             // 
             this.grpFiles.AutoSize = true;
@@ -309,6 +361,32 @@
             this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlFiles.Size = new System.Drawing.Size(570, 90);
             this.pnlFiles.TabIndex = 0;
+            // 
+            // btnInputFolder
+            // 
+            this.btnInputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
+            this.btnInputFolder.Location = new System.Drawing.Point(535, 3);
+            this.btnInputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnInputFolder.Name = "btnInputFolder";
+            this.btnInputFolder.Size = new System.Drawing.Size(32, 24);
+            this.btnInputFolder.TabIndex = 2;
+            this.toolTip.SetToolTip(this.btnInputFolder, "Izberi vhodno mapo...");
+            this.btnInputFolder.UseVisualStyleBackColor = true;
+            this.btnInputFolder.Click += new System.EventHandler(this.btnInputFolder_Click);
+            // 
+            // btnInputFile
+            // 
+            this.btnInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnInputFile.Location = new System.Drawing.Point(503, 3);
+            this.btnInputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnInputFile.Name = "btnInputFile";
+            this.btnInputFile.Size = new System.Drawing.Size(32, 24);
+            this.btnInputFile.TabIndex = 1;
+            this.toolTip.SetToolTip(this.btnInputFile, "Izberi vhodno datoteko...");
+            this.btnInputFile.UseVisualStyleBackColor = true;
+            this.btnInputFile.Click += new System.EventHandler(this.btnInputFile_Click);
             // 
             // txtInput
             // 
@@ -352,6 +430,32 @@
             this.lblOutput.TabIndex = 8;
             this.lblOutput.Text = "Izhodna datoteka (mapa):";
             // 
+            // btnOutputFile
+            // 
+            this.btnOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOutputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnOutputFile.Location = new System.Drawing.Point(503, 63);
+            this.btnOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnOutputFile.Name = "btnOutputFile";
+            this.btnOutputFile.Size = new System.Drawing.Size(32, 24);
+            this.btnOutputFile.TabIndex = 5;
+            this.toolTip.SetToolTip(this.btnOutputFile, "Določi izhodno datoteko...");
+            this.btnOutputFile.UseVisualStyleBackColor = true;
+            this.btnOutputFile.Click += new System.EventHandler(this.btnOutputFile_Click);
+            // 
+            // btnOutputFolder
+            // 
+            this.btnOutputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOutputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
+            this.btnOutputFolder.Location = new System.Drawing.Point(535, 63);
+            this.btnOutputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnOutputFolder.Name = "btnOutputFolder";
+            this.btnOutputFolder.Size = new System.Drawing.Size(32, 24);
+            this.btnOutputFolder.TabIndex = 6;
+            this.toolTip.SetToolTip(this.btnOutputFolder, "Izberi izhodno mapo...");
+            this.btnOutputFolder.UseVisualStyleBackColor = true;
+            this.btnOutputFolder.Click += new System.EventHandler(this.btnOutputFolder_Click);
+            // 
             // txtOutput
             // 
             this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -380,7 +484,7 @@
             // dlgOutputFile
             // 
             this.dlgOutputFile.DefaultExt = "txt";
-            this.dlgOutputFile.Filter = "Tekstovne datoteke|*.txt|Datoteke XML-TEI|*.xml|Vse datoteke|*.*";
+            this.dlgOutputFile.Filter = "Datoteke XML-TEI|*.xml|Vse datoteke|*.*";
             this.dlgOutputFile.Title = "Določi izhodno datoteko";
             // 
             // dlgTaggerFile
@@ -394,110 +498,6 @@
             this.dlgLemmatizerFile.DefaultExt = "bin";
             this.dlgLemmatizerFile.Filter = "Binarne datoteke|*.bin|Vse datoteke|*.*";
             this.dlgLemmatizerFile.Title = "Izberi model za lematizacijo";
-            // 
-            // btnTaggerFile
-            // 
-            this.btnTaggerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTaggerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
-            this.btnTaggerFile.Location = new System.Drawing.Point(535, 3);
-            this.btnTaggerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnTaggerFile.Name = "btnTaggerFile";
-            this.btnTaggerFile.Size = new System.Drawing.Size(32, 24);
-            this.btnTaggerFile.TabIndex = 8;
-            this.toolTip.SetToolTip(this.btnTaggerFile, "Izberi model za označevanje...");
-            this.btnTaggerFile.UseVisualStyleBackColor = true;
-            this.btnTaggerFile.Click += new System.EventHandler(this.btnTaggerFile_Click);
-            // 
-            // btnLemmatizerFile
-            // 
-            this.btnLemmatizerFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLemmatizerFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
-            this.btnLemmatizerFile.Location = new System.Drawing.Point(535, 33);
-            this.btnLemmatizerFile.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnLemmatizerFile.Name = "btnLemmatizerFile";
-            this.btnLemmatizerFile.Size = new System.Drawing.Size(32, 24);
-            this.btnLemmatizerFile.TabIndex = 10;
-            this.toolTip.SetToolTip(this.btnLemmatizerFile, "Izberi model za lematizacijo...");
-            this.btnLemmatizerFile.UseVisualStyleBackColor = true;
-            this.btnLemmatizerFile.Click += new System.EventHandler(this.btnLemmatizerFile_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Image = global::PosTaggerTagGui.Properties.Resources.door_in;
-            this.btnExit.Location = new System.Drawing.Point(535, 4);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(32, 24);
-            this.btnExit.TabIndex = 13;
-            this.toolTip.SetToolTip(this.btnExit, "Izhod iz programa");
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAbout.Image = global::PosTaggerTagGui.Properties.Resources.help;
-            this.btnAbout.Location = new System.Drawing.Point(500, 4);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(32, 24);
-            this.btnAbout.TabIndex = 12;
-            this.toolTip.SetToolTip(this.btnAbout, "O programu...");
-            this.btnAbout.UseVisualStyleBackColor = true;
-            this.btnAbout.Visible = false;
-            // 
-            // btnInputFolder
-            // 
-            this.btnInputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
-            this.btnInputFolder.Location = new System.Drawing.Point(535, 3);
-            this.btnInputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnInputFolder.Name = "btnInputFolder";
-            this.btnInputFolder.Size = new System.Drawing.Size(32, 24);
-            this.btnInputFolder.TabIndex = 2;
-            this.toolTip.SetToolTip(this.btnInputFolder, "Izberi vhodno mapo...");
-            this.btnInputFolder.UseVisualStyleBackColor = true;
-            this.btnInputFolder.Click += new System.EventHandler(this.btnInputFolder_Click);
-            // 
-            // btnInputFile
-            // 
-            this.btnInputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
-            this.btnInputFile.Location = new System.Drawing.Point(503, 3);
-            this.btnInputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btnInputFile.Name = "btnInputFile";
-            this.btnInputFile.Size = new System.Drawing.Size(32, 24);
-            this.btnInputFile.TabIndex = 1;
-            this.toolTip.SetToolTip(this.btnInputFile, "Izberi vhodno datoteko...");
-            this.btnInputFile.UseVisualStyleBackColor = true;
-            this.btnInputFile.Click += new System.EventHandler(this.btnInputFile_Click);
-            // 
-            // btnOutputFile
-            // 
-            this.btnOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOutputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
-            this.btnOutputFile.Location = new System.Drawing.Point(503, 63);
-            this.btnOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btnOutputFile.Name = "btnOutputFile";
-            this.btnOutputFile.Size = new System.Drawing.Size(32, 24);
-            this.btnOutputFile.TabIndex = 5;
-            this.toolTip.SetToolTip(this.btnOutputFile, "Določi izhodno datoteko...");
-            this.btnOutputFile.UseVisualStyleBackColor = true;
-            this.btnOutputFile.Click += new System.EventHandler(this.btnOutputFile_Click);
-            // 
-            // btnOutputFolder
-            // 
-            this.btnOutputFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOutputFolder.Image = global::PosTaggerTagGui.Properties.Resources.folder;
-            this.btnOutputFolder.Location = new System.Drawing.Point(535, 63);
-            this.btnOutputFolder.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnOutputFolder.Name = "btnOutputFolder";
-            this.btnOutputFolder.Size = new System.Drawing.Size(32, 24);
-            this.btnOutputFolder.TabIndex = 6;
-            this.toolTip.SetToolTip(this.btnOutputFolder, "Izberi izhodno mapo...");
-            this.btnOutputFolder.UseVisualStyleBackColor = true;
-            this.btnOutputFolder.Click += new System.EventHandler(this.btnOutputFolder_Click);
             // 
             // PosTaggerTagForm
             // 
