@@ -111,6 +111,34 @@ namespace PosTagger
             return new Prediction<string>(newResult);
         }
 
+        private void CheckCase(string str, out bool isAllCaps, out bool isFirstCap)
+        {
+            isAllCaps = true;
+            foreach (char ch in str)
+            {
+                if (!char.IsUpper(ch)) { isAllCaps = false; break; }
+            }
+            isFirstCap = char.IsUpper(str[0]);
+        }
+
+        private string FixLemmaCase(string lemma, string word, string tag)
+        {
+            if (word.Length >= 2 && tag.StartsWith("Sl"))
+            {
+                bool isAllCaps, isFirstCap;
+                CheckCase(word, out isAllCaps, out isFirstCap);
+                if (isAllCaps)
+                {
+                    return lemma.ToUpper();
+                }
+                if (isFirstCap && lemma.Length >= 1)
+                {
+                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                }
+            }
+            return lemma;
+        }
+
         public void Tag(Corpus corpus, out int lemmaCorrect, out int lemmaCorrectLowercase, out int lemmaWords, bool xmlMode)
         {
             Utils.ThrowException(mModel == null ? new InvalidOperationException() : null);
@@ -158,6 +186,7 @@ namespace PosTagger
                         //    logger.Info(null, filter);
                         //}
                         string lemma = (mConsiderTags && tag != "*") ? mLemmatizer.Lemmatize(wordLower, tag) : mLemmatizer.Lemmatize(wordLower);
+                        lemma = FixLemmaCase(lemma, corpus.TaggedWords[i].Word, tag);
                         if (string.IsNullOrEmpty(lemma) || (mConsiderTags && lemma == wordLower)) { lemma = wordLower; }
                         if (xmlMode)
                         {

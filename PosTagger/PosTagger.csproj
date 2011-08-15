@@ -44,7 +44,7 @@
     <Compile Include="MetaTaggerData.cs" />
     <Compile Include="PatriciaTree.cs">
     </Compile>
-    <Compile Include="PosTagger.cs" />
+    <Compile Include="PartOfSpeechTagger.cs" />
     <Compile Include="SsjTokenizer.cs" />
   </ItemGroup>
   <ItemGroup>
