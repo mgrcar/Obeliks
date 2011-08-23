@@ -123,17 +123,31 @@ namespace PosTagger
 
         private string FixLemmaCase(string lemma, string word, string tag)
         {
-            if (word.Length >= 2 && tag.StartsWith("Sl"))
+            if (word.Length >= 1)
             {
                 bool isAllCaps, isFirstCap;
                 CheckCase(word, out isAllCaps, out isFirstCap);
-                if (isAllCaps)
+                if (tag.StartsWith("Sl"))
                 {
-                    return lemma.ToUpper();
+                    if (isAllCaps)
+                    {
+                        return lemma.ToUpper();
+                    }
+                    if (isFirstCap && lemma.Length >= 1)
+                    {
+                        return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                    }
                 }
-                if (isFirstCap && lemma.Length >= 1)
+                else if (tag.StartsWith("Kr"))
                 {
-                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                    if (isAllCaps) { return lemma.ToUpper(); }
+                }
+                else if (tag.StartsWith("Ps"))
+                {
+                    if ((isAllCaps || isFirstCap) && lemma.Length >= 1)
+                    {
+                        return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                    }                
                 }
             }
             return lemma;
