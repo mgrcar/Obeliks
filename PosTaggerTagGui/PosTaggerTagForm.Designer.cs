@@ -280,7 +280,7 @@
             this.btnTag.Name = "btnTag";
             this.btnTag.Size = new System.Drawing.Size(125, 26);
             this.btnTag.TabIndex = 11;
-            this.btnTag.Text = "Označi besedilo";
+            this.btnTag.Text = "Označi besedila";
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
             // 
