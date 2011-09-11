@@ -55,7 +55,6 @@ namespace PosTagger
         private static ArrayList<TokenizerRegex> LoadRules()
         {
             Regex splitRegex = new Regex(@"^(?<regex>.*)((--)|(==))\>(?<rhs>.*)$", RegexOptions.Compiled);
-            Regex tagRegex = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled);
             ArrayList<TokenizerRegex> rules = new ArrayList<TokenizerRegex>();
             StreamReader rulesReader = new StreamReader(Utils.GetManifestResourceStream(typeof(SsjTokenizer), "SsjTokenizerRules.txt"));
             string line;

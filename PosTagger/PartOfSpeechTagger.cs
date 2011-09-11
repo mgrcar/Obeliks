@@ -39,7 +39,7 @@ namespace PosTagger
         private static Logger mLogger
             = Logger.GetLogger(typeof(PartOfSpeechTagger));
 
-        private static Regex mNonWordRegex
+        public static Regex mNonWordRegex
             = new Regex(@"^\W+(\<eos\>)?$", RegexOptions.Compiled);
 
         private PatriciaTree mSuffixTree
@@ -207,7 +207,7 @@ namespace PosTagger
                             lemmaWords++;
                             if (lemma == corpus.TaggedWords[i].Lemma)
                             {
-                                lemmaCorrect++;
+                                lemmaCorrect++;                                
                             }
                             if (corpus.TaggedWords[i].Lemma != null && lemma.ToLower() == corpus.TaggedWords[i].Lemma.ToLower())
                             {
