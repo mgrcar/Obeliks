@@ -92,7 +92,7 @@ namespace PosTagger
 
             public bool Contains(string substr)
             {
-                if (substr.StartsWith(mSubstr))
+                if (substr.StartsWith(mSubstr, StringComparison.Ordinal))
                 {
                     // case 1: exact match
                     if (mSubstr.Length == substr.Length)
@@ -122,7 +122,7 @@ namespace PosTagger
 
             public Node GetNode(string substr)
             {
-                if (substr.StartsWith(mSubstr))
+                if (substr.StartsWith(mSubstr, StringComparison.Ordinal))
                 {
                     // case 1: exact match
                     if (mSubstr.Length == substr.Length)
@@ -137,7 +137,7 @@ namespace PosTagger
                         {
                             foreach (Node child in mChildren)
                             {
-                                if (child.mSubstr.StartsWith(newSubstr[0].ToString()))
+                                if (child.mSubstr.StartsWith(newSubstr[0].ToString(), StringComparison.Ordinal))
                                 {
                                     return child.GetNode(newSubstr);
                                 }
@@ -155,7 +155,7 @@ namespace PosTagger
 
             public bool Insert(string substr, ushort tag)
             {
-                if (substr.StartsWith(mSubstr))
+                if (substr.StartsWith(mSubstr, StringComparison.Ordinal))
                 {
                     // case 1: exact match
                     if (mSubstr.Length == substr.Length)
