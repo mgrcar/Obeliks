@@ -95,6 +95,18 @@ namespace PosTagger
             }
         }
 
+        // *** Dec-2011 ***
+
+        private static Set<string> CreateFilterFromResult(Prediction<string> result)
+        {
+            Set<string> filter = new Set<string>();
+            foreach (KeyDat<double, string> item in result)
+            {
+                if (item.Key > 0) { filter.Add(item.Dat); }
+            }
+            return filter;
+        }
+
         private static Prediction<string> ProcessResult(Prediction<string> result, Set<string> filter)
         {
             ArrayList<KeyDat<double, string>> newResult = new ArrayList<KeyDat<double, string>>();
@@ -107,51 +119,11 @@ namespace PosTagger
                         newResult.Add(result[i]);
                     }
                 }
-            }
+            }          
             return new Prediction<string>(newResult);
         }
 
-        private void CheckCase(string str, out bool isAllCaps, out bool isFirstCap)
-        {
-            isAllCaps = true;
-            foreach (char ch in str)
-            {
-                if (!char.IsUpper(ch)) { isAllCaps = false; break; }
-            }
-            isFirstCap = char.IsUpper(str[0]);
-        }
-
-        private string FixLemmaCase(string lemma, string word, string tag)
-        {
-            if (word.Length >= 1)
-            {
-                bool isAllCaps, isFirstCap;
-                CheckCase(word, out isAllCaps, out isFirstCap);
-                if (tag.StartsWith("Sl"))
-                {
-                    if (isAllCaps)
-                    {
-                        return lemma.ToUpper();
-                    }
-                    if (isFirstCap && lemma.Length >= 1)
-                    {
-                        return char.ToUpper(lemma[0]) + lemma.Substring(1);
-                    }
-                }
-                else if (tag.StartsWith("Kr"))
-                {
-                    if (isAllCaps) { return lemma.ToUpper(); }
-                }
-                else if (tag.StartsWith("Ps"))
-                {
-                    if ((isAllCaps || isFirstCap) && lemma.Length >= 1)
-                    {
-                        return char.ToUpper(lemma[0]) + lemma.Substring(1);
-                    }                
-                }
-            }
-            return lemma;
-        }
+        // *** End of Dec-2011 ***
 
         public void Tag(Corpus corpus, out int lemmaCorrect, out int lemmaCorrectLowercase, out int lemmaWords, bool xmlMode)
         {
@@ -164,8 +136,8 @@ namespace PosTagger
             lemmaWords = 0;
             for (int i = 0; i < corpus.TaggedWords.Count; i++)
             {
-                mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
-                BinaryVector<int> featureVector = corpus.GenerateFeatureVector(i, mFeatureSpace, /*extendFeatureSpace=*/false, mSuffixTree);
+//                mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
+                BinaryVector featureVector = corpus.GenerateFeatureVector(i, mFeatureSpace, /*extendFeatureSpace=*/false, mSuffixTree);
                 Prediction<string> result = mModel.Predict(featureVector);
                 if (mNonWordRegex.Match(corpus.TaggedWords[i].WordLower).Success) // non-word
                 {
@@ -188,7 +160,51 @@ namespace PosTagger
                 {
                     Set<string> filter = mSuffixTree.Contains(corpus.TaggedWords[i].WordLower) ? mSuffixTree.GetTags(corpus.TaggedWords[i].WordLower) : null;
                     result = ProcessResult(result, filter);
-                    corpus.TaggedWords[i].Tag = result.Count == 0 ? "*"/*unable to classify*/ : result.BestClassLabel;
+                    string goldTag = corpus.TaggedWords[i].Tag;
+                    string predictedNoRules = result.Count == 0 ? "*"/*unable to classify*/ : result.BestClassLabel;
+                    string word = corpus.TaggedWords[i].Word;
+                    string rule;
+                    if (filter == null)
+                    {
+                        filter = Rules.ApplyTaggerRules(CreateFilterFromResult(result), word, out rule);
+                    }
+                    else
+                    {
+                        filter = Rules.ApplyTaggerRules(filter, word, out rule);
+                        if (filter.Count == 0) { filter = Rules.ApplyTaggerRules(CreateFilterFromResult(result), word, out rule); }
+                    }
+                    result = ProcessResult(result, filter);
+                    string predictedWithRules;
+                    if (result.Count == 0)
+                    {
+                        predictedWithRules = Rules.GetMostFrequentTag(filter);
+                        if (predictedWithRules == null) { predictedWithRules = "*"; }
+                    }
+                    else
+                    {
+                        predictedWithRules = result.BestClassLabel;
+                    }
+                    if (goldTag == predictedNoRules && goldTag != predictedWithRules) 
+                    {
+                        Console.WriteLine("crapification detected:");
+                        Console.WriteLine("Word       = " + word);
+                        Console.WriteLine("Golden tag = " + goldTag);
+                        Console.WriteLine("No rules   = " + predictedNoRules);
+                        Console.WriteLine("With rules = " + predictedWithRules);
+                        Console.WriteLine("Rule       = " + rule);
+                        Console.WriteLine();
+                    }
+                    //if (goldTag != predictedNoRules && goldTag == predictedWithRules)
+                    //{
+                    //    Console.WriteLine("improvement detected:");
+                    //    Console.WriteLine("Word       = " + word);
+                    //    Console.WriteLine("Golden tag = " + goldTag);
+                    //    Console.WriteLine("No rules   = " + predictedNoRules);
+                    //    Console.WriteLine("With rules = " + predictedWithRules);
+                    //    Console.WriteLine("Rule       = " + rule);
+                    //    Console.WriteLine();
+                    //}
+                    corpus.TaggedWords[i].Tag = predictedWithRules;
                     if (mLemmatizer != null)
                     {
                         string tag = corpus.TaggedWords[i].Tag;
@@ -200,7 +216,7 @@ namespace PosTagger
                         //    logger.Info(null, filter);
                         //}
                         string lemma = (mConsiderTags && tag != "*") ? mLemmatizer.Lemmatize(wordLower, tag) : mLemmatizer.Lemmatize(wordLower);
-                        lemma = FixLemmaCase(lemma, corpus.TaggedWords[i].Word, tag);
+                        lemma = Rules.FixLemmaCase(lemma, corpus.TaggedWords[i].Word, tag);
                         if (string.IsNullOrEmpty(lemma) || (mConsiderTags && lemma == wordLower)) { lemma = wordLower; }
                         if (xmlMode)
                         {

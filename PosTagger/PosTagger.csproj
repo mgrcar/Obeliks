@@ -46,6 +46,8 @@
     </Compile>
     <Compile Include="PartOfSpeechTagger.cs" />
     <Compile Include="SsjTokenizer.cs" />
+    <Compile Include="Rules.cs">
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
@@ -69,6 +71,20 @@
     <EmbeddedResource Include="SsjTokenizerRules.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Lists\Tagger\ListKbPrefix.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListL.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListO.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListPpLemma.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListZ.txt" />
+    <EmbeddedResource Include="Lists\Tagger\TagStats.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListVd.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListVp.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDd.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDi.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDm.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDo.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDr.txt" />
+    <EmbeddedResource Include="Lists\Tagger\ListDt.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
