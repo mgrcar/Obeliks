@@ -45,7 +45,6 @@
     <Compile Include="PatriciaTree.cs">
     </Compile>
     <Compile Include="PartOfSpeechTagger.cs" />
-    <Compile Include="SsjTokenizer.cs" />
     <Compile Include="Rules.cs">
     </Compile>
   </ItemGroup>
@@ -71,31 +70,32 @@
     <EmbeddedResource Include="SsjTokenizerRules.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Lists\Tagger\ListKbPrefix.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListL.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListO.txt" />
-    <EmbeddedResource Include="Lists\Lemmatizer\ListPpLemma.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListZ.txt" />
-    <EmbeddedResource Include="Lists\Tagger\TagStats.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListVd.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListVp.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDd.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDi.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDm.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDo.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDr.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListDt.txt" />
-    <EmbeddedResource Include="Lists\Lemmatizer\ListPsLemma.txt">
+    <EmbeddedResource Include="Resources\Tagger\ListKbPrefix.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListL.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListO.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListPpLemma.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListZ.txt" />
+    <EmbeddedResource Include="Resources\Tagger\TagStats.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListVd.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListVp.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDd.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDi.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDm.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDo.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDr.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListDt.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListPsLemma.txt">
       <SubType>Form</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lists\Lemmatizer\ListPSuffix.txt" />
-    <EmbeddedResource Include="Lists\Lemmatizer\ListRSuffix.txt" />
-    <EmbeddedResource Include="Lists\Lemmatizer\ListSoLemma.txt" />
-    <EmbeddedResource Include="Lists\Lemmatizer\ListSSuffix.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListPSuffix.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListRSuffix.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListSoLemma.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListSSuffix.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="Resources\Tokenizer\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

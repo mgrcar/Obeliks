@@ -11,14 +11,15 @@
  *    Attribution-NonCommercial-NoDerivs 2.5 licence
  *    
  *  File:    Rules.cs
- *  Desc:    Language-specific rules for tagging (Slovene language)
- *  Created: Dec-2011
+ *  Desc:    Tokenization, tagging, and lemmatization rules for Slovene
+ *  Created: Dec-2010
  *
- *  Author:  Miha Grcar
+ *  Author:  Miha Grcar, Simon Krek, Kaja Dobrovoljc
  *
  ***************************************************************************/
 
 using System;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using Latino;
@@ -31,6 +32,19 @@ using Latino;
 */
 public static class Rules
 {
+    internal class TokenizerRegex
+    {
+        public Regex mRegex;
+        public bool mVal;
+        public bool mTxt;
+        public string mRhs;
+    }
+
+    private static ArrayList<TokenizerRegex> mRules
+        = null;
+    private static Regex mTagRegex
+        = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
+
     private static Set<string> mListDmLetter
         = new Set<string>("v,u,o".Split(','));
     private static Set<string> mListDtLetter
@@ -96,7 +110,7 @@ public static class Rules
 
     static Rules()
     {
-        string[] tagStats = LoadList("TagStats.txt");
+        string[] tagStats = LoadList("Tagger.TagStats.txt");
         foreach (string item in tagStats)
         {
             string[] tmp = item.Split(':');
@@ -107,6 +121,80 @@ public static class Rules
         {
             mLemListSoLemma.Add(lemma.ToLower(), lemma);
         }
+    }
+
+    private static ArrayList<TokenizerRegex> LoadRules()
+    {
+        Regex splitRegex = new Regex(@"^(?<regex>.*)((--)|(==))\>(?<rhs>.*)$", RegexOptions.Compiled);
+        ArrayList<TokenizerRegex> rules = new ArrayList<TokenizerRegex>();
+        StreamReader rulesReader = new StreamReader(Utils.GetManifestResourceStream(typeof(Rules), "SsjTokenizerRules.txt"));
+        string line;
+        while ((line = rulesReader.ReadLine()) != null)
+        {
+            if (line.Trim() == "stop") { break; }
+            if (!line.StartsWith("#") && line.Trim() != "")
+            {
+                RegexOptions opt = RegexOptions.Compiled | RegexOptions.Multiline;
+                if (line.Contains("-->")) { opt |= RegexOptions.IgnoreCase; }
+                TokenizerRegex tknRegex = new TokenizerRegex();
+                tknRegex.mVal = line.Contains("$val");
+                tknRegex.mTxt = line.Contains("$txt");
+                Match match = splitRegex.Match(line);
+                if (match.Success)
+                {
+                    try
+                    {
+                        tknRegex.mRegex = new Regex(match.Result("${regex}").Trim(), opt);
+                        tknRegex.mRhs = match.Result("${rhs}").Trim();
+                        rules.Add(tknRegex);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("*** Warning: Cannot parse line \"{0}\".", line);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("*** Warning: Cannot parse line \"{0}\".", line);
+                }
+            }
+        }
+        return rules;
+    }
+
+    private static string ExecRules(string text)
+    {
+        foreach (TokenizerRegex tknRegex in mRules)
+        {
+            if (!tknRegex.mVal && !tknRegex.mTxt)
+            {
+                text = tknRegex.mRegex.Replace(text, tknRegex.mRhs);
+            }
+            else
+            {
+                text = tknRegex.mRegex.Replace(text, delegate(Match m) {
+                    string rhs = m.Result(tknRegex.mRhs);
+                    if (tknRegex.mVal)
+                    {
+                        rhs = rhs.Replace("$val", m.Value);
+                    }
+                    if (tknRegex.mTxt)
+                    {
+                        rhs = rhs.Replace("$txt", mTagRegex.Replace(m.Value, ""));
+                    }
+                    return rhs;
+                });
+            }
+        }
+        return text;
+    }
+
+    public static string Tokenize(string text)
+    {
+        Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
+        if (mRules == null) { mRules = LoadRules(); }
+        string xml = ExecRules(text);
+        return "<text>" + xml + "</text>";
     }
 
     private static string[] LoadList(string name)
@@ -244,6 +332,24 @@ public static class Rules
         if (!char.IsDigit(word[0])) { RemoveTags(newFilter, "Ka"); rule += " p2_r11"; }
         return newFilter;
     }
+
+    // Nepregibno:
+    // N
+    // O
+    // M
+    // L
+    // V.
+    // D.
+    // Kag
+    // Kav
+    // Krg
+    // Krv
+    // G..n.*
+    // S..ei
+    // P.nmein
+    // Rsn
+    // Rd
+    // Z..mei.*
 
     public static string FixLemmaCase(string lemma, string word, string tag)
     {
