@@ -74,7 +74,7 @@
     <EmbeddedResource Include="Lists\Tagger\ListKbPrefix.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListL.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListO.txt" />
-    <EmbeddedResource Include="Lists\Tagger\ListPpLemma.txt" />
+    <EmbeddedResource Include="Lists\Lemmatizer\ListPpLemma.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListZ.txt" />
     <EmbeddedResource Include="Lists\Tagger\TagStats.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListVd.txt" />
@@ -85,6 +85,13 @@
     <EmbeddedResource Include="Lists\Tagger\ListDo.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListDr.txt" />
     <EmbeddedResource Include="Lists\Tagger\ListDt.txt" />
+    <EmbeddedResource Include="Lists\Lemmatizer\ListPsLemma.txt">
+      <SubType>Form</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lists\Lemmatizer\ListPSuffix.txt" />
+    <EmbeddedResource Include="Lists\Lemmatizer\ListRSuffix.txt" />
+    <EmbeddedResource Include="Lists\Lemmatizer\ListSoLemma.txt" />
+    <EmbeddedResource Include="Lists\Lemmatizer\ListSSuffix.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>

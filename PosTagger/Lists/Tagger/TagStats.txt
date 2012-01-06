@@ -199,7 +199,6 @@ Zc-mdt:21
 Somdt:198
 Kbvmei:171
 Pdnzmr:196
-Nj:873
 Zstzetm:40
 Zc-zmm:46
 Krv:46
@@ -883,7 +882,6 @@ Gp-ppd:4
 Zstmmdez:3
 Ppsmet:18
 Ppszmo:9
-Np:52
 Zspsmte:5
 Ggdd-ds:14
 Zspzmom:6
@@ -891,7 +889,6 @@ Zspmmie:17
 Zstmemez:16
 Zspseme:13
 Psnzdi:3
-Nt:22
 Zl-zet:5
 Zv-zdo:2
 Zl-med:12
@@ -1170,3 +1167,4 @@ Ggvspe-n:2
 Zk-smd:4
 Ggvstm-n:2
 Zsdmete:2
+N:947

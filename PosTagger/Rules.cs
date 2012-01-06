@@ -45,33 +45,42 @@ public static class Rules
         = new Set<string>("a,e,i,u".Split(','));
 
     private static Set<string> mListDi
-        = new Set<string>(LoadList("ListDi.txt"));
+        = new Set<string>(LoadList("Tagger.ListDi.txt"));
     private static Set<string> mListDr
-        = new Set<string>(LoadList("ListDr.txt"));
+        = new Set<string>(LoadList("Tagger.ListDr.txt"));
     private static Set<string> mListDd
-        = new Set<string>(LoadList("ListDd.txt"));
+        = new Set<string>(LoadList("Tagger.ListDd.txt"));
     private static Set<string> mListDt
-        = new Set<string>(LoadList("ListDt.txt"));
+        = new Set<string>(LoadList("Tagger.ListDt.txt"));
     private static Set<string> mListDm
-        = new Set<string>(LoadList("ListDm.txt"));
+        = new Set<string>(LoadList("Tagger.ListDm.txt"));
     private static Set<string> mListDo
-        = new Set<string>(LoadList("ListDo.txt"));
+        = new Set<string>(LoadList("Tagger.ListDo.txt"));
     private static Set<string> mListVp
-        = new Set<string>(LoadList("ListVp.txt"));
+        = new Set<string>(LoadList("Tagger.ListVp.txt"));
     private static Set<string> mListVd
-        = new Set<string>(LoadList("ListVd.txt"));
-
+        = new Set<string>(LoadList("Tagger.ListVd.txt"));
     private static Set<string> mListL
-        = new Set<string>(LoadList("ListL.txt"));
+        = new Set<string>(LoadList("Tagger.ListL.txt"));
     private static Set<string> mListZ
-        = new Set<string>(LoadList("ListZ.txt"));
+        = new Set<string>(LoadList("Tagger.ListZ.txt"));
     private static Set<string> mListO
-        = new Set<string>(LoadList("ListO.txt"));
- 
+        = new Set<string>(LoadList("Tagger.ListO.txt"));
     private static ArrayList<string> mListKbPrefix
-        = new ArrayList<string>(LoadList("ListKbPrefix.txt"));
-    private static ArrayList<string> mListPpLemma
-        = new ArrayList<string>(LoadList("ListPpLemma.txt"));
+        = new ArrayList<string>(LoadList("Tagger.ListKbPrefix.txt"));
+
+    private static ArrayList<string> mLemListPpLemma
+        = new ArrayList<string>(LoadList("Lemmatizer.ListPpLemma.txt"));
+    private static ArrayList<string> mLemListPsLemma
+        = new ArrayList<string>(LoadList("Lemmatizer.ListPsLemma.txt"));
+    private static ArrayList<string> mLemListSoLemma
+        = new ArrayList<string>(LoadList("Lemmatizer.ListSoLemma.txt"));
+    private static ArrayList<string> mLemListSSuffix
+        = new ArrayList<string>(LoadList("Lemmatizer.ListSSuffix.txt"));
+    private static ArrayList<string> mLemListRSuffix
+        = new ArrayList<string>(LoadList("Lemmatizer.ListRSuffix.txt"));
+    private static ArrayList<string> mLemListPSuffix
+        = new ArrayList<string>(LoadList("Lemmatizer.ListPSuffix.txt"));
 
     private static MultiSet<string> mTagStats
         = new MultiSet<string>();
@@ -181,12 +190,12 @@ public static class Rules
             if (wordLower == "a") { newFilter.Add("Vp"); newFilter.Add("Rsn"); rule += " p1_r1b"; }
             if (wordLower == "à") { newFilter.Add("Rsn"); rule += " p1_r1c"; }
             if (mListKrgLetter.Contains(wordLower)) { newFilter.Add("Krg"); rule += " p1_r1d"; }
-            if (mListNLetter.Contains(wordLower)) { /*CopyTags(newFilter, "N");*/ newFilter.Add("N"); rule += " p1_r1e"; }
+            if (mListNLetter.Contains(wordLower)) { newFilter.Add("N"); rule += " p1_r1e"; }
         }
         else if (numLetters > 0 && numDigits > 0 && numLetters + numDigits == word.Length)
         {
             rule = "p1_r2";
-            CopyTags(newFilter, "S"/*, "N"*/);
+            CopyTags(newFilter, "S");
             newFilter.Add("N");
             newFilter.Add("Kag");
         }
@@ -201,7 +210,7 @@ public static class Rules
             rule = "p1_r4";
             if (mRegexKr.Match(word).Success) { newFilter.Add("Krv"); }
             if (numLetters == word.Length - 1 && word.EndsWith(".")) { newFilter.Add("O"); }
-            if (!word.EndsWith(".")) { /*CopyTags(newFilter, "N");*/ newFilter.Add("N"); }
+            if (!word.EndsWith(".")) { newFilter.Add("N"); }
         }
         else
         {
@@ -232,32 +241,38 @@ public static class Rules
     public static string FixLemmaCase(string lemma, string word, string tag)
     {
         if (word.Length >= 1)
-        {
+        {            
             Utils.CaseType caseType = Utils.GetCaseType(word);
-            bool cap = caseType == Utils.CaseType.Abc || caseType == Utils.CaseType.AbC || caseType == Utils.CaseType.ABC;
+            bool isFirstCap = caseType == Utils.CaseType.Abc || caseType == Utils.CaseType.AbC || caseType == Utils.CaseType.ABC;
+            bool isAllCaps = caseType == Utils.CaseType.ABC;
+            if (tag.StartsWith("So"))
+            { 
+                // TODO
+            }
             if (tag.StartsWith("Sl"))
             {
-                if (caseType == Utils.CaseType.ABC)
+                if (isAllCaps)
                 {
                     return lemma.ToUpper();
                 }
-                if (cap && lemma.Length >= 1)
+                if (isFirstCap && lemma.Length >= 1)
                 {
                     return char.ToUpper(lemma[0]) + lemma.Substring(1);
                 }
             }
             else if (tag.StartsWith("Kr"))
             {
-                if (caseType == Utils.CaseType.ABC) { return lemma.ToUpper(); }
+                if (isAllCaps) { return lemma.ToUpper(); }
             }
             else if (tag.StartsWith("Ps"))
             {
-                if (cap && lemma.Length >= 1)
+                if (isFirstCap && lemma.Length >= 1)
                 {
+                    // TODO: add Ps exceptions here
                     return char.ToUpper(lemma[0]) + lemma.Substring(1);
                 }
             }
-            else if (tag.StartsWith("Pp") && mListPpLemma.Contains(lemma))
+            else if (tag.StartsWith("Pp") && mLemListPpLemma.Contains(lemma))
             {
                 return char.ToUpper(lemma[0]) + lemma.Substring(1);
             }
