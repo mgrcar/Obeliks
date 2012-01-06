@@ -69,18 +69,18 @@ public static class Rules
     private static ArrayList<string> mListKbPrefix
         = new ArrayList<string>(LoadList("Tagger.ListKbPrefix.txt"));
 
-    private static ArrayList<string> mLemListPpLemma
-        = new ArrayList<string>(LoadList("Lemmatizer.ListPpLemma.txt"));
-    private static ArrayList<string> mLemListPsLemma
-        = new ArrayList<string>(LoadList("Lemmatizer.ListPsLemma.txt"));
-    private static ArrayList<string> mLemListSoLemma
-        = new ArrayList<string>(LoadList("Lemmatizer.ListSoLemma.txt"));
-    private static ArrayList<string> mLemListSSuffix
-        = new ArrayList<string>(LoadList("Lemmatizer.ListSSuffix.txt"));
-    private static ArrayList<string> mLemListRSuffix
-        = new ArrayList<string>(LoadList("Lemmatizer.ListRSuffix.txt"));
-    private static ArrayList<string> mLemListPSuffix
-        = new ArrayList<string>(LoadList("Lemmatizer.ListPSuffix.txt"));
+    private static Set<string> mLemListPpLemma
+        = new Set<string>(LoadList("Lemmatizer.ListPpLemma.txt"));
+    private static Set<string> mLemListPsLemma
+        = new Set<string>(LoadList("Lemmatizer.ListPsLemma.txt"));
+    private static Dictionary<string, string> mLemListSoLemma
+        = new Dictionary<string, string>();
+    private static Set<string> mLemListSSuffix
+        = new Set<string>(LoadList("Lemmatizer.ListSSuffix.txt"));
+    private static Set<string> mLemListRSuffix
+        = new Set<string>(LoadList("Lemmatizer.ListRSuffix.txt"));
+    private static Set<string> mLemListPSuffix
+        = new Set<string>(LoadList("Lemmatizer.ListPSuffix.txt"));
 
     private static MultiSet<string> mTagStats
         = new MultiSet<string>();
@@ -91,6 +91,8 @@ public static class Rules
         = new Regex(@"^[\p{L}\-–—']+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex mRegexS
         = new Regex(@"^[\p{L}0-9\-–—']+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static Regex mAcronymRegex
+        = new Regex(@"^(?<acronym>\p{Lu}+)[-–—](?<suffix>\p{Ll}+)$", RegexOptions.Compiled);
 
     static Rules()
     {
@@ -99,6 +101,11 @@ public static class Rules
         {
             string[] tmp = item.Split(':');
             mTagStats.Add(tmp[0], Convert.ToInt32(tmp[1]));
+        }
+        string[] lemmaList = LoadList("Lemmatizer.ListSoLemma.txt");
+        foreach (string lemma in lemmaList)
+        {
+            mLemListSoLemma.Add(lemma.ToLower(), lemma);
         }
     }
 
@@ -245,36 +252,77 @@ public static class Rules
             Utils.CaseType caseType = Utils.GetCaseType(word);
             bool isFirstCap = caseType == Utils.CaseType.Abc || caseType == Utils.CaseType.AbC || caseType == Utils.CaseType.ABC;
             bool isAllCaps = caseType == Utils.CaseType.ABC;
-            if (tag.StartsWith("So"))
-            { 
-                // TODO
-            }
-            if (tag.StartsWith("Sl"))
+            if (tag.StartsWith("R"))
             {
-                if (isAllCaps)
+                Match m = mAcronymRegex.Match(word);
+                if (m.Success && mLemListRSuffix.Contains(m.Result("${suffix}"))) 
                 {
-                    return lemma.ToUpper();
-                }
-                if (isFirstCap && lemma.Length >= 1)
-                {
-                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                    return m.Result("${acronym}");
                 }
             }
             else if (tag.StartsWith("Kr"))
             {
                 if (isAllCaps) { return lemma.ToUpper(); }
             }
-            else if (tag.StartsWith("Ps"))
-            {
-                if (isFirstCap && lemma.Length >= 1)
-                {
-                    // TODO: add Ps exceptions here
-                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
-                }
-            }
             else if (tag.StartsWith("Pp") && mLemListPpLemma.Contains(lemma))
             {
                 return char.ToUpper(lemma[0]) + lemma.Substring(1);
+            }
+            else if (tag.StartsWith("Ps"))
+            {
+                Match m = mAcronymRegex.Match(word);
+                if (m.Success && mLemListPSuffix.Contains(m.Result("${suffix}")))
+                {
+                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                    return m.Result("${acronym}");
+                }
+                else if (mLemListPsLemma.Contains(lemma))
+                {
+                    return lemma;
+                }
+                else if (isFirstCap && lemma.Length >= 1)
+                {
+                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                }
+            }
+            else if (tag.StartsWith("So"))
+            {
+                if (word.Length == 1) 
+                { 
+                    return word; 
+                }
+                else if (mLemListSoLemma.ContainsKey(lemma))
+                {
+                    //Console.WriteLine(mLemListSoLemma[lemma]);
+                    return mLemListSoLemma[lemma];
+                }
+                else // *** check with Simon/Kaja if this is OK
+                {
+                    Match m = mAcronymRegex.Match(word);
+                    if (m.Success && mLemListSSuffix.Contains(m.Result("${suffix}")))
+                    {
+                        //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                        return m.Result("${acronym}");
+                    }
+                }
+            }
+            else if (tag.StartsWith("Sl"))
+            {
+                Match m = mAcronymRegex.Match(word);
+                if (m.Success && mLemListSSuffix.Contains(m.Result("${suffix}")))
+                {
+                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                    return m.Result("${acronym}");
+                }
+                else if (isAllCaps)
+                {
+                    return lemma.ToUpper();
+                }
+                else if (isFirstCap && lemma.Length >= 1)
+                {
+                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                }
             }
         }
         return lemma;
