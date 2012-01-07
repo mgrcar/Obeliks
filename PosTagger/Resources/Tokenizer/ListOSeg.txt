@@ -1,0 +1,7 @@
+#
+# O_izklj_konec
+#
+itn
+itd
+ipd
+idr

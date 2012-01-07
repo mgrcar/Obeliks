@@ -91,11 +91,20 @@
     <EmbeddedResource Include="Resources\Lemmatizer\ListRSuffix.txt" />
     <EmbeddedResource Include="Resources\Lemmatizer\ListSoLemma.txt" />
     <EmbeddedResource Include="Resources\Lemmatizer\ListSSuffix.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOAll.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOAllCS.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOExcl.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOExclCS.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListONoSegSeq.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOSeg.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOSegSeq.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\ListOSeq.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\TokRulesPart1.txt" />
+    <EmbeddedResource Include="Resources\Tokenizer\TokRulesPart2.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="Resources\Tokenizer\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

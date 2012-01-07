@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 using System;
+using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -40,8 +41,6 @@ public static class Rules
         public string mRhs;
     }
 
-    private static ArrayList<TokenizerRegex> mRules
-        = null;
     private static Regex mTagRegex
         = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
 
@@ -96,17 +95,55 @@ public static class Rules
     private static Set<string> mLemListPSuffix
         = new Set<string>(LoadList("Lemmatizer.ListPSuffix.txt"));
 
+    //private static ArrayList<string> mLemListTagPrefix
+    //    = new ArrayList<string>("N,O,M,L,Kag,Kav,Krg,Krv,Rsn,Rd".Split(','));
+    //private static Regex mLemmaTagRegex
+    //    = new Regex(@"^((V.)|(D.)|(G..n.*)|(S..ei)|(P.nmein)|(Z..mei.*))$", RegexOptions.Compiled);
+
     private static MultiSet<string> mTagStats
         = new MultiSet<string>();
 
-    private static Regex mRegexKr
+    static Set<string> mAbbrvAll
+    = new Set<string>(LoadList("Tokenizer.ListOAll.txt"));
+    static Set<string> mAbbrvAllCS
+        = new Set<string>(LoadList("Tokenizer.ListOAllCS.txt"));
+    static Set<string> mAbbrvExcl
+        = new Set<string>(LoadList("Tokenizer.ListOExcl.txt"));
+    static Set<string> mAbbrvExclCS
+        = new Set<string>(LoadList("Tokenizer.ListOExclCS.txt"));
+    static Set<string> mAbbrvSeq
+        = new Set<string>(LoadList("Tokenizer.ListOSeq.txt"));
+    static Set<string> mAbbrvSeg
+        = new Set<string>(LoadList("Tokenizer.ListOSeg.txt"));
+    static Set<string> mAbbrvSegSeq
+        = new Set<string>(LoadList("Tokenizer.ListOSegSeq.txt"));
+    static Set<string> mAbbrvNoSegSeq
+        = new Set<string>(LoadList("Tokenizer.ListONoSegSeq.txt"));
+
+    static Regex mAbbrvExclRegex
+        = new Regex(@"(?<step><w>(?<word>\p{L}+)</w><c>\.</c>(?<tail><S/>)?)(?<ctx>(</[ps]>)|(<[wc]>.))", RegexOptions.Compiled);
+    static Regex mAbbrvOtherRegex
+        = new Regex(@"(?<step><w>(?<word>\p{L}+)</w><c>\.</c>(?<tail><S/>)?)<[wc]>[:,;0-9\p{Ll}]", RegexOptions.Compiled);
+    static Regex mAbbrvRegex
+        = new Regex(@"<w>(\p{L}+)</w><c>\.</c>", RegexOptions.Compiled);
+    static Regex mEndOfSentenceRegex
+        = new Regex(@"^<[wc]>[\p{Lu}""»“‘'0-9]$", RegexOptions.Compiled);
+
+    static ArrayList<int> mAbbrvSeqLen;
+
+    private static Regex mKrRegex
         = new Regex(@"^[ivxlmdc]+\.?$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-    private static Regex mRegexPR
+    private static Regex mPRRegex
         = new Regex(@"^[\p{L}\-–—']+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-    private static Regex mRegexS
+    private static Regex mSRegex
         = new Regex(@"^[\p{L}0-9\-–—']+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex mAcronymRegex
         = new Regex(@"^(?<acronym>\p{Lu}+)[-–—](?<suffix>\p{Ll}+)$", RegexOptions.Compiled);
+
+    private static ArrayList<TokenizerRegex> mTokRulesPart1
+        = LoadRules("Tokenizer.TokRulesPart1.txt");
+    private static ArrayList<TokenizerRegex> mTokRulesPart2
+        = LoadRules("Tokenizer.TokRulesPart2.txt");
 
     static Rules()
     {
@@ -121,13 +158,25 @@ public static class Rules
         {
             mLemListSoLemma.Add(lemma.ToLower(), lemma);
         }
+        Set<int> lengths = new Set<int>();
+        foreach (string abbrv in mAbbrvSeq)
+        {
+            int len = 0;
+            foreach (char ch in abbrv)
+            {
+                if (ch == '.') { len++; }
+            }
+            lengths.Add(len);
+        }
+        mAbbrvSeqLen = new ArrayList<int>(lengths);
+        mAbbrvSeqLen.Sort(DescSort<int>.Instance);
     }
 
-    private static ArrayList<TokenizerRegex> LoadRules()
+    private static ArrayList<TokenizerRegex> LoadRules(string resName)
     {
         Regex splitRegex = new Regex(@"^(?<regex>.*)((--)|(==))\>(?<rhs>.*)$", RegexOptions.Compiled);
         ArrayList<TokenizerRegex> rules = new ArrayList<TokenizerRegex>();
-        StreamReader rulesReader = new StreamReader(Utils.GetManifestResourceStream(typeof(Rules), "SsjTokenizerRules.txt"));
+        StreamReader rulesReader = new StreamReader(Utils.GetManifestResourceStream(typeof(Rules), resName));
         string line;
         while ((line = rulesReader.ReadLine()) != null)
         {
@@ -162,9 +211,9 @@ public static class Rules
         return rules;
     }
 
-    private static string ExecRules(string text)
+    private static string ExecRules(string text, ArrayList<TokenizerRegex> rules)
     {
-        foreach (TokenizerRegex tknRegex in mRules)
+        foreach (TokenizerRegex tknRegex in rules)
         {
             if (!tknRegex.mVal && !tknRegex.mTxt)
             {
@@ -189,11 +238,117 @@ public static class Rules
         return text;
     }
 
+    static string ProcessAbbrvSeq(string txt, int seqLen)
+    {
+        int idx = 0;
+        StringBuilder s = new StringBuilder();
+        Regex regex = new Regex(@"(?<jump>(?<step><w>\p{L}+</w><c>\.</c>(<S/>)?)(<w>\p{L}+</w><c>\.</c>(<S/>)?){" + (seqLen - 1) + @"})(?<ctx>(</[ps]>)|(<[wc]>.))", RegexOptions.Compiled);
+        Match m = regex.Match(txt);
+        while (m.Success)
+        {
+            s.Append(txt.Substring(idx, m.Index - idx));
+            string xml = m.Result("${jump}");
+            string abbrvLower = mTagRegex.Replace(xml, "").Replace(" ", "").ToLower();
+            if (mAbbrvSeq.Contains(abbrvLower))
+            {
+                idx = m.Index + xml.Length;
+                xml = mAbbrvRegex.Replace(xml, "<w>$1.</w>");
+                if (mEndOfSentenceRegex.Match(m.Result("${ctx}")).Success)
+                {
+                    if (mAbbrvSegSeq.Contains(abbrvLower))
+                    {
+                        xml = xml + "</s><s>";
+                    }
+                    else if (mAbbrvNoSegSeq.Contains(abbrvLower))
+                    {
+                        xml += "<!s/>";
+                    }
+                }
+            }
+            else
+            {
+                xml = m.Result("${step}");
+                idx = m.Index + xml.Length;
+            }
+            s.Append(xml);
+            m = regex.Match(txt, idx);
+        }
+        s.Append(txt.Substring(idx, txt.Length - idx));
+        return s.ToString();
+    }
+
+    static string ProcessAbbrvExcl(string txt)
+    {
+        int idx = 0;
+        StringBuilder s = new StringBuilder();
+        Match m = mAbbrvExclRegex.Match(txt);
+        while (m.Success)
+        {
+            s.Append(txt.Substring(idx, m.Index - idx));
+            string xml;
+            string word = m.Result("${word}");
+            string wordLower = word.ToLower();
+            if (word.Length == 1 || mAbbrvExcl.Contains(wordLower) || mAbbrvExclCS.Contains(word))
+            {
+                xml = m.Result("<w>${word}.</w>${tail}");
+                idx = m.Index + m.Result("${step}").Length;
+                if (mAbbrvSeg.Contains(wordLower) && mEndOfSentenceRegex.Match(m.Result("${ctx}")).Success)
+                {
+                    xml += "</s><s>";
+                }
+            }
+            else
+            {
+                xml = m.Result("${step}");
+                idx = m.Index + xml.Length;
+            }
+            s.Append(xml);
+            m = mAbbrvExclRegex.Match(txt, idx);
+        }
+        s.Append(txt.Substring(idx, txt.Length - idx));
+        return s.ToString();
+    }
+
+    static string ProcessAbbrvOther(string txt)
+    {
+        int idx = 0;
+        StringBuilder s = new StringBuilder();
+        Match m = mAbbrvOtherRegex.Match(txt);
+        while (m.Success)
+        {
+            s.Append(txt.Substring(idx, m.Index - idx));
+            string xml;
+            string word = m.Result("${word}");
+            string wordLower = word.ToLower();
+            if (mAbbrvAll.Contains(wordLower) || mAbbrvAllCS.Contains(word))
+            {
+                xml = m.Result("<w>${word}.</w>${tail}");
+                idx = m.Index + m.Result("${step}").Length;
+            }
+            else
+            {
+                xml = m.Result("${step}");
+                idx = m.Index + xml.Length;
+            }
+            s.Append(xml);
+            m = mAbbrvOtherRegex.Match(txt, idx);
+        }
+        s.Append(txt.Substring(idx, txt.Length - idx));
+        return s.ToString();
+    }
+
     public static string Tokenize(string text)
     {
         Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
-        if (mRules == null) { mRules = LoadRules(); }
-        string xml = ExecRules(text);
+        string xml = ExecRules(text, mTokRulesPart1);
+        foreach (int len in mAbbrvSeqLen)
+        {
+            xml = ProcessAbbrvSeq(xml, len);
+        }
+        xml = ProcessAbbrvExcl(xml);
+        xml = ProcessAbbrvOther(xml);
+        xml = ExecRules(xml, mTokRulesPart2);
+        xml = xml.Replace("<!s/>", "");
         return "<text>" + xml + "</text>";
     }
 
@@ -303,7 +458,7 @@ public static class Rules
         else if (word.Contains("."))
         {
             rule = "p1_r4";
-            if (mRegexKr.Match(word).Success) { newFilter.Add("Krv"); }
+            if (mKrRegex.Match(word).Success) { newFilter.Add("Krv"); }
             if (numLetters == word.Length - 1 && word.EndsWith(".")) { newFilter.Add("O"); }
             if (!word.EndsWith(".")) { newFilter.Add("N"); }
         }
@@ -324,35 +479,22 @@ public static class Rules
         if (!mListL.Contains(wordLower)) { newFilter.Remove("L"); rule += " p2_r3"; }
         if (!mListZ.Contains(wordLower)) { RemoveTags(newFilter, "Z"); rule += " p2_r4"; }
         if (numLetters != word.Length) { newFilter.Remove("M"); RemoveTags(newFilter, "G"); rule += " p2_r5"; }
-        if (!mRegexPR.Match(word).Success) { RemoveTags(newFilter, "P", "R"); rule += " p2_r6"; }
-        if (!mRegexS.Match(word).Success) { RemoveTags(newFilter, "S"); rule += " p2_r7"; }
+        if (!mPRRegex.Match(word).Success) { RemoveTags(newFilter, "P", "R"); rule += " p2_r6"; }
+        if (!mSRegex.Match(word).Success) { RemoveTags(newFilter, "S"); rule += " p2_r7"; }
         if (!mListO.Contains(wordLower) && !(numLetters == 1 && word.Length == 2 && word.EndsWith("."))) { newFilter.Remove("O"); rule += " p2_r8"; }
-        if (!mRegexKr.Match(word).Success) { RemoveTags(newFilter, "Kr"); rule += " p2_r9"; }
+        if (!mKrRegex.Match(word).Success) { RemoveTags(newFilter, "Kr"); rule += " p2_r9"; }
         if (!StartsWith(wordLower, mListKbPrefix)) { RemoveTags(newFilter, "Kb"); rule += " p2_r10"; }
         if (!char.IsDigit(word[0])) { RemoveTags(newFilter, "Ka"); rule += " p2_r11"; }
         return newFilter;
     }
 
-    // Nepregibno:
-    // N
-    // O
-    // M
-    // L
-    // V.
-    // D.
-    // Kag
-    // Kav
-    // Krg
-    // Krv
-    // G..n.*
-    // S..ei
-    // P.nmein
-    // Rsn
-    // Rd
-    // Z..mei.*
-
-    public static string FixLemmaCase(string lemma, string word, string tag)
+    public static string ApplyLemmaRules(string lemma, string word, string tag)
     {
+        //if (mLemListTagPrefix.Contains(tag) || mLemmaTagRegex.Match(tag).Success)
+        //{
+        //    if (lemma != word.ToLower()) { Console.WriteLine(word + " " + lemma + " " + tag); }
+        //    lemma = word.ToLower();
+        //}
         if (word.Length >= 1)
         {            
             Utils.CaseType caseType = Utils.GetCaseType(word);

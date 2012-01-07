@@ -1,0 +1,50 @@
+# Preprocessing 
+&amp; ==> &
+&lt; ==> <
+&gt; ==> >
+\r ==> 
+
+# XML/HTML entities
+& ==> &amp;
+\< ==> &lt;
+\> ==> &gt;
+
+# Punctuation, paragraphs, spaces
+([|€·−♀♂½~›→§\▪∙¼®‡±˝❏⋆―†£‹¤¾♦⋅☻„¨↑↓™‰^↩`♥❑❍✩≠´∞❖◦≤־√∑➤☺¹²⇒✳³∗≈≥❐★➁‒‑✽➢➜≡·∆❂➀➣←∫‚≪⊥▫♣➋➌⊂✵➟❒➊˚∈″⁄➂✝✴➍➎➘➝÷↔✶➔➚′⅓⅛∂♪♫✓✗✿❆➄↦∏∩✚✪❅➃➡(،≅☼✣➏)'ָ№∉♠➅➞ְٕ۫‛₂↲⇑∧∼⊄✐❢❣❤❥❦❧❺➐➙×/,.:"»«?!“”°‘’…•\-_&–—©*%#=}$@{\[\]+;]) ==> <c>$1</c>
+<c>&</c>((amp)|(lt)|(gt))<c>;</c> ==> <c>&$1;</c>
+^ ==> <p>
+$ ==> </p>
+\s ==> <S/>
+
+# Words
+<S/> ==> </w><S/><w>
+<c> ==> </w><c>
+</c> ==> </c><w>
+<p> ==> <p><w>			
+</p> ==> </w></p>	
+
+# Cleanup
+</p>(\n*)</w><S/><w> ==> </p>$1
+<w></w> ==> 
+
+# E-mail (case-insensitive regex matching is denoted with '-->')
+(<w>[\p{L}0-9_-]+</w><c>\.</c>)*<w>[\p{L}0-9_-]+</w><c>@</c>(((<w>[0-9\p{L}]+</w>)|(<c>[~_!*'()-]</c>))+<c>\.</c>)*<w>([0-9\P{L}][0-9\p{L}-]{0,61})?[0-9\p{L}]</w><c>\.</c><w>[\p{L}]{2,6}</w> --> <w>$txt</w>
+
+# URL 
+(<w>((ftp)|(https?))</w><c>:</c><c>/</c><c>/</c>)?(((<w>[0-9\p{L}]+</w>)|(<c>[~_!*'()-]</c>))+<c>\.</c>)*<w>([0-9\p{L}][0-9\p{L}-]{0,61})?[0-9\p{L}]</w><c>\.</c><w>[\p{L}]{2,6}</w>(<c>/</c>((<w>[0-9\p{L}]+</w>)|(<c>[~_!*'().;?:@=+$,%#-]</c>)|(<c>&amp;</c>))*((<w>[0-9\p{L}]+</w>)|(<c>[~_*'@=+$%#-]</c>)|(<c>&amp;</c>)))?(<c>/</c>)? --> <w>$txt</w> 
+
+# Brioni rule #1.2
+<w>([^<.]+)\.(\p{Lu}) ==> <w>$1</w><c>.</c></s><s><w>$2
+
+# Suffixes (incl. Brioni rule #2.6) 
+<w>([^<]+)</w><c>([-–—])</c><w>((a)|(evemu)|(evskega)|(i)|(jevega)|(jevska)|(jevskimi)|(jinemu)|(oma)|(ovim)|(ovski)|(e)|(evi)|(evskem)|(ih)|(jevem)|(jevske)|(jevsko)|(jini)|(ov)|(ovima)|(ovskih)|(em)|(evih)|(evskemu)|(ja)|(jevemu)|(jevskega)|(ji)|(jinih)|(ova)|(ovimi)|(ovskim)|(ema)|(evim)|(evski)|(je)|(jevi)|(jevskem)|(jih)|(jinim)|(ove)|(ovo)|(ovskima)|(ev)|(evima)|(evskih)|(jem)|(jevih)|(jevskemu)|(jin)|(jinima)|(ovega)|(ovska)|(ovskimi)|(eva)|(evimi)|(evskim)|(jema)|(jevim)|(jevski)|(jina)|(jinimi)|(ovem)|(ovske)|(ovsko)|(eve)|(evo)|(evskima)|(jev)|(jevima)|(jevskih)|(jine)|(jino)|(ovemu)|(ovskega)|(u)|(evega)|(evska)|(evskimi)|(jeva)|(jevimi)|(jevskim)|(jinega)|(ju)|(ovi)|(ovskem)|(evem)|(evske)|(evsko)|(jeve)|(jevo)|(jevskima)|(jinem)|(om)|(ovih)|(ovskemu)|(ovec)|(ovca)|(ovcu)|(ovcem)|(ovcev)|(ovcema)|(ovcih)|(ovci)|(ovce)|(ovcimi)|(evec)|(evca)|(evcu)|(evcem)|(evcev)|(evcema)|(evcih)|(evci)|(evce)|(evcimi)|(jevec)|(jevca)|(jevcu)|(jevcem)|(jevcev)|(jevcema)|(jevcih)|(jevci)|(jevce)|(jevcimi)|(ovka)|(ovke)|(ovki)|(ovko)|(ovk)|(ovkama)|(ovkah)|(ovkam)|(ovkami)|(evka)|(evke)|(evki)|(evko)|(evk)|(evkama)|(evkah)|(evkam)|(evkami)|(jevka)|(jevke)|(jevki)|(jevko)|(jevk)|(jevkama)|(jevkah)|(jevkam)|(jevkami))</w> ==> <w>$1$2$3</w>
+
+<w>(\d+)</w><c>([-–—])</c><w>((timi)|(im)|(ima)|(a)|(imi)|(e)|(o)|(ega)|(ti)|(em)|(tih)|(emu)|(tim)|(i)|(tima)|(ih)|(ta)|(te)|(to)|(tega)|(tem)|(temu))</w> ==> <w>$1$2$3</w>
+
+</w><c>'</c><w> ==> '
+
+(<w>\d+</w><c>[.,:]</c>)+<w>\d+\p{L}*</w> ==> <w>$txt</w>
+
+#
+# End of Part 1
+#

@@ -216,7 +216,7 @@ namespace PosTagger
                         //    logger.Info(null, filter);
                         //}
                         string lemma = (mConsiderTags && tag != "*") ? mLemmatizer.Lemmatize(wordLower, tag) : mLemmatizer.Lemmatize(wordLower);
-                        lemma = Rules.FixLemmaCase(lemma, corpus.TaggedWords[i].Word, tag);
+                        lemma = Rules.ApplyLemmaRules(lemma, corpus.TaggedWords[i].Word, tag);
                         if (string.IsNullOrEmpty(lemma) || (mConsiderTags && lemma == wordLower)) { lemma = wordLower; }
                         if (xmlMode)
                         {
