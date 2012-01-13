@@ -136,7 +136,7 @@ namespace PosTagger
             lemmaWords = 0;
             for (int i = 0; i < corpus.TaggedWords.Count; i++)
             {
-//                mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
+                mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
                 BinaryVector featureVector = corpus.GenerateFeatureVector(i, mFeatureSpace, /*extendFeatureSpace=*/false, mSuffixTree);
                 Prediction<string> result = mModel.Predict(featureVector);
                 if (mNonWordRegex.Match(corpus.TaggedWords[i].WordLower).Success) // non-word

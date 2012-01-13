@@ -14,7 +14,7 @@
  *  Desc:    Tokenization, tagging, and lemmatization rules for Slovene
  *  Created: Dec-2010
  *
- *  Author:  Miha Grcar, Simon Krek, Kaja Dobrovoljc
+ *  Authors: Miha Grcar, Simon Krek, Kaja Dobrovoljc
  *
  ***************************************************************************/
 
@@ -40,9 +40,6 @@ public static class Rules
         public bool mTxt;
         public string mRhs;
     }
-
-    private static Regex mTagRegex
-        = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
 
     private static Set<string> mListDmLetter
         = new Set<string>("v,u,o".Split(','));
@@ -100,11 +97,8 @@ public static class Rules
     //private static Regex mLemmaTagRegex
     //    = new Regex(@"^((V.)|(D.)|(G..n.*)|(S..ei)|(P.nmein)|(Z..mei.*))$", RegexOptions.Compiled);
 
-    private static MultiSet<string> mTagStats
-        = new MultiSet<string>();
-
     static Set<string> mAbbrvAll
-    = new Set<string>(LoadList("Tokenizer.ListOAll.txt"));
+        = new Set<string>(LoadList("Tokenizer.ListOAll.txt"));
     static Set<string> mAbbrvAllCS
         = new Set<string>(LoadList("Tokenizer.ListOAllCS.txt"));
     static Set<string> mAbbrvExcl
@@ -127,10 +121,8 @@ public static class Rules
     static Regex mAbbrvRegex
         = new Regex(@"<w>(\p{L}+)</w><c>\.</c>", RegexOptions.Compiled);
     static Regex mEndOfSentenceRegex
-        = new Regex(@"^<[wc]>[\p{Lu}""»“‘'0-9]$", RegexOptions.Compiled);
-
-    static ArrayList<int> mAbbrvSeqLen;
-
+        = new Regex(@"^<[wc]>[\p{Lu}""»“‘'0-9]$", RegexOptions.Compiled);    
+    
     private static Regex mKrRegex
         = new Regex(@"^[ivxlmdc]+\.?$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex mPRRegex
@@ -140,10 +132,17 @@ public static class Rules
     private static Regex mAcronymRegex
         = new Regex(@"^(?<acronym>\p{Lu}+)[-–—](?<suffix>\p{Ll}+)$", RegexOptions.Compiled);
 
+    private static Regex mTagRegex
+        = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
     private static ArrayList<TokenizerRegex> mTokRulesPart1
         = LoadRules("Tokenizer.TokRulesPart1.txt");
     private static ArrayList<TokenizerRegex> mTokRulesPart2
         = LoadRules("Tokenizer.TokRulesPart2.txt");
+
+    static ArrayList<int> mAbbrvSeqLen;
+
+    private static MultiSet<string> mTagStats
+        = new MultiSet<string>();
 
     static Rules()
     {

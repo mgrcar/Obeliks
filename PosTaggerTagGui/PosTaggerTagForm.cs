@@ -61,7 +61,11 @@ namespace PosTaggerTagGui
                         {                            
                             progressBar.Maximum = numSteps;
                             progressBar.Value = step;
-                            progressBar.Visible = true;
+                            if (!progressBar.Visible)
+                            {
+                                progressBar.Visible = true;
+                                txtStatus.ScrollToCaret();
+                            }
                         }
                     }));
                 } 
