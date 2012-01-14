@@ -47,6 +47,8 @@
     <Compile Include="PartOfSpeechTagger.cs" />
     <Compile Include="Rules.cs">
     </Compile>
+    <Compile Include="ThreadHandler.cs">
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
@@ -65,9 +67,6 @@
       <Project>{A39293C1-92D8-47B9-93A4-41F443B4F9E4}</Project>
       <Name>LemmaSharp</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="SsjTokenizerRules.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Tagger\ListKbPrefix.txt" />

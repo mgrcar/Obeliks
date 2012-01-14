@@ -14,6 +14,8 @@ namespace PosTaggerTagGui
     {
         private Thread mThread
             = null;
+        private Logger mLogger
+            = Logger.GetRootLogger();
 
         public PosTaggerTagForm()
         {
@@ -23,13 +25,13 @@ namespace PosTaggerTagGui
             if (ConfigurationManager.AppSettings["includeSubfolders"] != null)
             {
                 chkIncludeSubfolders.Checked = Regex.Match(ConfigurationManager.AppSettings["includeSubfolders"],
-                    "(true)|(1)", RegexOptions.IgnoreCase).Success;
+                    "(true)|(1)|(yes)|(on)", RegexOptions.IgnoreCase).Success;
             }
             txtOutput.Text = ConfigurationManager.AppSettings["output"];
             txtTaggerFile.Text = ConfigurationManager.AppSettings["taggerFile"];
             txtLemmatizerFile.Text = ConfigurationManager.AppSettings["lemmatizerFile"];
             // initialize LATINO logger
-            Logger mLogger = Logger.GetRootLogger();
+            mLogger = Logger.GetRootLogger();
             mLogger.LocalLevel = Logger.Level.Debug;
             mLogger.LocalOutputType = Logger.OutputType.Custom;
             mLogger.LocalProgressOutputType = Logger.ProgressOutputType.Custom;
@@ -111,13 +113,16 @@ namespace PosTaggerTagGui
         {
             try
             {
-                mThread.Abort();
+                mLogger.Info(null, "Počakajte ...");
+                mLogger.LocalLevel = Logger.Level.Off;
+                ThreadHandler.Abort(mThread, /*timeoutMs=*/3000);
             }
             catch { }
         }
 
         private void btnTag_Click(object sender, EventArgs e)
         {
+            ThreadHandler.Reset();
             // save current configuration
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             config.AppSettings.Settings.Remove("input");
@@ -228,17 +233,19 @@ namespace PosTaggerTagGui
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Logger.GetRootLogger().LocalLevel = Logger.Level.Off;
+            btnCancel.Enabled = false;
+            mLogger.Info(null, "Počakajte ...");
+            mLogger.LocalLevel = Logger.Level.Off;
             try 
-            { 
-                mThread.Abort();
+            {
+                ThreadHandler.Abort(mThread, /*timeoutMs=*/3000);
                 while (mThread.IsAlive) { Thread.Sleep(100); }
             } 
             catch { }
             GC.Collect(); // this closes all open files by invoking finalizers on readers and writers
             EnableForm();
-            Logger.GetRootLogger().LocalLevel = Logger.Level.Debug;
-            Logger.GetRootLogger().Info(null, "Označevanje prekinjeno.");
+            mLogger.LocalLevel = Logger.Level.Debug;
+            mLogger.Info(null, "Označevanje prekinjeno.");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
