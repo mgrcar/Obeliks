@@ -32,7 +32,7 @@ veznik          V           1
 členek          L           0
 medmet          M           0
 okrajšava       O           0
-neuvrščeno      N           1
+neuvrščeno      N           0
 
 ***********************************************************
 ***                  Attribute Table                    ***
@@ -61,7 +61,6 @@ stopnja         pridevnik   2
 stopnja         prislov     2
 vid             glagol      2
 vrsta           glagol      1
-vrsta           neuvrščeno  1
 vrsta           pridevnik   1
 vrsta           prislov     1
 vrsta           samostalnik 1
@@ -170,7 +169,6 @@ prihodnjik      p           oblika           glagol
 primernik       p           stopnja          pridevnik
 primernik       r           stopnja          prislov
 priredni        p           vrsta            veznik
-program         p           vrsta            neuvrščeno
 prva            p           oseba            glagol
 prva            p           oseba            zaimek
 rimski          r           zapis            števnik
@@ -190,7 +188,6 @@ srednji         s           spol             števnik
 srednji         s           spol_svojine     zaimek
 svojilni        s           vrsta            pridevnik
 svojilni        s           vrsta            zaimek
-tipkarska       t           vrsta            neuvrščeno
 tožilnik        t           sklon            predlog
 tožilnik        t           sklon            pridevnik
 tožilnik        t           sklon            samostalnik
@@ -198,7 +195,6 @@ tožilnik        t           sklon            zaimek
 tožilnik        t           sklon            števnik
 tretja          t           oseba            glagol
 tretja          t           oseba            zaimek
-tujejezično     j           vrsta            neuvrščeno
 velelnik        v           oblika           glagol
 vprašalni       v           vrsta            zaimek
 vrstilni        v           vrsta            števnik

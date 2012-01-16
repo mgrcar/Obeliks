@@ -512,7 +512,7 @@
             this.MaximizeBox = false;
             this.Name = "PosTaggerTagForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Označevalnik";
+            this.Text = "Obeliks [Oblikoslovni označevalnik za Slovenščino]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PosTaggerTagForm_FormClosing);
             this.pnlSplit.ResumeLayout(false);
             this.pnlSplit.PerformLayout();

@@ -87,9 +87,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MsdSpecsSloEngCodes.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="MsdSpecsSloSloCodes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

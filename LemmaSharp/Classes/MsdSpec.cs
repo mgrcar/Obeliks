@@ -251,8 +251,10 @@ namespace LemmaSharp {
             int typeId = 0;
             if (!typeCodeToIdMap.TryGetValue(msd[0], out typeId))
                 throw new Exception("The type specified in msd is not predefined");
+                //{ Console.WriteLine(msd); return '*'; }
             if (!attrIdTypeIdAttr.ContainsKey(attrId))
                 throw new Exception("The attribute id specified is not predefined");
+                //{ Console.WriteLine(msd); return '*'; }
             
             //TODO probably not correct usage of '*' and '-' CHECK!
 
@@ -265,7 +267,7 @@ namespace LemmaSharp {
             if (valueCode == '-') return '-';
             if (!attrIdTypeIdValue[attrId][typeId].ContainsKey(valueCode))
                 throw new Exception("The attribute-type-valueCode combiantion specified in msd is not predefined");
-
+                //{ Console.WriteLine(msd); return '*'; }
             return valueCode;
         }
 
