@@ -1,4 +1,6 @@
-﻿namespace PosTaggerTagGui
+﻿using Latino;
+
+namespace PosTaggerTagGui
 {
     partial class PosTaggerTagForm
     {
@@ -509,6 +511,8 @@
             this.ClientSize = new System.Drawing.Size(1078, 635);
             this.Controls.Add(this.pnlSplit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = new System.Drawing.Icon(Utils.GetManifestResourceStream(typeof(PosTaggerTagForm), "Obeliks.ico"), 
+                new System.Drawing.Size(64, 64));
             this.MaximizeBox = false;
             this.Name = "PosTaggerTagForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
