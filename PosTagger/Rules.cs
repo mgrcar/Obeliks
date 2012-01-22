@@ -368,7 +368,7 @@ public static class Rules
 
     public static string GetMostFrequentTag(IEnumerable<string> tagList)
     {
-        string maxFreqTag = null;
+        string maxFreqTag = "N";
         int maxFreq = 0;
         foreach (string tag in tagList)
         {
@@ -512,9 +512,18 @@ public static class Rules
             {
                 if (isAllCaps) { return lemma.ToUpper(); }
             }
-            else if (tag.StartsWith("Pp") && mLemListPpLemma.Contains(lemma))
+            else if (tag.StartsWith("Pp"))
             {
-                return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                Match m = mAcronymRegex.Match(word);
+                if (m.Success && mLemListPSuffix.Contains(m.Result("${suffix}")))
+                {
+                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                    return m.Result("${acronym}");
+                }
+                else if (mLemListPpLemma.Contains(lemma))
+                {
+                    return char.ToUpper(lemma[0]) + lemma.Substring(1);
+                }
             }
             else if (tag.StartsWith("Ps"))
             {
