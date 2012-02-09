@@ -127,8 +127,6 @@ namespace PosTagger
 
         public void Tag(Corpus corpus, out int lemmaCorrect, out int lemmaCorrectLowercase, out int lemmaWords, bool xmlMode)
         {
-            Utils.ThrowException(mModel == null ? new InvalidOperationException() : null);
-            Utils.ThrowException(corpus == null ? new ArgumentNullException("corpus") : null);
             DateTime startTime = DateTime.Now;
             mLogger.Debug("Tag", "Označujem besedilo ...");
             lemmaCorrect = 0;
@@ -139,7 +137,7 @@ namespace PosTagger
                 mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
                 BinaryVector featureVector = corpus.GenerateFeatureVector(i, mFeatureSpace, /*extendFeatureSpace=*/false, mSuffixTree);
                 Prediction<string> result = mModel.Predict(featureVector);
-                if (mNonWordRegex.Match(corpus.TaggedWords[i].WordLower).Success) // non-word
+                if ((corpus.TaggedWords[i].MoreInfo != null && corpus.TaggedWords[i].MoreInfo.Punctuation) || mNonWordRegex.Match(corpus.TaggedWords[i].WordLower).Success) // non-word
                 {
                     bool flag = false;
                     foreach (KeyDat<double, string> item in result)
@@ -158,10 +156,10 @@ namespace PosTagger
                 }
                 else // word
                 {
-                    Set<string> filter = mSuffixTree.Contains(corpus.TaggedWords[i].WordLower) ? mSuffixTree.GetTags(corpus.TaggedWords[i].WordLower) : null;                    
-                    result = ProcessResult(result, filter);
+                    string wordLower = corpus.TaggedWords[i].WordLower;
+                    Set<string> filter = mSuffixTree.Contains(wordLower) ? mSuffixTree.GetTags(wordLower) : null;                    
+                    result = ProcessResult(result, filter);//???!!!
                     string goldTag = corpus.TaggedWords[i].Tag;
-                    string predictedNoRules = result.Count == 0 ? "*"/*unable to classify*/ : result.BestClassLabel;
                     string word = corpus.TaggedWords[i].Word;
                     string rule;
                     if (filter == null)
@@ -173,54 +171,23 @@ namespace PosTagger
                         filter = Rules.ApplyTaggerRules(filter, word, out rule);                        
                         if (filter.Count == 0) { filter = Rules.ApplyTaggerRules(CreateFilterFromResult(result), word, out rule); }
                     }
-                    result = ProcessResult(result, filter);                    
-                    string predictedWithRules;
+                    result = ProcessResult(result, filter);//???!!!            
+                    string predictedTag;
                     if (result.Count == 0)
                     {
-                        //MessageBox.Show(corpus.TaggedWords[i].WordLower + " - " + filter.ToString() + " - " + result.Inner.ToString());
-                        predictedWithRules = Rules.GetMostFrequentTag(corpus.TaggedWords[i].WordLower, filter);
-                        //MessageBox.Show(predictedWithRules);
-                        //MessageBox.Show(corpus.TaggedWords[i].WordLower + " - " + filter.ToString() + " - " + result.Inner.ToString());
-                        if (predictedWithRules == null) { predictedWithRules = "*"; }
+                        predictedTag = Rules.GetMostFrequentTag(wordLower, filter);
                     }
                     else
                     {
-                        predictedWithRules = result.BestClassLabel;
+                        predictedTag = result.BestClassLabel;
                     }
-                    if (goldTag == predictedNoRules && goldTag != predictedWithRules) 
-                    {
-                        Console.WriteLine("crapification detected:");
-                        Console.WriteLine("Word       = " + word);
-                        Console.WriteLine("Golden tag = " + goldTag);
-                        Console.WriteLine("No rules   = " + predictedNoRules);
-                        Console.WriteLine("With rules = " + predictedWithRules);
-                        Console.WriteLine("Rule       = " + rule);
-                        Console.WriteLine();
-                    }
-                    //if (goldTag != predictedNoRules && goldTag == predictedWithRules)
-                    //{
-                    //    Console.WriteLine("improvement detected:");
-                    //    Console.WriteLine("Word       = " + word);
-                    //    Console.WriteLine("Golden tag = " + goldTag);
-                    //    Console.WriteLine("No rules   = " + predictedNoRules);
-                    //    Console.WriteLine("With rules = " + predictedWithRules);
-                    //    Console.WriteLine("Rule       = " + rule);
-                    //    Console.WriteLine();
-                    //}
-                    corpus.TaggedWords[i].Tag = predictedWithRules;
+                    corpus.TaggedWords[i].Tag = predictedTag;
                     if (mLemmatizer != null)
                     {
-                        string tag = corpus.TaggedWords[i].Tag;
-                        string wordLower = corpus.TaggedWords[i].WordLower;
-                        //if (tag == "*")
-                        //{
-                        //    // *** TODO: take the most frequent tag from the filter (currently, frequency info not available)
-                        //    logger.Info(null, tag);
-                        //    logger.Info(null, filter);
-                        //}
-                        string lemma = (mConsiderTags && tag != "*") ? mLemmatizer.Lemmatize(wordLower, tag) : mLemmatizer.Lemmatize(wordLower);
-                        lemma = Rules.ApplyLemmaRules(lemma, corpus.TaggedWords[i].Word, tag);
-                        if (string.IsNullOrEmpty(lemma) || (mConsiderTags && lemma == wordLower)) { lemma = wordLower; }
+                        string lemma;
+                        lemma = mConsiderTags ? mLemmatizer.Lemmatize(wordLower, predictedTag) : mLemmatizer.Lemmatize(wordLower);
+                        lemma = Rules.ApplyLemmaRules(lemma, corpus.TaggedWords[i].Word, predictedTag);
+                        if (string.IsNullOrEmpty(lemma)) { lemma = wordLower; }
                         if (xmlMode)
                         {
                             lemmaWords++;
