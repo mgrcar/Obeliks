@@ -53,6 +53,8 @@ public static class Rules
         = new Set<string>("i,v,x,l,m,d,c".Split(','));
     private static Set<string> mListNLetter
         = new Set<string>("a,e,i,u".Split(','));
+    private static Set<string> mListKaSuffix
+        = new Set<string>("timi,im,ima,a,imi,e,o,ega,ti,em,tih,emu,tim,i,tima,ih,ta,te,to,tega,tem,temu".Split(','));
 
     private static Set<string> mListDi
         = new Set<string>(LoadList("Tagger.ListDi.txt"));
@@ -83,19 +85,10 @@ public static class Rules
         = new Set<string>(LoadList("Lemmatizer.ListPpLemma.txt"));
     private static Set<string> mLemListPsLemma
         = new Set<string>(LoadList("Lemmatizer.ListPsLemma.txt"));
-    private static Dictionary<string, string> mLemListSoLemma
-        = new Dictionary<string, string>();
-    private static Set<string> mLemListSSuffix
-        = new Set<string>(LoadList("Lemmatizer.ListSSuffix.txt"));
-    private static Set<string> mLemListRSuffix
-        = new Set<string>(LoadList("Lemmatizer.ListRSuffix.txt"));
-    private static Set<string> mLemListPSuffix
-        = new Set<string>(LoadList("Lemmatizer.ListPSuffix.txt"));
-
-    //private static ArrayList<string> mLemListTagPrefix
-    //    = new ArrayList<string>("N,O,M,L,Kag,Kav,Krg,Krv,Rsn,Rd".Split(','));
-    //private static Regex mLemmaTagRegex
-    //    = new Regex(@"^((V.)|(D.)|(G..n.*)|(S..ei)|(P.nmein)|(Z..mei.*))$", RegexOptions.Compiled);
+    private static Set<string> mLemListSoLemma
+        = new Set<string>(LoadList("Lemmatizer.ListSoLemma.txt"));
+    private static Set<string> mLemListSuffix
+        = new Set<string>(LoadList("Lemmatizer.ListSuffix.txt"));
 
     static Set<string> mAbbrvAll
         = new Set<string>(LoadList("Tokenizer.ListOAll.txt"));
@@ -130,7 +123,10 @@ public static class Rules
     private static Regex mSRegex
         = new Regex(@"^[\p{L}0-9\-–—']+$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex mAcronymRegex
-        = new Regex(@"^(?<acronym>\p{Lu}+)[-–—](?<suffix>\p{Ll}+)$", RegexOptions.Compiled);
+        = new Regex(@"^(?<acronym>[\p{L}0-9]+)(?<suffix>[-–—]\p{Ll}+)$", RegexOptions.Compiled);
+
+    private static Regex mKaRegex
+        = new Regex(@"^[0-9]+[-–—](?<suffix>\p{Ll}+)$", RegexOptions.Compiled);
 
     private static Regex mTagRegex
         = new Regex(@"\</?[^>]+\>", RegexOptions.Compiled); 
@@ -141,8 +137,14 @@ public static class Rules
 
     static ArrayList<int> mAbbrvSeqLen;
 
-    private static MultiSet<string> mTagStats
-        = new MultiSet<string>();
+    private static ArrayList<KeyDat<int, string>> mTagStats
+        = new ArrayList<KeyDat<int, string>>();
+    private static ArrayList<KeyDat<int, string>> mTagStatsLex
+        = new ArrayList<KeyDat<int, string>>();
+    private static Dictionary<string, ArrayList<KeyDat<int, string>>> mWordStatsLex
+        = new Dictionary<string, ArrayList<KeyDat<int, string>>>();
+    private static Set<string> mTagList
+        = new Set<string>(LoadList("Tagger.TagList.txt"));
 
     static Rules()
     {
@@ -150,12 +152,34 @@ public static class Rules
         foreach (string item in tagStats)
         {
             string[] tmp = item.Split(':');
-            mTagStats.Add(tmp[0], Convert.ToInt32(tmp[1]));
+            mTagStats.Add(new KeyDat<int, string>(Convert.ToInt32(tmp[1]), tmp[0]));
         }
-        string[] lemmaList = LoadList("Lemmatizer.ListSoLemma.txt");
-        foreach (string lemma in lemmaList)
+        mTagStats.Sort(DescSort<KeyDat<int, string>>.Instance);
+        tagStats = LoadList("Tagger.TagStatsLex.txt");
+        foreach (string item in tagStats)
         {
-            mLemListSoLemma.Add(lemma.ToLower(), lemma);
+            string[] tmp = item.Split(':');
+            mTagStatsLex.Add(new KeyDat<int, string>(Convert.ToInt32(tmp[1]), tmp[0]));
+        }
+        mTagStatsLex.Sort(DescSort<KeyDat<int, string>>.Instance);
+        foreach (string _line in Utils.GetManifestResourceString(typeof(Rules), "WordStatsLex.txt").Split('\n'))
+        {
+            string line = _line.Trim();
+            if (line != "")
+            {
+                string[] items = line.Split('\t');
+                ArrayList<KeyDat<int, string>> list;
+                mWordStatsLex.Add(items[0], (list = new ArrayList<KeyDat<int, string>>()));
+                for (int i = 1; i < items.Length; i++)
+                {
+                    string[] tagFreq = items[i].Split(':');
+                    list.Add(new KeyDat<int, string>(Convert.ToInt32(tagFreq[1]), tagFreq[0]));
+                }
+            }
+        }
+        foreach (ArrayList<KeyDat<int, string>> list in mWordStatsLex.Values)
+        {
+            list.Sort(DescSort<KeyDat<int, string>>.Instance);
         }
         Set<int> lengths = new Set<int>();
         foreach (string abbrv in mAbbrvSeq)
@@ -366,16 +390,39 @@ public static class Rules
         return list.ToArray();
     }
 
-    public static string GetMostFrequentTag(IEnumerable<string> tagList)
+    public static string GetMostFrequentTag(string word, Set<string> tags)
     {
-        string maxFreqTag = "N";
-        int maxFreq = 0;
-        foreach (string tag in tagList)
+        string maxFreqTag = null;
+        // check lexicon (word stats)
+        if (mWordStatsLex.ContainsKey(word))
         {
-            int freq = mTagStats.GetCount(tag);
-            if (freq > maxFreq) { freq = maxFreq; maxFreqTag = tag; }
+            foreach (KeyDat<int, string> tagInfo in mWordStatsLex[word])
+            {
+                if (tags.Contains(tagInfo.Dat)) { maxFreqTag = tagInfo.Dat; break; }
+            }
         }
-        return maxFreqTag;
+        // check lexicon (global stats)
+        if (maxFreqTag == null)
+        {
+            foreach (KeyDat<int, string> tagInfo in mTagStatsLex)
+            {
+                if (tags.Contains(tagInfo.Dat)) { maxFreqTag = tagInfo.Dat; break; }
+            }
+        }
+        // check training corpus (global stats)
+        if (maxFreqTag == null)
+        {
+            foreach (KeyDat<int, string> tagInfo in mTagStats)
+            {
+                if (tags.Contains(tagInfo.Dat)) { maxFreqTag = tagInfo.Dat; break; }
+            }
+        }
+        // last resort 
+        if (maxFreqTag == null && tags.Count >= 1)
+        {
+            maxFreqTag = tags.Any;
+        }
+        return maxFreqTag == null ? "N" : maxFreqTag;
     }
 
     private static bool StartsWith(string str, IEnumerable<string> list)
@@ -391,9 +438,9 @@ public static class Rules
     {
         foreach (string pattern in patterns)
         {
-            foreach (KeyValuePair<string, int> item in mTagStats)
+            foreach (string tag in mTagList)
             {
-                if (item.Key.StartsWith(pattern)) { to.Add(item.Key); }
+                if (tag.StartsWith(pattern)) { to.Add(tag); }
             }
         }
     }
@@ -427,6 +474,7 @@ public static class Rules
         int numLetters, numDigits;
         CountChars(word, out numLetters, out numDigits);
         rule = "";
+        Match m;
         // *** Part 1 ***
         if (word.Length == 1 && numLetters == 1)
         {
@@ -441,29 +489,34 @@ public static class Rules
             if (mListKrgLetter.Contains(wordLower)) { newFilter.Add("Krg"); rule += " p1_r1d"; }
             if (mListNLetter.Contains(wordLower)) { newFilter.Add("N"); rule += " p1_r1e"; }
         }
-        else if (numLetters > 0 && numDigits > 0 && numLetters + numDigits == word.Length)
+        else if ((m = mKaRegex.Match(word)).Success && mListKaSuffix.Contains(m.Result("${suffix}")))
         {
             rule = "p1_r2";
+            CopyTags(newFilter, "Ka"); 
+        }
+        else if (numLetters > 0 && numDigits > 0 && numLetters + numDigits == word.Length)
+        {
+            rule = "p1_r3";
             CopyTags(newFilter, "S");
             newFilter.Add("N");
             newFilter.Add("Kag");
         }
         else if (numDigits > 0 && numLetters == 0)
         {
-            rule = "p1_r3";
+            rule = "p1_r4";
             if (word.EndsWith(".")) { newFilter.Add("Kav"); }
             else { newFilter.Add("Kag"); }
         }
         else if (word.Contains("."))
         {
-            rule = "p1_r4";
+            rule = "p1_r5";
             if (mKrRegex.Match(word).Success) { newFilter.Add("Krv"); }
             if (numLetters == word.Length - 1 && word.EndsWith(".")) { newFilter.Add("O"); }
             if (!word.EndsWith(".")) { newFilter.Add("N"); }
         }
         else
         {
-            rule = "p1_r5";
+            rule = "p1_r6";
             newFilter = filter;
         }
         // *** Part 2 ***
@@ -487,13 +540,43 @@ public static class Rules
         return newFilter;
     }
 
+    private static bool GetAcronymLemma(string word, string lemma, out string acronymLemma)
+    {
+        Match m = mAcronymRegex.Match(word);
+        if (m.Success && mLemListSuffix.Contains(m.Result("${suffix}").TrimStart('-', '–', '—')))
+        {            
+            string acronym = m.Result("${acronym}");
+            Utils.CaseType caseType = Utils.GetCaseType(acronym);
+            if ((caseType == Utils.CaseType.Abc || caseType == Utils.CaseType.AbC) && lemma.Length >= 1)
+            {
+                acronymLemma = char.ToUpper(lemma[0]) + lemma.Substring(1);
+                return true;
+            }
+            else if (caseType == Utils.CaseType.ABC) // uppercase
+            {
+                m = mAcronymRegex.Match(lemma);
+                if (m.Success)
+                {
+                    acronymLemma = acronym + m.Result("${suffix}");
+                }
+                else
+                {
+                    acronymLemma = acronym;
+                }
+                return true;
+            }
+        }
+        acronymLemma = null;
+        return false;
+    }
+
     public static string ApplyLemmaRules(string lemma, string word, string tag)
     {
-        //if (mLemListTagPrefix.Contains(tag) || mLemmaTagRegex.Match(tag).Success)
-        //{
-        //    if (lemma != word.ToLower()) { Console.WriteLine(word + " " + lemma + " " + tag); }
-        //    lemma = word.ToLower();
-        //}
+        if (tag == "N" || tag == "0" || tag == "M")
+        {
+            return word.ToLower(); 
+        }
+        //lemma = lemma.TrimEnd('-', '–', '—'); // *** check if this is still needed 
         if (word.Length >= 1)
         {            
             Utils.CaseType caseType = Utils.GetCaseType(word);
@@ -501,12 +584,8 @@ public static class Rules
             bool isAllCaps = caseType == Utils.CaseType.ABC;
             if (tag.StartsWith("R"))
             {
-                Match m = mAcronymRegex.Match(word);
-                if (m.Success && mLemListRSuffix.Contains(m.Result("${suffix}"))) 
-                {
-                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
-                    return m.Result("${acronym}");
-                }
+                string acronymLemma;
+                if (GetAcronymLemma(word, lemma, out acronymLemma)) { return acronymLemma; }
             }
             else if (tag.StartsWith("Kr"))
             {
@@ -514,11 +593,10 @@ public static class Rules
             }
             else if (tag.StartsWith("Pp"))
             {
-                Match m = mAcronymRegex.Match(word);
-                if (m.Success && mLemListPSuffix.Contains(m.Result("${suffix}")))
-                {
-                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
-                    return m.Result("${acronym}");
+                string acronymLemma;
+                if (GetAcronymLemma(word, lemma, out acronymLemma)) 
+                { 
+                    return acronymLemma; 
                 }
                 else if (mLemListPpLemma.Contains(lemma))
                 {
@@ -527,11 +605,10 @@ public static class Rules
             }
             else if (tag.StartsWith("Ps"))
             {
-                Match m = mAcronymRegex.Match(word);
-                if (m.Success && mLemListPSuffix.Contains(m.Result("${suffix}")))
+                string acronymLemma;
+                if (GetAcronymLemma(word, lemma, out acronymLemma))
                 {
-                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
-                    return m.Result("${acronym}");
+                    return acronymLemma;
                 }
                 else if (mLemListPsLemma.Contains(lemma))
                 {
@@ -544,32 +621,30 @@ public static class Rules
             }
             else if (tag.StartsWith("So"))
             {
-                if (word.Length == 1) 
+                if (word.Length == 1 || mLemListSoLemma.Contains(word)) 
                 { 
                     return word; 
                 }
-                else if (mLemListSoLemma.ContainsKey(lemma))
+                Match m = mAcronymRegex.Match(word);
+                if (m.Success && mLemListSoLemma.Contains(m.Result("${acronym}")))
                 {
-                    //Console.WriteLine(mLemListSoLemma[lemma]);
-                    return mLemListSoLemma[lemma];
-                }
-                else // *** check with Simon/Kaja if this is OK
-                {
-                    Match m = mAcronymRegex.Match(word);
-                    if (m.Success && mLemListSSuffix.Contains(m.Result("${suffix}")))
+                    Match mLemma = mAcronymRegex.Match(lemma);
+                    if (mLemma.Success)
                     {
-                        //Console.WriteLine(word + " " + m.Result("${acronym}"));
+                        return m.Result("${acronym}") + mLemma.Result("${suffix}");
+                    }
+                    else
+                    {
                         return m.Result("${acronym}");
                     }
                 }
             }
             else if (tag.StartsWith("Sl"))
             {
-                Match m = mAcronymRegex.Match(word);
-                if (m.Success && mLemListSSuffix.Contains(m.Result("${suffix}")))
+                string acronymLemma;
+                if (GetAcronymLemma(word, lemma, out acronymLemma))
                 {
-                    //Console.WriteLine(word + " " + m.Result("${acronym}"));
-                    return m.Result("${acronym}");
+                    return acronymLemma;
                 }
                 else if (isAllCaps)
                 {

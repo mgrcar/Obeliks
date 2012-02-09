@@ -86,10 +86,7 @@
     <EmbeddedResource Include="Resources\Lemmatizer\ListPsLemma.txt">
       <SubType>Form</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lemmatizer\ListPSuffix.txt" />
-    <EmbeddedResource Include="Resources\Lemmatizer\ListRSuffix.txt" />
     <EmbeddedResource Include="Resources\Lemmatizer\ListSoLemma.txt" />
-    <EmbeddedResource Include="Resources\Lemmatizer\ListSSuffix.txt" />
     <EmbeddedResource Include="Resources\Tokenizer\ListOAll.txt" />
     <EmbeddedResource Include="Resources\Tokenizer\ListOAllCS.txt" />
     <EmbeddedResource Include="Resources\Tokenizer\ListOExcl.txt" />
@@ -100,6 +97,10 @@
     <EmbeddedResource Include="Resources\Tokenizer\ListOSeq.txt" />
     <EmbeddedResource Include="Resources\Tokenizer\TokRulesPart1.txt" />
     <EmbeddedResource Include="Resources\Tokenizer\TokRulesPart2.txt" />
+    <EmbeddedResource Include="Resources\Lemmatizer\ListSuffix.txt" />
+    <EmbeddedResource Include="Resources\Tagger\TagStatsLex.txt" />
+    <EmbeddedResource Include="Resources\Tagger\TagList.txt" />
+    <EmbeddedResource Include="Resources\Tagger\WordStatsLex.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>

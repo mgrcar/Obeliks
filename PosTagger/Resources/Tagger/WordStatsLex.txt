@@ -1,0 +1,1671 @@
+blizu	Dd:4636	Dr:60403
+brez	Dr:897734
+čez	Dt:297029
+do	Dr:3504803
+glede	Dr:195133
+iz	Dr:3914442
+izmed	Dr:245860
+iznad	Dr:1547
+izpod	Dr:22502
+izpred	Dr:26568
+izven	Dr:33622
+izvzemši	Dt:311
+izza	Dr:13909
+h	Dd:114349
+k	Dd:882636
+kljub	Dd:462411
+koncem	Dr:610
+konec	Dr:84401
+kraj	Dr:330
+križem	Dr:3083
+krog	Dr:28051
+med	Do:2432834	Dt:262511
+mimo	Dr:68089
+na	Dm:10973561	Dt:7161707
+nad	Do:489262	Dt:39849
+namesto	Dr:180827
+napram	Dd:1198
+nasproti	Dd:5001	Dr:14347
+navkljub	Dd:11989
+navzlic	Dd:4202
+o	Dm:3853368
+ob	Dm:2666103	Dt:65104
+od	Dr:3712052
+okoli	Dr:252210
+okrog	Dr:127479
+onkraj	Dr:7898
+onstran	Dr:7266
+po	Dm:5590895	Dt:224411
+pod	Do:678520	Dt:74993
+poleg	Dr:507970
+povrh	Dr:12517
+povrhu	Dr:5439
+preblizu	Dr:1588
+pred	Do:2105574	Dt:62202
+prek	Dr:196102
+preko	Dr:101140
+pri	Dm:3900760
+proti	Dd:695448
+raz	Dr:24	Dt:2428
+razen	Dr:108863	Vp:1
+širom	Dr:3288
+skoz	Dt:5611
+skozi	Dt:214440
+spod	Dr:648
+spred	Dr:320
+spričo	Dr:9035
+sred	Dr:614
+sredi	Dr:135213
+tekom	Dr:4417
+tostran	Dr:471
+v	Dm:24238561	Dt:5796153
+u	Dm:54150	Dt:12056
+vdolž	Dr:26
+via	Di:4795
+vkljub	Dd:134
+vpričo	Dr:1937
+vrh	Dr:30789
+vrhu	Dr:35460
+vsled	Dr:1449
+vštric	Dr:340
+vzdolž	Dr:8630
+s	Do:6222821	Dr:535396
+z	Do:7716416	Dr:675172
+ž	Do:53071	Dr:1155
+za	Do:477800	Dr:100438	Dt:14350789
+zaradi	Dr:1584740
+zastran	Dr:463
+zavoljo	Dr:11784
+zmed	Dr:193
+znad	Dr:14
+znotraj	Dr:72747
+zoper	Dt:99238
+zraven	Dr:20453
+zunaj	Dr:65107
+anka	L:1
+baje	L:11433
+baš	L:1
+bojda	L:8111
+bržčas	L:11125
+bržda	L:353
+bržkone	L:25175
+celo	L:434419
+češ	L:2302
+cirka	L:157
+da	L:65700	Vd:12912272
+domala	L:15060
+edino	L:24547
+edinole	L:2690
+itak	L:23481
+ja	L:144184
+kajne	L:1
+kajneda	L:1
+kajpada	L:6470
+kajpak	L:18904
+kakopak	L:5751
+koli	L:51932
+kratkomalo	L:1253
+kvečjemu	L:16275
+le	L:2078138
+ma	L:1
+malodane	L:5171
+malone	L:4321
+menda	L:137775
+morda	L:444864
+morebiti	L:21627
+naj	L:1656171	Vd:209284
+najbrž	L:121983
+najbrže	L:305
+najsibo	L:1
+nak	L:1134
+ne	L:6883988	Vp:53103
+neki	L:7760	Zn-met:19964	Zn-mmi:3218	Zn-zed:4066	Zn-zem:25867	Zn-zdi:358	Zn-zdt:305	Zn-sdi:60	Zn-sdt:9	Zn-mei:1
+nemara	L:22397
+nikar	L:26008
+nikarte	L:1
+niti	L:1	Vp:423166
+no	L:186572
+pač	L:315678
+prav	L:494003
+pravzaprav	L:201160
+predvsem	L:784237
+prejkone	L:919
+ravno	L:147471
+samo	L:724705
+še	L:5303190
+šele	L:367435
+seveda	L:753050
+sicer	L:1	Vp:501585
+skoraj	L:452215
+skorajda	L:54075
+skoro	L:962
+sploh	L:423235
+takorekoč	L:4624
+tudi	L:7806705
+valjda	L:332
+več	L:1073706
+vsaj	L:491231
+vsekakor	L:107107
+že	L:3425801
+zgolj	L:205481
+zlasti	L:120282
+znabiti	L:128
+a	Vp:1486658
+ako	Vd:5171
+akoprav	Vd:63
+akoravno	Vd:158
+ali	Vp:3321247
+ampak	Vp:567923
+bodisi	Vp:38389
+če	Vd:2447618
+čeprav	Vd:617461
+čeravno	Vd:8055
+četudi	Vd:52352
+čim	Vd:1	Zv-sem:5224	Zv-seo:58769
+dasi	Vd:698
+dasiprav	Vd:9
+dasiravno	Vd:1463
+dočim	Vd:1288
+dokler	Vd:136269
+in	Vp:29046628
+kadar	Vd:138622
+kajti	Vp:187679
+kakor	Vd:146544
+kamor	Vd:73065
+ker	Vd:1510263
+ki	Vd:11572716
+kjer	Vd:1031048
+ko	Vd:2846300
+koder	Vd:29519
+kolikor	Vd:53912
+kot	Vd:3628454
+marveč	Vp:21801
+najsi	Vd:1
+namreč	Vp:759885
+odkar	Vd:56102
+odkoder	Vd:1647
+oziroma	Vp:619107
+pa	Vp:10214952
+preden	Vd:123745
+predno	Vd:2426
+saj	Vp:1711470
+tako	Vp:126172	Zk-zet:38683	Zk-zeo:10559	Zk-sei:110718	Zk-set:21168
+temveč	Vp:210557
+ter	Vp:1583170
+toda	Vp:537554
+torej	Vp:232413
+vendar	Vp:969317
+vendarle	Vp:46757
+zato	Vp:1033752
+zatorej	Vp:4693
+bogsigavedikakšen	Zn-mei:1	Zn-met:1
+bogsigavedikakšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogsigavedikakšnemu	Zn-med:1	Zn-sed:1
+bogsigavedikakšnem	Zn-mem:1	Zn-sem:1
+bogsigavedikakšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogsigavedikakšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogsigavedikakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogsigavedikakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogsigavedikakšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogsigavedikakšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogsigavedikakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogsigavedikakšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+bogvedikaj	Zn-sei:1	Zn-set:1
+bogvedičesa	Zn-ser:1
+bogvedičemu	Zn-sed:1
+bogvedičem	Zn-sem:1	Zn-seo:1
+bogvedičim	Zn-sem:1	Zn-seo:1
+bogvedikateri	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogvedikaterega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogvedikateremu	Zn-med:1	Zn-sed:1
+bogvedikaterem	Zn-mem:1	Zn-sem:1
+bogvedikaterim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogvedikatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogvedikaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogvedikaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogvedikatere	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogvedikaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogvedikatero	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+bogvekaj	Zn-sei:1	Zn-set:1
+bogvečesa	Zn-ser:1
+bogvečemu	Zn-sed:1
+bogvečem	Zn-sem:1	Zn-seo:1
+bogvečim	Zn-sem:1	Zn-seo:1
+bogvekakšen	Zn-mei:1	Zn-met:1
+bogvekakšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogvekakšnemu	Zn-med:1	Zn-sed:1
+bogvekakšnem	Zn-mem:1	Zn-sem:1
+bogvekakšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogvekakšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogvekakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogvekakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogvekakšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogvekakšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogvekakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogvekakšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+bogvekateri	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogvekaterega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogvekateremu	Zn-med:1	Zn-sed:1
+bogvekaterem	Zn-mem:1	Zn-sem:1
+bogvekaterim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogvekatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogvekaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogvekaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogvekatere	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogvekaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogvekatero	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+bogvekolik	Zn-mei:1	Zn-met:1
+bogvekolikega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogvekolikemu	Zn-med:1	Zn-sed:1
+bogvekolikem	Zn-mem:1	Zn-sem:1
+bogvekolikim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogvekolika	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogvekolikih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogvekolikima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogvekoliki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogvekolike	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogvekolikimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogvekoliko	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+bogvekolikšen	Zn-mei:1	Zn-met:1
+bogvekolikšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+bogvekolikšnemu	Zn-med:1	Zn-sed:1
+bogvekolikšnem	Zn-mem:1	Zn-sem:1
+bogvekolikšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+bogvekolikšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+bogvekolikšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+bogvekolikšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+bogvekolikšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+bogvekolikšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+bogvekolikšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+bogvekolikšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+čezme	Zop-et--z:85
+čezte	Zod-et--z:15
+čezenj	Zotmet--z:1628	Zotset--z:1
+čeznjo	Zotzet--z:853
+čeznju	Zotmdt--z:34	Zotzdt--z:1	Zotsdt--z:1
+čeznje	Zotmmt--z:740	Zotzmt--z:1	Zotsmt--z:1
+čezse	Zp---t--z:25
+čigar	Zz----em:18071
+čigarkoli	Zz----:1
+čigarsižebodi	Zz----:1
+čigav	Zv-mei:527	Zv-met:136
+čigavega	Zv-mer:13	Zv-met:10	Zv-ser:1
+čigavemu	Zv-med:1	Zv-sed:1
+čigavem	Zv-mem:90	Zv-sem:97
+čigavim	Zv-meo:23	Zv-mmd:7	Zv-zmd:3	Zv-seo:10	Zv-smd:1
+čigava	Zv-mdi:14	Zv-mdt:1	Zv-zei:713	Zv-smi:28	Zv-smt:9
+čigavih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:27	Zv-mmm:6	Zv-zdr:1	Zv-zdm:1	Zv-zmr:5	Zv-zmm:24	Zv-sdr:1	Zv-sdm:2	Zv-smr:1	Zv-smm:7
+čigavima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+čigavi	Zv-mmi:162	Zv-zed:10	Zv-zem:162	Zv-zdi:8	Zv-zdt:1	Zv-sdi:3	Zv-sdt:2
+čigave	Zv-mmt:87	Zv-zer:28	Zv-zmi:129	Zv-zmt:22
+čigavimi	Zv-mmo:5	Zv-zmo:3	Zv-smo:5
+čigavo	Zv-zet:156	Zv-zeo:19	Zv-sei:198	Zv-set:38
+čigaver	Zz----:1
+čigaverkoli	Zz----:1
+čigavršen	Zz-mei:1	Zz-met:1
+čigavršnega	Zz-mer:1	Zz-met:1	Zz-ser:1
+čigavršnemu	Zz-med:1	Zz-sed:1
+čigavršnem	Zz-mem:1	Zz-sem:1
+čigavršnim	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+čigavršna	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+čigavršnih	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+čigavršnima	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+čigavršni	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+čigavršne	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+čigavršnimi	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+čigavršno	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+čigavršnji	Zz-mei:1	Zz-met:1	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+čigavršnjega	Zz-mer:1	Zz-met:1	Zz-ser:1
+čigavršnjemu	Zz-med:1	Zz-sed:1
+čigavršnjem	Zz-mem:1	Zz-sem:1
+čigavršnjim	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+čigavršnja	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+čigavršnjih	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+čigavršnjima	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+čigavršnje	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1	Zz-sei:1	Zz-set:1
+čigavršnjimi	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+čigavršnjo	Zz-zet:1	Zz-zeo:1
+enak	Zn-mei:16417	Zn-met:15534
+enakega	Zn-mer:3143	Zn-met:1372	Zn-ser:3900
+enakemu	Zn-med:250	Zn-sed:136
+enaki	Zn-met:1	Zn-mmi:3226	Zn-zed:4227	Zn-zem:8505	Zn-zdi:423	Zn-zdt:173	Zn-sdi:78	Zn-sdt:34	Zn-mei:1
+enakem	Zn-mem:6968	Zn-sem:11266
+enakim	Zn-meo:5616	Zn-mmd:155	Zn-zmd:185	Zn-seo:5322	Zn-smd:52
+enaka	Zn-mdi:666	Zn-mdt:158	Zn-zei:14943	Zn-smi:1636	Zn-smt:1198
+enakih	Zn-mdr:57	Zn-mdm:14	Zn-mmr:4094	Zn-mmm:2022	Zn-zdr:18	Zn-zdm:5	Zn-zmr:5264	Zn-zmm:1906	Zn-sdr:5	Zn-sdm:2	Zn-smr:578	Zn-smm:804
+enakima	Zn-mdd:58	Zn-mdo:67	Zn-zdd:18	Zn-zdo:45	Zn-sdd:5	Zn-sdo:9
+enake	Zn-mmt:5460	Zn-zer:12042	Zn-zmi:4399	Zn-zmt:7598
+enakimi	Zn-mmo:5274	Zn-zmo:1673	Zn-smo:348
+enako	Zn-zet:17053	Zn-zeo:6728	Zn-sei:39026	Zn-set:5784
+enakšen	Zn-mei:1	Zn-met:1
+enakšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+enakšnemu	Zn-med:1	Zn-sed:1
+enakšnem	Zn-mem:1	Zn-sem:1
+enakšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+enakšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+enakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+enakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+enakšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+enakšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+enakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+enakšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+isti	Zn-mei:23654	Zn-met:23876	Zn-mmi:6223	Zn-zed:2269	Zn-zem:32198	Zn-zdi:301	Zn-zdt:227	Zn-sdi:43	Zn-sdt:46
+istega	Zn-mer:24495	Zn-met:5918	Zn-ser:9779
+istemu	Zn-med:1463	Zn-sed:214
+istem	Zn-mem:29194	Zn-sem:17018
+istim	Zn-meo:5418	Zn-mmd:375	Zn-zmd:206	Zn-seo:3471	Zn-smd:58
+ista	Zn-mdi:439	Zn-mdt:105	Zn-zei:12470	Zn-smi:1125	Zn-smt:860
+istih	Zn-mdr:6	Zn-mdm:2	Zn-mmr:3589	Zn-mmm:2472	Zn-zdr:2	Zn-zdm:2	Zn-zmr:2134	Zn-zmm:2312	Zn-sdr:1	Zn-sdm:20	Zn-smr:734	Zn-smm:866
+istima	Zn-mdd:44	Zn-mdo:82	Zn-zdd:25	Zn-zdo:81	Zn-sdd:6	Zn-sdo:4
+iste	Zn-mmt:3957	Zn-zer:15325	Zn-zmi:3550	Zn-zmt:3164
+istimi	Zn-mmo:1524	Zn-zmo:969	Zn-smo:277
+isto	Zn-zet:21573	Zn-zeo:5366	Zn-sei:25169	Zn-set:5662
+jaz	Zop-ei:274706
+me	Zop-er--k:56555	Zop-et--k:502083	Zopzmi:9923
+mene	Zop-er:32038	Zop-et:41368
+mi	Zop-ed--k:814772	Zopmmi:152572
+meni	Zop-ed:77298	Zop-em:29376
+mano	Zop-eo:29184
+menoj	Zop-eo:21676
+naju	Zop-dr:5430	Zop-dt:26610	Zop-dm:1115
+nama	Zop-dd:30927	Zop-dm:560	Zop-do:7247
+nas	Zop-mr:83201	Zop-mt:527457	Zop-mm:165387
+nam	Zop-md:732672
+nami	Zop-mo:84789
+midva	Zopmdi:13021
+medve	Zopzdi:430
+midve	Zopzdi:2608
+jest	Zop-ei:1
+kaj	Zv-sei:827959	Zv-set:465594
+kva	Zv-sei:2828	Zv-set:338
+česa	Zv-ser:46062
+čemu	Zv-sed:11470	Zv-sem:171
+čem	Zv-sem:33731	Zv-seo:523
+kak	Zv-mei:1	Zv-met:1
+kakega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kakemu	Zv-med:1	Zv-sed:1
+kakem	Zv-mem:1	Zv-sem:1
+kakim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kaka	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kakih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kakima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+kaki	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kake	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kakimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kako	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+kakošen	Zv-mei:1	Zv-met:1
+kakošnega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kakošnemu	Zv-med:1	Zv-sed:1
+kakošnem	Zv-mem:1	Zv-sem:1
+kakošnim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kakošna	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kakošnih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kakošnima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+kakošni	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kakošne	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kakošnimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kakošno	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+kakov	Zv-mei:1	Zv-met:1
+kakovega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kakovemu	Zv-med:1	Zv-sed:1
+kakovem	Zv-mem:1	Zv-sem:1
+kakovim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kakova	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kakovih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kakovima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+kakovi	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kakove	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kakovimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kakovo	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+kakršen	Zz-mei:15751	Zz-met:2207
+kakršnega	Zz-mer:1487	Zz-met:15004	Zz-ser:666	Zz-set:1
+kakršnemu	Zz-med:520	Zz-sed:129
+kakršnem	Zz-mem:2351	Zz-sem:226
+kakršnim	Zz-meo:1517	Zz-mmd:188	Zz-zmd:87	Zz-seo:133	Zz-smd:13
+kakršna	Zz-mdi:5	Zz-mdt:3	Zz-zei:19365	Zz-smi:103	Zz-smt:289
+kakršnih	Zz-mdr:1	Zz-mdm:1	Zz-mmr:6475	Zz-mmm:1386	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1060	Zz-zmm:192	Zz-sdr:1	Zz-sdm:1	Zz-smr:291	Zz-smm:21
+kakršnima	Zz-mdd:4	Zz-mdo:24	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+kakršni	Zz-mmi:294	Zz-zed:7401	Zz-zem:2336	Zz-zdi:29	Zz-zdt:13	Zz-sdi:1	Zz-sdt:1
+kakršne	Zz-mmt:918	Zz-zer:19436	Zz-zmi:528	Zz-zmt:901
+kakršnimi	Zz-mmo:1165	Zz-zmo:76	Zz-smo:29
+kakršno	Zz-zet:3371	Zz-zeo:1427	Zz-sei:18744	Zz-set:1022
+kakršenkoli	Zz-mei:1	Zz-met:1
+kakršnegakoli	Zz-mer:1	Zz-met:1	Zz-ser:1
+kakršnemukoli	Zz-med:1	Zz-sed:1
+kakršnemkoli	Zz-mem:1	Zz-sem:1
+kakršnimkoli	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+kakršnakoli	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+kakršnihkoli	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+kakršnimakoli	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+kakršnikoli	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+kakršnekoli	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+kakršnimikoli	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+kakršnokoli	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+kakršensižebodi	Zz-mei:1	Zz-met:1
+kakršnegasižebodi	Zz-mer:1	Zz-met:1	Zz-ser:1
+kakršnemusižebodi	Zz-med:1	Zz-sed:1
+kakršnemsižebodi	Zz-mem:1	Zz-sem:1
+kakršnimsižebodi	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+kakršnasižebodi	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+kakršnihsižebodi	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+kakršnimasižebodi	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+kakršnisižebodi	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+kakršnesižebodi	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+kakršnimisižebodi	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+kakršnosižebodi	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+kakšen	Zv-mei:49220	Zv-met:6349
+kakšnega	Zv-mer:3668	Zv-met:12375	Zv-ser:1078
+kakšnemu	Zv-med:1809	Zv-sed:139
+kakšnem	Zv-mem:6154	Zv-sem:1458
+kakšnim	Zv-meo:4028	Zv-mmd:230	Zv-zmd:83	Zv-seo:541	Zv-smd:19
+kakšna	Zv-mdi:218	Zv-mdt:18	Zv-zei:36914	Zv-smi:2098	Zv-smt:284
+kakšnih	Zv-mdr:2	Zv-mdm:1	Zv-mmr:27205	Zv-mmm:2186	Zv-zdr:1	Zv-zdm:2	Zv-zmr:1809	Zv-zmm:910	Zv-sdr:1	Zv-sdm:3	Zv-smr:342	Zv-smm:251
+kakšnima	Zv-mdd:4	Zv-mdo:115	Zv-zdd:1	Zv-zdo:2	Zv-sdd:1	Zv-sdo:1
+kakšni	Zv-mmi:9124	Zv-zed:6220	Zv-zem:6241	Zv-zdi:79	Zv-zdt:55	Zv-sdi:18	Zv-sdt:8
+kakšne	Zv-mmt:3636	Zv-zer:20964	Zv-zmi:8358	Zv-zmt:605
+kakšnimi	Zv-mmo:2712	Zv-zmo:716	Zv-smo:191
+kakšno	Zv-zet:20195	Zv-zeo:3108	Zv-sei:36449	Zv-set:671
+kar	Zz-sei:1318382	Zz-set:336716
+česar	Zz-ser:95470
+čemur	Zz-sed:16689
+čemer	Zz-sem:130878
+čimer	Zz-seo:56634
+karkoli	Zz-sei:38	Zz-set:85
+česarkoli	Zz-ser:5
+čemurkoli	Zz-sed:5
+čemerkoli	Zz-sem:6
+čimerkoli	Zz-seo:8
+karsibodi	Zz-sei:1	Zz-set:1
+česarsibodi	Zz-ser:1
+čemursibodi	Zz-sed:1
+čemersibodi	Zz-sem:1
+čimersibodi	Zz-seo:1
+karsižebodi	Zz-sei:1	Zz-set:1
+česarsižebodi	Zz-ser:1
+čemursižebodi	Zz-sed:1
+čemersižebodi	Zz-sem:1
+čimersižebodi	Zz-seo:1
+kateri	Zv-mei:42236	Zv-met:89929	Zv-mmi:7701	Zv-zed:10220	Zv-zem:243044	Zv-zdi:266	Zv-zdt:59	Zv-sdi:42	Zv-sdt:4
+katerega	Zv-mer:66706	Zv-met:204924	Zv-ser:455	Zv-set:1
+kateremu	Zv-med:16681	Zv-sed:70
+katerem	Zv-mem:357917	Zv-sem:1087
+katerim	Zv-meo:146161	Zv-mmd:8814	Zv-zmd:138	Zv-seo:164	Zv-smd:42
+katera	Zv-mdi:184	Zv-mdt:9	Zv-zei:31861	Zv-smi:1937	Zv-smt:17567
+katerih	Zv-mdr:5	Zv-mdm:1	Zv-mmr:157063	Zv-mmm:210911	Zv-zdr:1	Zv-zdm:1	Zv-zmr:363	Zv-zmm:524	Zv-sdr:1	Zv-sdm:1	Zv-smr:117	Zv-smm:462
+katerima	Zv-mdd:975	Zv-mdo:6417	Zv-zdd:2	Zv-zdo:10	Zv-sdd:1	Zv-sdo:2
+katere	Zv-mmt:106446	Zv-zer:134677	Zv-zmi:17946	Zv-zmt:2180
+katerimi	Zv-mmo:171343	Zv-zmo:321	Zv-smo:79
+katero	Zv-zet:121787	Zv-zeo:117167	Zv-sei:24794	Zv-set:985
+katerikoli	Zz-mei:1	Zz-met:1	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+kateregakoli	Zz-mer:1	Zz-met:1	Zz-ser:1
+kateremukoli	Zz-med:1	Zz-sed:1
+kateremkoli	Zz-mem:1	Zz-sem:1
+katerimkoli	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+katerakoli	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+katerihkoli	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+katerimakoli	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+katerekoli	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+katerimikoli	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+katerokoli	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+katerisibodi	Zz-mei:1	Zz-met:1	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+kateregasibodi	Zz-mer:1	Zz-met:1	Zz-ser:1
+kateremusibodi	Zz-med:1	Zz-sed:1
+kateremsibodi	Zz-mem:1	Zz-sem:1
+katerimsibodi	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+katerasibodi	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+katerihsibodi	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+katerimasibodi	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+kateresibodi	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+katerimisibodi	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+katerosibodi	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+kdo	Zv-mei:443762
+gdo	Zv-mei:777
+koga	Zv-mer:5610	Zv-met:56614
+komu	Zv-med:43726
+kom	Zv-mem:7448	Zv-meo:13151
+kdor	Zz-mei:66494
+kogar	Zz-mer:763	Zz-met:3554
+komur	Zz-med:3157
+komer	Zz-mem:203	Zz-meo:938
+kdorkoli	Zz-mei:2
+kogarkoli	Zz-mer:1	Zz-met:1
+komurkoli	Zz-med:1
+komerkoli	Zz-mem:1	Zz-meo:3
+kdorsibodi	Zz-mei:1
+kogarsibodi	Zz-mer:1	Zz-met:1
+komursibodi	Zz-med:1
+komersibodi	Zz-mem:1	Zz-meo:1
+kdorsižebodi	Zz-mei:1
+kogarsižebodi	Zz-mer:1	Zz-met:1
+komursižebodi	Zz-med:1
+komersižebodi	Zz-mem:1	Zz-meo:1
+kdovekaj	Zn-sei:1	Zn-set:1
+kdovečesa	Zn-ser:1
+kdovečemu	Zn-sed:1
+kdovečem	Zn-sem:1	Zn-seo:1
+kdovečim	Zn-sem:1	Zn-seo:1
+kdovekak	Zn-mei:1	Zn-met:1
+kdovekakega	Zn-mer:1	Zn-met:1	Zn-ser:1
+kdovekakemu	Zn-med:1	Zn-sed:1
+kdovekakem	Zn-mem:1	Zn-sem:1
+kdovekakim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+kdovekaka	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+kdovekakih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+kdovekakima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+kdovekaki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+kdovekake	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+kdovekakimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+kdovekako	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+kdovekakšen	Zn-mei:1	Zn-met:1
+kdovekakšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+kdovekakšnemu	Zn-med:1	Zn-sed:1
+kdovekakšnem	Zn-mem:1	Zn-sem:1
+kdovekakšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+kdovekakšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+kdovekakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+kdovekakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+kdovekakšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+kdovekakšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+kdovekakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+kdovekakšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+kdovekateri	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+kdovekaterega	Zn-mer:1	Zn-met:1	Zn-ser:1
+kdovekateremu	Zn-med:1	Zn-sed:1
+kdovekaterem	Zn-mem:1	Zn-sem:1
+kdovekaterim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+kdovekatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+kdovekaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+kdovekaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+kdovekatere	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+kdovekaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+kdovekatero	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+kdovekdo	Zn-mei:1
+kdovekoga	Zn-mer:1	Zn-met:1
+kdovekomu	Zn-med:1
+kdovekom	Zn-mem:1	Zn-meo:1
+kdovekolik	Zn-mei:1	Zn-met:1
+kdovekolikega	Zn-mer:1	Zn-met:1	Zn-ser:1
+kdovekolikemu	Zn-med:1	Zn-sed:1
+kdovekolikem	Zn-mem:1	Zn-sem:1
+kdovekolikim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+kdovekolika	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+kdovekolikih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+kdovekolikima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+kdovekoliki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+kdovekolike	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+kdovekolikimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+kdovekoliko	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+koji	Zv-mei:1	Zv-met:1	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kojega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kojemu	Zv-med:1	Zv-sed:1
+kojem	Zv-mem:1	Zv-sem:1
+kojim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+koja	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kojih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kojima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+koje	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1	Zv-sei:1	Zv-set:1
+kojimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kojo	Zv-zet:1	Zv-zeo:1
+kolik	Zv-mei:1	Zv-met:1
+kolikega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kolikemu	Zv-med:1	Zv-sed:1
+kolikem	Zv-mem:1	Zv-sem:1
+kolikim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kolika	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kolikih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kolikima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+koliki	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kolike	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kolikimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+koliko	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+koliker	Zv-mei:1	Zv-met:1
+kolikerega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kolikeremu	Zv-med:1	Zv-sed:1
+kolikerem	Zv-mem:1	Zv-sem:1
+kolikerim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kolikera	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kolikerih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kolikerima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+kolikeri	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kolikere	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kolikerimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kolikero	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+kolikršen	Zz-mei:1	Zz-met:1
+kolikršnega	Zz-mer:1	Zz-met:1	Zz-ser:1
+kolikršnemu	Zz-med:1	Zz-sed:1
+kolikršnem	Zz-mem:1	Zz-sem:1
+kolikršnim	Zz-meo:1	Zz-mmd:1	Zz-zmd:1	Zz-seo:1	Zz-smd:1
+kolikršna	Zz-mdi:1	Zz-mdt:1	Zz-zei:1	Zz-smi:1	Zz-smt:1
+kolikršnih	Zz-mdr:1	Zz-mdm:1	Zz-mmr:1	Zz-mmm:1	Zz-zdr:1	Zz-zdm:1	Zz-zmr:1	Zz-zmm:1	Zz-sdr:1	Zz-sdm:1	Zz-smr:1	Zz-smm:1
+kolikršnima	Zz-mdd:1	Zz-mdo:1	Zz-zdd:1	Zz-zdo:1	Zz-sdd:1	Zz-sdo:1
+kolikršni	Zz-mmi:1	Zz-zed:1	Zz-zem:1	Zz-zdi:1	Zz-zdt:1	Zz-sdi:1	Zz-sdt:1
+kolikršne	Zz-mmt:1	Zz-zer:1	Zz-zmi:1	Zz-zmt:1
+kolikršnimi	Zz-mmo:1	Zz-zmo:1	Zz-smo:1
+kolikršno	Zz-zet:1	Zz-zeo:1	Zz-sei:1	Zz-set:1
+kolikšen	Zv-mei:1	Zv-met:1
+kolikšnega	Zv-mer:1	Zv-met:1	Zv-ser:1
+kolikšnemu	Zv-med:1	Zv-sed:1
+kolikšnem	Zv-mem:1	Zv-sem:1
+kolikšnim	Zv-meo:1	Zv-mmd:1	Zv-zmd:1	Zv-seo:1	Zv-smd:1
+kolikšna	Zv-mdi:1	Zv-mdt:1	Zv-zei:1	Zv-smi:1	Zv-smt:1
+kolikšnih	Zv-mdr:1	Zv-mdm:1	Zv-mmr:1	Zv-mmm:1	Zv-zdr:1	Zv-zdm:1	Zv-zmr:1	Zv-zmm:1	Zv-sdr:1	Zv-sdm:1	Zv-smr:1	Zv-smm:1
+kolikšnima	Zv-mdd:1	Zv-mdo:1	Zv-zdd:1	Zv-zdo:1	Zv-sdd:1	Zv-sdo:1
+kolikšni	Zv-mmi:1	Zv-zed:1	Zv-zem:1	Zv-zdi:1	Zv-zdt:1	Zv-sdi:1	Zv-sdt:1
+kolikšne	Zv-mmt:1	Zv-zer:1	Zv-zmi:1	Zv-zmt:1
+kolikšnimi	Zv-mmo:1	Zv-zmo:1	Zv-smo:1
+kolikšno	Zv-zet:1	Zv-zeo:1	Zv-sei:1	Zv-set:1
+malokaj	Zn-sei:128	Zn-set:27
+maločesa	Zn-ser:5
+maločemu	Zn-sed:5
+maločem	Zn-sem:20	Zn-seo:1
+maločim	Zn-sem:1	Zn-seo:7
+malokak	Zn-mei:1	Zn-met:1
+malokakega	Zn-mer:1	Zn-met:1	Zn-ser:1
+malokakemu	Zn-med:1	Zn-sed:1
+malokakem	Zn-mem:1	Zn-sem:1
+malokakim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+malokaka	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+malokakih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+malokakima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+malokaki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+malokake	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+malokakimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+malokako	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+malokakšen	Zn-mei:1	Zn-met:1
+malokakšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+malokakšnemu	Zn-med:1	Zn-sed:1
+malokakšnem	Zn-mem:1	Zn-sem:1
+malokakšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+malokakšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+malokakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+malokakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+malokakšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+malokakšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+malokakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+malokakšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+malokateri	Zn-mei:586	Zn-met:33	Zn-mmi:24	Zn-zed:34	Zn-zem:36	Zn-zdi:6	Zn-zdt:4	Zn-sdi:1	Zn-sdt:1
+malokaterega	Zn-mer:7	Zn-met:26	Zn-ser:1
+malokateremu	Zn-med:64	Zn-sed:3
+malokaterem	Zn-mem:27	Zn-sem:9
+malokaterim	Zn-meo:4	Zn-mmd:6	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+malokatera	Zn-mdi:1	Zn-mdt:5	Zn-zei:335	Zn-smi:2	Zn-smt:6
+malokaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:4	Zn-zdr:1	Zn-zdm:1	Zn-zmr:2	Zn-zmm:2	Zn-sdr:1	Zn-sdm:1	Zn-smr:2	Zn-smm:1
+malokaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+malokatere	Zn-mmt:2	Zn-zer:7	Zn-zmi:6	Zn-zmt:1
+malokaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+malokatero	Zn-zet:21	Zn-zeo:3	Zn-sei:92	Zn-set:4
+malokdo	Zn-mei:6050
+malogdo	Zn-mei:6
+malokoga	Zn-mer:10	Zn-met:175
+malokomu	Zn-med:308
+malokom	Zn-mem:4	Zn-meo:3
+marsičigav	Zn-mei:1	Zn-met:3
+marsičigavega	Zn-mer:1	Zn-met:1	Zn-ser:1
+marsičigavemu	Zn-med:1	Zn-sed:1
+marsičigavem	Zn-mem:2	Zn-sem:3
+marsičigavim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+marsičigava	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+marsičigavih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+marsičigavima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+marsičigavi	Zn-mmi:1	Zn-zed:2	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+marsičigave	Zn-mmt:4	Zn-zer:3	Zn-zmi:1	Zn-zmt:1
+marsičigavimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+marsičigavo	Zn-zet:1	Zn-zeo:1	Zn-sei:2	Zn-set:2
+marsikaj	Zn-sei:34407	Zn-set:27716
+marsičesa	Zn-ser:3821
+marsičemu	Zn-sed:775
+marsičem	Zn-sem:9949	Zn-seo:306
+marsičim	Zn-sem:3	Zn-seo:510
+marsikak	Zn-mei:1	Zn-met:1
+marsikakega	Zn-mer:1	Zn-met:1	Zn-ser:1
+marsikakemu	Zn-med:1	Zn-sed:1
+marsikakem	Zn-mem:1	Zn-sem:1
+marsikakim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+marsikaka	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+marsikakih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+marsikakima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+marsikaki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+marsikake	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+marsikakimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+marsikako	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+marsikakšen	Zn-mei:226	Zn-met:177
+marsikakšnega	Zn-mer:16	Zn-met:52	Zn-ser:7
+marsikakšnemu	Zn-med:19	Zn-sed:3
+marsikakšnem	Zn-mem:27	Zn-sem:7
+marsikakšnim	Zn-meo:9	Zn-mmd:1	Zn-zmd:1	Zn-seo:3	Zn-smd:2
+marsikakšna	Zn-mdi:2	Zn-mdt:3	Zn-zei:115	Zn-smi:2	Zn-smt:5
+marsikakšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:4	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:6	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:2	Zn-smm:2
+marsikakšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+marsikakšni	Zn-mmi:5	Zn-zed:15	Zn-zem:12	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:2
+marsikakšne	Zn-mmt:7	Zn-zer:13	Zn-zmi:16	Zn-zmt:12
+marsikakšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+marsikakšno	Zn-zet:264	Zn-zeo:9	Zn-sei:152	Zn-set:41
+marsikateri	Zn-mei:11615	Zn-met:2739	Zn-mmi:562	Zn-zed:865	Zn-zem:2033	Zn-zdi:90	Zn-zdt:60	Zn-sdi:9	Zn-sdt:28
+marsikaterega	Zn-mer:1510	Zn-met:5052	Zn-ser:286
+marsikateremu	Zn-med:2979	Zn-sed:119
+marsikaterem	Zn-mem:2165	Zn-sem:926
+marsikaterim	Zn-meo:339	Zn-mmd:32	Zn-zmd:29	Zn-seo:61	Zn-smd:4
+marsikatera	Zn-mdi:8	Zn-mdt:27	Zn-zei:6194	Zn-smi:193	Zn-smt:254
+marsikaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:94	Zn-mmm:80	Zn-zdr:1	Zn-zdm:1	Zn-zmr:97	Zn-zmm:78	Zn-sdr:1	Zn-sdm:2	Zn-smr:29	Zn-smm:32
+marsikaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+marsikatere	Zn-mmt:215	Zn-zer:1487	Zn-zmi:414	Zn-zmt:273
+marsikaterimi	Zn-mmo:30	Zn-zmo:21	Zn-smo:6
+marsikatero	Zn-zet:8124	Zn-zeo:428	Zn-sei:3596	Zn-set:1507
+marsikdo	Zn-mei:29067
+marsigdo	Zn-mei:4
+marsikoga	Zn-mer:782	Zn-met:12001
+marsikomu	Zn-med:8917
+marsikom	Zn-mem:505	Zn-meo:155
+medme	Zop-et--z:3
+medte	Zod-et--z:19
+medenj	Zotmet--z:1	Zotset--z:1
+mednjo	Zotzet--z:61
+mednju	Zotmdt--z:264	Zotzdt--z:1	Zotsdt--z:1
+mednje	Zotmmt--z:8025	Zotzmt--z:1	Zotsmt--z:1
+medse	Zp---t--z:3964
+mnog	Zn-mei:1	Zn-met:1
+mnogi	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+mnogega	Zn-mer:1	Zn-met:1	Zn-ser:1
+mnogemu	Zn-med:1	Zn-sed:1
+mnogem	Zn-mem:1	Zn-sem:1
+mnogim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+mnoga	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+mnogih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+mnogima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+mnoge	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+mnogimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+mnogo	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+mnogokaj	Zn-sei:54	Zn-set:28
+mnogočesa	Zn-ser:28
+mnogočemu	Zn-sed:6
+mnogočem	Zn-sem:1870	Zn-seo:3
+mnogočim	Zn-sem:1	Zn-seo:11
+mnogokateri	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+mnogokaterega	Zn-mer:1	Zn-met:1	Zn-ser:1
+mnogokateremu	Zn-med:1	Zn-sed:1
+mnogokaterem	Zn-mem:1	Zn-sem:1
+mnogokaterim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+mnogokatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+mnogokaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+mnogokaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+mnogokatere	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+mnogokaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+mnogokatero	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+mnogokdo	Zn-mei:4
+mnogogdo	Zn-mei:1
+mnogokoga	Zn-mer:1	Zn-met:3
+mnogokomu	Zn-med:8
+mnogokom	Zn-mem:1	Zn-meo:1
+moj	Zspmeie:125100	Zspmete:17349
+mojega	Zspmere:16559	Zspmete:8523	Zspsere:13156
+mojemu	Zspmede:4861	Zspsede:1317
+mojem	Zspmeme:24492	Zspseme:34548
+mojim	Zspmeoe:7183	Zspmmde:2041	Zspzmde:1072	Zspseoe:2585	Zspsmde:311
+moja	Zspmdie:3226	Zspmdte:489	Zspzeie:117755	Zspsmie:3558	Zspsmte:2364
+mojih	Zspmdre:32	Zspmdme:21	Zspmmre:13866	Zspmmme:3782	Zspzdre:10	Zspzdme:9	Zspzmre:6781	Zspzmme:5948	Zspsdre:2	Zspsdme:14	Zspsmre:2455	Zspsmme:1845
+mojima	Zspmdde:176	Zspmdoe:127	Zspzdde:44	Zspzdoe:32	Zspsdde:4	Zspsdoe:7
+moji	Zspmmie:25897	Zspzede:12050	Zspzeme:23208	Zspzdie:1507	Zspzdte:617	Zspsdie:107	Zspsdte:50
+moje	Zspmmte:7413	Zspzere:27736	Zspzmie:14761	Zspzmte:6427	Zspseie:57770	Zspsete:14479
+mojimi	Zspmmoe:2096	Zspzmoe:1616	Zspsmoe:466
+mojo	Zspzete:29597	Zspzeoe:7373
+nadme	Zop-et--z:299
+nadte	Zod-et--z:99
+nadenj	Zotmet--z:887	Zotset--z:1
+nadnjo	Zotzet--z:483
+nadnju	Zotmdt--z:37	Zotzdt--z:1	Zotsdt--z:1
+nadnje	Zotmmt--z:477	Zotzmt--z:1	Zotsmt--z:1
+nadse	Zp---t--z:121
+najin	Zspmeid:5696	Zspmetd:1762
+najinega	Zspmerd:1885	Zspmetd:631	Zspserd:1158
+najinemu	Zspmedd:353	Zspsedd:106
+najinem	Zspmemd:1477	Zspsemd:815
+najinim	Zspmeod:731	Zspmmdd:143	Zspzmdd:73	Zspseod:242	Zspsmdd:14
+najina	Zspmdid:745	Zspmdtd:200	Zspzeid:4583	Zspsmid:255	Zspsmtd:138
+najinih	Zspmdrd:4	Zspmdmd:2	Zspmmrd:1024	Zspmmmd:353	Zspzdrd:1	Zspzdmd:1	Zspzmrd:459	Zspzmmd:328	Zspsdrd:1	Zspsdmd:1	Zspsmrd:253	Zspsmmd:185
+najinima	Zspmddd:64	Zspmdod:70	Zspzddd:31	Zspzdod:73	Zspsddd:4	Zspsdod:22
+najini	Zspmmid:1624	Zspzedd:733	Zspzemd:1251	Zspzdid:390	Zspzdtd:172	Zspsdid:230	Zspsdtd:95
+najine	Zspmmtd:653	Zspzerd:2011	Zspzmid:794	Zspzmtd:418
+najinimi	Zspmmod:191	Zspzmod:114	Zspsmod:50
+najino	Zspzetd:2344	Zspzeod:276	Zspseid:2431	Zspsetd:1059
+name	Zop-et--z:14341
+nate	Zod-et--z:5419
+nanj	Zotmet--z:56346	Zotset--z:1
+nanjo	Zotzet--z:33652
+nanju	Zotmdt--z:2073	Zotzdt--z:1	Zotsdt--z:1
+nanje	Zotmmt--z:30545	Zotzmt--z:1	Zotsmt--z:1
+naš	Zspmeim:145369	Zspmetm:40847
+našega	Zspmerm:80130	Zspmetm:23253	Zspserm:33340
+našemu	Zspmedm:9520	Zspsedm:3614
+našem	Zspmemm:51196	Zspsemm:30912
+našim	Zspmeom:14484	Zspmmdm:12788	Zspzmdm:4098	Zspseom:7583	Zspsmdm:1117
+naša	Zspmdim:4405	Zspmdtm:966	Zspzeim:150432	Zspsmim:10555	Zspsmtm:9137
+naših	Zspmdrm:95	Zspmdmm:36	Zspmmrm:83658	Zspmmmm:28836	Zspzdrm:24	Zspzdmm:29	Zspzmrm:27144	Zspzmmm:32726	Zspsdrm:7	Zspsdmm:152	Zspsmrm:7523	Zspsmmm:8724
+našima	Zspmddm:421	Zspmdom:209	Zspzddm:137	Zspzdom:194	Zspsddm:13	Zspsdom:14
+naši	Zspmmim:94931	Zspzedm:32393	Zspzemm:80312	Zspzdim:2519	Zspzdtm:1714	Zspsdim:577	Zspsdtm:271
+naše	Zspmmtm:37489	Zspzerm:109092	Zspzmim:28723	Zspzmtm:21318	Zspseim:56279	Zspsetm:37562
+našimi	Zspmmom:11621	Zspzmom:4663	Zspsmom:1496
+našo	Zspzetm:70370	Zspzeom:10487
+nase	Zp---t--z:25393
+negdo	Zn-mei:1
+nek	Zn-mei:16146	Zn-met:17638
+nekega	Zn-mer:48466	Zn-met:12421	Zn-ser:9535
+nekemu	Zn-med:5274	Zn-sed:679
+nekem	Zn-mem:31605	Zn-sem:9193
+nekim	Zn-meo:5639	Zn-mmd:424	Zn-zmd:205	Zn-seo:1172	Zn-smd:52
+neka	Zn-mdi:138	Zn-mdt:133	Zn-zei:36455	Zn-smi:1131	Zn-smt:1220
+nekih	Zn-mdr:3	Zn-mdm:1	Zn-mmr:3981	Zn-mmm:1733	Zn-zdr:1	Zn-zdm:1	Zn-zmr:2924	Zn-zmm:1485	Zn-sdr:1	Zn-sdm:5	Zn-smr:729	Zn-smm:383
+nekima	Zn-mdd:13	Zn-mdo:6	Zn-zdd:1	Zn-zdo:3	Zn-sdd:1	Zn-sdo:1
+neke	Zn-mmt:4944	Zn-zer:53851	Zn-zmi:5947	Zn-zmt:7068
+nekimi	Zn-mmo:1014	Zn-zmo:692	Zn-smo:207
+neko	Zn-zet:36400	Zn-zeo:5591	Zn-sei:15663	Zn-set:8466
+nekaj	Zn-sei:521234	Zn-set:153715
+nečesa	Zn-ser:13234
+nečemu	Zn-sed:1780
+nečem	Zn-sem:5585	Zn-seo:207
+nečim	Zn-sem:7	Zn-seo:3137
+nekak	Zn-mei:1659	Zn-met:300
+nekakega	Zn-mer:27	Zn-met:28	Zn-ser:7
+nekakemu	Zn-med:3	Zn-sed:1
+nekakem	Zn-mem:27	Zn-sem:11
+nekakim	Zn-meo:18	Zn-mmd:1	Zn-zmd:1	Zn-seo:11	Zn-smd:1
+nekaka	Zn-mdi:5	Zn-mdt:2	Zn-zei:212	Zn-smi:7	Zn-smt:1
+nekakih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:13	Zn-mmm:9	Zn-zdr:1	Zn-zdm:1	Zn-zmr:11	Zn-zmm:2	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:2
+nekakima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekaki	Zn-mmi:41	Zn-zed:20	Zn-zem:36	Zn-zdi:8	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekake	Zn-mmt:26	Zn-zer:38	Zn-zmi:24	Zn-zmt:8
+nekakimi	Zn-mmo:7	Zn-zmo:5	Zn-smo:1
+nekako	Zn-zet:712	Zn-zeo:68	Zn-sei:23324	Zn-set:158
+nekakov	Zn-mei:1	Zn-met:1
+nekakovega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekakovemu	Zn-med:1	Zn-sed:1
+nekakovem	Zn-mem:1	Zn-sem:1
+nekakovim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekakova	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekakovih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekakovima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekakovi	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekakove	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+nekakovimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekakovo	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+nekakšen	Zn-mei:24918	Zn-met:7971
+nekakšnega	Zn-mer:2097	Zn-met:1899	Zn-ser:793
+nekakšnemu	Zn-med:308	Zn-sed:106
+nekakšnem	Zn-mem:2601	Zn-sem:1019
+nekakšnim	Zn-meo:1105	Zn-mmd:93	Zn-zmd:73	Zn-seo:427	Zn-smd:20
+nekakšna	Zn-mdi:247	Zn-mdt:46	Zn-zei:18228	Zn-smi:487	Zn-smt:390
+nekakšnih	Zn-mdr:1	Zn-mdm:8	Zn-mmr:1028	Zn-mmm:506	Zn-zdr:1	Zn-zdm:1	Zn-zmr:597	Zn-zmm:515	Zn-sdr:1	Zn-sdm:1	Zn-smr:130	Zn-smm:93
+nekakšnima	Zn-mdd:7	Zn-mdo:3	Zn-zdd:2	Zn-zdo:2	Zn-sdd:1	Zn-sdo:2
+nekakšni	Zn-mmi:2666	Zn-zed:1088	Zn-zem:2907	Zn-zdi:275	Zn-zdt:37	Zn-sdi:18	Zn-sdt:5
+nekakšne	Zn-mmt:2164	Zn-zer:4761	Zn-zmi:1952	Zn-zmt:1362
+nekakšnimi	Zn-mmo:417	Zn-zmo:287	Zn-smo:72
+nekakšno	Zn-zet:11977	Zn-zeo:1312	Zn-sei:9436	Zn-set:2975
+nekateri	Zn-mmi:278599
+nekaterih	Zn-mmr:79769	Zn-mmm:63972	Zn-zmr:23150	Zn-zmm:30345	Zn-smr:6437	Zn-smm:11245
+nekaterim	Zn-mmd:28723	Zn-zmd:4082	Zn-smd:913
+nekatere	Zn-mmt:49839	Zn-zmi:120344	Zn-zmt:25845
+nekaterimi	Zn-mmo:21230	Zn-zmo:6542	Zn-smo:1480
+nekatera	Zn-smi:23904	Zn-smt:9742
+nekdo	Zn-mei:122425
+nekoga	Zn-mer:6875	Zn-met:31094
+nekomu	Zn-med:16409
+nekom	Zn-mem:1883	Zn-meo:7003
+nekolik	Zn-mei:1	Zn-met:1
+nekolikega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekolikemu	Zn-med:1	Zn-sed:1
+nekolikem	Zn-mem:1	Zn-sem:1
+nekolikim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekolika	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekolikih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekolikima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekoliki	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekolike	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+nekolikimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekoliko	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+nekolikšen	Zn-mei:1	Zn-met:1
+nekolikšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekolikšnemu	Zn-med:1	Zn-sed:1
+nekolikšnem	Zn-mem:1	Zn-sem:1
+nekolikšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekolikšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekolikšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekolikšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekolikšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekolikšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+nekolikšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekolikšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+nekolikšnji	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekolikšnjega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekolikšnjemu	Zn-med:1	Zn-sed:1
+nekolikšnjem	Zn-mem:1	Zn-sem:1
+nekolikšnjim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekolikšnja	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekolikšnjih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekolikšnjima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekolikšnje	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1	Zn-sei:1	Zn-set:1
+nekolikšnjimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekolikšnjo	Zn-zet:1	Zn-zeo:1
+nekov	Zn-mei:1	Zn-met:1
+nekovega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekovemu	Zn-med:1	Zn-sed:1
+nekovem	Zn-mem:1	Zn-sem:1
+nekovim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekova	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekovih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekovima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekovi	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekove	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+nekovimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekovo	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+nekšen	Zn-mei:1	Zn-met:1
+nekšnega	Zn-mer:1	Zn-met:1	Zn-ser:1
+nekšnemu	Zn-med:1	Zn-sed:1
+nekšnem	Zn-mem:1	Zn-sem:1
+nekšnim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+nekšna	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+nekšnih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+nekšnima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+nekšni	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+nekšne	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+nekšnimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+nekšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+nič	Zl-sei:270413	Zl-set:20347
+ničesar	Zl-ser:82998
+ničemur	Zl-sed:1568
+ničemer	Zl-sem:10032	Zl-seo:1747
+ničimer	Zl-seo:2470
+nihče	Zl-mei:202886
+nikogar	Zl-mer:28913	Zl-met:11359
+nikomur	Zl-med:25203
+nikomer	Zl-mem:481	Zl-meo:3112
+nikak	Zl-mei:1	Zl-met:1
+nikakega	Zl-mer:1	Zl-met:1	Zl-ser:1
+nikakemu	Zl-med:1	Zl-sed:1
+nikakem	Zl-mem:1	Zl-sem:1
+nikakim	Zl-meo:1	Zl-mmd:1	Zl-zmd:1	Zl-seo:1	Zl-smd:1
+nikaka	Zl-mdi:1	Zl-mdt:1	Zl-zei:1	Zl-smi:1	Zl-smt:1
+nikakih	Zl-mdr:1	Zl-mdm:1	Zl-mmr:1	Zl-mmm:1	Zl-zdr:1	Zl-zdm:1	Zl-zmr:1	Zl-zmm:1	Zl-sdr:1	Zl-sdm:1	Zl-smr:1	Zl-smm:1
+nikakima	Zl-mdd:1	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nikaki	Zl-mmi:1	Zl-zed:1	Zl-zem:1	Zl-zdi:1	Zl-zdt:1	Zl-sdi:1	Zl-sdt:1
+nikake	Zl-mmt:1	Zl-zer:1	Zl-zmi:1	Zl-zmt:1
+nikakimi	Zl-mmo:1	Zl-zmo:1	Zl-smo:1
+nikako	Zl-zet:1	Zl-zeo:1	Zl-sei:1	Zl-set:1
+nikakršen	Zl-mei:2645	Zl-met:426
+nikakršnega	Zl-mer:5829	Zl-met:334	Zl-ser:2592
+nikakršnemu	Zl-med:32	Zl-sed:18
+nikakršnem	Zl-mem:188	Zl-sem:116
+nikakršnim	Zl-meo:122	Zl-mmd:40	Zl-zmd:19	Zl-seo:56	Zl-smd:9
+nikakršna	Zl-mdi:26	Zl-mdt:2	Zl-zei:3725	Zl-smi:134	Zl-smt:88
+nikakršnih	Zl-mdr:1	Zl-mdm:1	Zl-mmr:4234	Zl-mmm:61	Zl-zdr:1	Zl-zdm:1	Zl-zmr:6502	Zl-zmm:45	Zl-sdr:1	Zl-sdm:1	Zl-smr:1098	Zl-smm:16
+nikakršnima	Zl-mdd:1	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nikakršni	Zl-mmi:577	Zl-zed:154	Zl-zem:470	Zl-zdi:34	Zl-zdt:14	Zl-sdi:3	Zl-sdt:1
+nikakršne	Zl-mmt:172	Zl-zer:8454	Zl-zmi:791	Zl-zmt:213
+nikakršnimi	Zl-mmo:89	Zl-zmo:54	Zl-smo:23
+nikakršno	Zl-zet:699	Zl-zeo:115	Zl-sei:1553	Zl-set:370
+nikakšen	Zl-mei:1	Zl-met:1
+nikakšnega	Zl-mer:1	Zl-met:1	Zl-ser:1
+nikakšnemu	Zl-med:1	Zl-sed:1
+nikakšnem	Zl-mem:1	Zl-sem:1
+nikakšnim	Zl-meo:1	Zl-mmd:1	Zl-zmd:1	Zl-seo:1	Zl-smd:1
+nikakšna	Zl-mdi:1	Zl-mdt:1	Zl-zei:1	Zl-smi:1	Zl-smt:1
+nikakšnih	Zl-mdr:1	Zl-mdm:1	Zl-mmr:1	Zl-mmm:1	Zl-zdr:1	Zl-zdm:1	Zl-zmr:1	Zl-zmm:1	Zl-sdr:1	Zl-sdm:1	Zl-smr:1	Zl-smm:1
+nikakšnima	Zl-mdd:1	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nikakšni	Zl-mmi:1	Zl-zed:1	Zl-zem:1	Zl-zdi:1	Zl-zdt:1	Zl-sdi:1	Zl-sdt:1
+nikakšne	Zl-mmt:1	Zl-zer:1	Zl-zmi:1	Zl-zmt:1
+nikakšnimi	Zl-mmo:1	Zl-zmo:1	Zl-smo:1
+nikakšno	Zl-zet:1	Zl-zeo:1	Zl-sei:1	Zl-set:1
+nikdo	Zl-mei:1
+nikoga	Zl-mer:1	Zl-met:1
+nikomu	Zl-med:1
+nikom	Zl-mem:1	Zl-meo:1
+nikogaršen	Zl-mei:1	Zl-met:1
+nikogaršnega	Zl-mer:1	Zl-met:1	Zl-ser:1
+nikogaršnemu	Zl-med:1	Zl-sed:1
+nikogaršnem	Zl-mem:1	Zl-sem:1
+nikogaršnim	Zl-meo:1	Zl-mmd:1	Zl-zmd:1	Zl-seo:1	Zl-smd:1
+nikogaršna	Zl-mdi:1	Zl-mdt:1	Zl-zei:1	Zl-smi:1	Zl-smt:1
+nikogaršnih	Zl-mdr:1	Zl-mdm:1	Zl-mmr:1	Zl-mmm:1	Zl-zdr:1	Zl-zdm:1	Zl-zmr:1	Zl-zmm:1	Zl-sdr:1	Zl-sdm:1	Zl-smr:1	Zl-smm:1
+nikogaršnima	Zl-mdd:1	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nikogaršni	Zl-mmi:1	Zl-zed:1	Zl-zem:1	Zl-zdi:1	Zl-zdt:1	Zl-sdi:1	Zl-sdt:1
+nikogaršne	Zl-mmt:1	Zl-zer:1	Zl-zmi:1	Zl-zmt:1
+nikogaršnimi	Zl-mmo:1	Zl-zmo:1	Zl-smo:1
+nikogaršno	Zl-zet:1	Zl-zeo:1	Zl-sei:1	Zl-set:1
+nikogaršnji	Zl-mei:1	Zl-met:1	Zl-mmi:1	Zl-zed:1	Zl-zem:1	Zl-zdi:1	Zl-zdt:1	Zl-sdi:1	Zl-sdt:1
+nikogaršnjega	Zl-mer:1	Zl-met:1	Zl-ser:1
+nikogaršnjemu	Zl-med:1	Zl-sed:1
+nikogaršnjem	Zl-mem:1	Zl-sem:1
+nikogaršnjim	Zl-meo:1	Zl-mmd:1	Zl-zmd:1	Zl-seo:1	Zl-smd:1
+nikogaršnja	Zl-mdi:1	Zl-mdt:1	Zl-zei:1	Zl-smi:1	Zl-smt:1
+nikogaršnjih	Zl-mdr:1	Zl-mdm:1	Zl-mmr:1	Zl-mmm:1	Zl-zdr:1	Zl-zdm:1	Zl-zmr:1	Zl-zmm:1	Zl-sdr:1	Zl-sdm:1	Zl-smr:1	Zl-smm:1
+nikogaršnjima	Zl-mdd:1	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nikogaršnje	Zl-mmt:1	Zl-zer:1	Zl-zmi:1	Zl-zmt:1	Zl-sei:1	Zl-set:1
+nikogaršnjimi	Zl-mmo:1	Zl-zmo:1	Zl-smo:1
+nikogaršnjo	Zl-zet:1	Zl-zeo:1
+njegov	Zstmeiem:214992	Zstmetem:49120	Zstmeies:2	Zstmetes:7
+njegovega	Zstmerem:45317	Zstmetem:22965	Zstserem:34460	Zstmeres:2	Zstmetes:1	Zstseres:5
+njegovemu	Zstmedem:11813	Zstsedem:4376	Zstmedes:1	Zstsedes:1
+njegovem	Zstmemem:51556	Zstsemem:64006	Zstmemes:1	Zstsemes:53
+njegovim	Zstmeoem:20819	Zstmmdem:4962	Zstzmdem:3779	Zstseoem:11670	Zstsmdem:804	Zstmeoes:1	Zstmmdes:1	Zstzmdes:1	Zstseoes:1	Zstsmdes:17
+njegova	Zstmdiem:6995	Zstmdtem:959	Zstzeiem:212057	Zstsmiem:10569	Zstsmtem:5894	Zstmdies:1	Zstmdtes:8	Zstzeies:1	Zstsmies:1	Zstsmtes:1
+njegovih	Zstmdrem:114	Zstmdmem:44	Zstmmrem:41324	Zstmmmem:10526	Zstzdrem:31	Zstzdmem:17	Zstzmrem:25556	Zstzmmem:37289	Zstsdrem:12	Zstsdmem:20	Zstsmrem:7685	Zstsmmem:4165	Zstmdres:1	Zstmdmes:1	Zstmmres:1	Zstmmmes:1	Zstzdres:1	Zstzdmes:1	Zstzmres:2	Zstzmmes:1	Zstsdres:1	Zstsdmes:19	Zstsmres:1	Zstsmmes:1
+njegovima	Zstmddem:459	Zstmdoem:190	Zstzddem:87	Zstzdoem:81	Zstsddem:8	Zstsdoem:15	Zstmddes:1	Zstmdoes:1	Zstzddes:1	Zstzdoes:1	Zstsddes:1	Zstsdoes:1
+njegovi	Zstmmiem:67621	Zstzedem:32845	Zstzemem:68792	Zstzdiem:5061	Zstzdtem:1693	Zstsdiem:364	Zstsdtem:116	Zstmmies:1	Zstzedes:1	Zstzemes:2	Zstzdies:1	Zstzdtes:1	Zstsdies:1	Zstsdtes:81
+njegove	Zstmmtem:22273	Zstzerem:94862	Zstzmiem:37062	Zstzmtem:21957	Zstmmtes:1	Zstzeres:1	Zstzmies:1	Zstzmtes:16
+njegovimi	Zstmmoem:8175	Zstzmoem:5413	Zstsmoem:1087	Zstmmoes:1	Zstzmoes:1	Zstsmoes:12
+njegovo	Zstzetem:106055	Zstzeoem:20449	Zstseiem:82048	Zstsetem:42119	Zstzetes:1	Zstzeoes:14	Zstseies:1	Zstsetes:1
+njen	Zstmeiez:143884	Zstmetez:28616
+njenega	Zstmerez:27846	Zstmetez:16141	Zstserez:20429
+njenemu	Zstmedez:7271	Zstsedez:2283
+njenem	Zstmemez:26322	Zstsemez:24890
+njenim	Zstmeoez:12417	Zstmmdez:3232	Zstzmdez:2295	Zstseoez:6823	Zstsmdez:489
+njena	Zstmdiez:3614	Zstmdtez:521	Zstzeiez:109216	Zstsmiez:4638	Zstsmtez:3238
+njenih	Zstmdrez:36	Zstmdmez:13	Zstmmrez:27064	Zstmmmez:7050	Zstzdrez:20	Zstzdmez:23	Zstzmrez:17759	Zstzmmez:14822	Zstsdrez:4	Zstsdmez:15	Zstsmrez:3456	Zstsmmez:2669
+njenima	Zstmddez:280	Zstmdoez:147	Zstzddez:101	Zstzdoez:105	Zstsddez:11	Zstsdoez:10
+njeni	Zstmmiez:38332	Zstzedez:16586	Zstzemez:36265	Zstzdiez:3118	Zstzdtez:985	Zstsdiez:129	Zstsdtez:142
+njene	Zstmmtez:14774	Zstzerez:49609	Zstzmiez:23621	Zstzmtez:13200
+njenimi	Zstmmoez:5316	Zstzmoez:3954	Zstsmoez:725
+njeno	Zstzetez:60884	Zstzeoez:11616	Zstseiez:44006	Zstsetez:24787
+njihen	Zstmeim:1	Zstmetm:1
+njihnega	Zstmerm:1	Zstmetm:1	Zstserm:1
+njihnemu	Zstmedm:1	Zstsedm:1
+njihnem	Zstmemm:1	Zstsemm:1
+njihnim	Zstmeom:1	Zstmmdm:1	Zstzmdm:1	Zstseom:1	Zstsmdm:1
+njihna	Zstmdim:1	Zstmdtm:1	Zstzeim:1	Zstsmim:1	Zstsmtm:1
+njihnih	Zstmdrm:1	Zstmdmm:1	Zstmmrm:1	Zstmmmm:1	Zstzdrm:1	Zstzdmm:1	Zstzmrm:1	Zstzmmm:1	Zstsdrm:1	Zstsdmm:1	Zstsmrm:1	Zstsmmm:1
+njihnima	Zstmddm:1	Zstmdom:1	Zstzddm:1	Zstzdom:1	Zstsddm:1	Zstsdom:1
+njihni	Zstmmim:1	Zstzedm:1	Zstzemm:1	Zstzdim:1	Zstzdtm:1	Zstsdim:1	Zstsdtm:1
+njihne	Zstmmtm:1	Zstzerm:1	Zstzmim:1	Zstzmtm:1
+njihnimi	Zstmmom:1	Zstzmom:1	Zstsmom:1
+njihno	Zstzetm:1	Zstzeom:1	Zstseim:1	Zstsetm:1
+njihnji	Zstmeim:1	Zstmetm:1	Zstmmim:1	Zstzedm:1	Zstzemm:1	Zstzdim:1	Zstzdtm:1	Zstsdim:1	Zstsdtm:1
+njihnjega	Zstmerm:1	Zstmetm:1	Zstserm:1
+njihnjemu	Zstmedm:1	Zstsedm:1
+njihnjem	Zstmemm:1	Zstsemm:1
+njihnjim	Zstmeom:1	Zstmmdm:1	Zstzmdm:1	Zstseom:1	Zstsmdm:1
+njihnja	Zstmdim:1	Zstmdtm:1	Zstzeim:1	Zstsmim:1	Zstsmtm:1
+njihnjih	Zstmdrm:1	Zstmdmm:1	Zstmmrm:1	Zstmmmm:1	Zstzdrm:1	Zstzdmm:1	Zstzmrm:1	Zstzmmm:1	Zstsdrm:1	Zstsdmm:1	Zstsmrm:1	Zstsmmm:1
+njihnjima	Zstmddm:1	Zstmdom:1	Zstzddm:1	Zstzdom:1	Zstsddm:1	Zstsdom:1
+njihnje	Zstmmtm:1	Zstzerm:1	Zstzmim:1	Zstzmtm:1	Zstseim:1	Zstsetm:1
+njihnjimi	Zstmmom:1	Zstzmom:1	Zstsmom:1
+njihnjo	Zstzetm:1	Zstzeom:1
+njihov	Zstmeim:92441	Zstmetm:28339
+njihovega	Zstmerm:24724	Zstmetm:7152	Zstserm:22649
+njihovemu	Zstmedm:3953	Zstsedm:2713
+njihovem	Zstmemm:24029	Zstsemm:28503
+njihovim	Zstmeom:9894	Zstmmdm:5935	Zstzmdm:5163	Zstseom:5043	Zstsmdm:735
+njihova	Zstmdim:1229	Zstmdtm:288	Zstzeim:96486	Zstsmim:10883	Zstsmtm:8012
+njihovih	Zstmdrm:22	Zstmdmm:17	Zstmmrm:40339	Zstmmmm:11450	Zstzdrm:10	Zstzdmm:14	Zstzmrm:27851	Zstzmmm:16830	Zstsdrm:4	Zstsdmm:21	Zstsmrm:8223	Zstsmmm:4212
+njihovima	Zstmddm:49	Zstmdom:23	Zstzddm:16	Zstzdom:27	Zstsddm:3	Zstsdom:2
+njihovi	Zstmmim:65566	Zstzedm:10800	Zstzemm:36217	Zstzdim:1777	Zstzdtm:774	Zstsdim:114	Zstsdtm:92
+njihove	Zstmmtm:30029	Zstzerm:57572	Zstzmim:32145	Zstzmtm:22416
+njihovimi	Zstmmom:9446	Zstzmom:5478	Zstsmom:1464
+njihovo	Zstzetm:67241	Zstzeom:10748	Zstseim:51267	Zstsetm:31813
+njun	Zstmeid:16327	Zstmetd:4252
+njunega	Zstmerd:3894	Zstmetd:1900	Zstserd:3018
+njunemu	Zstmedd:717	Zstsedd:287
+njunem	Zstmemd:4798	Zstsemd:3541
+njunim	Zstmeod:1364	Zstmmdd:351	Zstzmdd:186	Zstseod:656	Zstsmdd:42
+njuna	Zstmdid:3037	Zstmdtd:763	Zstzeid:16110	Zstsmid:767	Zstsmtd:519
+njunih	Zstmdrd:15	Zstmdmd:4	Zstmmrd:4551	Zstmmmd:1300	Zstzdrd:3	Zstzdmd:4	Zstzmrd:2224	Zstzmmd:1569	Zstsdrd:1	Zstsdmd:4	Zstsmrd:993	Zstsmmd:566
+njunima	Zstmddd:364	Zstmdod:299	Zstzddd:210	Zstzdod:226	Zstsddd:35	Zstsdod:63
+njuni	Zstmmid:5555	Zstzedd:2861	Zstzemd:5091	Zstzdid:1791	Zstzdtd:701	Zstsdid:757	Zstsdtd:473
+njune	Zstmmtd:1906	Zstzerd:6839	Zstzmid:2606	Zstzmtd:1368
+njunimi	Zstmmod:648	Zstzmod:284	Zstsmod:92
+njuno	Zstzetd:7788	Zstzeod:1240	Zstseid:8532	Zstsetd:3277
+nobeden	Zl-mei:11145
+noben	Zl-mei:19051	Zl-met:2873
+nobenega	Zl-mer:45265	Zl-met:392	Zl-ser:9471
+nobenemu	Zl-med:1494	Zl-sed:176
+nobenem	Zl-mem:7375	Zl-sem:954
+nobenim	Zl-meo:1612	Zl-mmd:98	Zl-zmd:71	Zl-seo:254	Zl-smd:35
+nobena	Zl-mdi:168	Zl-mdt:11	Zl-zei:25028	Zl-smi:342	Zl-smt:101
+nobenih	Zl-mdr:21	Zl-mdm:51	Zl-mmr:14350	Zl-mmm:135	Zl-zdr:14	Zl-zdm:1	Zl-zmr:21801	Zl-zmm:206	Zl-sdr:2	Zl-sdm:1	Zl-smr:3996	Zl-smm:49
+nobenima	Zl-mdd:2	Zl-mdo:1	Zl-zdd:1	Zl-zdo:1	Zl-sdd:1	Zl-sdo:1
+nobeni	Zl-mmi:804	Zl-zed:1401	Zl-zem:3706	Zl-zdi:143	Zl-zdt:62	Zl-sdi:6	Zl-sdt:4
+nobene	Zl-mmt:256	Zl-zer:47476	Zl-zmi:5461	Zl-zmt:622
+nobenimi	Zl-mmo:255	Zl-zmo:140	Zl-smo:46
+nobeno	Zl-zet:3150	Zl-zeo:1412	Zl-sei:5607	Zl-set:925
+oba	Zc-mdi:156146	Zc-mdt:29744
+obeh	Zc-mdr:58255	Zc-mdm:37668	Zc-zdr:29177	Zc-zdm:25023	Zc-sdr:5216	Zc-sdm:3393
+obema	Zc-mdd:15814	Zc-mdo:10665	Zc-zdd:1897	Zc-zdo:9845	Zc-sdd:265	Zc-sdo:781
+obe	Zc-zdi:73690	Zc-zdt:26074	Zc-sdi:4792	Zc-sdt:3005
+obadva	Zc-mdi:311	Zc-mdt:24
+obedve	Zc-zdi:53	Zc-zdt:3	Zc-sdi:1	Zc-sdt:1
+obme	Zop-et--z:116
+obte	Zod-et--z:10
+obenj	Zotmet--z:331	Zotset--z:1
+obnjo	Zotzet--z:195
+obnju	Zotmdt--z:9	Zotzdt--z:1	Zotsdt--z:1
+obnje	Zotmmt--z:171	Zotzmt--z:1	Zotsmt--z:1
+oboj	Zc-mei:1	Zc-met:1
+obojega	Zc-mer:1	Zc-met:1	Zc-ser:1
+obojemu	Zc-med:1	Zc-sed:1
+obojem	Zc-mem:1	Zc-sem:1
+obojim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+oboja	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+obojih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+obojima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+oboji	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+oboje	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1	Zc-sei:1	Zc-set:1
+obojimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+obojo	Zc-zet:1	Zc-zeo:1
+obojen	Zc-mei:1	Zc-met:1
+obojnega	Zc-mer:1	Zc-met:1	Zc-ser:1
+obojnemu	Zc-med:1	Zc-sed:1
+obojnem	Zc-mem:1	Zc-sem:1
+obojnim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+obojna	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+obojnih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+obojnima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+obojni	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+obojne	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1
+obojnimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+obojno	Zc-zet:1	Zc-zeo:1	Zc-sei:1	Zc-set:1
+obse	Zp---t--z:63
+on	Zotmei:174552
+ga	Zotmer--k:224777	Zotmet--k:2425141	Zotser--k:77	Zotset--k:5897
+njega	Zotmer:86185	Zotmet:42676	Zotser:1
+mu	Zotmed--k:978643	Zotsed--k:168
+njemu	Zotmed:46903	Zotmem:2707	Zotsed:2	Zotsem:1
+njem	Zotmem:209101	Zotsem:139
+njim	Zotmeo:220484	Zotmmd:22452	Zotzmd:1	Zotseo:2	Zotsmd:1
+onadva	Zotmdi:4374
+jih	Zotmdr--k:77	Zotmdt--k:2087	Zotmmr--k:180144	Zotmmt--k:1818155	Zotzdr--k:2	Zotzdt--k:3592	Zotzmr--k:20696	Zotzmt--k:294466	Zotsdr--k:1	Zotsdt--k:25	Zotsmr--k:5221	Zotsmt--k:83219
+ju	Zotmdr--k:9529	Zotmdt--k:116444	Zotzdr--k:1	Zotzdt--k:192	Zotsdr--k:1	Zotsdt--k:10
+njih	Zotmdr:1	Zotmmr:109241	Zotmmt:63181	Zotmmm:98439	Zotzmr:3	Zotzmt:1	Zotzmm:1	Zotsmr:11	Zotsmt:7	Zotsmm:2
+njiju	Zotmdr:13197	Zotmdt:6145	Zotmdm:2578	Zotzdr:1	Zotzdt:2	Zotzdm:1	Zotsdr:7	Zotsdt:1	Zotsdm:1
+jima	Zotmdd--k:62855	Zotzdd--k:6	Zotsdd--k:2
+njima	Zotmdd:7090	Zotmdm:1	Zotmdo:24026	Zotzdd:1	Zotzdm:910	Zotzdo:1	Zotsdd:1	Zotsdm:1	Zotsdo:1
+jiva	Zotmdt--k:15	Zotzdt--k:1	Zotsdt--k:1
+oni	Zotmmi:53372	Zk-mei:2074	Zk-met:2013	Zk-mmi:3495	Zk-zed:220	Zk-zem:2829	Zk-zdi:343	Zk-zdt:141	Zk-sdi:121	Zk-sdt:16
+jim	Zotmmd--k:666321	Zotzmd--k:53	Zotsmd--k:1
+nje	Zotmmt:1684	Zotzer:85509	Zotzmt:1	Zotsmt:21
+njimi	Zotmmo:298609	Zotzmo:2	Zotsmo:89
+ona	Zotzei:78761	Zotsmi:180	Zk-mdi:372	Zk-mdt:49	Zk-zei:5580	Zk-smi:84	Zk-smt:137
+je	Zotzer--k:476886
+ji	Zotzed--k:503322
+njej	Zotzed:35544	Zotzem:169850
+nji	Zotzed:988	Zotzem:877
+jo	Zotzet--k:1612845
+njo	Zotzet:36733	Zotzeo:108165
+onedve	Zotzdi:18	Zotsdi:1
+onidve	Zotzdi:509	Zotsdi:3
+one	Zotzmi:19863	Zk-mmt:323	Zk-zer:1825	Zk-zmi:955	Zk-zmt:165
+ono	Zotsei:3678	Zotset:1975	Zk-zet:1075	Zk-zeo:234	Zk-sei:545	Zk-set:187
+onega	Zk-mer:2003	Zk-met:2335	Zk-ser:369
+onemu	Zk-med:355	Zk-sed:507
+onem	Zk-mem:884	Zk-sem:1410
+onim	Zk-meo:286	Zk-mmd:49	Zk-zmd:701	Zk-seo:835	Zk-smd:139
+onih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:369	Zk-mmm:97	Zk-zdr:1	Zk-zdm:1276	Zk-zmr:173	Zk-zmm:54	Zk-sdr:32	Zk-sdm:11	Zk-smr:1178	Zk-smm:136
+onima	Zk-mdd:3	Zk-mdo:1	Zk-zdd:5	Zk-zdo:7	Zk-sdd:39	Zk-sdo:37
+onimi	Zk-mmo:47	Zk-zmo:529	Zk-smo:373
+onile	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+onegale	Zk-mer:1	Zk-met:1	Zk-ser:1
+onemule	Zk-med:1	Zk-sed:1
+onemle	Zk-mem:1	Zk-sem:1
+onimle	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+onale	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+onihle	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+onimale	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+onele	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+onimile	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+onole	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+podme	Zop-et--z:4
+podte	Zod-et--z:5
+podenj	Zotmet--z:187	Zotset--z:1
+podnjo	Zotzet--z:123
+podnju	Zotmdt--z:7	Zotzdt--z:1	Zotsdt--z:1
+podnje	Zotmmt--z:95	Zotzmt--z:1	Zotsmt--z:1
+podse	Zp---t--z:161
+pome	Zop-et--z:852
+pote	Zod-et--z:161
+ponj	Zotmet--z:1934	Zotset--z:1
+ponjo	Zotzet--z:1383
+ponju	Zotmdt--z:143	Zotzdt--z:1	Zotsdt--z:1
+ponje	Zotmmt--z:873	Zotzmt--z:1	Zotsmt--z:1
+predme	Zop-et--z:499
+predte	Zod-et--z:77
+predenj	Zotmet--z:669	Zotset--z:1
+prednjo	Zotzet--z:229
+prednju	Zotmdt--z:27	Zotzdt--z:1	Zotsdt--z:1
+prednje	Zotmmt--z:311	Zotzmt--z:1	Zotsmt--z:1
+predse	Zp---t--z:2753
+premarsikateri	Zn-mei:1	Zn-met:1	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+premarsikaterega	Zn-mer:1	Zn-met:1	Zn-ser:1
+premarsikateremu	Zn-med:1	Zn-sed:1
+premarsikaterem	Zn-mem:1	Zn-sem:1
+premarsikaterim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+premarsikatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+premarsikaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+premarsikaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+premarsikatere	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+premarsikaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+premarsikatero	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+premnog	Zn-mei:1	Zn-met:1
+premnogega	Zn-mer:1	Zn-met:1	Zn-ser:1
+premnogemu	Zn-med:1	Zn-sed:1
+premnogem	Zn-mem:1	Zn-sem:1
+premnogim	Zn-meo:1	Zn-mmd:1	Zn-zmd:1	Zn-seo:1	Zn-smd:1
+premnoga	Zn-mdi:1	Zn-mdt:1	Zn-zei:1	Zn-smi:1	Zn-smt:1
+premnogih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:1	Zn-mmm:1	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+premnogima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+premnogi	Zn-mmi:1	Zn-zed:1	Zn-zem:1	Zn-zdi:1	Zn-zdt:1	Zn-sdi:1	Zn-sdt:1
+premnoge	Zn-mmt:1	Zn-zer:1	Zn-zmi:1	Zn-zmt:1
+premnogimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+premnogo	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
+prenekaj	Zn-sei:1	Zn-set:1
+prenečesa	Zn-ser:1
+prenečemu	Zn-sed:1
+prenečem	Zn-sem:1	Zn-seo:1
+prenečim	Zn-sem:1	Zn-seo:1
+prenekateri	Zn-mei:1043	Zn-met:213	Zn-mmi:263	Zn-zed:53	Zn-zem:173	Zn-zdi:10	Zn-zdt:10	Zn-sdi:4	Zn-sdt:8
+prenekaterega	Zn-mer:163	Zn-met:347	Zn-ser:35
+prenekateremu	Zn-med:171	Zn-sed:6
+prenekaterem	Zn-mem:130	Zn-sem:37
+prenekaterim	Zn-meo:45	Zn-mmd:35	Zn-zmd:11	Zn-seo:11	Zn-smd:5
+prenekatera	Zn-mdi:1	Zn-mdt:2	Zn-zei:357	Zn-smi:44	Zn-smt:30
+prenekaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:102	Zn-mmm:58	Zn-zdr:1	Zn-zdm:1	Zn-zmr:57	Zn-zmm:52	Zn-sdr:1	Zn-sdm:5	Zn-smr:16	Zn-smm:22
+prenekaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+prenekatere	Zn-mmt:100	Zn-zer:250	Zn-zmi:80	Zn-zmt:60
+prenekaterimi	Zn-mmo:20	Zn-zmo:13	Zn-smo:1
+prenekatero	Zn-zet:627	Zn-zeo:52	Zn-sei:266	Zn-set:112
+prenekdo	Zn-mei:1
+prenekoga	Zn-mer:1	Zn-met:1
+prenekomu	Zn-med:1
+prenekom	Zn-mem:1	Zn-meo:1
+redkokateri	Zn-mei:430	Zn-met:32	Zn-mmi:22	Zn-zed:35	Zn-zem:30	Zn-zdi:2	Zn-zdt:4	Zn-sdi:1	Zn-sdt:1
+redkokaterega	Zn-mer:5	Zn-met:38	Zn-ser:2
+redkokateremu	Zn-med:20	Zn-sed:6
+redkokaterem	Zn-mem:26	Zn-sem:3
+redkokaterim	Zn-meo:2	Zn-mmd:3	Zn-zmd:1	Zn-seo:1	Zn-smd:2
+redkokatera	Zn-mdi:1	Zn-mdt:1	Zn-zei:286	Zn-smi:4	Zn-smt:11
+redkokaterih	Zn-mdr:1	Zn-mdm:1	Zn-mmr:4	Zn-mmm:2	Zn-zdr:1	Zn-zdm:1	Zn-zmr:1	Zn-zmm:1	Zn-sdr:1	Zn-sdm:1	Zn-smr:1	Zn-smm:1
+redkokaterima	Zn-mdd:1	Zn-mdo:1	Zn-zdd:1	Zn-zdo:1	Zn-sdd:1	Zn-sdo:1
+redkokatere	Zn-mmt:1	Zn-zer:9	Zn-zmi:4	Zn-zmt:1
+redkokaterimi	Zn-mmo:1	Zn-zmo:1	Zn-smo:1
+redkokatero	Zn-zet:20	Zn-zeo:5	Zn-sei:64	Zn-set:4
+redkokdo	Zn-mei:1
+redkokoga	Zn-mer:1	Zn-met:1
+redkokomu	Zn-med:1
+redkokom	Zn-mem:1	Zn-meo:1
+se	Zp---r--k:15316975	Zp---t--k:15316975
+sebe	Zp---r:59080	Zp---t:64279
+si	Zp---d--k:1648752
+sebi	Zp---d:63533	Zp---m:107472
+sabo	Zp---o:51750
+seboj	Zp---o:148532
+skozme	Zop-et--z:180
+skozte	Zod-et--z:41
+skozenj	Zotmet--z:2227	Zotset--z:1
+skoznjo	Zotzet--z:1449
+skoznju	Zotmdt--z:66	Zotzdt--z:1	Zotsdt--z:1
+skoznje	Zotmmt--z:1597	Zotzmt--z:1	Zotsmt--z:1
+skozse	Zp---t--z:15
+svoj	Zp-mei:128900	Zp-met:255406
+svojega	Zp-mer:119816	Zp-met:96544	Zp-ser:76140
+svojemu	Zp-med:39213	Zp-sed:7818
+svojem	Zp-mem:128028	Zp-sem:70115
+svojim	Zp-meo:109315	Zp-mmd:42347	Zp-zmd:13185	Zp-seo:41484	Zp-smd:2254
+svoja	Zp-mdi:1910	Zp-mdt:3702	Zp-zei:4422	Zp-smi:12806	Zp-smt:43074
+svojih	Zp-mdr:180	Zp-mdm:61	Zp-mmr:122089	Zp-mmm:43731	Zp-zdr:44	Zp-zdm:57	Zp-zmr:75332	Zp-zmm:64615	Zp-sdr:13	Zp-sdm:59	Zp-smr:18677	Zp-smm:17394
+svojima	Zp-mdd:1674	Zp-mdo:2355	Zp-zdd:467	Zp-zdo:1114	Zp-sdd:68	Zp-sdo:120
+svoji	Zp-mmi:619	Zp-zed:41497	Zp-zem:176782	Zp-zdi:2388	Zp-zdt:13395	Zp-sdi:262	Zp-sdt:554
+svoje	Zp-mmt:194645	Zp-zer:195756	Zp-zmi:13916	Zp-zmt:135420	Zp-sei:112733	Zp-set:221251
+svojimi	Zp-mmo:69709	Zp-zmo:43255	Zp-smo:11265
+svojo	Zp-zet:454818	Zp-zeo:109314
+ta	Zk-mei:752246	Zk-met:281518	Zk-mdi:4110	Zk-mdt:779	Zk-zei:261710	Zk-smi:30887	Zk-smt:16166
+tega	Zk-mer:182241	Zk-met:379337	Zk-ser:553195
+temu	Zk-med:32180	Zk-sed:320687
+tem	Zk-mem:290185	Zk-meo:42988	Zk-mmd:13730	Zk-zmd:6271	Zk-sem:1254112	Zk-seo:541298	Zk-smd:17325
+teh	Zk-mdr:9	Zk-mdm:22	Zk-mmr:53936	Zk-mmm:59953	Zk-zdr:2	Zk-zdm:9	Zk-zmr:56306	Zk-zmm:31610	Zk-sdr:296	Zk-sdm:98	Zk-smr:168848	Zk-smm:77684
+tema	Zk-mdd:1804	Zk-mdo:433	Zk-zdd:87	Zk-zdo:447	Zk-sdd:11179	Zk-sdo:2358
+ti	Zk-mmi:164850	Zk-zdi:2289	Zk-zdt:1453	Zk-sdi:2519	Zk-sdt:27802	Zod-ei:223093	Zod-ed--k:87174
+te	Zk-mmt:79617	Zk-zer:201055	Zk-zdi:2474	Zk-zdt:110	Zk-zmi:124835	Zk-zmt:46881	Zk-sdi:5286	Zk-sdt:138	Zod-er--k:36783	Zod-et--k:333296
+temi	Zk-mmo:9736	Zk-zmo:12254	Zk-smo:26823
+tej	Zk-zed:49113	Zk-zem:273430
+to	Zk-zet:188711	Zk-zeo:76016	Zk-sei:2778824	Zk-set:990747
+tadva	Zk-mdi:1	Zk-mdt:1
+taisti	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+taistega	Zk-mer:1	Zk-met:1	Zk-ser:1
+taistemu	Zk-med:1	Zk-sed:1
+taistem	Zk-mem:1	Zk-sem:1
+taistim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+taista	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+taistih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+taistima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+taiste	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+taistimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+taisto	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tak	Zk-mei:88335	Zk-met:49674
+takega	Zk-mer:15486	Zk-met:17318	Zk-ser:38989
+takemu	Zk-med:2541	Zk-sed:1977
+takem	Zk-mem:15990	Zk-sem:7873
+takim	Zk-meo:5756	Zk-mmd:1654	Zk-zmd:2198	Zk-seo:4912	Zk-smd:1035
+taka	Zk-mdi:812	Zk-mdt:894	Zk-zei:52182	Zk-smi:4730	Zk-smt:3188
+takih	Zk-mdr:20	Zk-mdm:46	Zk-mmr:16739	Zk-mmm:11588	Zk-zdr:8	Zk-zdm:11723	Zk-zmr:15341	Zk-zmm:9567	Zk-sdr:12	Zk-sdm:4	Zk-smr:20448	Zk-smm:2565
+takima	Zk-mdd:16	Zk-mdo:34	Zk-zdd:10	Zk-zdo:19	Zk-sdd:22	Zk-sdo:9
+taki	Zk-mmi:16867	Zk-zed:9559	Zk-zem:11728	Zk-zdi:481	Zk-zdt:3812	Zk-sdi:172	Zk-sdt:71
+take	Zk-mmt:13779	Zk-zer:36777	Zk-zmi:16681	Zk-zmt:15043
+takimi	Zk-mmo:3105	Zk-zmo:3789	Zk-smo:2114
+takisti	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+takistega	Zk-mer:1	Zk-met:1	Zk-ser:1
+takistemu	Zk-med:1	Zk-sed:1
+takistem	Zk-mem:1	Zk-sem:1
+takistim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+takista	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+takistih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+takistima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+takiste	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+takistimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+takisto	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+takle	Zk-mei:1	Zk-met:1
+takegale	Zk-mer:1	Zk-met:1	Zk-ser:1
+takemule	Zk-med:1	Zk-sed:1
+takemle	Zk-mem:1	Zk-sem:1
+takimle	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+takale	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+takihle	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+takimale	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+takile	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+takele	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+takimile	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+takole	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+takošen	Zk-mei:1	Zk-met:1
+takošnega	Zk-mer:1	Zk-met:1	Zk-ser:1
+takošnemu	Zk-med:1	Zk-sed:1
+takošnem	Zk-mem:1	Zk-sem:1
+takošnim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+takošna	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+takošnih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+takošnima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+takošni	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+takošne	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+takošnimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+takošno	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+takov	Zk-mei:1	Zk-met:1
+takovega	Zk-mer:1	Zk-met:1	Zk-ser:1
+takovemu	Zk-med:1	Zk-sed:1
+takovem	Zk-mem:1	Zk-sem:1
+takovim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+takova	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+takovih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+takovima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+takovi	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+takove	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+takovimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+takovo	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+takšen	Zk-mei:46703	Zk-met:22476
+takšnega	Zk-mer:18770	Zk-met:10295	Zk-ser:18718
+takšnemu	Zk-med:2490	Zk-sed:2918
+takšnem	Zk-mem:12421	Zk-sem:6776
+takšnim	Zk-meo:6803	Zk-mmd:1707	Zk-zmd:2193	Zk-seo:5101	Zk-smd:823
+takšna	Zk-mdi:999	Zk-mdt:1208	Zk-zei:64384	Zk-smi:7655	Zk-smt:5050
+takšnih	Zk-mdr:22	Zk-mdm:42	Zk-mmr:17176	Zk-mmm:9184	Zk-zdr:9	Zk-zdm:6584	Zk-zmr:17514	Zk-zmm:10004	Zk-sdr:9	Zk-sdm:5	Zk-smr:17890	Zk-smm:2698
+takšnima	Zk-mdd:15	Zk-mdo:38	Zk-zdd:14	Zk-zdo:21	Zk-sdd:15	Zk-sdo:11
+takšni	Zk-mmi:22171	Zk-zed:9122	Zk-zem:14000	Zk-zdi:529	Zk-zdt:2944	Zk-sdi:200	Zk-sdt:318
+takšne	Zk-mmt:15479	Zk-zer:38253	Zk-zmi:23700	Zk-zmt:18012
+takšnimi	Zk-mmo:3253	Zk-zmo:4035	Zk-smo:1992
+takšno	Zk-zet:37431	Zk-zeo:11267	Zk-sei:42947	Zk-set:17017
+takšenle	Zk-mei:1	Zk-met:1
+takšnegale	Zk-mer:1	Zk-met:1	Zk-ser:1
+takšnemule	Zk-med:1	Zk-sed:1
+takšnemle	Zk-mem:1	Zk-sem:1
+takšnimle	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+takšnale	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+takšnihle	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+takšnimale	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+takšnile	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+takšnele	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+takšnimile	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+takšnole	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tale	Zk-mei:17365	Zk-met:2314	Zk-mdi:91	Zk-mdt:19	Zk-zei:3941	Zk-smi:122	Zk-smt:107
+tegale	Zk-mer:203	Zk-met:613	Zk-ser:201
+temule	Zk-med:25	Zk-sed:118
+temle	Zk-mem:250	Zk-meo:142	Zk-mmd:18	Zk-zmd:9	Zk-sem:418	Zk-seo:310	Zk-smd:30
+tehle	Zk-mdr:1	Zk-mdm:1	Zk-mmr:59	Zk-mmm:54	Zk-zdr:1	Zk-zdm:1	Zk-zmr:78	Zk-zmm:41	Zk-sdr:1	Zk-sdm:2	Zk-smr:205	Zk-smm:85
+temale	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tile	Zk-mmi:3718	Zk-zdi:35	Zk-zdt:11	Zk-sdi:27	Zk-sdt:57
+tele	Zk-mmt:759	Zk-zer:5601	Zk-zdi:24	Zk-zdt:1	Zk-zmi:1208	Zk-zmt:404	Zk-sdi:62	Zk-sdt:8
+temile	Zk-mmo:20	Zk-zmo:26	Zk-smo:24
+tejle	Zk-zed:185	Zk-zem:670
+tole	Zk-zet:3470	Zk-zeo:654	Zk-sei:21992	Zk-set:8446
+talele	Zk-mei:1	Zk-met:1	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tegalele	Zk-mer:1	Zk-met:1	Zk-ser:1
+temulele	Zk-med:1	Zk-sed:1
+temlele	Zk-mem:1	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-sem:1	Zk-seo:1	Zk-smd:1
+tehlele	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+temalele	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tilele	Zk-mmi:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+telele	Zk-mmt:1	Zk-zer:1	Zk-zdi:1	Zk-zdt:1	Zk-zmi:1	Zk-zmt:1	Zk-sdi:1	Zk-sdt:1
+temilele	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+tejlele	Zk-zed:1	Zk-zem:1
+tolele	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tebe	Zod-er:10045	Zod-et:11261
+tebi	Zod-ed:15205	Zod-em:8403
+tabo	Zod-eo:11164
+teboj	Zod-eo:7357
+vaju	Zod-dr:1501	Zod-dt:5374	Zod-dm:291
+vama	Zod-dd:6226	Zod-dm:147	Zod-do:1836
+vas	Zod-mr:47756	Zod-mt:342064	Zod-mm:18909
+vam	Zod-md:481856
+vami	Zod-mo:34479
+vidva	Zodmdi:3168	Zodsdi:119
+vi	Zodmmi:117559	Zodsmi:2774
+vedve	Zodzdi:154
+vidve	Zodzdi:249
+vidvi	Zodzdi:1
+ve	Zodzmi:32593
+tisti	Zk-mei:203817	Zk-met:34434	Zk-mmi:63575	Zk-zed:12079	Zk-zem:7648	Zk-zdi:629	Zk-zdt:458	Zk-sdi:402	Zk-sdt:68
+tistega	Zk-mer:13996	Zk-met:46859	Zk-ser:28526
+tistemu	Zk-med:2481	Zk-sed:12462
+tistem	Zk-mem:21326	Zk-sem:36075
+tistim	Zk-meo:1881	Zk-mmd:9995	Zk-zmd:1380	Zk-seo:34428	Zk-smd:27346
+tista	Zk-mdi:712	Zk-mdt:174	Zk-zei:59155	Zk-smi:3982	Zk-smt:5935
+tistih	Zk-mdr:1	Zk-mdm:4	Zk-mmr:12028	Zk-mmm:9363	Zk-zdr:1	Zk-zdm:1	Zk-zmr:6692	Zk-zmm:3680	Zk-sdr:47	Zk-sdm:19	Zk-smr:116686	Zk-smm:18321
+tistima	Zk-mdd:14	Zk-mdo:21	Zk-zdd:3	Zk-zdo:14	Zk-sdd:151	Zk-sdo:128
+tiste	Zk-mmt:72267	Zk-zer:60703	Zk-zmi:45724	Zk-zmt:19800
+tistimi	Zk-mmo:2812	Zk-zmo:1756	Zk-smo:30017
+tisto	Zk-zet:14817	Zk-zeo:4666	Zk-sei:102522	Zk-set:49650
+tistile	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+tistegale	Zk-mer:1	Zk-met:1	Zk-ser:1
+tistemule	Zk-med:1	Zk-sed:1
+tistemle	Zk-mem:1	Zk-sem:1
+tistimle	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tistale	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tistihle	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+tistimale	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tistele	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+tistimile	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+tistole	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tolik	Zk-mei:1	Zk-met:1
+tolikega	Zk-mer:1	Zk-met:1	Zk-ser:1
+tolikemu	Zk-med:1	Zk-sed:1
+tolikem	Zk-mem:1	Zk-sem:1
+tolikim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tolika	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tolikih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+tolikima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+toliki	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+tolike	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+tolikimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+toliko	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+toliker	Zk-mei:1	Zk-met:1
+tolikerega	Zk-mer:1	Zk-met:1	Zk-ser:1
+tolikeremu	Zk-med:1	Zk-sed:1
+tolikerem	Zk-mem:1	Zk-sem:1
+tolikerim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tolikera	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tolikerih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+tolikerima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tolikeri	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+tolikere	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+tolikerimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+tolikero	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tolikšen	Zk-mei:1	Zk-met:1
+tolikšnega	Zk-mer:1	Zk-met:1	Zk-ser:1
+tolikšnemu	Zk-med:1	Zk-sed:1
+tolikšnem	Zk-mem:1	Zk-sem:1
+tolikšnim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tolikšna	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tolikšnih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+tolikšnima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tolikšni	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+tolikšne	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+tolikšnimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+tolikšno	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tolikšnji	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+tolikšnjega	Zk-mer:1	Zk-met:1	Zk-ser:1
+tolikšnjemu	Zk-med:1	Zk-sed:1
+tolikšnjem	Zk-mem:1	Zk-sem:1
+tolikšnjim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tolikšnja	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+tolikšnjih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+tolikšnjima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tolikšnje	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1	Zk-sei:1	Zk-set:1
+tolikšnjimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+tolikšnjo	Zk-zet:1	Zk-zeo:1
+toti	Zk-mei:1	Zk-met:1	Zk-mmi:1	Zk-zed:1	Zk-zem:1	Zk-zdi:1	Zk-zdt:1	Zk-sdi:1	Zk-sdt:1
+totega	Zk-mer:1	Zk-met:1	Zk-ser:1
+totemu	Zk-med:1	Zk-sed:1
+totem	Zk-mem:1	Zk-sem:1
+totim	Zk-meo:1	Zk-mmd:1	Zk-zmd:1	Zk-seo:1	Zk-smd:1
+tota	Zk-mdi:1	Zk-mdt:1	Zk-zei:1	Zk-smi:1	Zk-smt:1
+totih	Zk-mdr:1	Zk-mdm:1	Zk-mmr:1	Zk-mmm:1	Zk-zdr:1	Zk-zdm:1	Zk-zmr:1	Zk-zmm:1	Zk-sdr:1	Zk-sdm:1	Zk-smr:1	Zk-smm:1
+totima	Zk-mdd:1	Zk-mdo:1	Zk-zdd:1	Zk-zdo:1	Zk-sdd:1	Zk-sdo:1
+tote	Zk-mmt:1	Zk-zer:1	Zk-zmi:1	Zk-zmt:1
+totimi	Zk-mmo:1	Zk-zmo:1	Zk-smo:1
+toto	Zk-zet:1	Zk-zeo:1	Zk-sei:1	Zk-set:1
+tvoj	Zsdmeie:23119	Zsdmete:4168
+tvojega	Zsdmere:3140	Zsdmete:1809	Zsdsere:2459
+tvojemu	Zsdmede:902	Zsdsede:364
+tvojem	Zsdmeme:3121	Zsdseme:3409
+tvojim	Zsdmeoe:1476	Zsdmmde:364	Zsdzmde:286	Zsdseoe:445	Zsdsmde:47
+tvoja	Zsdmdie:371	Zsdmdte:81	Zsdzeie:18030	Zsdsmie:684	Zsdsmte:455
+tvojih	Zsdmdre:4	Zsdmdme:2	Zsdmmre:2192	Zsdmmme:602	Zsdzdre:1	Zsdzdme:1	Zsdzmre:2146	Zsdzmme:1037	Zsdsdre:2	Zsdsdme:5	Zsdsmre:523	Zsdsmme:263
+tvojima	Zsdmdde:15	Zsdmdoe:25	Zsdzdde:8	Zsdzdoe:11	Zsdsdde:1	Zsdsdoe:1
+tvoji	Zsdmmie:4418	Zsdzede:2321	Zsdzeme:3548	Zsdzdie:222	Zsdzdte:105	Zsdsdie:13	Zsdsdte:81
+tvoje	Zsdmmte:1698	Zsdzere:4959	Zsdzmie:2939	Zsdzmte:1744	Zsdseie:9434	Zsdsete:4087
+tvojimi	Zsdmmoe:413	Zsdzmoe:375	Zsdsmoe:93
+tvojo	Zsdzete:7247	Zsdzeoe:1251
+vajin	Zsdmeid:1468	Zsdmetd:761
+vajinega	Zsdmerd:342	Zsdmetd:70	Zsdserd:318
+vajinemu	Zsdmedd:65	Zsdsedd:34
+vajinem	Zsdmemd:454	Zsdsemd:332
+vajinim	Zsdmeod:94	Zsdmmdd:16	Zsdzmdd:9	Zsdseod:51	Zsdsmdd:4
+vajina	Zsdmdid:136	Zsdmdtd:28	Zsdzeid:1194	Zsdsmid:70	Zsdsmtd:28
+vajinih	Zsdmdrd:1	Zsdmdmd:1	Zsdmmrd:203	Zsdmmmd:73	Zsdzdrd:1	Zsdzdmd:1	Zsdzmrd:111	Zsdzmmd:91	Zsdsdrd:1	Zsdsdmd:1	Zsdsmrd:69	Zsdsmmd:40
+vajinima	Zsdmddd:9	Zsdmdod:9	Zsdzddd:5	Zsdzdod:9	Zsdsddd:7	Zsdsdod:6
+vajini	Zsdmmid:383	Zsdzedd:190	Zsdzemd:371	Zsdzdid:79	Zsdzdtd:37	Zsdsdid:58	Zsdsdtd:33
+vajine	Zsdmmtd:186	Zsdzerd:568	Zsdzmid:235	Zsdzmtd:143
+vajinimi	Zsdmmod:27	Zsdzmod:23	Zsdsmod:5
+vajino	Zsdzetd:934	Zsdzeod:64	Zsdseid:794	Zsdsetd:436
+vame	Zop-et--z:6095
+vate	Zod-et--z:1085
+vanj	Zotmet--z:41552	Zotset--z:1
+vanjo	Zotzet--z:33478
+vanju	Zotmdt--z:1074	Zotzdt--z:1	Zotsdt--z:1
+vanje	Zotmmt--z:13223	Zotzmt--z:1	Zotsmt--z:1
+vaš	Zsdmeim:75167	Zsdmetm:18523
+vašega	Zsdmerm:18519	Zsdmetm:5770	Zsdserm:10715
+vašemu	Zsdmedm:8341	Zsdsedm:1584
+vašem	Zsdmemm:19472	Zsdsemm:19067
+vašim	Zsdmeom:5340	Zsdmmdm:1502	Zsdzmdm:1988	Zsdseom:2765	Zsdsmdm:351
+vaša	Zsdmdim:728	Zsdmdtm:163	Zsdzeim:65427	Zsdsmim:4452	Zsdsmtm:4125
+vaših	Zsdmdrm:8	Zsdmdmm:17	Zsdmmrm:10126	Zsdmmmm:2757	Zsdzdrm:4	Zsdzdmm:6	Zsdzmrm:7472	Zsdzmmm:4729	Zsdsdrm:1	Zsdsdmm:16	Zsdsmrm:2203	Zsdsmmm:1384
+vašima	Zsdmddm:42	Zsdmdom:25	Zsdzddm:12	Zsdzdom:17	Zsdsddm:3	Zsdsdom:3
+vaši	Zsdmmim:18868	Zsdzedm:6354	Zsdzemm:18098	Zsdzdim:605	Zsdzdtm:404	Zsdsdim:64	Zsdsdtm:31
+vaše	Zsdmmtm:8466	Zsdzerm:23324	Zsdzmim:13852	Zsdzmtm:8803	Zsdseim:34691	Zsdsetm:20333
+vašimi	Zsdmmom:2188	Zsdzmom:1562	Zsdsmom:840
+vašo	Zsdzetm:26782	Zsdzeom:4439
+vase	Zp---t--z:23227
+ves	Zc-mei:108938	Zc-met:116620
+vsega	Zc-mer:44361	Zc-met:47235	Zc-ser:61325
+vsemu	Zc-med:14370	Zc-sed:32450
+vsem	Zc-mem:92134	Zc-meo:9719	Zc-mmd:150031	Zc-zmd:16329	Zc-sem:81528	Zc-seo:14675	Zc-smd:2945
+vsa	Zc-mdi:575	Zc-mdt:140	Zc-zei:72645	Zc-smi:57462	Zc-smt:49097
+vseh	Zc-mdr:13	Zc-mdm:3	Zc-mmr:317400	Zc-mmm:115502	Zc-zdr:3	Zc-zdm:3	Zc-zmr:87150	Zc-zmm:63727	Zc-sdr:3	Zc-sdm:2	Zc-smr:17471	Zc-smm:29956
+vsema	Zc-mdd:2	Zc-mdo:2	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsi	Zc-mmi:619372	Zc-zdi:647	Zc-zdt:1391	Zc-sdi:345	Zc-sdt:54
+vse	Zc-mmt:157161	Zc-zer:32269	Zc-zmi:252271	Zc-zmt:123143	Zc-sei:1051914	Zc-set:400470
+vsemi	Zc-mmo:61136	Zc-zmo:21401	Zc-smo:5955
+vsej	Zc-zed:5182	Zc-zem:71810
+vso	Zc-zet:103994	Zc-zeo:20992	Zc-sei:1145	Zc-set:1338
+vsak	Zc-mei:302274	Zc-met:177306
+vsakega	Zc-mer:24332	Zc-met:39548	Zc-ser:4032
+vsakemu	Zc-med:23227	Zc-sed:842
+vsakem	Zc-mem:72519	Zc-sem:54582
+vsakim	Zc-meo:14739	Zc-mmd:73	Zc-zmd:32	Zc-seo:1924	Zc-smd:16
+vsaka	Zc-mdi:1021	Zc-mdt:624	Zc-zei:97827	Zc-smi:817	Zc-smt:4179
+vsakih	Zc-mdr:7	Zc-mdm:1	Zc-mmr:13080	Zc-mmm:3573	Zc-zdr:1	Zc-zdm:6	Zc-zmr:562	Zc-zmm:367	Zc-sdr:1	Zc-sdm:2	Zc-smr:82	Zc-smm:122
+vsakima	Zc-mdd:2	Zc-mdo:4	Zc-zdd:1	Zc-zdo:6	Zc-sdd:1	Zc-sdo:1
+vsaki	Zc-mmi:1641	Zc-zed:8718	Zc-zem:46839	Zc-zdi:572	Zc-zdt:1345	Zc-sdi:103	Zc-sdt:1148
+vsake	Zc-mmt:3630	Zc-zer:32101	Zc-zmi:3887	Zc-zmt:1049
+vsakimi	Zc-mmo:158	Zc-zmo:253	Zc-smo:29
+vsako	Zc-zet:67934	Zc-zeo:9161	Zc-sei:89265	Zc-set:73232
+vsakateri	Zc-mei:1	Zc-met:1	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+vsakaterega	Zc-mer:1	Zc-met:1	Zc-ser:1
+vsakateremu	Zc-med:1	Zc-sed:1
+vsakaterem	Zc-mem:1	Zc-sem:1
+vsakaterim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+vsakatera	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+vsakaterih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+vsakaterima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsakatere	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1
+vsakaterimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+vsakatero	Zc-zet:1	Zc-zeo:1	Zc-sei:1	Zc-set:1
+vsakdo	Zc-mei:30617
+vsakogar	Zc-mer:1709	Zc-met:13957
+vsakomur	Zc-med:13013
+vsakomer	Zc-mem:255	Zc-meo:208
+vsakogaršen	Zc-mei:1	Zc-met:1
+vsakogaršnega	Zc-mer:1	Zc-met:1	Zc-ser:1
+vsakogaršnemu	Zc-med:1	Zc-sed:1
+vsakogaršnem	Zc-mem:1	Zc-sem:1
+vsakogaršnim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+vsakogaršna	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+vsakogaršnih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+vsakogaršnima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsakogaršni	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+vsakogaršne	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1
+vsakogaršnimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+vsakogaršno	Zc-zet:1	Zc-zeo:1	Zc-sei:1	Zc-set:1
+vsakogaršnji	Zc-mei:1	Zc-met:1	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+vsakogaršnjega	Zc-mer:1	Zc-met:1	Zc-ser:1
+vsakogaršnjemu	Zc-med:1	Zc-sed:1
+vsakogaršnjem	Zc-mem:1	Zc-sem:1
+vsakogaršnjim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+vsakogaršnja	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+vsakogaršnjih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+vsakogaršnjima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsakogaršnje	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1	Zc-sei:1	Zc-set:1
+vsakogaršnjimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+vsakogaršnjo	Zc-zet:1	Zc-zeo:1
+vsakršen	Zc-mei:709	Zc-met:651
+vsakršnega	Zc-mer:1126	Zc-met:143	Zc-ser:1149
+vsakršnemu	Zc-med:290	Zc-sed:367
+vsakršnem	Zc-mem:159	Zc-sem:145
+vsakršnim	Zc-meo:131	Zc-mmd:149	Zc-zmd:224	Zc-seo:97	Zc-smd:48
+vsakršna	Zc-mdi:2	Zc-mdt:1	Zc-zei:1770	Zc-smi:142	Zc-smt:180
+vsakršnih	Zc-mdr:3	Zc-mdm:1	Zc-mmr:1104	Zc-mmm:59	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1230	Zc-zmm:234	Zc-sdr:1	Zc-sdm:1	Zc-smr:349	Zc-smm:31
+vsakršnima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsakršni	Zc-mmi:246	Zc-zed:627	Zc-zem:267	Zc-zdi:54	Zc-zdt:16	Zc-sdi:3	Zc-sdt:1
+vsakršne	Zc-mmt:555	Zc-zer:2769	Zc-zmi:437	Zc-zmt:499
+vsakršnimi	Zc-mmo:95	Zc-zmo:80	Zc-smo:19
+vsakršno	Zc-zet:2981	Zc-zeo:199	Zc-sei:2389	Zc-set:1305
+vsakteri	Zc-mei:1	Zc-met:1	Zc-mmi:1	Zc-zed:1	Zc-zem:1	Zc-zdi:1	Zc-zdt:1	Zc-sdi:1	Zc-sdt:1
+vsakterega	Zc-mer:1	Zc-met:1	Zc-ser:1
+vsakteremu	Zc-med:1	Zc-sed:1
+vsakterem	Zc-mem:1	Zc-sem:1
+vsakterim	Zc-meo:1	Zc-mmd:1	Zc-zmd:1	Zc-seo:1	Zc-smd:1
+vsaktera	Zc-mdi:1	Zc-mdt:1	Zc-zei:1	Zc-smi:1	Zc-smt:1
+vsakterih	Zc-mdr:1	Zc-mdm:1	Zc-mmr:1	Zc-mmm:1	Zc-zdr:1	Zc-zdm:1	Zc-zmr:1	Zc-zmm:1	Zc-sdr:1	Zc-sdm:1	Zc-smr:1	Zc-smm:1
+vsakterima	Zc-mdd:1	Zc-mdo:1	Zc-zdd:1	Zc-zdo:1	Zc-sdd:1	Zc-sdo:1
+vsaktere	Zc-mmt:1	Zc-zer:1	Zc-zmi:1	Zc-zmt:1
+vsakterimi	Zc-mmo:1	Zc-zmo:1	Zc-smo:1
+vsaktero	Zc-zet:1	Zc-zeo:1	Zc-sei:1	Zc-set:1
+zame	Zop-et--z:71429
+zate	Zod-et--z:11347
+zanj	Zotmet--z:115502	Zotset--z:1
+zanjo	Zotzet--z:67022
+zanju	Zotmdt--z:5217	Zotzdt--z:1	Zotsdt--z:1
+zanje	Zotmmt--z:77896	Zotzmt--z:1	Zotsmt--z:1
+zase	Zp---t--z:68649

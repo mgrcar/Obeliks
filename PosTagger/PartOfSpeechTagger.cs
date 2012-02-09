@@ -158,7 +158,7 @@ namespace PosTagger
                 }
                 else // word
                 {
-                    Set<string> filter = mSuffixTree.Contains(corpus.TaggedWords[i].WordLower) ? mSuffixTree.GetTags(corpus.TaggedWords[i].WordLower) : null;
+                    Set<string> filter = mSuffixTree.Contains(corpus.TaggedWords[i].WordLower) ? mSuffixTree.GetTags(corpus.TaggedWords[i].WordLower) : null;                    
                     result = ProcessResult(result, filter);
                     string goldTag = corpus.TaggedWords[i].Tag;
                     string predictedNoRules = result.Count == 0 ? "*"/*unable to classify*/ : result.BestClassLabel;
@@ -170,14 +170,17 @@ namespace PosTagger
                     }
                     else
                     {
-                        filter = Rules.ApplyTaggerRules(filter, word, out rule);
+                        filter = Rules.ApplyTaggerRules(filter, word, out rule);                        
                         if (filter.Count == 0) { filter = Rules.ApplyTaggerRules(CreateFilterFromResult(result), word, out rule); }
                     }
-                    result = ProcessResult(result, filter);
+                    result = ProcessResult(result, filter);                    
                     string predictedWithRules;
                     if (result.Count == 0)
                     {
-                        predictedWithRules = Rules.GetMostFrequentTag(filter);
+                        //MessageBox.Show(corpus.TaggedWords[i].WordLower + " - " + filter.ToString() + " - " + result.Inner.ToString());
+                        predictedWithRules = Rules.GetMostFrequentTag(corpus.TaggedWords[i].WordLower, filter);
+                        //MessageBox.Show(predictedWithRules);
+                        //MessageBox.Show(corpus.TaggedWords[i].WordLower + " - " + filter.ToString() + " - " + result.Inner.ToString());
                         if (predictedWithRules == null) { predictedWithRules = "*"; }
                     }
                     else
