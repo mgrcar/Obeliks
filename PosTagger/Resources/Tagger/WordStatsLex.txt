@@ -286,8 +286,8 @@ bogvekolikšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
 čeznje	Zotmmt--z:740	Zotzmt--z:1	Zotsmt--z:1
 čezse	Zp---t--z:25
 čigar	Zz----em:18071
-čigarkoli	Zz----:1
-čigarsižebodi	Zz----:1
+čigarkoli	Zz:1
+čigarsižebodi	Zz:1
 čigav	Zv-mei:527	Zv-met:136
 čigavega	Zv-mer:13	Zv-met:10	Zv-ser:1
 čigavemu	Zv-med:1	Zv-sed:1
@@ -300,8 +300,8 @@ bogvekolikšno	Zn-zet:1	Zn-zeo:1	Zn-sei:1	Zn-set:1
 čigave	Zv-mmt:87	Zv-zer:28	Zv-zmi:129	Zv-zmt:22
 čigavimi	Zv-mmo:5	Zv-zmo:3	Zv-smo:5
 čigavo	Zv-zet:156	Zv-zeo:19	Zv-sei:198	Zv-set:38
-čigaver	Zz----:1
-čigaverkoli	Zz----:1
+čigaver	Zz:1
+čigaverkoli	Zz:1
 čigavršen	Zz-mei:1	Zz-met:1
 čigavršnega	Zz-mer:1	Zz-met:1	Zz-ser:1
 čigavršnemu	Zz-med:1	Zz-sed:1
@@ -1287,7 +1287,7 @@ redkokdo	Zn-mei:1
 redkokoga	Zn-mer:1	Zn-met:1
 redkokomu	Zn-med:1
 redkokom	Zn-mem:1	Zn-meo:1
-se	Zp---r--k:15316975	Zp---t--k:15316975
+se	Zp------k:30633950
 sebe	Zp---r:59080	Zp---t:64279
 si	Zp---d--k:1648752
 sebi	Zp---d:63533	Zp---m:107472

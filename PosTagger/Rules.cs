@@ -572,11 +572,15 @@ public static class Rules
 
     public static string ApplyLemmaRules(string lemma, string word, string tag)
     {
-        if (tag == "N" || tag == "0" || tag == "M")
+        if (tag == "N" || tag == "M")
         {
             return word.ToLower(); 
         }
-        //lemma = lemma.TrimEnd('-', '–', '—'); // *** check if this is still needed 
+        if (tag == "O")
+        {
+            if (word.Length == 2 && word[1] == '.') { return word; }
+            else { return word.ToLower(); }
+        }
         if (word.Length >= 1)
         {            
             Utils.CaseType caseType = Utils.GetCaseType(word);
