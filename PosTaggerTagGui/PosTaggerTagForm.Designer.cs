@@ -31,6 +31,7 @@ namespace PosTaggerTagGui
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosTaggerTagForm));
             this.pnlSplit = new System.Windows.Forms.TableLayoutPanel();
             this.grpStatus = new System.Windows.Forms.GroupBox();
             this.pnlStatus = new System.Windows.Forms.Panel();
@@ -58,9 +59,10 @@ namespace PosTaggerTagGui
             this.lblInput = new System.Windows.Forms.Label();
             this.chkIncludeSubfolders = new System.Windows.Forms.CheckBox();
             this.lblOutput = new System.Windows.Forms.Label();
-            this.btnOutputFile = new System.Windows.Forms.Button();
-            this.btnOutputFolder = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.chkOverwriteFiles = new System.Windows.Forms.CheckBox();
+            this.btnOutputFolder = new System.Windows.Forms.Button();
+            this.btnOutputFile = new System.Windows.Forms.Button();
             this.dlgInputFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.dlgInputFile = new System.Windows.Forms.OpenFileDialog();
             this.dlgOutputFolder = new System.Windows.Forms.FolderBrowserDialog();
@@ -96,7 +98,7 @@ namespace PosTaggerTagGui
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlSplit.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlSplit.Size = new System.Drawing.Size(588, 528);
+            this.pnlSplit.Size = new System.Drawing.Size(588, 553);
             this.pnlSplit.TabIndex = 0;
             // 
             // grpStatus
@@ -104,7 +106,7 @@ namespace PosTaggerTagGui
             this.grpStatus.AutoSize = true;
             this.grpStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpStatus.Controls.Add(this.pnlStatus);
-            this.grpStatus.Location = new System.Drawing.Point(3, 317);
+            this.grpStatus.Location = new System.Drawing.Point(3, 342);
             this.grpStatus.Name = "grpStatus";
             this.grpStatus.Size = new System.Drawing.Size(582, 208);
             this.grpStatus.TabIndex = 3;
@@ -148,7 +150,7 @@ namespace PosTaggerTagGui
             this.grpModels.AutoSize = true;
             this.grpModels.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpModels.Controls.Add(this.pnlModels);
-            this.grpModels.Location = new System.Drawing.Point(3, 137);
+            this.grpModels.Location = new System.Drawing.Point(3, 162);
             this.grpModels.Name = "grpModels";
             this.grpModels.Size = new System.Drawing.Size(582, 98);
             this.grpModels.TabIndex = 1;
@@ -249,7 +251,7 @@ namespace PosTaggerTagGui
             this.grpButtons.AutoSize = true;
             this.grpButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpButtons.Controls.Add(this.pnlButtons);
-            this.grpButtons.Location = new System.Drawing.Point(3, 241);
+            this.grpButtons.Location = new System.Drawing.Point(3, 266);
             this.grpButtons.Name = "grpButtons";
             this.grpButtons.Size = new System.Drawing.Size(582, 70);
             this.grpButtons.TabIndex = 2;
@@ -261,8 +263,8 @@ namespace PosTaggerTagGui
             this.pnlButtons.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlButtons.ColumnCount = 4;
             this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
-            this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 369F));
-            this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
+            this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.pnlButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.pnlButtons.Controls.Add(this.btnTag, 0, 0);
             this.pnlButtons.Controls.Add(this.btnCancel, 1, 0);
@@ -316,8 +318,8 @@ namespace PosTaggerTagGui
             // 
             this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAbout.Image = global::PosTaggerTagGui.Properties.Resources.help;
-            this.btnAbout.Location = new System.Drawing.Point(500, 4);
-            this.btnAbout.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnAbout.Location = new System.Drawing.Point(503, 4);
+            this.btnAbout.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(32, 24);
             this.btnAbout.TabIndex = 12;
@@ -332,7 +334,7 @@ namespace PosTaggerTagGui
             this.grpFiles.Controls.Add(this.pnlFiles);
             this.grpFiles.Location = new System.Drawing.Point(3, 3);
             this.grpFiles.Name = "grpFiles";
-            this.grpFiles.Size = new System.Drawing.Size(582, 128);
+            this.grpFiles.Size = new System.Drawing.Size(582, 153);
             this.grpFiles.TabIndex = 0;
             this.grpFiles.TabStop = false;
             this.grpFiles.Text = "Datoteke";
@@ -352,17 +354,20 @@ namespace PosTaggerTagGui
             this.pnlFiles.Controls.Add(this.lblInput, 0, 0);
             this.pnlFiles.Controls.Add(this.chkIncludeSubfolders, 1, 1);
             this.pnlFiles.Controls.Add(this.lblOutput, 0, 3);
-            this.pnlFiles.Controls.Add(this.btnOutputFile, 2, 3);
-            this.pnlFiles.Controls.Add(this.btnOutputFolder, 2, 3);
             this.pnlFiles.Controls.Add(this.txtOutput, 1, 3);
+            this.pnlFiles.Controls.Add(this.chkOverwriteFiles, 1, 4);
+            this.pnlFiles.Controls.Add(this.btnOutputFolder, 3, 3);
+            this.pnlFiles.Controls.Add(this.btnOutputFile, 2, 3);
             this.pnlFiles.Location = new System.Drawing.Point(6, 19);
             this.pnlFiles.Name = "pnlFiles";
-            this.pnlFiles.RowCount = 4;
+            this.pnlFiles.RowCount = 5;
             this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.pnlFiles.Size = new System.Drawing.Size(570, 90);
+            this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.pnlFiles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnlFiles.Size = new System.Drawing.Size(570, 115);
             this.pnlFiles.TabIndex = 0;
             // 
             // btnInputFolder
@@ -433,18 +438,27 @@ namespace PosTaggerTagGui
             this.lblOutput.TabIndex = 8;
             this.lblOutput.Text = "Izhodna datoteka (mapa):";
             // 
-            // btnOutputFile
+            // txtOutput
             // 
-            this.btnOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOutputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
-            this.btnOutputFile.Location = new System.Drawing.Point(503, 63);
-            this.btnOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btnOutputFile.Name = "btnOutputFile";
-            this.btnOutputFile.Size = new System.Drawing.Size(32, 24);
-            this.btnOutputFile.TabIndex = 5;
-            this.toolTip.SetToolTip(this.btnOutputFile, "Določi izhodno datoteko...");
-            this.btnOutputFile.UseVisualStyleBackColor = true;
-            this.btnOutputFile.Click += new System.EventHandler(this.btnOutputFile_Click);
+            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtOutput.BackColor = System.Drawing.Color.White;
+            this.txtOutput.Location = new System.Drawing.Point(140, 65);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.Size = new System.Drawing.Size(362, 20);
+            this.txtOutput.TabIndex = 4;
+            // 
+            // chkOverwriteFiles
+            // 
+            this.chkOverwriteFiles.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkOverwriteFiles.AutoSize = true;
+            this.chkOverwriteFiles.Location = new System.Drawing.Point(140, 93);
+            this.chkOverwriteFiles.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.chkOverwriteFiles.Name = "chkOverwriteFiles";
+            this.chkOverwriteFiles.Size = new System.Drawing.Size(161, 19);
+            this.chkOverwriteFiles.TabIndex = 9;
+            this.chkOverwriteFiles.Text = "Prepiši izhodne datoteke";
+            this.chkOverwriteFiles.UseVisualStyleBackColor = true;
             // 
             // btnOutputFolder
             // 
@@ -459,15 +473,18 @@ namespace PosTaggerTagGui
             this.btnOutputFolder.UseVisualStyleBackColor = true;
             this.btnOutputFolder.Click += new System.EventHandler(this.btnOutputFolder_Click);
             // 
-            // txtOutput
+            // btnOutputFile
             // 
-            this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOutput.BackColor = System.Drawing.Color.White;
-            this.txtOutput.Location = new System.Drawing.Point(140, 65);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(0, 3, 1, 3);
-            this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(362, 20);
-            this.txtOutput.TabIndex = 4;
+            this.btnOutputFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOutputFile.Image = global::PosTaggerTagGui.Properties.Resources.folder_page_white;
+            this.btnOutputFile.Location = new System.Drawing.Point(503, 63);
+            this.btnOutputFile.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.btnOutputFile.Name = "btnOutputFile";
+            this.btnOutputFile.Size = new System.Drawing.Size(32, 24);
+            this.btnOutputFile.TabIndex = 5;
+            this.toolTip.SetToolTip(this.btnOutputFile, "Določi izhodno datoteko...");
+            this.btnOutputFile.UseVisualStyleBackColor = true;
+            this.btnOutputFile.Click += new System.EventHandler(this.btnOutputFile_Click);
             // 
             // dlgInputFolder
             // 
@@ -511,8 +528,7 @@ namespace PosTaggerTagGui
             this.ClientSize = new System.Drawing.Size(1078, 635);
             this.Controls.Add(this.pnlSplit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = new System.Drawing.Icon(Utils.GetManifestResourceStream(typeof(PosTaggerTagForm), "Obeliks.ico"), 
-                new System.Drawing.Size(64, 64));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PosTaggerTagForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -578,6 +594,7 @@ namespace PosTaggerTagGui
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.CheckBox chkOverwriteFiles;
 
     }
 }

@@ -78,6 +78,8 @@ public static class Rules
         = new Set<string>(LoadList("Tagger.ListZ.txt"));
     private static Set<string> mListO
         = new Set<string>(LoadList("Tagger.ListO.txt"));
+    private static Set<string> mListGp
+        = new Set<string>(LoadList("Tagger.ListGp.txt"));
     private static ArrayList<string> mListKbPrefix
         = new ArrayList<string>(LoadList("Tagger.ListKbPrefix.txt"));
 
@@ -537,6 +539,7 @@ public static class Rules
         if (!mKrRegex.Match(word).Success) { RemoveTags(newFilter, "Kr"); rule += " p2_r9"; }
         if (!StartsWith(wordLower, mListKbPrefix)) { RemoveTags(newFilter, "Kb"); rule += " p2_r10"; }
         if (!char.IsDigit(word[0])) { RemoveTags(newFilter, "Ka"); rule += " p2_r11"; }
+        if (!mListGp.Contains(wordLower)) { RemoveTags(newFilter, "Gp"); rule += " p2_r12"; }
         return newFilter;
     }
 
@@ -570,7 +573,14 @@ public static class Rules
         return false;
     }
 
-    public static string ApplyLemmaRules(string lemma, string word, string tag)
+    public static string FixLemma(string lemma, string word, string tag)
+    {
+        lemma = ApplyLemmaRules(lemma, word, tag);
+        lemma = lemma.TrimEnd('-', '–', '—');
+        return lemma;
+    }
+
+    private static string ApplyLemmaRules(string lemma, string word, string tag)
     {
         if (tag == "N" || tag == "M")
         {

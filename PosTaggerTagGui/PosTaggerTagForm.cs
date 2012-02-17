@@ -27,6 +27,11 @@ namespace PosTaggerTagGui
                 chkIncludeSubfolders.Checked = Regex.Match(ConfigurationManager.AppSettings["includeSubfolders"],
                     "(true)|(1)|(yes)|(on)", RegexOptions.IgnoreCase).Success;
             }
+            if (ConfigurationManager.AppSettings["overwriteFiles"] != null)
+            {
+                chkOverwriteFiles.Checked = Regex.Match(ConfigurationManager.AppSettings["overwriteFiles"],
+                    "(true)|(1)|(yes)|(on)", RegexOptions.IgnoreCase).Success;            
+            }
             txtOutput.Text = ConfigurationManager.AppSettings["output"];
             txtTaggerFile.Text = ConfigurationManager.AppSettings["taggerFile"];
             txtLemmatizerFile.Text = ConfigurationManager.AppSettings["lemmatizerFile"];
@@ -80,7 +85,7 @@ namespace PosTaggerTagGui
             btnCancel.Enabled = true;
             btnCancel.Focus();
             foreach (Control ctrl in new Control[] { btnInputFile, btnInputFolder, btnOutputFile, btnOutputFolder,
-                btnTaggerFile, btnLemmatizerFile, btnTag, chkIncludeSubfolders })
+                btnTaggerFile, btnLemmatizerFile, btnTag, chkIncludeSubfolders, chkOverwriteFiles })
             {
                 ctrl.Enabled = false;
             }
@@ -98,7 +103,7 @@ namespace PosTaggerTagGui
             btnTag.Focus();
             btnCancel.Enabled = false;
             foreach (Control ctrl in new Control[] { btnInputFile, btnInputFolder, btnOutputFile, btnOutputFolder, 
-                btnTaggerFile, btnLemmatizerFile, chkIncludeSubfolders })
+                btnTaggerFile, btnLemmatizerFile, chkIncludeSubfolders, chkOverwriteFiles })
             {
                 ctrl.Enabled = true;
             }
@@ -113,7 +118,7 @@ namespace PosTaggerTagGui
         {
             try
             {
-                mLogger.Info(null, "Počakajte ...");
+                if (mThread.IsAlive) { mLogger.Info(null, "Počakajte ..."); }
                 mLogger.LocalLevel = Logger.Level.Off;
                 ThreadHandler.Abort(mThread, /*timeoutMs=*/3000);
             }
@@ -129,6 +134,8 @@ namespace PosTaggerTagGui
             config.AppSettings.Settings.Add("input", txtInput.Text);
             config.AppSettings.Settings.Remove("includeSubfolders");
             config.AppSettings.Settings.Add("includeSubfolders", chkIncludeSubfolders.Checked ? "true" : "false");
+            config.AppSettings.Settings.Remove("overwriteFiles");
+            config.AppSettings.Settings.Add("overwriteFiles", chkOverwriteFiles.Checked ? "true" : "false");
             config.AppSettings.Settings.Remove("output");
             config.AppSettings.Settings.Add("output", txtOutput.Text);
             config.AppSettings.Settings.Remove("taggerFile");
@@ -143,6 +150,7 @@ namespace PosTaggerTagGui
             mThread = new Thread(new ThreadStart(delegate()
             {
                 ArrayList<string> settings = new ArrayList<string>(new string[]{ "-v", "-t" });
+                if (chkOverwriteFiles.Checked) { settings.Add("-o"); }
                 if (chkIncludeSubfolders.Checked) { settings.Add("-s"); }
                 if (txtLemmatizerFile.Text.Trim() != "") { settings.Add("-lem:" + txtLemmatizerFile.Text); }
                 settings.AddRange(new string[] { txtInput.Text, txtTaggerFile.Text, txtOutput.Text });
@@ -234,7 +242,7 @@ namespace PosTaggerTagGui
         private void btnCancel_Click(object sender, EventArgs e)
         {
             btnCancel.Enabled = false;
-            mLogger.Info(null, "Počakajte ...");
+            if (mThread.IsAlive) { mLogger.Info(null, "Počakajte ..."); } 
             mLogger.LocalLevel = Logger.Level.Off;
             try 
             {

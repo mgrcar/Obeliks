@@ -186,7 +186,7 @@ namespace PosTagger
                     {
                         string lemma;
                         lemma = mConsiderTags ? mLemmatizer.Lemmatize(wordLower, predictedTag) : mLemmatizer.Lemmatize(wordLower);
-                        lemma = Rules.ApplyLemmaRules(lemma, corpus.TaggedWords[i].Word, predictedTag);
+                        lemma = Rules.FixLemma(lemma, corpus.TaggedWords[i].Word, predictedTag);
                         if (string.IsNullOrEmpty(lemma)) { lemma = wordLower; }
                         if (xmlMode)
                         {

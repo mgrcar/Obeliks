@@ -101,6 +101,7 @@
     <EmbeddedResource Include="Resources\Tagger\TagStatsLex.txt" />
     <EmbeddedResource Include="Resources\Tagger\TagList.txt" />
     <EmbeddedResource Include="Resources\Tagger\WordStatsLex.txt" />
+    <EmbeddedResource Include="Resources\Tagger\ListGp.txt" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
