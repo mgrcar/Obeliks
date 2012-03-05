@@ -71,11 +71,11 @@ namespace PosTagger
         {
             Utils.ThrowException(!Utils.VerifyFileNameOpen(taggerModelFile) ? new ArgumentValueException("taggerModelFile") : null);
             Utils.ThrowException((lemmatizerModelFile != null && !Utils.VerifyFileNameOpen(lemmatizerModelFile)) ? new ArgumentValueException("lemmatizerModelFile") : null);
-            BinarySerializer taggerModelSer = new BinarySerializer(taggerModelFile, FileMode.Open);
+            BinarySerializer taggerModelSer = new BinarySerializer(new FileStream(taggerModelFile, FileMode.Open, FileAccess.Read, FileShare.Read));
             BinarySerializer lemmatizerModelSer = null;
             if (lemmatizerModelFile != null)
             {
-                lemmatizerModelSer = new BinarySerializer(lemmatizerModelFile, FileMode.Open);
+                lemmatizerModelSer = new BinarySerializer(new FileStream(lemmatizerModelFile, FileMode.Open, FileAccess.Read, FileShare.Read));
             }
             LoadModels(taggerModelSer, lemmatizerModelSer);
         }
