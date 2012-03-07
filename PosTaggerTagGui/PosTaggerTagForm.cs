@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using PosTagger;
 using Latino;
+using System.Diagnostics;
 
 namespace PosTaggerTagGui
 {
@@ -35,6 +36,8 @@ namespace PosTaggerTagGui
             txtOutput.Text = ConfigurationManager.AppSettings["output"];
             txtTaggerFile.Text = ConfigurationManager.AppSettings["taggerFile"];
             txtLemmatizerFile.Text = ConfigurationManager.AppSettings["lemmatizerFile"];
+            long affinity = Convert.ToInt32(Utils.GetConfigValue("affinity", "-1"));
+            if (affinity != -1) { Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)affinity; }
             // initialize LATINO logger
             mLogger = Logger.GetRootLogger();
             mLogger.LocalLevel = Logger.Level.Debug;
