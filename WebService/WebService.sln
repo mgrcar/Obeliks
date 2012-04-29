@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", ".", "{9EDC9F2F-13CC-41C1-AE3D-9259997F8459}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}|PosTagger.dll;{F358EA0B-B204-45BD-AB96-EE1057F75585}|PosTaggerTag.dll;{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}|LatinoCore.dll;{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}|LatinoModel.dll;{A39293C1-92D8-47B9-93A4-41F443B4F9E4}|LemmaSharp.dll;{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}|LatinoTextMining.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WebService"
+		Debug.AspNetCompiler.PhysicalPath = "..\WebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebService\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebService"
+		Release.AspNetCompiler.PhysicalPath = "..\WebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebService\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55247"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTagger", "..\PosTagger\PosTagger.csproj", "{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTaggerTagLib", "..\PosTaggerTag\PosTaggerTagLib.csproj", "{F358EA0B-B204-45BD-AB96-EE1057F75585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoCore", "..\..\Latino\Latino\LatinoCore.csproj", "{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoModel", "..\..\Latino\Latino\Model\LatinoModel.csproj", "{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoTextMining", "..\..\Latino\Latino\TextMining\LatinoTextMining.csproj", "{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemmaSharp", "..\LemmaSharp\LemmaSharp.csproj", "{A39293C1-92D8-47B9-93A4-41F443B4F9E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EDC9F2F-13CC-41C1-AE3D-9259997F8459}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{9EDC9F2F-13CC-41C1-AE3D-9259997F8459}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F358EA0B-B204-45BD-AB96-EE1057F75585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F358EA0B-B204-45BD-AB96-EE1057F75585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F358EA0B-B204-45BD-AB96-EE1057F75585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F358EA0B-B204-45BD-AB96-EE1057F75585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A39293C1-92D8-47B9-93A4-41F443B4F9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A39293C1-92D8-47B9-93A4-41F443B4F9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A39293C1-92D8-47B9-93A4-41F443B4F9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A39293C1-92D8-47B9-93A4-41F443B4F9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
