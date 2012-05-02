@@ -18,7 +18,7 @@ public partial class _Default : Page
                 return;
             }
             string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            StringBuilder response = new StringBuilder();
+            StringBuilder response = new StringBuilder("<h2>Označeno besedilo</h2>");
             response.AppendLine("<TABLE border='1'>");
             int i = 0;
             int k = 1;
