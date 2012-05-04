@@ -18,7 +18,6 @@
     <title>Obeliks [Oblikoslovni označevalnik za slovenski jezik]</title>
 	<style type="text/css">
         button { padding: 0; border: 0; font-size: 14px; background: none; cursor: pointer; }
-        button::-moz-focus-inner { border: 0; }
         button span { display: block; background: url(Img/bg-buttons.png) 0 0; height: 41px; line-height: 41px; }
         button span.r { margin-left: 20px; padding-right: 20px; background-position: right 0; }
         button:hover span.l { background-position: left -42px; }
@@ -26,12 +25,17 @@
         button:hover span.r { background-position: right -42px; }
         button:active span.r { background-position: right -84px; }
 
-		textarea { -webkit-appearance: none; width: 100%; height: 200px; resize: none; }  
+		textarea { -webkit-appearance: none; width: 100%; height: 200px; resize: none; font-size: 100%; }  
 		.copyright { font-size: 80%; padding-top: 15px; }
 		a:link, a:visited, a:active, a:hover { color: #3C64B6; outline: 0; }
     	img { border: 0; }
-		/*td { vertical-align: top; padding: 3px; } 
-		ul { margin-left: 14px; }*/
+    	:focus { outline: none; } 
+    	::-moz-focus-inner { border: 0; }
+    	
+    	table.container { border-width: 1px; border-color: silver; border-collapse: collapse; border-style: solid; }        
+        table.container td, table.container th { padding: 1px; border-color: silver; }
+    	    	
+    	h1, h2, p { padding-top: 10px; padding-bottom: 10px; }
 
 		/*  
 		Sticky Footer Solution
@@ -73,26 +77,28 @@
     <div id="main">
         <center>
 			<div style="width: 800px;">
+			    <h1>Oblikoslovni označevalnik za slovenski jezik<br />Obeliks</h1>
 				<asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">        
-					<asp:View ID="DefaultView" runat="server">
-						<h1>Oblikoslovni označevalnik za slovenski jezik<br />Obeliks</h1>
+					<asp:View ID="DefaultView" runat="server">						
 						<p>Vnesite besedilo:</p>
-						<form id="form1" runat="server">
-						    <input type="hidden" name="submitBtn" value="" />
+						<form id="form" runat="server">
+						    <input type="hidden" name="SubmitBtn" value="" />
 							<asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine"></asp:TextBox>
 							<br />
 							<br />
 							<button onclick="javascript: document.forms[0].submit();"><span class="l"><span class="r">Označi besedilo</span></span></button>
-							<div style="position: absolute; visibility: hidden;"><asp:Button runat="server" id="submitBtn" OnClick="Submit_Click" Text="" /></div>
+							<div style="position: absolute; visibility: hidden;"><asp:Button runat="server" ID="SubmitBtn" OnClick="Submit_Click" Text="" /></div>
 							<br />
 							<br />
 							<asp:Label ID="TaggedText" runat="server" Text=""></asp:Label>
 						</form>            
 					</asp:View>
 					<asp:View ID="ErrorView" runat="server">
-						<h1>Obeliks: Oblikoslovni označevalnik za slovenski jezik</h1>
 						<h2>Prišlo je do napake</h2>
 						<asp:Label ID="ErrorMessage" runat="server" Text="Error message goes here."></asp:Label>
+						<br />
+						<br />
+						<button onclick="javascript: document.location = 'Default.aspx';"><span class="l"><span class="r">Nazaj na prvo stran</span></span></button>
 					</asp:View>
 				</asp:MultiView>
 			</div>
@@ -102,8 +108,8 @@
     <div id="footer">
         <center>
 			<div style="width: 800px;">
-				<img style="vertical-align: middle;" src="Img/logo1.gif" alt="Ministrstvo za šolstvo in šport" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img style="vertical-align: middle;" src="Img/logo2.gif" alt="Evropska unija" /><br />
-				<div class="copyright">Operacijo delno financira Evropska unija iz Evropskega socialnega sklada ter Ministrstvo za šolstvo in šport.</div>
+				<a href="http://mss.gov.si/"><img style="vertical-align: middle;" src="Img/logo1.gif" alt="Ministrstvo za šolstvo in šport" /></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://euskladi.si/"><img style="vertical-align: middle;" src="Img/logo2.gif" alt="Evropska unija" /></a></abbr><br />
+				<div class="copyright">Operacijo delno financira Evropska unija iz <a href="http://euskladi.si/">Evropskega socialnega sklada</a> ter <a href="http://mss.gov.si/">Ministrstvo za šolstvo in šport</a>.</div>
 			</div>
         </center>
     </div>

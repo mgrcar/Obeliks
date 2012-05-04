@@ -18,8 +18,8 @@ public class Global : HttpApplication
 
     protected void Application_Start(object sender, EventArgs args)
     {
-        string taggerModelFile = Server.MapPath("~") + "\\Models\\TaggerFeb2012.bin";
-        string lemmatizerModelFile = Server.MapPath("~") + "\\Models\\LemmatizerFeb2012.bin";
+        string taggerModelFile = Server.MapPath("~\\Models\\TaggerFeb2012.bin");
+        string lemmatizerModelFile = Server.MapPath("~\\Models\\LemmatizerFeb2012.bin");
         new Thread(new ThreadStart(delegate() {
             mPosTagger.LoadModels(taggerModelFile, lemmatizerModelFile);
             mReady = true;

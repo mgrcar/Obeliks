@@ -19,7 +19,7 @@ public partial class _Default : Page
             }
             string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder response = new StringBuilder("<h2>Označeno besedilo</h2>");
-            response.AppendLine("<TABLE border='1'>");
+            response.AppendLine("<table border='1' class='container'>");
             int i = 0;
             int k = 1;
             while (i < triples.Length)
@@ -30,7 +30,7 @@ public partial class _Default : Page
                 string wordsHtml = "<TR>";
                 string lemmasHtml = "<TR>";
                 string tagsHtml = "<TR>";
-                const int maxCharCount = 120; // *** hardcoded maxCharCount
+                const int maxCharCount = 80; // *** hardcoded maxCharCount
                 int charCount = 0;
                 int j = i;
                 for (; j < triples.Length; j++)
