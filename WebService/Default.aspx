@@ -31,6 +31,7 @@
     	img { border: 0; }
     	:focus { outline: none; } 
     	::-moz-focus-inner { border: 0; }
+    	table { text-align: left; }
     	
     	table.container { border-width: 1px; border-color: silver; border-collapse: collapse; border-style: solid; }        
         table.container td, table.container th { padding: 1px; border-color: silver; }
@@ -79,26 +80,26 @@
 			<div style="width: 800px;">
 			    <h1>Oblikoslovni označevalnik za slovenski jezik<br />Obeliks</h1>
 				<asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">        
-					<asp:View ID="DefaultView" runat="server">						
-						<p>Vnesite besedilo:</p>
+					<asp:View ID="DefaultView" runat="server">												
 						<form id="form" runat="server">
 						    <input type="hidden" name="SubmitBtn" value="" />
-							<asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine"></asp:TextBox>
-							<br />
-							<br />
-							<button onclick="javascript: document.forms[0].submit();"><span class="l"><span class="r">Označi besedilo</span></span></button>
-							<div style="position: absolute; visibility: hidden;"><asp:Button runat="server" ID="SubmitBtn" OnClick="Submit_Click" Text="" /></div>
-							<br />
-							<br />
+						    <div style="position: absolute; visibility: hidden;"><asp:Button runat="server" ID="SubmitBtn" OnClick="Submit_Click" Text="" /></div>
+						    <h2>Vnesite besedilo</h2>
+							<p><asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine"></asp:TextBox></p>
+							<p>Oblika izpisa označenega besedila:
+							<asp:RadioButtonList ID="OutputType" runat="server">
+                                <asp:ListItem Selected="True" Value="Table"> Tabela</asp:ListItem>
+                                <asp:ListItem Value="XML"> XML-TEI</asp:ListItem>
+                            </asp:RadioButtonList></p>
+							<p><button onclick="javascript: document.forms[0].submit();"><span class="l"><span class="r">Označi besedilo</span></span></button></p>
+							<br />							
 							<asp:Label ID="TaggedText" runat="server" Text=""></asp:Label>
 						</form>            
 					</asp:View>
 					<asp:View ID="ErrorView" runat="server">
 						<h2>Prišlo je do napake</h2>
-						<asp:Label ID="ErrorMessage" runat="server" Text="Error message goes here."></asp:Label>
-						<br />
-						<br />
-						<button onclick="javascript: document.location = 'Default.aspx';"><span class="l"><span class="r">Nazaj na prvo stran</span></span></button>
+						<p><asp:Label ID="ErrorMessage" runat="server" Text="Error message goes here."></asp:Label></p>
+						<p><button onclick="javascript: document.location = 'Default.aspx';"><span class="l"><span class="r">Nazaj na prvo stran</span></span></button></p>
 					</asp:View>
 				</asp:MultiView>
 			</div>
