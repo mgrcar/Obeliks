@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using System.Text;
+using System.Web;
 
 public partial class _Default : Page
 {
@@ -17,11 +18,11 @@ public partial class _Default : Page
                 PageView.ActiveViewIndex = 1;
                 return;
             }
-            string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
             StringBuilder response = new StringBuilder("<h2>Označeno besedilo</h2>");
             if (OutputType.SelectedIndex == 0)
             {
-                response.AppendLine("<p><table border='1' class='container'>");
+                string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);                
+                response.AppendLine("<div class='p'><table border='1' class='container'>");
                 int i = 0;
                 int k = 1;
                 while (i < triples.Length)
@@ -60,11 +61,12 @@ public partial class _Default : Page
                     response.AppendLine("</table></tr>");
                     i = j;
                 }
-                response.AppendLine("</table></p>");
+                response.AppendLine("</table></div>");
             }
             else
             {
-                response.AppendLine("<p><pre>XML goes here.</pre></p>");
+                string xml = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/true).Replace("\t", "  ");
+                response.AppendLine(string.Format("<pre>{0}</pre>", HttpUtility.HtmlEncode(xml)));
             }
             TaggedText.Text = response.ToString();
             PageView.ActiveViewIndex = 0;

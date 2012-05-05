@@ -15,7 +15,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>Obeliks [Oblikoslovni označevalnik za slovenski jezik]</title>
+    <title>Obeliks: Oblikoslovni označevalnik za slovenski jezik</title>
 	<style type="text/css">
         button { padding: 0; border: 0; font-size: 14px; background: none; cursor: pointer; }
         button span { display: block; background: url(Img/bg-buttons.png) 0 0; height: 41px; line-height: 41px; }
@@ -36,7 +36,9 @@
     	table.container { border-width: 1px; border-color: silver; border-collapse: collapse; border-style: solid; }        
         table.container td, table.container th { padding: 1px; border-color: silver; }
     	    	
-    	h1, h2, p { padding-top: 10px; padding-bottom: 10px; }
+    	h1, h2, p, .p, pre { padding-top: 10px; padding-bottom: 10px; }
+    	
+    	pre { text-align: left; font-family: Courier New, Courier; }
 
 		/*  
 		Sticky Footer Solution
@@ -78,7 +80,7 @@
     <div id="main">
         <center>
 			<div style="width: 800px;">
-			    <h1>Oblikoslovni označevalnik za slovenski jezik<br />Obeliks</h1>
+			    <h1>Obeliks:<br />Oblikoslovni označevalnik za slovenski jezik</h1>
 				<asp:MultiView ID="PageView" runat="server" ActiveViewIndex="0">        
 					<asp:View ID="DefaultView" runat="server">												
 						<form id="form" runat="server">
@@ -86,13 +88,13 @@
 						    <div style="position: absolute; visibility: hidden;"><asp:Button runat="server" ID="SubmitBtn" OnClick="Submit_Click" Text="" /></div>
 						    <h2>Vnesite besedilo</h2>
 							<p><asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine"></asp:TextBox></p>
-							<p>Oblika izpisa označenega besedila:
+							<div class="p">Oblika izpisa označenega besedila:
 							<asp:RadioButtonList ID="OutputType" runat="server">
                                 <asp:ListItem Selected="True" Value="Table"> Tabela</asp:ListItem>
                                 <asp:ListItem Value="XML"> XML-TEI</asp:ListItem>
-                            </asp:RadioButtonList></p>
+                            </asp:RadioButtonList></div>
 							<p><button onclick="javascript: document.forms[0].submit();"><span class="l"><span class="r">Označi besedilo</span></span></button></p>
-							<br />							
+							<br />				
 							<asp:Label ID="TaggedText" runat="server" Text=""></asp:Label>
 						</form>            
 					</asp:View>
