@@ -13,6 +13,7 @@ public class Global : HttpApplication
 {
     public static PartOfSpeechTagger mPosTagger
         = new PartOfSpeechTagger();
+    public static HttpServerUtility mServer; 
     public static bool mReady
         = false;
 
@@ -24,6 +25,7 @@ public class Global : HttpApplication
             mPosTagger.LoadModels(taggerModelFile, lemmatizerModelFile);
             mReady = true;
         })).Start();
+        mServer = Server;
     }
 
     protected void Session_Start(object sender, EventArgs args)

@@ -38,7 +38,10 @@
     	    	
     	h1, h2, p, .p, pre { padding-top: 10px; padding-bottom: 10px; }
     	
-    	pre { text-align: left; font-family: Courier New, Courier; }
+    	pre { text-align: left; font-family: courier new, courier; }
+    	
+    	span.lemma { color: blue; }
+    	span.tag { color: red; }
 
 		/*  
 		Sticky Footer Solution
@@ -87,7 +90,7 @@
 						    <input type="hidden" name="SubmitBtn" value="" />
 						    <div style="position: absolute; visibility: hidden;"><asp:Button runat="server" ID="SubmitBtn" OnClick="Submit_Click" Text="" /></div>
 						    <h2>Vnesite besedilo</h2>
-							<p><asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine"></asp:TextBox></p>
+							<p><asp:TextBox ID="TextBox" runat="server" TextMode="MultiLine">To je besedilo.</asp:TextBox></p>
 							<div class="p">Oblika izpisa označenega besedila:
 							<asp:RadioButtonList ID="OutputType" runat="server">
                                 <asp:ListItem Selected="True" Value="Table"> Tabela</asp:ListItem>
@@ -112,7 +115,7 @@
         <center>
 			<div style="width: 800px;">
 				<a href="http://mss.gov.si/"><img style="vertical-align: middle;" src="Img/logo1.gif" alt="Ministrstvo za šolstvo in šport" /></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="http://euskladi.si/"><img style="vertical-align: middle;" src="Img/logo2.gif" alt="Evropska unija" /></a></abbr><br />
-				<div class="copyright">Operacijo delno financira Evropska unija iz <a href="http://euskladi.si/">Evropskega socialnega sklada</a> ter <a href="http://mss.gov.si/">Ministrstvo za šolstvo in šport</a>.</div>
+				<div class="copyright">Operacijo delno financira Evropska unija iz <a href="http://euskladi.si/">Evropskega socialnega sklada</a> ter <a href="http://mss.gov.si/">Ministrstvo za izobraževanje, znanost, kulturo in šport</a>.</div>
 			</div>
         </center>
     </div>

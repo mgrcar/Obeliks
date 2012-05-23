@@ -2,11 +2,81 @@
 using System.Web.UI;
 using System.Text;
 using System.Web;
+using System.IO;
+using System.Collections.Generic;
+using Latino;
 
 public partial class _Default : Page
 {
     private TaggerService mTaggerService 
         = new TaggerService();
+
+    private class AttrInfo
+    {
+        public string mAttrName;
+        public Dictionary<char, string> mAttrValInfo
+            = new Dictionary<char, string>();
+
+        public AttrInfo(string attrName)
+        {
+            mAttrName = attrName;
+        }
+    }
+
+    private class PosInfo
+    {
+        public string mPosCat;
+        public ArrayList<AttrInfo> mAttrInfo
+            = new ArrayList<AttrInfo>();
+
+        public PosInfo(string posCat)
+        {
+            mPosCat = posCat;
+        }
+    }
+
+    private static Dictionary<char, PosInfo> mTagInfo
+        = new Dictionary<char, PosInfo>();
+
+    static _Default()
+    {
+        LoadTagInfo();
+    }
+
+    static string CreateInfoText(string tag)
+    {
+        if (string.IsNullOrEmpty(tag) || !mTagInfo.ContainsKey(tag[0])) { return tag; }
+        PosInfo posInfo = mTagInfo[tag[0]];
+        string infoText = tag[0] + " = " + posInfo.mPosCat;
+        for (int i = 1; i < tag.Length; i++)
+        {
+            AttrInfo attrInfo = posInfo.mAttrInfo[i - 1];
+            if (attrInfo.mAttrValInfo.ContainsKey(tag[i]))
+            {
+                infoText += string.Format("\n{0} = {1} = {2}", tag[i], attrInfo.mAttrName, attrInfo.mAttrValInfo[tag[i]]);
+            }
+        }
+        return infoText;
+    }
+
+    static void LoadTagInfo()
+    {
+        string[] lines = File.ReadAllLines(Global.mServer.MapPath("~\\App_Data\\tagExpl.txt"));
+        foreach (string line in lines)
+        {
+            string[] data = line.Split('\t');
+            if (!mTagInfo.ContainsKey(data[0][0])) { mTagInfo.Add(data[0][0], new PosInfo(data[1])); /*Console.WriteLine("*** {0} {1}", data[0][0], data[1]);*/ }
+            PosInfo posInfo = mTagInfo[data[0][0]];
+            if (data[3] != "")
+            {
+                int idx = Convert.ToInt32(data[3]) - 1;
+                if (posInfo.mAttrInfo.Count - 1 < idx) { posInfo.mAttrInfo.Add(new AttrInfo(data[4])); }
+                AttrInfo attrInfo = posInfo.mAttrInfo.Last;
+                attrInfo.mAttrValInfo.Add(data[2][0], data[5]);
+                //Console.WriteLine("{0} = {1} {2}", data[4], data[2][0], data[5]);
+            }
+        }
+    }
 
     protected void Submit_Click(object sender, EventArgs e)
     {    
@@ -21,7 +91,7 @@ public partial class _Default : Page
             StringBuilder response = new StringBuilder("<h2>Označeno besedilo</h2>");
             if (OutputType.SelectedIndex == 0)
             {
-                string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);                
+                string[] triples = mTaggerService.Tag(TextBox.Text.Trim(), /*xmlOutput=*/false).Replace("\r", "").Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);                
                 response.AppendLine("<div class='p'><table border='1' class='container'>");
                 int i = 0;
                 int k = 1;
@@ -43,9 +113,9 @@ public partial class _Default : Page
                         if (j == i || charCount + tokenCharCount <= maxCharCount)
                         {
                             charCount += tokenCharCount;
-                            wordsHtml += string.Format("<td nowrap='nowrap'><font color='black'>{0}</td>", cols[0]);
-                            lemmasHtml += string.Format("<td nowrap='nowrap'><font color='blue'>{0}</td>", cols[1]);
-                            tagsHtml += string.Format("<td nowrap='nowrap'><font color='red'>{0}</td>", cols[2].Replace("<eos>", ""));
+                            wordsHtml += string.Format("<td nowrap='nowrap'><span class='word'>{0}</td>", cols[0]);
+                            lemmasHtml += string.Format("<td nowrap='nowrap'><span class='lemma'>{0}</td>", cols[1]);
+                            tagsHtml += string.Format("<td nowrap='nowrap'><span class='tag' title='{1}'>{0}</td>", cols[2].Replace("<eos>", ""), CreateInfoText(cols[2].Replace("<eos>", "")));
                         }
                         else
                         {
@@ -73,7 +143,7 @@ public partial class _Default : Page
         }       
         catch (Exception exception)
         {
-            ErrorMessage.Text = exception.Message;
+            ErrorMessage.Text = exception.Message;// +" " + exception.StackTrace.Replace("\r\n", "<br>");
             PageView.ActiveViewIndex = 1;
         }
     }

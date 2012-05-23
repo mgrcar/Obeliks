@@ -1,0 +1,129 @@
+S	samostalnik	o	1	vrsta	občno ime
+S	samostalnik	l	1	vrsta	lastno ime
+S	samostalnik	m	2	spol	moški
+S	samostalnik	z	2	spol	ženski
+S	samostalnik	s	2	spol	srednji
+S	samostalnik	e	3	število	ednina
+S	samostalnik	d	3	število	dvojina
+S	samostalnik	m	3	število	množina
+S	samostalnik	i	4	sklon	imenovalnik
+S	samostalnik	r	4	sklon	rodilnik
+S	samostalnik	d	4	sklon	dajalnik
+S	samostalnik	t	4	sklon	tožilnik
+S	samostalnik	m	4	sklon	mestnik
+S	samostalnik	o	4	sklon	orodnik
+S	samostalnik	n	5	živost	neživi
+S	samostalnik	d	5	živost	živi
+G	glagol	g	1	vrsta	glavni
+G	glagol	p	1	vrsta	pomožni
+G	glagol	d	2	vid	dovršni
+G	glagol	n	2	vid	nedovršni
+G	glagol	v	2	vid	dvovidski
+G	glagol	n	3	oblika	nedoločnik
+G	glagol	m	3	oblika	namenilnik
+G	glagol	d	3	oblika	deležnik
+G	glagol	s	3	oblika	sedanjik
+G	glagol	p	3	oblika	prihodnjik
+G	glagol	g	3	oblika	pogojnik
+G	glagol	v	3	oblika	velelnik
+G	glagol	p	4	oseba	prva 
+G	glagol	d	4	oseba	druga 
+G	glagol	t	4	oseba	tretja 
+G	glagol	e	5	število	ednina
+G	glagol	d	5	število	dvojina
+G	glagol	m	5	število	množina
+G	glagol	m	6	spol	moški 
+G	glagol	z	6	spol	ženski 
+G	glagol	s	6	spol	srednji 
+G	glagol	n	7	nikalnost	nezanikani
+G	glagol	d	7	nikalnost	zanikani
+P	pridevnik	p	1	vrsta	splošni 
+P	pridevnik	s	1	vrsta	svojilni 
+P	pridevnik	d	1	vrsta	deležniški 
+P	pridevnik	n	2	stopnja	nedoločena
+P	pridevnik	p	2	stopnja	primernik
+P	pridevnik	s	2	stopnja	presežnik
+P	pridevnik	m	3	spol	moški 
+P	pridevnik	z	3	spol	ženski 
+P	pridevnik	s	3	spol	srednji 
+P	pridevnik	e	4	število	ednina
+P	pridevnik	d	4	število	dvojina
+P	pridevnik	m	4	število	množina
+P	pridevnik	i	5	sklon	imenovalnik
+P	pridevnik	r	5	sklon	rodilnik
+P	pridevnik	d	5	sklon	dajalnik
+P	pridevnik	t	5	sklon	tožilnik
+P	pridevnik	m	5	sklon	mestnik
+P	pridevnik	o	5	sklon	orodnik
+P	pridevnik	n	6	določnost	nedoločni
+P	pridevnik	d	6	določnost	določni
+R	prislov	s	1	vrsta	splošni 
+R	prislov	d	1	vrsta	deležje
+R	prislov	n	2	stopnja	nedoločena 
+R	prislov	r	2	stopnja	primernik
+R	prislov	s	2	stopnja	presežnik
+Z	zaimek	o	1	vrsta	osebni
+Z	zaimek	s	1	vrsta	svojilni
+Z	zaimek	k	1	vrsta	kazalni
+Z	zaimek	z	1	vrsta	oziralni
+Z	zaimek	p	1	vrsta	povratni
+Z	zaimek	c	1	vrsta	celostni
+Z	zaimek	v	1	vrsta	vprašalni
+Z	zaimek	n	1	vrsta	nedoločni
+Z	zaimek	l	1	vrsta	nikalni
+Z	zaimek	p	2	oseba	prva
+Z	zaimek	d	2	oseba	druga 
+Z	zaimek	t	2	oseba	tretja
+Z	zaimek	m	3	spol	moški
+Z	zaimek	z	3	spol	ženski
+Z	zaimek	s	3	spol	srednji
+Z	zaimek	e	4	število	ednina
+Z	zaimek	d	4	število	dvojina
+Z	zaimek	m	4	število	množina
+Z	zaimek	i	5	sklon	imenovalnik
+Z	zaimek	r	5	sklon	rodilnik
+Z	zaimek	d	5	sklon	dajalnik
+Z	zaimek	t	5	sklon	tožilnik
+Z	zaimek	m	5	sklon	mestnik
+Z	zaimek	o	5	sklon	orodnik
+Z	zaimek	e	6	število svojine	ednina
+Z	zaimek	d	6	število svojine	dvojina
+Z	zaimek	m	6	število svojine	množina
+Z	zaimek	m	7	spol svojine	moški
+Z	zaimek	z	7	spol svojine	ženski
+Z	zaimek	s	7	spol svojine	srednji
+Z	zaimek	k	8	naslonskost	klitični
+Z	zaimek	z	8	naslonskost	navezni
+K	števnik	a	1	zapis	arabski
+K	števnik	r	1	zapis	rimski
+K	števnik	b	1	zapis	besedni
+K	števnik	g	2	vrsta	glavni
+K	števnik	v	2	vrsta	vrstilni
+K	števnik	z	2	vrsta	zaimkovni
+K	števnik	d	2	vrsta	drugi
+K	števnik	m	3	spol	moški
+K	števnik	z	3	spol	ženski
+K	števnik	s	3	spol	srednji
+K	števnik	e	4	število	ednina
+K	števnik	d	4	število	dvojina
+K	števnik	m	4	število	množina
+K	števnik	i	5	sklon	imenovalnik
+K	števnik	r	5	sklon	rodilnik
+K	števnik	d	5	sklon	dajalnik
+K	števnik	t	5	sklon	tožilnik
+K	števnik	m	5	sklon	mestnik
+K	števnik	o	5	sklon	orodnik
+K	števnik	n	6	določnost	nedoločni
+K	števnik	d	6	določnost	določni
+D	predlog	i	1	sklon	imenovalnik
+D	predlog	r	1	sklon	rodilnik
+D	predlog	d	1	sklon	dajalnik
+D	predlog	t	1	sklon	tožilnik
+D	predlog	m	1	sklon	mestnik
+D	predlog	o	1	sklon	orodnik
+V	veznik	p	1	vrsta	priredni
+V	veznik	d	1	vrsta	podredni
+L	členek				
+M	medmet				
+O	okrajšava				
+N	neuvrščeno				
