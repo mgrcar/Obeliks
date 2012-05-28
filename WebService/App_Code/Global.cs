@@ -1,3 +1,17 @@
+/*==========================================================================;
+ *
+ *  This file is part of Obeliks. See http://obeliks.sourceforge.net/
+ *
+ *  File:    Global.cs
+ *  Desc:    Obeliks Web application environment
+ *  Created: Apr-2012
+ *
+ *  Author:  Miha Grcar
+ *
+ *  License: GNU LGPL (http://www.gnu.org/licenses/lgpl.txt)
+ *
+ ***************************************************************************/
+
 using System;
 using System.Web;
 using System.Threading;

@@ -1,15 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--========================================================================;
+﻿<%--========================================================================;
+ *
+ *  This file is part of Obeliks. See http://obeliks.sourceforge.net/
  *
  *  File:    Default.aspx
- *  Desc:    Obeliks Web page
+ *  Desc:    Obeliks Web page markup
  *  Created: Apr-2012
  *
  *  Author:  Miha Grcar
  *
- *************************************************************************-->
+ *  License: GNU LGPL (http://www.gnu.org/licenses/lgpl.txt)
+ *
+ ************************************************************************--%>
+ 
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Default" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 

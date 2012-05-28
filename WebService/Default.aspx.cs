@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*==========================================================================;
+ *
+ *  This file is part of Obeliks. See http://obeliks.sourceforge.net/
+ *
+ *  File:    Default.aspx.cs
+ *  Desc:    Obeliks Web page code
+ *  Created: Apr-2012
+ *
+ *  Author:  Miha Grcar
+ *
+ *  License: GNU LGPL (http://www.gnu.org/licenses/lgpl.txt)
+ *
+ ***************************************************************************/
+
+using System;
 using System.Web.UI;
 using System.Text;
 using System.Web;
@@ -6,11 +20,23 @@ using System.IO;
 using System.Collections.Generic;
 using Latino;
 
-public partial class _Default : Page
+/* .-----------------------------------------------------------------------
+   |
+   |  Class Default
+   |
+   '-----------------------------------------------------------------------
+*/
+public partial class Default : Page
 {
-    private TaggerService mTaggerService 
-        = new TaggerService();
+    private ObeliksService mTaggerService 
+        = new ObeliksService();
 
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class AttrInfo
+       |
+       '-----------------------------------------------------------------------
+    */
     private class AttrInfo
     {
         public string mAttrName;
@@ -23,6 +49,12 @@ public partial class _Default : Page
         }
     }
 
+    /* .-----------------------------------------------------------------------
+       |
+       |  Class PosInfo
+       |
+       '-----------------------------------------------------------------------
+    */
     private class PosInfo
     {
         public string mPosCat;
@@ -38,7 +70,7 @@ public partial class _Default : Page
     private static Dictionary<char, PosInfo> mTagInfo
         = new Dictionary<char, PosInfo>();
 
-    static _Default()
+    static Default()
     {
         LoadTagInfo();
     }
@@ -65,15 +97,14 @@ public partial class _Default : Page
         foreach (string line in lines)
         {
             string[] data = line.Split('\t');
-            if (!mTagInfo.ContainsKey(data[0][0])) { mTagInfo.Add(data[0][0], new PosInfo(data[1])); /*Console.WriteLine("*** {0} {1}", data[0][0], data[1]);*/ }
+            if (!mTagInfo.ContainsKey(data[0][0])) { mTagInfo.Add(data[0][0], new PosInfo(data[1])); }
             PosInfo posInfo = mTagInfo[data[0][0]];
             if (data[3] != "")
             {
                 int idx = Convert.ToInt32(data[3]) - 1;
                 if (posInfo.mAttrInfo.Count - 1 < idx) { posInfo.mAttrInfo.Add(new AttrInfo(data[4])); }
                 AttrInfo attrInfo = posInfo.mAttrInfo.Last;
-                attrInfo.mAttrValInfo.Add(data[2][0], data[5]);
-                //Console.WriteLine("{0} = {1} {2}", data[4], data[2][0], data[5]);
+                attrInfo.mAttrValInfo.Add(data[2][0], data[5]);                
             }
         }
     }
