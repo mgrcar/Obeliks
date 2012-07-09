@@ -134,7 +134,7 @@ namespace PosTagger
             lemmaWords = 0;
             for (int i = 0; i < corpus.TaggedWords.Count; i++)
             {
-                mLogger.ProgressFast(/*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
+                mLogger.ProgressFast(Logger.Level.Info, /*sender=*/this, "Tag", "{0} / {1}", i + 1, corpus.TaggedWords.Count);
                 BinaryVector featureVector = corpus.GenerateFeatureVector(i, mFeatureSpace, /*extendFeatureSpace=*/false, mSuffixTree);
                 Prediction<string> result = mModel.Predict(featureVector);
                 if ((corpus.TaggedWords[i].MoreInfo != null && corpus.TaggedWords[i].MoreInfo.Punctuation) || 
