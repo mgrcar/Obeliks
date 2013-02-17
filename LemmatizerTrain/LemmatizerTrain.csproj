@@ -37,6 +37,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -48,26 +49,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
-      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
-      <Name>LatinoCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PosTagger\PosTagger.csproj">
-      <Project>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</Project>
-      <Name>SvmPosTagger</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
-      <Project>{A39293C1-92D8-47B9-93A4-41F443B4F9E4}</Project>
-      <Name>LemmaSharp</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -88,6 +78,20 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MsdSpecsSloSloCodes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
+      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+      <Name>LatinoCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
+      <Project>{3283E6ED-0B50-4505-A268-4C47E8324DC8}</Project>
+      <Name>LemmaSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PosTagger\PosTagger.csproj">
+      <Project>{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}</Project>
+      <Name>PosTagger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

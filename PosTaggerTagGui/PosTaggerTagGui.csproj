@@ -72,20 +72,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
-      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
-      <Name>LatinoCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PosTaggerTag\PosTaggerTagLib.csproj">
-      <Project>{F358EA0B-B204-45BD-AB96-EE1057F75585}</Project>
-      <Name>PosTaggerTagLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PosTagger\PosTagger.csproj">
-      <Project>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</Project>
-      <Name>PosTagger</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\folder.png" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Obeliks.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
+      <Project>{A8141B84-894F-4007-8C21-91D4152213C3}</Project>
+      <Name>LatinoCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PosTaggerTag\PosTaggerTagLib.csproj">
+      <Project>{2C0EE01C-EB5C-43B8-AD23-9FB6E9C14134}</Project>
+      <Name>PosTaggerTagLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PosTagger\PosTagger.csproj">
+      <Project>{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}</Project>
+      <Name>PosTagger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
