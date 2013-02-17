@@ -1,40 +1,46 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;LIB</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F358EA0B-B204-45BD-AB96-EE1057F75585}</ProjectGuid>
+    <ProjectGuid>{2C0EE01C-EB5C-43B8-AD23-9FB6E9C14134}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SvmPosTaggerTag</RootNamespace>
-    <AssemblyName>PosTaggerTag</AssemblyName>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
-    <StartupObject>
-    </StartupObject>
+    <RootNamespace>PosTaggerTagLib</RootNamespace>
+    <AssemblyName>PosTaggerTagLib</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;LIB</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;LIB</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -42,27 +48,24 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
-      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+    <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
+      <Project>{C6CDFCB0-1B48-4465-A403-AB5E69AA80D5}</Project>
       <Name>LatinoCore</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Latino\Latino\Model\LatinoModel.csproj">
-      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
+    <ProjectReference Include="..\..\Latino\Model\LatinoModel.csproj">
+      <Project>{042AC24A-324B-4E1A-AC3C-E47EE4560D11}</Project>
       <Name>LatinoModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
-      <Project>{A39293C1-92D8-47B9-93A4-41F443B4F9E4}</Project>
+      <Project>{3283E6ED-0B50-4505-A268-4C47E8324DC8}</Project>
       <Name>LemmaSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosTagger\PosTagger.csproj">
-      <Project>{3BA0E2CA-ED77-43D3-8601-8C38AB8E039E}</Project>
+      <Project>{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}</Project>
       <Name>PosTagger</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
