@@ -143,7 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Latino\Latino\LatinoCore.csproj">
-      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+      <Project>{A8141B84-894F-4007-8C21-91D4152213C3}</Project>
       <Name>LatinoCore</Name>
     </ProjectReference>
   </ItemGroup>

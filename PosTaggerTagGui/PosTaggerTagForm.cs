@@ -43,7 +43,7 @@ namespace PosTaggerTagGui
             mLogger.LocalLevel = Logger.Level.Debug;
             mLogger.LocalOutputType = Logger.OutputType.Custom;
             mLogger.LocalProgressOutputType = Logger.ProgressOutputType.Custom;
-            mLogger.CustomOutput = new Logger.CustomOutputDelegate(delegate(string loggerName, Logger.Level level, string funcName, Exception e, string message, object[] msgArgs) 
+            Logger.CustomOutput = new Logger.CustomOutputDelegate(delegate(string loggerName, Logger.Level level, string funcName, Exception e, string message, object[] msgArgs) 
             {
                 try
                 {
@@ -57,7 +57,7 @@ namespace PosTaggerTagGui
                 }
                 catch { }
             });
-            mLogger.CustomProgressOutput = new Logger.CustomProgressOutputDelegate(delegate(string loggerName, object sender, int freq, string funcName, string message, int step, int numSteps, object[] args) 
+            Logger.CustomProgressOutput = new Logger.CustomProgressOutputDelegate(delegate(string loggerName, object sender, int freq, string funcName, string message, int step, int numSteps, object[] args) 
             {
                 try
                 {
