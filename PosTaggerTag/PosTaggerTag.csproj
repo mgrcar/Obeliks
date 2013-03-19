@@ -15,7 +15,7 @@
     <ProjectGuid>{F358EA0B-B204-45BD-AB96-EE1057F75585}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SvmPosTaggerTag</RootNamespace>
+    <RootNamespace>PosTaggerTag</RootNamespace>
     <AssemblyName>PosTaggerTag</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>

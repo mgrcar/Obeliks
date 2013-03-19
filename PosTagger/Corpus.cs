@@ -304,9 +304,13 @@ namespace PosTagger
                     {
                         str.AppendLine(string.Format("\t\t\t\t\t<c>{0}</c>", XmlEncodeText(taggedWord.Word)));
                     }
-                    else 
+                    else if (taggedWord.Lemma != null)
                     {
-                        str.AppendLine(string.Format("\t\t\t\t\t<w msd=\"{1}\" lemma=\"{0}\">{2}</w>", XmlEncodeValue(taggedWord.Lemma), tag, XmlEncodeText(taggedWord.Word)));
+                        str.AppendLine(string.Format("\t\t\t\t\t<w msd=\"{0}\" lemma=\"{1}\">{2}</w>", tag, XmlEncodeValue(taggedWord.Lemma), XmlEncodeText(taggedWord.Word)));
+                    }
+                    else
+                    {
+                        str.AppendLine(string.Format("\t\t\t\t\t<w msd=\"{0}\">{1}</w>", tag, XmlEncodeText(taggedWord.Word)));
                     }
                     if (taggedWord.MoreInfo.FollowedBySpace)
                     {
