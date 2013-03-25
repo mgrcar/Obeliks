@@ -129,7 +129,7 @@ namespace PosTagger
                             TaggedWord word = corpus.TaggedWords[i];
                             if (!word.MoreInfo.Punctuation)
                             {
-                                lemmatizer.AddExample(word.Word, word.Lemma, 1, word.Tag);
+                                lemmatizer.AddExample(word.WordLower, word.Lemma.ToLower(), 1, word.Tag);
                             }
                         }
                         if (lexiconFileName != null)
@@ -147,7 +147,7 @@ namespace PosTagger
                                 string lemma = lexData[1];
                                 string tag = lexData[2];
                                 double freq = Math.Max(0.1, Convert.ToDouble(lexData[3]));
-                                lemmatizer.AddExample(word, lemma, freq, tag);
+                                lemmatizer.AddExample(word.ToLower(), lemma.ToLower(), freq, tag);
                             }
                             logger.ProgressFast(Logger.Level.Info, /*funcName=*/null, "{0}", i, i);
                             lexReader.Close();
