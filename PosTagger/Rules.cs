@@ -259,6 +259,8 @@ public static class Rules
                     return rhs;
                 });
             }
+            //Console.WriteLine("Rule RHS: " + tknRegex.mRhs);
+            //Console.WriteLine(text);
         }
         return text;
     }
