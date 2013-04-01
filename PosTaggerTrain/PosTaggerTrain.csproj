@@ -47,7 +47,7 @@
       <Name>LatinoCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Latino\Model\LatinoModel.csproj">
-      <Project>{5F184E57-EA63-46F4-9B3F-DB038CCE20A3}</Project>
+      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
       <Name>LatinoModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosTagger\PosTagger.csproj">

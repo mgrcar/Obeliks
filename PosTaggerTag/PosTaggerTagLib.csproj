@@ -49,11 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
-      <Project>{C6CDFCB0-1B48-4465-A403-AB5E69AA80D5}</Project>
+      <Project>{A8141B84-894F-4007-8C21-91D4152213C3}</Project>
       <Name>LatinoCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Latino\Model\LatinoModel.csproj">
-      <Project>{042AC24A-324B-4E1A-AC3C-E47EE4560D11}</Project>
+      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
       <Name>LatinoModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
