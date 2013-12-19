@@ -1,0 +1,10 @@
+bin/
+obj/
+*.suo
+*.bak
+Debug/
+Release/
+*.cache
+*.user
+Models/
+Files/
