@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService", "{9EDC9F2F-13CC-41C1-AE3D-9259997F8459}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService\", "{9EDC9F2F-13CC-41C1-AE3D-9259997F8459}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}|LatinoTextMining.dll;{A8141B84-894F-4007-8C21-91D4152213C3}|LatinoCore.dll;{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}|LatinoModel.dll;{3283E6ED-0B50-4505-A268-4C47E8324DC8}|LemmaSharp.dll;{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}|PosTagger.dll;"
+		ProjectReferences = "{A8141B84-894F-4007-8C21-91D4152213C3}|LatinoCore.dll;{3283E6ED-0B50-4505-A268-4C47E8324DC8}|LemmaSharp.dll;{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}|PosTagger.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebService"
 		Debug.AspNetCompiler.PhysicalPath = "WebService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebService\"
@@ -25,13 +25,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTagger", "PosTagger\PosTagger.csproj", "{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoCore", "..\Latino\LatinoCore.csproj", "{A8141B84-894F-4007-8C21-91D4152213C3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoModel", "..\Latino\Model\LatinoModel.csproj", "{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoTextMining", "..\Latino\TextMining\LatinoTextMining.csproj", "{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemmaSharp", "LemmaSharp\LemmaSharp.csproj", "{3283E6ED-0B50-4505-A268-4C47E8324DC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoLite", "..\LATINO\LatinoLite.csproj", "{5B86AAD5-3FEA-487C-A518-4F846AF09E18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,22 +41,14 @@ Global
 		{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8141B84-894F-4007-8C21-91D4152213C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8141B84-894F-4007-8C21-91D4152213C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8141B84-894F-4007-8C21-91D4152213C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8141B84-894F-4007-8C21-91D4152213C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
