@@ -86,17 +86,9 @@
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
-      <Project>{A8141B84-894F-4007-8C21-91D4152213C3}</Project>
-      <Name>LatinoCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Latino\Model\LatinoModel.csproj">
-      <Project>{D1AF292A-FBD6-4C2E-9177-92B5C6E24EDC}</Project>
-      <Name>LatinoModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Latino\TextMining\LatinoTextMining.csproj">
-      <Project>{FFA3AB32-D56A-4544-BCF2-CBC51B57550B}</Project>
-      <Name>LatinoTextMining</Name>
+    <ProjectReference Include="..\..\LATINO\LatinoLite.csproj">
+      <Project>{5B86AAD5-3FEA-487C-A518-4F846AF09E18}</Project>
+      <Name>LatinoLite</Name>
     </ProjectReference>
     <ProjectReference Include="..\LemmaSharp\LemmaSharp.csproj">
       <Project>{3283E6ED-0B50-4505-A268-4C47E8324DC8}</Project>

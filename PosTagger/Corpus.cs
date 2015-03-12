@@ -366,8 +366,7 @@ namespace PosTagger
             RegexTokenizer tokenizer = new RegexTokenizer();
             tokenizer.TokenRegex = @"\p{L}+(-\p{L}+)*";
             tokenizer.IgnoreUnknownTokens = false;
-            tokenizer.Text = text;
-            foreach (string word in tokenizer)
+            foreach (string word in tokenizer.GetTokens(text))
             {
                 mTaggedWords.Add(new TaggedWord(word, /*tag=*/null, /*lemma=*/null));
             }
