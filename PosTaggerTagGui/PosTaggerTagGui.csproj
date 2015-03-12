@@ -87,9 +87,9 @@
     <EmbeddedResource Include="Resources\Obeliks.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Latino\LatinoCore.csproj">
-      <Project>{A8141B84-894F-4007-8C21-91D4152213C3}</Project>
-      <Name>LatinoCore</Name>
+    <ProjectReference Include="..\..\LATINO\LatinoLite.csproj">
+      <Project>{5B86AAD5-3FEA-487C-A518-4F846AF09E18}</Project>
+      <Name>LatinoLite</Name>
     </ProjectReference>
     <ProjectReference Include="..\PosTaggerTag\PosTaggerTagLib.csproj">
       <Project>{2C0EE01C-EB5C-43B8-AD23-9FB6E9C14134}</Project>
