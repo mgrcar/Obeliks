@@ -238,12 +238,12 @@ Zadnja inačica in izvorna koda
 
 Zadnja (delovna) inačica izvorne kode je na voljo v naših GIT-repozitorijih:
 
-* Označevalnik se nahaja v repozitoriju http://source.ijs.si/mgrcar/obeliks.git
-* LATINO, knjižnica, ki je potrebna za delovanje označevalnika, se nahaja v repozitoriju http://source.ijs.si/mgrcar/latino.git
+* Označevalnik se nahaja v repozitoriju https://github.com/mgrcar/Obeliks.git
+* LATINO, knjižnica, ki je potrebna za delovanje označevalnika, se nahaja v repozitoriju https://github.com/SowaLabs/LATINO.git
 
-Za vse, ki za dostop do kode ne želijo uporabljati orodja GIT, je posnetek izvorne kode na voljo na [Obeliksovi strani portala SourceForge](http://sourceforge.net/projects/obeliks) (v mapi [SourceCode](http://sourceforge.net/projects/obeliks/files/SourceCode)). Zadnji posnetek, ki smo ga naredili, je na voljo [tukaj](http://sourceforge.net/projects/obeliks/files/SourceCode/ObeliksSrcMar2013.zip/download). Posnetek vsebuje inačico izvorne kode, pri kateri smo poskrbeli, da se prevede in da deluje. Pripadajoče zagonske datoteke za operacijski sistem Windows dobite [tukaj](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMar2013.zip/download).
+Zagonske datoteke za operacijski sistem Windows dobite [tukaj](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMar2013.zip/download).
 
-Skupaj z logiko označevalnika se spreminjata tudi format in vsebina modelov. Modeli, ki so združljivi z zadnjo inačico označevalnika, se nahajajo [tukaj](http://sourceforge.net/projects/obeliks/files/Resources/ModelsMar2013.zip/download).
+Modeli, ki so združljivi z zadnjo inačico označevalnika, se nahajajo [tukaj](http://sourceforge.net/projects/obeliks/files/Resources/ModelsMar2013.zip/download).
 
 Zasluge
 -------
