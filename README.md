@@ -1,14 +1,26 @@
 O projektu Obeliks
 ==================
 
-Dolgoročni cilj projekta Obeliks je izdelava in nadgrajevanje najbolj natančnega statističnega označevalnika za slovenski jezik. Oblikoskladenjsko označevanje je proces pripisovanja oblikoslovnih (in deloma skladenjskih) lastnosti besedam v poljubnem besedilu. Tako označeno besedilo je predpogoj za delovanje večine aplikacij, ki temeljijo na analizi naravnega jezika. Označevanje slovenskih besedil je zelo težak problem, saj mora algoritem za označevanje pravilno izbirati med skoraj dva tisoč oznakami  (število različnih oznak za označevanje angleškega besedila je zgolj okoli šestdeset).
+Dolgoročni cilj projekta Obeliks je izdelava in nadgrajevanje najbolj natančnega statističnega označevalnika za slovenski jezik. Oblikoskladenjsko označevanje je proces pripisovanja oblikoslovnih (in deloma skladenjskih) lastnosti besedam v poljubnem besedilu. Tako označeno besedilo je predpogoj za delovanje večine aplikacij, ki temeljijo na analizi naravnega jezika. Označevanje slovenskih besedil je zelo težak problem, saj mora algoritem za označevanje pravilno izbirati med skoraj dva tisoč oznakami (število različnih oznak za označevanje angleškega besedila je zgolj okoli šestdeset).
 
 *The aim of the Obeliks project is to develop the most accurate statistical tagger for the Slovene language. Morphosyntactic tagging is the process of categorizing a word in a text into a particular part of speech category and describing it with various morphological features related to that category. This kind of markup is required by many applications involving natural language processing. The tagging of Slovene texts represents a major difficulty as the algorithm needs to choose from nearly 2,000 possible tags (as opposed to English where the number of tags is around 60).*
 
-O tej datoteki
-==============
+Prevajanje izvorne kode
+=======================
 
-V tej datoteki se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe in hitre povezave do datotek, ki so potrebne za delovanje programov in podanih primerov uporabe.
+Za prevajanje izvorne kode na operacijskem sistemu Windows je potrebno izvesti naslednje ukaze:
+
+1. `C:\Work> git clone https://github.com/mgrcar/Obeliks.git`
+1. `C:\Work> git clone -b v1.0 https://github.com/LatinoLib/LATINO.git`
+1. `C:\Work> cd Obeliks`
+1. `C:\Work\Obeliks> Compile.bat`
+
+Zagonske datoteke se po prevajanju nahajajo v mapah `C:\Work\Obeliks\Debug` in `C:\Work\Obeliks\Release`.
+
+Uporaba
+=======
+
+V nadaljevanju se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe in hitre povezave do datotek, ki so potrebne za delovanje programov in podanih primerov uporabe.
 
 Program LemmatizerTrain
 -----------------------
