@@ -1,8 +1,8 @@
 set DISABLEOUTOFPROCTASKHOST=1
 
 set msbuild=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe
-set msbuildCfgRelease=/p:Configuration=Release;TargetFrameworkVersion=v3.5
-set msbuildCfgDebug=/p:Configuration=Debug;TargetFrameworkVersion=v3.5
+set msbuildCfgRelease=/p:Configuration=Release;TargetFrameworkVersion=v4.0
+set msbuildCfgDebug=/p:Configuration=Debug;TargetFrameworkVersion=v4.0
 
 %msbuild% PosTaggerTrain.sln  %msbuildCfgRelease%
 %msbuild% PosTaggerTag.sln    %msbuildCfgRelease%
