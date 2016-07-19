@@ -1,13 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTaggerTag", "PosTaggerTag\PosTaggerTag.csproj", "{F358EA0B-B204-45BD-AB96-EE1057F75585}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTagger", "PosTagger\PosTagger.csproj", "{915DA0E9-1BA2-4BBF-87AC-734D49B1EBFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LemmaSharp", "LemmaSharp\LemmaSharp.csproj", "{3283E6ED-0B50-4505-A268-4C47E8324DC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LatinoLite", "..\LATINO\LatinoLite.csproj", "{5B86AAD5-3FEA-487C-A518-4F846AF09E18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Latino", "..\Latino\Latino.csproj", "{BE775929-A722-4040-88C9-BCC7B6BB369E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,10 @@ Global
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3283E6ED-0B50-4505-A268-4C47E8324DC8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B86AAD5-3FEA-487C-A518-4F846AF09E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE775929-A722-4040-88C9-BCC7B6BB369E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE775929-A722-4040-88C9-BCC7B6BB369E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE775929-A722-4040-88C9-BCC7B6BB369E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE775929-A722-4040-88C9-BCC7B6BB369E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
