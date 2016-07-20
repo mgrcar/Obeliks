@@ -67,9 +67,9 @@ namespace PosTagger
             path = path.Trim();
             searchPattern = null;
             if (path == "") { return null; }
-            if (!path.Contains("\\")) { path = ".\\" + path; }
+            if (!path.Contains(Path.DirectorySeparatorChar.ToString())) { path = "." + Path.DirectorySeparatorChar + path; }
             if (Utils.VerifyFolderName(path, /*mustExist=*/true)) { searchPattern = "*.*"; return path; }
-            int splitAt = path.LastIndexOf('\\');
+            int splitAt = path.LastIndexOf(Path.DirectorySeparatorChar);
             searchPattern = path.Substring(splitAt + 1);
             path = path.Substring(0, splitAt);
             if (Utils.VerifyFolderName(path, /*mustExist=*/true)) { return path; }
@@ -196,7 +196,7 @@ namespace PosTagger
                             string outputFileName = outputFileOrFolder;
                             if (searchPattern.Contains("*") || searchPattern.Contains("?")) // search pattern contains wildcards thus output is a folder
                             {
-                                outputFileName = outputFileOrFolder.TrimEnd('\\') + "\\" +
+                                outputFileName = outputFileOrFolder.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar +
                                     file.Name.Substring(0, file.Name.Length - file.Extension.Length) + ".out" + file.Extension;
                                 DirectoryInfo dirInfo = new FileInfo(outputFileName).Directory;
                                 if (!dirInfo.Exists) { dirInfo.Create(); }
