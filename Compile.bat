@@ -10,6 +10,10 @@ set msbuildCfgDebug=/p:Configuration=Debug;TargetFrameworkVersion=v4.0
 %msbuild% PosTaggerTagGui.sln %msbuildCfgRelease%
 
 del Compiled\*.* /s /q
+mkdir Compiled\Debug
+mkdir Compiled\Release
+type NUL > Compiled\Release\keep.me
+type NUL > Compiled\Debug\keep.me
 
 copy ..\Latino\bin\Release\Latino.dll                Compiled\Release
 copy LemmaSharp\bin\Release\LemmaSharp.dll           Compiled\Release
