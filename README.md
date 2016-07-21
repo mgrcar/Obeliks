@@ -263,6 +263,7 @@ Operacijo delno financira Evropska unija iz [Evropskega socialnega sklada](http:
 Reference
 ---------
 
+* Grčar, M., Krek, S., Dobrovoljc, K. (2012): Obeliks: statistični oblikoskladenjski označevalnik in lematizator za slovenski jezik. Proceedings of the 15th International Multiconference Information Society (IS 2012), str. 89&#8211;94, Ljubljana. ([pdf](http://nl.ijs.si/isjt12/JezikovneTehnologije2012.pdf))
 * Giménez, J., Màrquez, L. (2004): SVMTool: A General POS Tagger Generator Based on Support Vector Machines. Proceedings of the Fourth International Conference on Language Resources and Evaluation (LREC’04), Lisbon. ([pdf](http://www.lsi.upc.es/~nlp/SVMTool/lrec2004-gm.pdf))
 * Juršič, M., Mozetič, I., Lavrač, N. (2007): Learning Ripple Down Rules for Efficient Lemmatization. Proceedings of the 10th International Multiconference Information Society, IS 2007, str. 206&#8211;209, Ljubljana. ([pdf](http://kt.ijs.si/software/LemmaGen/v2/doc/LemmaGen.pdf))
 * Nigam, K., Lafferty, J., McCallum, A. (1999): Using Maximum Entropy for Text Classification. Proceedings of IJCAI-99 Workshop on Machine Learning for Information Filtering, str. 61&#8211;67.
