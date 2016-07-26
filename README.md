@@ -8,19 +8,40 @@ Dolgoročni cilj projekta Obeliks je izdelava in nadgrajevanje najbolj natančne
 Prevajanje izvorne kode
 =======================
 
-Za prevajanje izvorne kode na operacijskem sistemu Windows je potrebno izvesti naslednje ukaze:
+Prevajanje izvorne kode na operacijskem sistemu Windows:
 
-1. `C:\Work> git clone https://github.com/mgrcar/Obeliks.git`
-1. `C:\Work> git clone -b v1.0 https://github.com/LatinoLib/LATINO.git`
-1. `C:\Work> cd Obeliks`
-1. `C:\Work\Obeliks> Compile.bat`
+```text
+C:\Work> git clone https://github.com/mgrcar/Obeliks.git
+C:\Work> git clone -b v1.0 https://github.com/LatinoLib/LATINO.git
+C:\Work> cd Obeliks
+C:\Work\Obeliks> Compile.bat
+```
 
 Zagonske datoteke se po prevajanju nahajajo v mapah `C:\Work\Obeliks\Debug` in `C:\Work\Obeliks\Release`.
+
+Zagonske datoteke in modeli
+===========================
+
+Prevedene zagonske datoteke se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0Exe.zip).
+
+Pripadajoči modeli se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0Models.zip).
+
+Ostale datoteke
+===============
+
+Datoteke za izvajanje podanih primerov uporabe se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0ExampleFiles.zip).
+
+Datoteke za prečno preverjanje se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0ValidationFiles.zip).
+
+Zagonsko okolje
+===============
+
+Vsi opisani programi so izdelani v razvojnem okolju Microsoft Visual Studio 2010. Za svoje delovanje potrebujejo zagonsko okolje .NET Framework 4.0. Če slednjega še nimate nastanjenega na računalniku, si ga prenesite s spleta ([povezava](https://www.microsoft.com/en-us/download/details.aspx?id=17851)), zaženite nastanitveni program in sledite navodilom za nastanitev.
 
 Uporaba
 =======
 
-V nadaljevanju se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe in hitre povezave do datotek, ki so potrebne za delovanje programov in podanih primerov uporabe.
+V nadaljevanju se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe.
 
 Program LemmatizerTrain
 -----------------------
@@ -65,13 +86,6 @@ Optimiram lematizacijsko drevo ...
 Zapisujem model ...
 Koncano.
 ```
-
-### Datoteke za prenos ###
-
-* [LemmatizerTrain.exe in pripadajoče datoteke](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMay2012.zip/download) (program)
-* [TrainingCorpus500k.xml](http://sourceforge.net/projects/obeliks/files/Resources/TrainingCorpus500k.xml.zip/download) (vhodna datoteka; učni korpus)
-* [SloveneLexicon.txt](http://sourceforge.net/projects/obeliks/files/Resources/SloveneLexicon.txt.zip/download) (vhodna datoteka; dodatni učni podatki)
-* [LemmatizerModel.bin](http://sourceforge.net/projects/obeliks/files/Resources/LemmatizerModel.bin.zip/download) (izhodna datoteka; model za lematizacijo)
 
 Program PosTaggerTrain
 ----------------------
@@ -138,13 +152,6 @@ Trajanje gradnje modela: 11:09:53.538.
 Zapisujem model ...
 Koncano.
 ```
-
-### Datoteke za prenos ###
-
-* [PosTaggerTrain.exe in pripadajoče datoteke](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMay2012.zip/download) (program)
-* [TrainingCorpus500k.xml](http://sourceforge.net/projects/obeliks/files/Resources/TrainingCorpus500k.xml.zip/download) (vhodna datoteka; učni korpus)
-* [SloveneLexicon.txt](http://sourceforge.net/projects/obeliks/files/Resources/SloveneLexicon.txt.zip/download) (vhodna datoteka; dodatni učni podatki)
-* [TaggerModel.bin](http://sourceforge.net/projects/obeliks/files/Resources/TaggerModel.bin.zip/download) (izhodna datoteka; model za označevanje)
 
 Program PosTaggerTag
 --------------------
@@ -232,31 +239,6 @@ Zapisujem oznaceno besedilo v datoteko ClanekDelo11maj2012.xml ...
 Koncano.
 ```
 
-### Datoteke za prenos ###
-
-* [PosTaggerTag.exe in pripadajoče datoteke](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMay2012.zip/download) (program)
-* [ssj500kv1_0-fold-01-train_2012_lem.bin, ssj500kv1_0-fold-01-train_2012.bin, ssj500kv1_0-fold-01-validate_2012.xml, ssj500kv1_0-fold-01-validate_2012_tagged.xml](http://sourceforge.net/projects/obeliks/files/Resources/ValidationResourcesFold1.zip/download) (model za lematizacijo, model za označevanje, vhodna in izhodna datoteka; prvi primer uporabe)
-* [LemmatizerModel.bin](http://sourceforge.net/projects/obeliks/files/Resources/LemmatizerModel.bin.zip/download) (vhodna datoteka; model za lematizacijo; drugi primer uporabe)
-* [TaggerModel.bin](http://sourceforge.net/projects/obeliks/files/Resources/TaggerModel.bin.zip/download) (vhodna datoteka; model za označevanje; drugi primer uporabe)
-* [ClanekDelo11maj2012.txt, ClanekDelo11maj2012.xml](http://sourceforge.net/projects/obeliks/files/Resources/ClanekDelo11maj2012.zip/download) (vhodna in izhodna datoteka; drugi primer uporabe)
-
-Opomba
-------
-
-Vsi opisani programi so izdelani v razvojnem okolju Microsoft Visual Studio 2008. Za svoje delovanje potrebujejo zagonsko okolje .NET Framework 3.5. Če slednjega še nimate nastanjenega na računalniku, si ga prenesite s spleta ([povezava](http://www.microsoft.com/downloads/details.aspx?FamilyID=AB99342F-5D1A-413D-8319-81DA479AB0D7&displaylang=en)), zaženite nastanitveni program (tj. dotnetfx35setup.exe) in sledite navodilom za nastanitev.
-
-Zadnja inačica in izvorna koda
-------------------------------
-
-Zadnja (delovna) inačica izvorne kode je na voljo v naših GIT-repozitorijih:
-
-* Označevalnik se nahaja v repozitoriju https://github.com/mgrcar/Obeliks.git
-* LATINO, knjižnica, ki je potrebna za delovanje označevalnika, se nahaja v repozitoriju https://github.com/SowaLabs/LATINO.git
-
-Zagonske datoteke za operacijski sistem Windows dobite [tukaj](http://sourceforge.net/projects/obeliks/files/ObeliksReleases/ObeliksMar2013.zip/download).
-
-Modeli, ki so združljivi z zadnjo inačico označevalnika, se nahajajo [tukaj](http://sourceforge.net/projects/obeliks/files/Resources/ModelsMar2013.zip/download).
-
 Zasluge
 -------
 
@@ -275,6 +257,7 @@ Operacijo delno financira Evropska unija iz [Evropskega socialnega sklada](http:
 Reference
 ---------
 
+* Grčar, M., Krek, S., Dobrovoljc, K. (2012): Obeliks: statistični oblikoskladenjski označevalnik in lematizator za slovenski jezik. Proceedings of the 15th International Multiconference Information Society (IS 2012), str. 89&#8211;94, Ljubljana. ([pdf](http://nl.ijs.si/isjt12/JezikovneTehnologije2012.pdf))
 * Giménez, J., Màrquez, L. (2004): SVMTool: A General POS Tagger Generator Based on Support Vector Machines. Proceedings of the Fourth International Conference on Language Resources and Evaluation (LREC’04), Lisbon. ([pdf](http://www.lsi.upc.es/~nlp/SVMTool/lrec2004-gm.pdf))
 * Juršič, M., Mozetič, I., Lavrač, N. (2007): Learning Ripple Down Rules for Efficient Lemmatization. Proceedings of the 10th International Multiconference Information Society, IS 2007, str. 206&#8211;209, Ljubljana. ([pdf](http://kt.ijs.si/software/LemmaGen/v2/doc/LemmaGen.pdf))
 * Nigam, K., Lafferty, J., McCallum, A. (1999): Using Maximum Entropy for Text Classification. Proceedings of IJCAI-99 Workshop on Machine Learning for Information Filtering, str. 61&#8211;67.
