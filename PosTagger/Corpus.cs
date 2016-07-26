@@ -354,6 +354,7 @@ namespace PosTagger
             Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
             mTaggedWords.Clear();
             mTeiHeader = null;
+            Logger.GetRootLogger().Debug("LoadFromTextSsjTokenizer", "Tokeniziram besedilo ...");
             string xml = Rules.Tokenize(text);
             LoadFromXml(xml, /*tagLen=*/-1);
         }

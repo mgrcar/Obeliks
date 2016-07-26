@@ -19,10 +19,12 @@
  ***************************************************************************/
 
 using System;
+using System.Linq;
 using System.Text;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Latino;
 
 /* .-----------------------------------------------------------------------
@@ -367,16 +369,32 @@ public static class Rules
     public static string Tokenize(string text)
     {
         Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
-        string xml = ExecRules(text, mTokRulesPart1);
-        foreach (int len in mAbbrvSeqLen)
-        {
-            xml = ProcessAbbrvSeq(xml, len);
-        }
-        xml = ProcessAbbrvExcl(xml);
-        xml = ProcessAbbrvOther(xml);
-        xml = ExecRules(xml, mTokRulesPart2);
-        xml = xml.Replace("<!s/>", "");
-        return "<text>" + xml + "</text>";
+        StringBuilder output = new StringBuilder();
+        string[] lines = text.Split('\n');
+        Ref<int> step = 0;
+        string[] tmp = new string[lines.Length];
+        Parallel.ForEach(
+            lines.Select((line, idx) => new { Idx = idx, Line = line }),
+            new ParallelOptions { MaxDegreeOfParallelism = 6 }, // TODO: make adjustable
+            item => {
+                lock (step)
+                {
+                    Logger.GetRootLogger().ProgressNormal(Logger.Level.Debug, "Tokenize", "Vrstica {0} / {1} ...", ++step.Val, lines.Length);
+                }
+                string xml = ExecRules(item.Line, mTokRulesPart1);
+                foreach (int len in mAbbrvSeqLen)
+                {
+                    xml = ProcessAbbrvSeq(xml, len);
+                }
+                xml = ProcessAbbrvExcl(xml);
+                xml = ProcessAbbrvOther(xml);
+                xml = ExecRules(xml, mTokRulesPart2);
+                xml = xml.Replace("<!s/>", "");
+                tmp[item.Idx] = xml;
+            }
+        );
+        foreach (string xml in tmp) { output.Append(xml); }
+        return "<text>" + output.ToString() + "</text>";
     }
 
     private static string[] LoadList(string name)
