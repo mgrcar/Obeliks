@@ -22,7 +22,16 @@ Zagonske datoteke se po prevajanju nahajajo v mapah `C:\Work\Obeliks\Debug` in `
 Zagonske datoteke in modeli
 ===========================
 
-...
+Prevedene zagonske datoteke se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0Exe.zip).
+
+Pripadajoči modeli se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0Models.zip).
+
+Ostale datoteke
+===============
+
+Datoteke za izvajanje podanih primerov uporabe se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0ExampleFiles.zip).
+
+Datoteke za prečno preverjanje se nahajajo [tukaj](https://github.com/mgrcar/Obeliks/releases/download/v1.0/Obeliks1.0ValidationFiles.zip).
 
 Zagonsko okolje
 ===============
@@ -32,7 +41,7 @@ Vsi opisani programi so izdelani v razvojnem okolju Microsoft Visual Studio 2010
 Uporaba
 =======
 
-V nadaljevanju se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe in hitre povezave do datotek, ki so potrebne za izvajanje podanih primerov uporabe.
+V nadaljevanju se nahajajo navodila za uporabo oblikoslovnega označevalnika Obeliks iz ukazne vrstice. Označevalnik Obeliks je razdeljen na tri programe: LemmatizerTrain (program za izgradnjo lematizacijskega modela), PosTaggerTrain (program za izgradnjo modela za označevanje) in PosTaggerTag (program za označevanje besedil). Ti programi so bolj podrobno opisani v naslednjih razdelkih, kjer podajamo tudi primere uporabe.
 
 Program LemmatizerTrain
 -----------------------
@@ -77,11 +86,6 @@ Optimiram lematizacijsko drevo ...
 Zapisujem model ...
 Koncano.
 ```
-
-### Datoteke za prenos ###
-
-* [TrainingCorpus500k.xml](http://sourceforge.net/projects/obeliks/files/Resources/TrainingCorpus500k.xml.zip/download) (vhodna datoteka; učni korpus)
-* [SloveneLexicon.txt](http://sourceforge.net/projects/obeliks/files/Resources/SloveneLexicon.txt.zip/download) (vhodna datoteka; dodatni učni podatki)
 
 Program PosTaggerTrain
 ----------------------
@@ -148,11 +152,6 @@ Trajanje gradnje modela: 11:09:53.538.
 Zapisujem model ...
 Koncano.
 ```
-
-### Datoteke za prenos ###
-
-* [TrainingCorpus500k.xml](http://sourceforge.net/projects/obeliks/files/Resources/TrainingCorpus500k.xml.zip/download) (vhodna datoteka; učni korpus)
-* [SloveneLexicon.txt](http://sourceforge.net/projects/obeliks/files/Resources/SloveneLexicon.txt.zip/download) (vhodna datoteka; dodatni učni podatki)
 
 Program PosTaggerTag
 --------------------
@@ -239,11 +238,6 @@ Trajanje oznacevanja: 00:00:06.029.
 Zapisujem oznaceno besedilo v datoteko ClanekDelo11maj2012.xml ...
 Koncano.
 ```
-
-### Datoteke za prenos ###
-
-* [ssj500kv1_0-fold-01-train_2012_lem.bin, ssj500kv1_0-fold-01-train_2012.bin, ssj500kv1_0-fold-01-validate_2012.xml, ssj500kv1_0-fold-01-validate_2012_tagged.xml](http://sourceforge.net/projects/obeliks/files/Resources/ValidationResourcesFold1.zip/download) (model za lematizacijo, model za označevanje, vhodna in izhodna datoteka; prvi primer uporabe) TODO: revise
-* [ClanekDelo11maj2012.txt, ClanekDelo11maj2012.xml](http://sourceforge.net/projects/obeliks/files/Resources/ClanekDelo11maj2012.zip/download) (vhodna in izhodna datoteka; drugi primer uporabe)
 
 Zasluge
 -------
