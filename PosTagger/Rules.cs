@@ -379,7 +379,7 @@ public static class Rules
             item => {
                 lock (step)
                 {
-                    Logger.GetRootLogger().ProgressNormal(Logger.Level.Debug, "Tokenize", "Vrstica {0} / {1} ...", ++step.Val, lines.Length);
+                    Logger.GetRootLogger().ProgressFast(Logger.Level.Info, "Tokenize", "{0} / {1}", ++step.Val, lines.Length);
                 }
                 string xml = ExecRules(item.Line, mTokRulesPart1);
                 foreach (int len in mAbbrvSeqLen)
