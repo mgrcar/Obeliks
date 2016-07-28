@@ -178,6 +178,8 @@ Nastavitve:
                   (privzeto: isci samo v podani mapi)
 -t                Uporaba razclenjevalnika SSJ.
                   (privzeto: ne uporabi razclenjevalnika SSJ)
+-tt:<int>0>       Stevilo niti za paralelizacijo tokenizacije.
+                  (privzeto: 1)
 -o                Prepisi obstojece izhodne datoteke.
                   (privzeto: ne prepisi obstojecih datotek)
 ```
