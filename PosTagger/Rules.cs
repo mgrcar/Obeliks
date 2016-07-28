@@ -5,14 +5,10 @@
  *  Project Communication in Slovene: 
  *    http://www.slovenscina.eu/Vsebine/En/Domov/Domov.aspx
  *    
- *  Avtorske pravice za to izdajo programske opreme ureja licenca 
- *    Creative Commons Priznanje avtorstva-Nekomercialno-Brez predelav 2.5
- *  This work is licenced under the Creative Commons 
- *    Attribution-NonCommercial-NoDerivs 2.5 licence
- *    
  *  File:    Rules.cs
  *  Desc:    Tokenization, tagging, and lemmatization rules for Slovene
  *  Created: Dec-2010
+ *  License: MIT (see LICENSE.txt)
  *
  *  Authors: Miha Grcar, Simon Krek, Kaja Dobrovoljc
  *

@@ -4,15 +4,11 @@
  *    http://www.slovenscina.eu/Vsebine/Sl/Domov/Domov.aspx
  *  Project Communication in Slovene: 
  *    http://www.slovenscina.eu/Vsebine/En/Domov/Domov.aspx
- *    
- *  Avtorske pravice za to izdajo programske opreme ureja licenca 
- *    Creative Commons Priznanje avtorstva-Nekomercialno-Brez predelav 2.5
- *  This work is licenced under the Creative Commons 
- *    Attribution-NonCommercial-NoDerivs 2.5 licence
  *
  *  File:    PosTaggerTag\Program.cs
  *  Desc:    POS tagger tagging utility
  *  Created: Sep-2009
+ *  License: MIT (see LICENSE.txt)
  *
  *  Authors: Miha Grcar
  *
