@@ -94,7 +94,7 @@ namespace PosTagger
                 {
                     ssjTokenizer = true;
                 }
-                else if (argLwr == "-tt")
+                else if (argLwr.StartsWith("-tt:"))
                 {
                     try { numThreads = Convert.ToInt32(argLwr.Split(':')[1]); }
                     catch { numThreads = 0; }
