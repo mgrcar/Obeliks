@@ -345,13 +345,13 @@ namespace PosTagger
             }
         }
 
-        public void LoadFromTextSsjTokenizer(string text) 
+        public void LoadFromTextSsjTokenizer(string text, int numThreads) 
         {
             Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
             mTaggedWords.Clear();
             mTeiHeader = null;
             Logger.GetRootLogger().Debug("LoadFromTextSsjTokenizer", "Tokeniziram besedilo ...");
-            string xml = Rules.Tokenize(text);
+            string xml = Rules.Tokenize(text, numThreads);
             LoadFromXml(xml, /*tagLen=*/-1);
         }
 
@@ -481,7 +481,7 @@ namespace PosTagger
             reader.Close();
         }
 
-        public void LoadFromGigaFidaFile(string fileName)
+        public void LoadFromGigaFidaFile(string fileName, int numThreads)
         { 
             Utils.ThrowException(fileName == null ? new ArgumentNullException("fileName") : null);
             Utils.ThrowException(!Utils.VerifyFileNameOpen(fileName) ? new ArgumentValueException("fileName") : null);
@@ -504,7 +504,7 @@ namespace PosTagger
                         ThreadHandler.AbortCheckpoint(); // TODO: do this at various appropriate places
                         xmlReader.Read();
                         Corpus aux = new Corpus();
-                        aux.LoadFromTextSsjTokenizer(xmlReader.Value);
+                        aux.LoadFromTextSsjTokenizer(xmlReader.Value, numThreads);
                         if (aux.TaggedWords.Count > 0)
                         {
                             foreach (TaggedWord word in aux.TaggedWords)

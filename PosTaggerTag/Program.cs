@@ -52,7 +52,9 @@ namespace PosTagger
             mLogger.Info(null, "-s                Vključi podmape pri iskanju vhodnih besedil.");
             mLogger.Info(null, "                  (privzeto: išči samo v podani mapi)");
             mLogger.Info(null, "-t                Uporaba razčlenjevalnika SSJ.");
-            mLogger.Info(null, "                  (privzeto: ne uporabi razčlenjevalnika SSJ)");           
+            mLogger.Info(null, "                  (privzeto: ne uporabi razčlenjevalnika SSJ)");
+            mLogger.Info(null, "-tt:<int>0>       Število niti za paralelizacijo tokenizacije.");
+            mLogger.Info(null, "                  (privzeto: 1)");
             mLogger.Info(null, "-o                Prepiši obstoječe izhodne datoteke.");
             mLogger.Info(null, "                  (privzeto: ne prepiši obstoječih datotek)");           
 #endif
@@ -74,7 +76,7 @@ namespace PosTagger
 
         private static bool ParseParams(string[] args, ref bool verbose, ref string inputFolder, ref string searchPattern, 
             ref string taggerModelFile, ref string lemmatizerModelFile, ref string outputFileOrFolder, ref bool ssjTokenizer,
-            ref bool searchSubfolders, ref bool overwrite)
+            ref bool searchSubfolders, ref bool overwrite, ref int numThreads)
         {
             // parse
             for (int i = 0; i < args.Length - 3; i++)
@@ -92,6 +94,11 @@ namespace PosTagger
                 {
                     ssjTokenizer = true;
                 }
+                else if (argLwr == "-tt")
+                {
+                    try { numThreads = Convert.ToInt32(argLwr.Split(':')[1]); }
+                    catch { numThreads = 0; }
+                }
                 else if (argLwr == "-s")
                 {
                     searchSubfolders = true;
@@ -106,6 +113,13 @@ namespace PosTagger
                     OutputHelp();
                     return false;
                 }
+            }
+            // verify settings
+            if (numThreads <= 0)
+            {
+                Console.WriteLine("*** Napačna vrednost parametra -tt. Vrednost mora biti celo število, večje od 0.\r\n");
+                OutputHelp();
+                return false;
             }
             // check file names
             inputFolder = args[args.Length - 3];
@@ -174,8 +188,9 @@ namespace PosTagger
                 {
                     string inputFolder = null, searchPattern = null, taggerModelFile = null, lemmatizerModelFile = null, outputFileOrFolder = null;
                     bool ssjTokenizer = false, searchSubfolders = false, verbose = false, overwrite = false;
+                    int numThreads = 1;
                     if (ParseParams(args, ref verbose, ref inputFolder, ref searchPattern, ref taggerModelFile, ref lemmatizerModelFile,
-                        ref outputFileOrFolder, ref ssjTokenizer, ref searchSubfolders, ref overwrite))
+                        ref outputFileOrFolder, ref ssjTokenizer, ref searchSubfolders, ref overwrite, ref numThreads))
                     {
                         if (!verbose)
                         {
@@ -215,7 +230,7 @@ namespace PosTagger
                                 }
                                 else
                                 {
-                                    corpus.LoadFromGigaFidaFile(file.FullName);
+                                    corpus.LoadFromGigaFidaFile(file.FullName, numThreads);
                                 }
                             }
                             catch (ThreadHandler.AbortedByUserException)
@@ -232,7 +247,7 @@ namespace PosTagger
                                 }
                                 if (ssjTokenizer)
                                 {
-                                    corpus.LoadFromTextSsjTokenizer(content);
+                                    corpus.LoadFromTextSsjTokenizer(content, numThreads);
                                 }
                                 else
                                 {
@@ -359,3 +374,4 @@ namespace PosTagger
         }
     }
 }
+ 

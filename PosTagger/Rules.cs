@@ -362,7 +362,7 @@ public static class Rules
         return s.ToString();
     }
 
-    public static string Tokenize(string text)
+    public static string Tokenize(string text, int numThreads)
     {
         Utils.ThrowException(text == null ? new ArgumentNullException("text") : null);
         StringBuilder output = new StringBuilder();
@@ -371,7 +371,7 @@ public static class Rules
         string[] tmp = new string[lines.Length];
         Parallel.ForEach(
             lines.Select((line, idx) => new { Idx = idx, Line = line }),
-            new ParallelOptions { MaxDegreeOfParallelism = 6 }, // TODO: make adjustable
+            new ParallelOptions { MaxDegreeOfParallelism = numThreads }, 
             item => {
                 lock (step)
                 {
