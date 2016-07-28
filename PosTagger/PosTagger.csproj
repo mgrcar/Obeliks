@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Corpus.cs" />
-    <Compile Include="MetaTaggerData.cs" />
     <Compile Include="PatriciaTree.cs" />
     <Compile Include="PartOfSpeechTagger.cs" />
     <Compile Include="Rules.cs" />
